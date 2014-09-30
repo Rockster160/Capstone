@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'index/home'
+  root 'index#home'
 
   devise_for :users
-  root 'layouts#application'
 
   get 'games/create'
 
