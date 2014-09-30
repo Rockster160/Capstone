@@ -7,7 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  Hello world! I exist!
+  <%= render 'layouts/header' %>
+
+  <% if user_signed_in? %>
+  Signed in!
+  <%=  %>
+  <% else %>
+  No user found..
+  <% end %>
 
 <%= yield %>
 
