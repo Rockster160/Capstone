@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'index/home'
+
   devise_for :users
   root 'layouts#application'
 
