@@ -16,10 +16,12 @@ Description:
 A bigger, broader description of what the application is going to accomplish.
 
 Requirements/Use Cases:
-As public, I can create an account, update my details, etc, etc.
+As a Guest, I can view games and high scores, but am unable to play.
+  I can navigate to User/Game pages and view high scores and basic details.
+As a User, I can create an account, update my details, etc, etc.
   I can view my personal profile, including my coins and rewards
   I can view others’ profiles, not including coins and rewards, but able to view their ‘favorites’, top scores, and recently played games.
-As an admin, I can perform all administrative tasks.
+As an Admin, I can perform all administrative tasks.
   I can warn/ban users who are acting improperly
   I can view all users’ coins and make changes adequately based on improper pay-outs.
 Site must be styled with Bootstrap/Foundation
