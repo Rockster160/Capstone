@@ -4,20 +4,20 @@ Rails.application.routes.draw do
 
   get 'index/contact'
 
-  devise_for :users controllers: {}
+  devise_for :users, controllers: { registrations: "user/registrations" }
+  get "user/registrations/read", to: 'user/registrations#read', as: 'profile'
 
-  get 'games/create'
-
+  get 'games/create', as: 'creategames'
   get 'games/read'
-
   get 'games/update'
-
   get 'games/destroy'
 
-  get 'profile/create'
-  get 'profile/read'
-  get 'profile/update'
-  get 'profile/destroy'
+  # get 'profile/read'
+  # get 'profile/update'
+  # get 'profile/destroy'
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
