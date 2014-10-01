@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
-  get 'index/contact'
-
   root 'index#home'
 
-  devise_for :users
+  get 'index/contact'
+
+  devise_for :users controllers: {}
 
   get 'games/create'
 
@@ -14,14 +14,10 @@ Rails.application.routes.draw do
 
   get 'games/destroy'
 
-  get 'users/create'
-
-  get 'users/read'
-
-  get 'users/update'
-
-  get 'users/destroy'
-
+  get 'profile/create'
+  get 'profile/read'
+  get 'profile/update'
+  get 'profile/destroy'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
