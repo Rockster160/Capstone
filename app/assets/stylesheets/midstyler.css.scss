@@ -1,0 +1,77 @@
+
+  #columnOne {
+    visibility: visible;
+    float: left;
+    width: 20vw;
+    margin-right: 20px;
+
+    #avatar {
+      width: 100%;
+      height: 30vw;
+      border: solid black;
+      border-radius: 100%;
+      margin-bottom: 20px;
+    }
+
+    #user-about {
+      padding: 1vw;
+    }
+
+    #trophiescase {
+      border: 2px dotted yellow;
+      height: 100px;
+    }
+  }
+
+  #columnTwo {
+    visibility: visible;
+      width: 70vw;
+      float: right;
+
+    #favs_box {
+      width: 100%;
+      height: 12vw;
+      margin: 0 0 5vw 1vw;
+    }
+
+    #user-fav {
+      border: 0.5vw dotted purple;
+      height: 100%;
+      width: height;
+      margin: 0.5vw 0.75vw 0 0.5vw;
+      border-radius: 50%;
+    }
+  }
+
+  #columnThree {
+    visibility: hidden;
+  //   float: right;
+    width: 0;
+  //   height: 100vh;
+  //   background: red;
+  // }
+  //
+  //
+  // #sidebar {
+  //   position: fixed;
+  //   top: 0;
+  //   right: 20vw;
+  //   height: 2vh;
+  //   width: 4vw;
+  //   border: solid gray;
+  //   background: gray;
+  // }
+  //
+  // #popout {
+  //   position: absolute;
+  //   border: 2px solid green;
+  //   background: green;
+  //   top: -90vh;
+  //   height: 89vh;
+  //   width: 30vw;
+  // }
+  //
+  // #main {
+  //   margin-top: 100px;
+  //   width: 70%;
+  }
