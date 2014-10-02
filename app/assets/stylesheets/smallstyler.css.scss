@@ -30,16 +30,16 @@
       height: 60vw;
       list-style-type: none;
       li:not(:first-child) { position: relative; }
-      li:nth-child(2) { top: -9vw; }
-      li:nth-child(3) { top: -18vw; }
-      li:nth-child(4) { top: -27vw; }
-      li:nth-child(5) { top: -36vw; }
+      li:nth-child(2) { top: -10vw; }
+      li:nth-child(3) { top: -20vw; }
+      li:nth-child(4) { top: -30vw; }
+      li:nth-child(5) { top: -40vw; }
       li:nth-child(2n) { margin-left: 40%; }
     }
 
     #user-fav {
       border: 0.5vw dotted purple;
-      height: 18vw;
+      height: 20vw;
       border-radius: 50%;
     }
   }
@@ -52,34 +52,6 @@
 
   #columnThree {
     visibility: hidden;
-  //   float: right;
     width: 0;
     padding: 0;
-  //   height: 100vh;
-  //   background: red;
-  // }
-  //
-  //
-  // #sidebar {
-  //   position: fixed;
-  //   top: 0;
-  //   right: 20vw;
-  //   height: 2vh;
-  //   width: 4vw;
-  //   border: solid gray;
-  //   background: gray;
-  // }
-  //
-  // #popout {
-  //   position: absolute;
-  //   border: 2px solid green;
-  //   background: green;
-  //   top: -90vh;
-  //   height: 89vh;
-  //   width: 30vw;
-  // }
-  //
-  // #main {
-  //   margin-top: 100px;
-  //   width: 70%;
   }

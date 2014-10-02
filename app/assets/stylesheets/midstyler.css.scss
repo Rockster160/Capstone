@@ -48,41 +48,13 @@
   }
 
   #columnTwo {
-    visibility: visible;
+      visibility: visible;
       width: 70vw;
       float: left;
   }
 
   #columnThree {
     visibility: hidden;
-  //   float: right;
     width: 0;
     padding: 0;
-  //   height: 100vh;
-  //   background: red;
-  // }
-  //
-  //
-  // #sidebar {
-  //   position: fixed;
-  //   top: 0;
-  //   right: 20vw;
-  //   height: 2vh;
-  //   width: 4vw;
-  //   border: solid gray;
-  //   background: gray;
-  // }
-  //
-  // #popout {
-  //   position: absolute;
-  //   border: 2px solid green;
-  //   background: green;
-  //   top: -90vh;
-  //   height: 89vh;
-  //   width: 30vw;
-  // }
-  //
-  // #main {
-  //   margin-top: 100px;
-  //   width: 70%;
   }
