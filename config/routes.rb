@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  devise_for :admins
+  get 'index/contact'
+
   root 'index#home'
 
   devise_for :users
