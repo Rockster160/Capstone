@@ -45,6 +45,40 @@ ActiveRecord::Schema.define(version: 20141001143051) do
     t.datetime "updated_at"
   end
 
+  create_table "project_members", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "project_members", ["project_id"], name: "index_project_members_on_project_id", using: :btree
+  add_index "project_members", ["user_id"], name: "index_project_members_on_user_id", using: :btree
+
+  create_table "projects", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "due_date_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  create_table "tasks", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "delivery_minutes"
+    t.boolean  "is_completed"
+    t.integer  "project_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "creator_id"
+  end
+
+  add_index "tasks", ["project_id"], name: "index_tasks_on_project_id", using: :btree
+  add_index "tasks", ["user_id"], name: "index_tasks_on_user_id", using: :btree
+
   create_table "users", force: true do |t|
     t.string   "name"
     t.text     "about"
