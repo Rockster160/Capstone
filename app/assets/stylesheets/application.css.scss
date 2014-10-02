@@ -27,6 +27,7 @@
 }
 
 body {
+
   background: #C0C0C0 url("./gamehub.png") no-repeat top;
 }
 
@@ -35,26 +36,13 @@ body {
   margin-right: 2vw;
 }
 
-#navbar {
-  margin-top: 100px;
-  margin-bottom: 20px;
-  height: 60px;
-  border: 2px solid black;
-}
-
-.nav_searchbar {
-  margin: 13px 0;
-  height: 24px;
-  width: 200px;
+#nav_searchbar {
+  margin: 10px 10px 0 10px;
+  right: 30px;
+  height: 30px;
+  width: 180px;
   border: solid 1px #E5E5E5;
-  outline: 0;
-  padding-left: 30px;
-  background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));
-  background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 25px);
-  box-shadow: rgba(0, 0, 0, 0.1) 0 0 8px;
-  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0 0 8px;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 0 8px;
-  background-image:  url('http://html-generator.weebly.com/files/theme/input-text-9.png') no-repeat 4px 4px;
+  border-radius: 7px;
 }
 
 @media (min-width: 1101px) {
