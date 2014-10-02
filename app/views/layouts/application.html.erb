@@ -8,14 +8,7 @@
 </head>
 <body>
   <%= render 'layouts/header' %>
-
-  <% if user_signed_in? %>
-  Signed in!
-  <%=  %>
-  <% else %>
-  No user found..
-  <% end %>
-
+  
 <%= yield %>
 
 </body>
