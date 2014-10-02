@@ -17,16 +17,17 @@
   <div id="columnThree">
     Just some filler to take up room and be a place holder for now.
   </div>
-
-  <div id="columnTwo">
-    <div id="favs_box">
-        <!-- These ordered to Favorite select first, then most played. Limit to 5. -->
-        <%= image_tag("bowling.jpeg", id: "user-fav") %>
-        <%= image_tag("sun.png", id: "user-fav") %>
-        <%= image_tag("snow.png", id: "user-fav") %>
-        <%= image_tag("leaf.png", id: "user-fav") %>
-        <%= image_tag("moon.png", id: "user-fav") %>
+    <div id="fav_col">
+      <div id="favs_box">
+          <!-- These ordered to Favorite select first, then most played. Limit to 5. -->
+          <li><%= image_tag("bowling.jpeg", id: "user-fav") %></li>
+          <li><%= image_tag("sun.png", id: "user-fav") %></li>
+          <li><%= image_tag("snow.png", id: "user-fav") %></li>
+          <li><%= image_tag("leaf.png", id: "user-fav") %></li>
+          <li><%= image_tag("moon.png", id: "user-fav") %></li>
+      </div>
     </div>
+  <div id="columnTwo">
       <div id="main">
         <!-- Posts should probably be descending... Max 5 shown -->
         <h1>Status<h1>

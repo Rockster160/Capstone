@@ -25,25 +25,38 @@ body {
     }
   }
 
-  #columnTwo {
+  #fav_col {
     visibility: visible;
       width: 50vw;
       float: left;
-
     #favs_box {
       width: 100%;
       height: 8vw;
       margin: 0 0 5vw 1vw;
-    }
 
-    #user-fav {
-      border: 0.5vw dotted purple;
-      height: 100%;
-      width: height;
-      margin: 0.5vw 0.75vw 0 0.5vw;
-      border-radius: 50%;
+      li:nth-child(n) {
+        top: 0;
+        margin-left: 0;
+        position: inherit;
+        display: inline;
+      }
     }
+      #user-fav {
+        border: 0.5vw dotted purple;
+        height: 100%;
+        margin: 0.5vw 0.75vw 0 0.5vw;
+        border-radius: 50%;
+      }
   }
+
+
+
+  #columnTwo {
+    visibility: visible;
+      width: 50vw;
+      float: left;
+  }
+
 
   #columnThree {
     visibility: visible;
