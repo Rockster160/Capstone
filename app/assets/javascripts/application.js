@@ -31,10 +31,6 @@ $(document).ready(function(){
       open = false;
     };
   });
-
-  $('#avatar').click(function(){
-    window.location.href = "/";
-  })
 });
 
 function sidebarOpen() {

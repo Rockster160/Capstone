@@ -1,6 +1,6 @@
 #listitem {
   height: 120px;
-  background: red;
+  background: rgb(205,52,39);
   border: 5px solid gold;
   border-radius: 20px;
   #gameicon {
@@ -16,15 +16,29 @@
     margin-top: -9px;
     height: 120px;
     overflow: hidden;
-    #description {
-      width: 30vw;
-    }
   }
   #trophies {
     float: right;
     margin: -10px 20px 0 0;
     list-style-type: none;
-    i {
-    }
+  }
+}
+
+
+@media (min-width: 801px) {
+  #trophies {
+    display: block;
+  }
+  #description {
+    width: 40vw;
+  }
+}
+
+@media (max-width: 800px) {
+  #trophies {
+    display: none;
+  }
+  #description {
+    width: 60vw;
   }
 }

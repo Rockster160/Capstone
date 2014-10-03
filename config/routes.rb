@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   match '/users', to: 'users#index', via: 'get'
   match '/users/:id', to: 'users#show', via: 'get'
 
-  devise_for :users, :path_prefix => 'd'
+  devise_for :users
   resources :users, :only =>[:show]
 
   devise_for :admins
@@ -26,6 +26,9 @@ Rails.application.routes.draw do
   get 'users/update'
 
   get 'users/destroy'
+
+  get 'games/bowling'
+  get 'games/play/bowling'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

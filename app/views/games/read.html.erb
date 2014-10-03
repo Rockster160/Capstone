@@ -1,5 +1,5 @@
 <div id="listitem">
-  <div id="gameicon"></div>
+  <%= image_submit_tag("bowling.jpeg", id: "gameicon", class: 'gotobowling') %>
   <div id="title">
     <h4>Bowling</h4>
   <div id="description">This is a bowling game. Refer to page to view how to play.
@@ -8,9 +8,27 @@
   </div>
   <div id="trophies">
     <h4>Trophies</h4>
-    <li><b>Today:</b><i>Some user:</i> Score</li>
-    <li><b>This week:</b><i>Some user:</i> Score</li>
-    <li><b>This month:</b><i>wwwwwwwwwwwwwww:</i> Score</li>
-    <li><b>All-Time:</b><i>Some user:</i> Score</li>
+    <table>
+      <tr>
+        <td><strong>Today:&nbsp;</strong></td>
+        <td><i>Some_User</i>&nbsp;</td>
+        <td><font color="yellow">Score</font></td>
+      </tr>
+      <tr>
+        <td><strong>This week:&nbsp;</strong></td>
+        <td><i>wwwwwwwwwwwwwww</i>&nbsp;</td>
+        <td><font color="yellow">Score</font></td>
+      </tr>
+      <tr>
+        <td><strong>This Month:&nbsp;</strong></td>
+        <td><i>Hello</i>&nbsp;</td>
+        <td><font color="yellow">Score</font></td>
+      </tr>
+      <tr>
+        <td><strong>All-Time:&nbsp;</strong></td>
+        <td><i>Rockster160</i>&nbsp;</td>
+        <td><font color="yellow">Score</font></td>
+      </tr>
+    </table>
   </div>
 </div>
