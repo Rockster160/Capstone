@@ -18,26 +18,27 @@
 var open = false;
 
 $(document).ready(function(){
-  alert("Document Ready!");
   $('#clicksidebar').click(function(){
+  x = $('#clicksidebar').position();
+  var vpw = $(window).width();
+  if (x > (vpw/2)) { open = false}
     if (open == false) {
-      open = true;
       sidebarOpen();
+      open = true;
     }
     else {
-      open = false;
       sidebarClose();
-    }
-    alert(open);
+      open = false;
+    };
   });
 });
 
 function sidebarOpen() {
-  var c3 = $("#columnThree")
-  c3.css({right:-50vw,top:20vh});
-  c3.animate({right:0},"fast");
+  $("#columnThree").animate({right: "0"}, "slow", "swing").show();
+  $('#clicksidebar').animate({right: "50vw"}, "slow", "swing");
 }
 
 function sidebarClose() {
-
+  $("#columnThree").animate({right: "-50vw"}, "slow", "swing");
+  $('#clicksidebar').animate({right: "-5px"}, "slow", "swing");
 }
