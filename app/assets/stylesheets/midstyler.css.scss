@@ -54,27 +54,28 @@
 
 #columnThree {
   visibility: hidden;
-  width: 0;
-  padding: 0;
-}
-
-#clicksidebar {
-  :hover {
-    background: red;
-  }
-  visibility: visible;
-  border: 5px solid #999;
-  border-radius: 100% 0 0 100%;
+  z-index: 100;
   position: fixed;
-  right: -5px;
-  top: 40vh;
-  height: 200px;
-  width: 40px;
-  background: #888;
-  #sidebaricon {
-    position: relative;
-    right: 0;
-    top: 45%;
-    margin-top: 0px;
+  right: 0;
+  top: 20vh;
+  width: 50vw;
+  height: 70vh;
+  border-radius: 20px 0 0 20px;
+  #clicksidebar {
+    visibility: visible;
+    border: 5px solid #999;
+    border-radius: 100% 0 0 100%;
+    position: fixed;
+    right: -5px;
+    top: 40vh;
+    height: 200px;
+    width: 40px;
+    background: #888;
+    #sidebaricon {
+      position: relative;
+      right: 0;
+      top: 45%;
+      margin-top: 0px;
+    }
   }
 }

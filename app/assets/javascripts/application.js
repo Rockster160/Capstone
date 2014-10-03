@@ -13,5 +13,31 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
+
+var open = false;
+
+$(document).ready(function(){
+  alert("Document Ready!");
+  $('#clicksidebar').click(function(){
+    if (open == false) {
+      open = true;
+      sidebarOpen();
+    }
+    else {
+      open = false;
+      sidebarClose();
+    }
+    alert(open);
+  });
+});
+
+function sidebarOpen() {
+  var c3 = $("#columnThree")
+  c3.css({right:-50vw,top:20vh});
+  c3.animate({right:0},"fast");
+}
+
+function sidebarClose() {
+
+}
