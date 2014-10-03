@@ -1,12 +1,24 @@
 Rails.application.routes.draw do
 
+  match '/users', to: 'users#index', via: 'get'
+  match '/users/:id', to: 'users#show', via: 'get'
+
+  devise_for :users, :path_prefix => 'd'
+  resources :users, :only =>[:show]
+
 
   devise_for :admins
   get 'index/contact'
 
+
   root 'index#home'
 
   get 'index/contact'
+
+  root 'users#show'
+
+  get 'games/create'
+
 
   devise_for :users, controllers: { registrations: 'user/registrations' }
   devise_scope :user do
