@@ -59,6 +59,9 @@
 }
 
 #clicksidebar {
+  :hover {
+    background: red;
+  }
   visibility: visible;
   border: 5px solid #999;
   border-radius: 100% 0 0 100%;
