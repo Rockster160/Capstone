@@ -19,5 +19,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by_username(params[:id])
+    @q = User.search(params[:q])
+    @users = @q.result
   end
 end

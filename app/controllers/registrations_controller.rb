@@ -4,5 +4,4 @@ class RegistrationsController < Devise::RegistrationsController
     @q = User.search(params[:q])
     @users = @q.result
   end
-
 end

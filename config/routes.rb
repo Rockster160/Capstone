@@ -3,15 +3,10 @@ Rails.application.routes.draw do
   match '/users', to: 'users#index', via: 'get'
   match '/users/:id', to: 'users#show', via: 'get'
 
-  devise_for :users, :path_prefix => 'd'
-  resources :users, :only =>[:show]
-
 
   devise_for :admins
   get 'index/contact'
 
-
-  root 'index#home'
 
   get 'index/contact'
 
@@ -22,8 +17,9 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: 'user/registrations' }
   devise_scope :user do
-    get "user/registrations/read", to: 'registrations#read', as: 'users'
+    get "user/registrations/read", to: 'registrations#read', as: 'usersprofile'
   end
+
   get 'games/create', as: 'creategames'
   get 'games/read'
   get 'games/update'
