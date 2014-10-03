@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   get 'index/contact'
 
   devise_for :users, controllers: { registrations: 'user/registrations' }
-  get "user/registrations/read", to: 'user/registrations#read', as: 'profile'
-
+  devise_scope :user do
+    get "user/registrations/read", to: 'registrations#read', as: 'users'
+  end
   get 'games/create', as: 'creategames'
   get 'games/read'
   get 'games/update'

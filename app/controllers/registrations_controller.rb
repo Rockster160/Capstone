@@ -1,4 +1,4 @@
-class User::RegistrationsController < Devise::RegistrationsController
+class RegistrationsController < Devise::RegistrationsController
 
   def read
     @q = User.search(params[:q])
