@@ -1,4 +1,3 @@
-<h1>Users</h1>
 <%= search_form_for @q do |f| %>
   <div class ="field">
     <% f.label :name_cont, "Name contains" %>
@@ -6,3 +5,4 @@
   </div>
   <div class="actions"><% f.submit "Search" %></div>
 <% end %>
+<%= render 'devise/registrations/search_form' %>
