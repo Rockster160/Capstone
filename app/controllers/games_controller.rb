@@ -3,6 +3,7 @@ class GamesController < ApplicationController
   end
 
   def read
+    # @games = 
   end
 
   def update

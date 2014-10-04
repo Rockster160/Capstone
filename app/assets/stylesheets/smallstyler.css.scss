@@ -9,14 +9,12 @@
     border-radius: 100%;
     margin-bottom: 20px;
   }
-
-  #user-about {
-    padding: 1vw;
-  }
-
   #trophiescase {
     border: 2px dotted yellow;
     height: 100px;
+  }
+  #game_trophies {
+
   }
 }
 
@@ -47,7 +45,17 @@
     visibility: visible;
     width: 45vw;
     float: left;
+    border-radius: 20px;
+    background: orange;
+    padding: 20px;
+    width: 100%;
 }
+    #playNow {
+      background: green;
+      margin: auto;
+      width: 10vw;
+      height: 5vw;
+    }
 
 #columnThree {
   // visibility: hidden;
