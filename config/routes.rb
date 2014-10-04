@@ -31,6 +31,16 @@ Rails.application.routes.draw do
 
 
   get 'games/bowling'
+  get 'games/rpg'
+  get 'games/hoops'
+  get 'games/pacman'
+  get 'games/platformer'
+  get 'games/pusoy'
+  get 'games/play/rpg'
+  get 'games/play/hoops'
+  get 'games/play/pacman'
+  get 'games/play/platformer'
+  get 'games/play/pusoy'
   get 'games/play/bowling'
 
   # The priority is based upon order of creation: first created -> highest priority.
