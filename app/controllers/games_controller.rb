@@ -3,7 +3,8 @@ class GamesController < ApplicationController
   end
 
   def read
-    # @games = 
+    @games = ["bowling", "hoops", "pacman", "platformer", 
+              "pusoy", "rpg"]
   end
 
   def update
