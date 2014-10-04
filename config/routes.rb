@@ -3,29 +3,32 @@ Rails.application.routes.draw do
   match '/users', to: 'users#index', via: 'get'
   match '/users/:id', to: 'users#show', via: 'get'
 
-  devise_for :users
-  resources :users, :only =>[:show]
-
   devise_for :admins
+  get 'index/contact'
+
+
   get 'index/contact'
 
   root 'users#show'
 
   get 'games/create'
 
+
+  devise_for :users, controllers: { registrations: 'user/registrations' }
+  devise_scope :user do
+    get "user/registrations/read", to: 'registrations#read', as: 'usersprofile'
+  end
+
+  get 'games/create', as: 'creategames'
   get 'games/read'
-
   get 'games/update'
-
   get 'games/destroy'
 
-  get 'users/create'
+  # get 'profile/read'
+  # get 'profile/update'
+  # get 'profile/destroy'
 
-  get 'users/read'
 
-  get 'users/update'
-
-  get 'users/destroy'
 
   get 'games/bowling'
   get 'games/play/bowling'
