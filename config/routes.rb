@@ -3,13 +3,12 @@ Rails.application.routes.draw do
   match '/users', to: 'users#index', via: 'get'
   match '/users/:id', to: 'users#show', via: 'get'
 
-  devise_for :admins
+  # devise_for :admins
+  # get 'index/contact'
+
   get 'index/contact'
 
-
-  get 'index/contact'
-
-  root 'users#show'
+  root 'devise#sign_up'
 
   get 'games/create'
 
