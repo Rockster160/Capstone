@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   devise_for :admins
   get 'index/contact'
 
+  devise_for :users, controllers: { registrations: 'user/registrations' }, :path_prefix => 'd'
+  resources :users, :only => [:show]
+
 
   get 'index/contact'
 
@@ -15,7 +18,7 @@ Rails.application.routes.draw do
   get 'games/create'
 
 
-  devise_for :users, controllers: { registrations: 'user/registrations' }
+  # devise_for :users, controllers: { registrations: 'user/registrations' }
   devise_scope :user do
     get "user/registrations/read", to: 'registrations#read', as: 'usersprofile'
   end
