@@ -45,6 +45,7 @@ gem 'cocoon'
 gem 'pry-rails'
 gem 'pry-byebug'
 gem 'pry'
+gem 'ransack'
 
 group :development, :test do
   gem 'pry-rails'
@@ -52,6 +53,8 @@ group :development, :test do
   gem 'spring-commands-rspec'
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :production do

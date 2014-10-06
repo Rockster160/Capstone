@@ -1,7 +1,41 @@
-<h1>Games#read</h1>
-<p>Find me in app/views/games/read.html.erb</p>
+<% @games.each do |f| %>
+  <div id="listitem">
+    <%= image_submit_tag(f+".png", id: "gameicon", class: 'goto'+f) %>
+    <div id="title">
+      <% f[0] = f[0].capitalize %>
+      <h4><%= f %></h4>
+      <% f[0] = f[0].downcase %>
+    <div id="briefing">
+      <script type="text/javascript">
+        importBriefing(f);
+      </script>
+    </div>
+    </div>
+    <div id="trophies">
+      <h4>Trophies</h4>
+      <table>
+        <tr>
+          <td><strong>Today:&nbsp;</strong></td>
+          <td><i>Some_User</i>&nbsp;</td>
+          <td><font color="yellow">Score</font></td>
+        </tr>
+        <tr>
+          <td><strong>This week:&nbsp;</strong></td>
+          <td><i>wwwwwwwwwwwwwww</i>&nbsp;</td>
+          <td><font color="yellow">Score</font></td>
+        </tr>
+        <tr>
+          <td><strong>This Month:&nbsp;</strong></td>
+          <td><i>Hello</i>&nbsp;</td>
+          <td><font color="yellow">Score</font></td>
+        </tr>
+        <tr>
+          <td><strong>All-Time:&nbsp;</strong></td>
+          <td><i>Rockster160</i>&nbsp;</td>
+          <td><font color="yellow">Score</font></td>
+        </tr>
+      </table>
+    </div>
+  </div>
 
-Each games home page
-About
-How to play
-High scores, daily, weekly, monthly, all-time
+<% end %>

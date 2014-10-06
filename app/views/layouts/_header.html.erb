@@ -1,4 +1,6 @@
 <%= image_tag("header.png", id: "all-header") %>
+<!-- Home Contact Search Games Account^ -->
+<!-- EditAcc SignOut  -->
 
 <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
@@ -10,34 +12,33 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Home</a>
-      <%= link_to "Profile", edit_user_registration_path %>
+      <a class="navbar-brand" href="/"><i class="fa fa-user fa-2x" id="profilebutton"></i></a>
+      <form class="navbar-left" role="search">
+        <div class="form-group">
+          <i class="fa fa-search fa-lg" id="searchicon" style="float: left; margin: 10px 10px 0 30px;"></i>
+          
+        </div>
+      </form>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-        <button type="submit" class="btn btn-default">Submit</button>
-      </form>
-      <% if user_signed_in? %>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><%= link_to "Profile", edit_user_registration_path %></li>
-            <li><%= link_to "Settings", '#' %></li>
-            <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
-          </ul>
-        </li>
+        <li><a href="../../games/read"><i class="fa fa-gamepad fa-lg"></i> Games</a></li>
+        <% if user_signed_in? %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cogs fa-lg"></i> Account<span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="../users/update"><i class="fa fa-cog fa-lg"></i> Edit Account</a></li>
+              <li><%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fa fa-sign-out fa-lg"></i> Sign Out
+              <% end %></li>
+            </ul>
+          </li>
         <% else %>
-        <li><%= link_to "Sign in", new_user_session_path %></li>
+          <li><%= link_to "Sign in", new_user_session_path %></li>
         <% end %>
       </ul>
-    </div>
-    <!-- /.navbar-collapse -->
-  </div>
-  <!-- /.container-fluid -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
 </nav>

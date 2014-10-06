@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_filter :authenticate_admin!, :except => [:show]
+  before_filter :authenticate_user!
+
   def create
   end
 
@@ -9,5 +12,14 @@ class UsersController < ApplicationController
   end
 
   def destroy
+  end
+
+  def index
+  end
+
+  def show
+    # @user = User.find_by_username(params[:id])
+    # @q = User.search(params[:q])
+    # @users = @q.result
   end
 end

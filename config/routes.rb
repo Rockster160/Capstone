@@ -1,27 +1,47 @@
 Rails.application.routes.draw do
 
+  match '/users', to: 'users#index', via: 'get'
+  match '/users/:id', to: 'users#show', via: 'get'
+
   devise_for :admins
   get 'index/contact'
 
-  root 'index#home'
 
-  devise_for :users
+  get 'index/contact'
+
+  root 'users#show'
 
   get 'games/create'
 
+
+  devise_for :users, controllers: { registrations: 'user/registrations' }
+  devise_scope :user do
+    get "user/registrations/read", to: 'registrations#read', as: 'usersprofile'
+  end
+
+  get 'games/create', as: 'creategames'
   get 'games/read'
-
   get 'games/update'
-
   get 'games/destroy'
 
-  get 'users/create'
+  # get 'profile/read'
+  # get 'profile/update'
+  # get 'profile/destroy'
 
-  get 'users/read'
 
-  get 'users/update'
 
-  get 'users/destroy'
+  get 'games/bowling'
+  get 'games/rpg'
+  get 'games/hoops'
+  get 'games/pacman'
+  get 'games/platformer'
+  get 'games/pusoy'
+  get 'games/play/rpg'
+  get 'games/play/hoops'
+  get 'games/play/pacman'
+  get 'games/play/platformer'
+  get 'games/play/pusoy'
+  get 'games/play/bowling'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
