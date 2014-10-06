@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get 'games/create'
 
 
-  devise_for :users, controllers: { registrations: 'user/registrations' }
+  devise_for :users, controllers: { registrations: 'registrations' }, :path_prefix => 'd'
   devise_scope :user do
     get "user/registrations/read", to: 'registrations#read', as: 'usersprofile'
   end
