@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id]).username
+    @user = User.find(params[:id])
     @q = User.search(params[:q])
     @users = @q.result
   end
