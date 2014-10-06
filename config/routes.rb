@@ -1,33 +1,21 @@
 Rails.application.routes.draw do
 
-  match '/users', to: 'users#index', via: 'get'
-  match '/users/:id', to: 'users#show', via: 'get'
-
-  # devise_for :admins
-  # get 'index/contact'
+  # devise_for :users, controllers: { registrations: 'registrations' }, :path_prefix => 'd'
+  devise_for :users
+  devise_scope :user do
+    root to: 'devise/sessions#new'
+    # get "user/registrations/read", to: 'registrations#read', as: 'usersprofile'
+  end
+  resources :users, only: [:show]
 
   get 'index/contact'
 
-  root 'devise#sign_up'
-
   get 'games/create'
-
-
-  devise_for :users, controllers: { registrations: 'registrations' }, :path_prefix => 'd'
-  devise_scope :user do
-    get "user/registrations/read", to: 'registrations#read', as: 'usersprofile'
-  end
 
   get 'games/create', as: 'creategames'
   get 'games/read'
   get 'games/update'
   get 'games/destroy'
-
-  # get 'profile/read'
-  # get 'profile/update'
-  # get 'profile/destroy'
-
-
 
   get 'games/bowling'
   get 'games/rpg'
