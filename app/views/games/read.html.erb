@@ -2,10 +2,14 @@
   <div id="listitem">
     <%= image_submit_tag(f+".png", id: "gameicon", class: 'goto'+f) %>
     <div id="title">
-      <h4>Bowling</h4>
-    <div id="description">This is a bowling game. Refer to page to view how to play.
-    I need this to be longer so it can break onto two separate lines so that I can tell where the breaks are
-    so that I can see how long it is so that I can figure out how big the trophies will need to be.</div>
+      <% f[0] = f[0].capitalize %>
+      <h4><%= f %></h4>
+      <% f[0] = f[0].downcase %>
+    <div id="briefing">
+      <script type="text/javascript">
+        importBriefing(f);
+      </script>
+    </div>
     </div>
     <div id="trophies">
       <h4>Trophies</h4>
@@ -35,38 +39,3 @@
   </div>
 
 <% end %>
-
-<div id="listitem">
-  <%= image_submit_tag("bowling.jpeg", id: "gameicon", class: 'gotobowling') %>
-  <div id="title">
-    <h4>Bowling</h4>
-  <div id="description">This is a bowling game. Refer to page to view how to play.
-  I need this to be longer so it can break onto two separate lines so that I can tell where the breaks are
-  so that I can see how long it is so that I can figure out how big the trophies will need to be.</div>
-  </div>
-  <div id="trophies">
-    <h4>Trophies</h4>
-    <table>
-      <tr>
-        <td><strong>Today:&nbsp;</strong></td>
-        <td><i>Some_User</i>&nbsp;</td>
-        <td><font color="yellow">Score</font></td>
-      </tr>
-      <tr>
-        <td><strong>This week:&nbsp;</strong></td>
-        <td><i>wwwwwwwwwwwwwww</i>&nbsp;</td>
-        <td><font color="yellow">Score</font></td>
-      </tr>
-      <tr>
-        <td><strong>This Month:&nbsp;</strong></td>
-        <td><i>Hello</i>&nbsp;</td>
-        <td><font color="yellow">Score</font></td>
-      </tr>
-      <tr>
-        <td><strong>All-Time:&nbsp;</strong></td>
-        <td><i>Rockster160</i>&nbsp;</td>
-        <td><font color="yellow">Score</font></td>
-      </tr>
-    </table>
-  </div>
-</div>
