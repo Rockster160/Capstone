@@ -8,7 +8,7 @@ class SearchResultsController < ApplicationController
       if searched == f.username.downcase
         @fwd = "./users/"+f.id.to_s
         break
-      # elsif searched == 
+      # elsif searched ==
       #   @fwd =
       #   break
       else

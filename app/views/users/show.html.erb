@@ -5,7 +5,7 @@
     <%= image_tag("samurai.jpeg", id: "avatar") %>
     <% if user_signed_in? && current_user.username == @user.username %>
       <span id="num-for-coin">
-        <%= image_tag('moon.png', id: "coin-on-page", size: "16x16") %>
+        <%= image_tag('moon.png', id: "coin-on-page", size: "24x24") %>
         <%=number_with_delimiter( current_user.coin ) %>
       </span>
     <% end %>

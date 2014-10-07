@@ -1,3 +1,6 @@
+<% Game.all.each do |game| %>
+  <%= game.name %>
+<% end %>
 <% @games.each do |f| %>
   <div id="listitem">
     <%= image_submit_tag(f+".png", id: "gameicon", class: 'goto'+f) %>
