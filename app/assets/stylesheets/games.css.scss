@@ -1,3 +1,16 @@
-// Place all the styles related to the Games controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#playNow {
+  background: green;
+  border-radius: 10px;
+  padding: 10px 0 0 15px;
+  margin: 10px auto;
+  width: 10vw;
+  height: 5vw;
+}
+#noPlayNow {
+  background: gray;
+  border-radius: 10px;
+  padding: 10px 0 0 15px;
+  margin: 10px auto;
+  width: 10vw;
+  height: 5vw;
+}

@@ -1,8 +1,8 @@
 <% Game.all.each do |game| %>
-<%= game.cost %>
-<% play_count(game, 1) %>
   <div id="listitem">
-    <%= image_submit_tag(game.ava, id: "gameicon", class: 'goto'+game.name) %>
+    <div id="gameimage">
+      <a href="/games/<%= game.id %>"><%= image_tag(game.ava, id: "gameicon") %></a>
+    </div>
     <div id="title">
       <h4><%= game.name %></h4>
     <div id="briefing">
