@@ -2,7 +2,9 @@
 
   <div id="columnOne">
     <span id="namedisp"><%= @user.username.capitalize %></span>
-    <%= image_tag("samurai.jpeg", id: "avatar") %>
+    <%= image_tag(@user.avatar.url, id: "avatar") %> 
+    <% image_tag @user.avatar.url(:medium) %>
+    <% image_tag @user.avatar.url(:thumb) %>
     <% if user_signed_in? && current_user.username == @user.username %>
       <span id="num-for-coin">
         <%= image_tag('moon.png', id: "coin-on-page", size: "24x24") %>
