@@ -5,9 +5,6 @@ class GamesController < ApplicationController
   def read
     @games = ["bowling", "hoops", "pacman", "platformer",
               "pusoy", "rpg"].reverse
-
-    @desc = []
-
   end
 
   def update

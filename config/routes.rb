@@ -10,13 +10,6 @@ Rails.application.routes.draw do
 
   get 'index/contact'
 
-  get 'games/create'
-
-  get 'games/create', as: 'creategames'
-  get 'games/read'
-  get 'games/update'
-  get 'games/destroy'
-
   get 'games/bowling'
   get 'games/rpg'
   get 'games/hoops'
