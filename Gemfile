@@ -44,12 +44,11 @@ gem "paperclip", "~> 4.2"
 gem 'devise'
 gem 'cocoon'
 
-gem 'pry-rails'
-gem 'pry-byebug'
-gem 'pry'
 gem 'ransack'
+gem 'pg_search'
 
 group :development, :test do
+  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'pry-nav'
   gem 'spring-commands-rspec'
@@ -57,12 +56,11 @@ group :development, :test do
   gem 'capybara'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem "factory_girl_rails", "~> 4.0", :group => :test
+  gem "database_cleaner", :group => :test
+  gem 'simplecov', :require => false, :group => :test
 end
 
 group :production do
   gem 'rails_12factor'
 end
-
-gem "factory_girl_rails", "~> 4.0", :group => :test
-gem "database_cleaner", :group => :test
-gem 'simplecov', :require => false, :group => :test
