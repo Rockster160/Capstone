@@ -1,14 +1,11 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :only => :show
 
   def show
     @user = User.find(params[:id])
-    unless @user == current_user
+    unless user_signed_in?
       redirect_to root_path
     end
-
-    # @q = User.search(params[:q])
-    # @users = @q.result
   end
 
   def create

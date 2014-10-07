@@ -13,14 +13,7 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="/"><i class="fa fa-user fa-2x" id="profilebutton"></i></a>
-      <form class="navbar-left" role="search">
-        <div class="form-group">
-          <i class="fa fa-search fa-lg" id="searchicon" style="float: left; margin: 10px 10px 0 30px;"></i>
-          <% if user_signed_in? %>
-            <%= render 'devise/registrations/search_form' %>
-          <% end %>
-        </div>
-      </form>
+          <%= render 'layouts/pgsearchbar' %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -35,6 +28,8 @@
               <li><%= link_to destroy_user_session_path, method: :delete do %>
                 <i class="fa fa-sign-out fa-lg"></i> Sign Out
               <% end %></li>
+               <li class="divider"></li>
+               <li>Coins:</li>
             </ul>
           </li>
         <% else %>
