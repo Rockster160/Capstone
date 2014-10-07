@@ -3,9 +3,21 @@ class GamesController < ApplicationController
   end
 
   def read
-    @games = ["bowling", "hoops", "pacman", "platformer",
-              "pusoy", "rpg"].reverse
+    @games = []
+    Game.all.each do |game|
+      game.cost = 0 if !(game.cost > 0)
+      @games << game.name
+    end
   end
+
+  def show
+    @game = Game.find(params[:id])
+  end
+
+  def play_count(game, increment)
+    Game.find(game.id).update_attribute(:cost, game.cost += increment)
+  end
+  helper_method :play_count
 
   def update
   end

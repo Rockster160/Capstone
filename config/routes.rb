@@ -7,15 +7,13 @@ Rails.application.routes.draw do
     # get "user/registrations/read", to: 'registrations#read', as: 'usersprofile'
   end
   resources :users, only: [:show]
+  # :games
 
   get 'index/contact'
 
-  get 'games/bowling'
-  get 'games/rpg'
-  get 'games/hoops'
-  get 'games/pacman'
-  get 'games/platformer'
-  get 'games/pusoy'
+  get 'games/read'
+  # get 'games/show', as:
+
   get 'games/play/rpg'
   get 'games/play/hoops'
   get 'games/play/pacman'
