@@ -1,8 +1,14 @@
 <div id="page-body" width="100%">
 
   <div id="columnOne">
-    <span id="namedisp"><%= @user.username %></span>
+    <span id="namedisp"><%= @user.username.capitalize %></span>
     <%= image_tag("samurai.jpeg", id: "avatar") %>
+    <% if user_signed_in? && current_user.username == @user.username %>
+      <span id="num-for-coin">
+        <%= image_tag('moon.png', id: "coin-on-page", size: "16x16") %>
+        <%=number_with_delimiter( current_user.coin ) %>
+      </span>
+    <% end %>
     <div id="user-about">
       <h1>About Me</h1>
       <p>Hello this is the about me and I talk
