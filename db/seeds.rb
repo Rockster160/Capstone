@@ -117,131 +117,142 @@ Game.create( id: 5 ,
 #              name: '',
 #              about: '',
 #              coin: ,
-#              cointo: ,
+#              coinTo: ,
 #              email: '',
 #              password: '',
 #              password_confirmation: '',
 #              username: '',
-#              avatar: '')
+#              avatar: '',
+            #  favorites: [])
 
 User.create( id: 0,
              name: 'Zoro',
              about: 'Santouryu',
-             coin: 999999999,
-            #  cointo: 10,
+             coin: 999999,
+             coinTo: 10,
              email: 'zoro@email.com',
              password: 'password',
              password_confirmation: 'password',
              username: 'Zoro',
-            #  avatar_file_name: File.join(Rails.root, '/app/assets/samurai.jpeg') #'/db/seeds/image.png'
-            )
+             avatar: File.new("#{Rails.root}/app/assets/images/hoops.png", 'r'),
+             favorites: [5, 2, 0])
 
 User.create( id: 1,
              name: 'Luffy',
              about: 'Gomu Gomu',
              coin: 12,
-            #  cointo: ,
+             coinTo: 3456,
              email: 'luffy@email.com',
              password: 'password',
              password_confirmation: 'password',
              username: 'luffy',
-             avatar: '')
+             avatar: '',
+             favorites: [1, 4])
 
 User.create( id: 2,
             name: 'Sam',
             about: 'Hello I am Sam',
             coin: 7856,
-            # cointo: ,
+            coinTo: 10,
             email: 'sam@email.com',
             password: 'password',
             password_confirmation: 'password',
             username: 'SamIam',
-            avatar: '')
+            avatar: '',
+            favorites: [0, 4, 1])
 
 User.create( id: 3,
              name: 'Rocco',
              about: 'I like to flip off stuff',
              coin: 2345,
-            #  cointo: ,
+             coinTo: 10,
              email: 'rocco@email.com',
              password: 'password',
              password_confirmation: 'password',
              username: 'Rockster160',
-             avatar: '')
+             avatar: '',
+             favorites: [0, 5, 2, 1])
 
 User.create( id: 4,
             name: 'Brendan',
             about: 'I bowl and sell life insurance',
             coin: 19872,
-            # cointo: ,
+            coinTo: 10,
             email: 'bj@email.com',
             password: 'password',
             password_confirmation: 'password',
             username: 'Brendan',
-            avatar: '')
+            avatar: '',
+            favorites: [0])
 
 User.create( id: 5,
              name: 'Jason',
              about: 'I am the co instructor at DPL',
              coin: 2345,
-            #  cointo: ,
+             coinTo: 10,
              email: 'jason@email.com',
              password: 'password',
              password_confirmation: 'password',
              username: 'Jasonwc',
-             avatar: '')
+             avatar: '',
+             favorites: [1, 3])
 
  User.create( id: 6,
               name: 'Alex',
               about: 'I play games',
               coin: 21,
-              # cointo: ,
+              coinTo: 10,
               email: 'alex@email.com',
               password: 'password',
               password_confirmation: 'password',
               username: 'AlexPlays',
-              avatar: '')
+              avatar: '',
+              favorites: [1, 2, 3, 4, 5])
 
 User.create( id: 7,
              name: 'Preston',
              about: 'I am Mr.PlayBook',
              coin: 987654,
-            #  cointo: ,
+             coinTo: 10,
              email: 'preston@email.com',
              password: 'password',
              password_confirmation: 'password',
              username: 'PrestonJohnson',
-             avatar: '')
+             avatar: '',
+             favorites: [3, 4, 1])
 
 User.create( id: 8,
             name: 'Test',
             about: 'I am the breaker and I test stuff.',
             coin: 111111111,
-            # cointo: ,
+            coinTo: 10,
             email: 'test@email.com',
             password: 'password',
             password_confirmation: 'password',
             username: 'tester',
-            avatar: '')
+            avatar: '',
+            favorites: [5, 4, 3, 2, 0])
 
 User.create( id: 9,
+             name: 'Timer',
+             about: 'I just look pretty',
+             coin: 123456789,
+             coinTo: 10,
+             email: 'time@email.com',
+             password: 'password',
+             password_confirmation: 'password',
+             username: 'GrandfatherTime',
+             avatar: '',
+             favorites: [])
+
+User.create( id: 10,
              name: 'GameHub',
              about: 'I am the AI for this site! :D',
-             coin: 999999999,
-            #  cointo: ,
+             coin: 99999999,
+             coinTo: 10,
              email: 'gh@email.com',
              password: 'password',
              password_confirmation: 'password',
              username: 'ghub',
-             avatar: '')
-
- User.create( id: 10,
-              name: 'Timer',
-              about: 'I just look pretty',
-              coin: 123456789,
-              # cointo: ,
-              email: 'time@email.com',
-              password: 'password',
-              password_confirmation: 'password',
-              username: 'Grandfather Time',
-              avatar: '')
+             avatar: '',
+             favorites: [0, 1, 2, 3, 4])

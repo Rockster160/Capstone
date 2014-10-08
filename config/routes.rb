@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   # devise_for :users, controllers: { registrations: 'registrations' }, :path_prefix => 'd'
-  get 'users/update'
   devise_for :users
   devise_scope :user do
     root to: 'devise/sessions#new'
@@ -11,6 +10,7 @@ Rails.application.routes.draw do
   get 'games/read'
   resources :users, :games, only: [:show]
 
+  get 'users/update/:id' => 'users#update'
   get 'games/:id' => 'games#show'
   get 'index/contact'
 

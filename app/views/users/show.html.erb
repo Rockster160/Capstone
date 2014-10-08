@@ -35,9 +35,12 @@
     <div id="fav_col">
       <div id="favs_box">
           <!-- These ordered to Favorite select first, then most played. Limit to 5. -->
-          <% favorites = [0, 1, 2, 3, 4] %>
-          <% favorites.each do |game| %>
-            <li><a href="/games/<%= Game.find(game).id %>"><%= image_tag(Game.find(game).ava, id: "user-fav") %></a></li>
+          <% 5.times do |fav| %>
+            <% if @user.favorites.length > fav %>
+              <li><a href="/games/<%= Game.find(@user.favorites[fav]).id %>"><%= image_tag(Game.find(@user.favorites[fav]).ava, id: "user-fav") %></a></li>
+            <% else %>
+              <li><a href="#"><%= image_tag('missingicon.png', id: "user-fav") %></a></li>
+            <% end %>
           <% end %>
       </div>
     </div>
