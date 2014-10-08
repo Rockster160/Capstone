@@ -2,9 +2,7 @@
 
   <div id="columnOne">
     <span id="namedisp"><%= @user.username.capitalize %></span>
-    <%= image_tag(@user.avatar.url, id: "avatar") %> 
-    <% image_tag @user.avatar.url(:medium) %>
-    <% image_tag @user.avatar.url(:thumb) %>
+    <%= image_tag(@user.avatar.url, id: "avatar") %>
     <% if user_signed_in? && current_user.username == @user.username %>
       <span id="num-for-coin">
         <%= image_tag('moon.png', id: "coin-on-page", size: "24x24") %>
@@ -38,11 +36,10 @@
     <div id="fav_col">
       <div id="favs_box">
           <!-- These ordered to Favorite select first, then most played. Limit to 5. -->
-          <li><%= image_submit_tag("bowling.png", id: "user-fav", class: 'gotobowling') %></li>
-          <li><%= image_submit_tag("rpg.png", id: "user-fav", class: 'gotorpg') %></li>
-          <li><%= image_submit_tag("hoops.png", id: "user-fav", class: 'gotohoops') %></li>
-          <li><%= image_submit_tag("pacman.png", id: "user-fav", class: 'gotopacman') %></li>
-          <li><%= image_submit_tag("platformer.png", id: "user-fav", class: 'gotoplatformer') %></li>
+          <% favorites = [0, 1, 2, 3, 4] %>
+          <% favorites.each do |game| %>
+            <li><a href="/games/<%= Game.find(game).id %>"><%= image_tag(Game.find(game).ava, id: "user-fav") %></a></li>
+          <% end %>
       </div>
     </div>
   <div id="columnTwo">

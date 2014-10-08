@@ -1,5 +1,10 @@
-<%= params[:q].downcase %>
-<%= @fwd %>
-  <script type="text/javascript">
-    window.location.href= "<%= @fwd %>"
-  </script>
+<table id="results">
+  <tr>
+    <td style="width: 50vw;"><h1>Users</h1></td>
+    <td><h1>Games</h1></td>
+  </tr>
+  <tr>
+    <td><%= @listuser %></td>
+    <td><%= @listgame %></td>
+  </tr>
+</table>

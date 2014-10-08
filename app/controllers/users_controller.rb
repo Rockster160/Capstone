@@ -8,10 +8,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def create
-    @user = User.create( user_params )
-  end
-
   private
 
   # Use strong_parameters for attribute whitelisting
