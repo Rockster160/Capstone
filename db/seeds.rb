@@ -134,7 +134,7 @@ User.create( id: 0,
              password: 'password',
              password_confirmation: 'password',
              username: 'Zoro',
-             avatar: File.new("#{Rails.root}/app/assets/images/hoops.png", 'r'),
+            #  avatar: File.new("#{Rails.root}/app/assets/images/hoops.png", 'r'),
              favorites: [5, 2, 0])
 
 User.create( id: 1,
