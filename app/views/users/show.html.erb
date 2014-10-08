@@ -6,13 +6,12 @@
     <% if user_signed_in? && current_user.username == @user.username %>
       <span id="num-for-coin">
         <%= image_tag('spinningcoin.gif', id: "coin-on-page", size: "24x24") %>
-        <%=number_with_delimiter( current_user.coin ) %>
+        <%= number_with_delimiter( current_user.coin ) %>
       </span>
     <% end %>
     <div id="user-about">
       <h1>About Me</h1>
-      <p>Hello this is the about me and I talk
-        about myself and what sports I like.</p>
+      <p><%= @user.about %></p>
       <a href="#" class="fa fa-facebook-square"> This is my website.</a><br/>
       <a href="#" class="fa fa-github"> This is my website.</a><br/>
       <a href="#" class="fa fa-google"> This is my website.</a><br/>
