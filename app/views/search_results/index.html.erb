@@ -1,10 +1,83 @@
-<table id="results">
-  <tr>
-    <td style="width: 50vw;"><h1>Users</h1></td>
-    <td><h1>Games</h1></td>
-  </tr>
-  <tr>
-    <td><%= @listuser %></td>
-    <td><%= @listgame %></td>
-  </tr>
-</table>
+<div id="wrapper">
+<div id="searchlist" class="userslisting">
+  <h1>Users</h1>
+  <% (@listuser.length).times do |list| %>
+    <div id="searchitem">
+      <% user = User.find(@listuser[list][0]) %>
+      <div id="search-img-bg"><a href="/users/<%= user.id %>"><%= image_tag(user.avatar.url(:thumb), id: "searchicon") %></a></div>
+      <div id="searchtitle">
+        <h4><%= user.username.capitalize %></h4>
+        <div id="searchdesc">
+          <% user.about %>
+          Hello world I am a description and I am doing something to take up space.
+        </div>
+      </div>
+      <div id="searchtrophies">
+        <h4>Trophies</h4>
+        <table>
+          <tr>
+            <td><strong>Today:&nbsp;</strong></td>
+            <td><i>Some_User</i>&nbsp;</td>
+            <td><font color="yellow">Score</font></td>
+          </tr>
+          <tr>
+            <td><strong>This week:&nbsp;</strong></td>
+            <td><i>wwwwwwwwwwwwwww</i>&nbsp;</td>
+            <td><font color="yellow">Score</font></td>
+          </tr>
+          <tr>
+            <td><strong>This Month:&nbsp;</strong></td>
+            <td><i>Hello</i>&nbsp;</td>
+            <td><font color="yellow">Score</font></td>
+          </tr>
+          <tr>
+            <td><strong>All-Time:&nbsp;</strong></td>
+            <td><i>Rockster160</i>&nbsp;</td>
+            <td><font color="yellow">Score</font></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div id="searchlist" class="gameslisting">
+  <h1>Games</h1>
+  <% (@listgame.length).times do |list| %>
+    <div id="searchitem">
+      <% game = Game.find(@listgame[list][0]) %>
+      <div id="search-img-bg"><a href="/games/<%= game.id %>"><%= image_tag(game.ava, id: "searchicon") %></a></div>
+      <div id="searchtitle">
+        <h4><%= game.name.capitalize %></h4>
+        <div id="searchdesc">
+          <%= game.about %>
+        </div>
+      </div>
+      <div id="searchtrophies">
+        <h4>Trophies</h4>
+        <table>
+          <tr>
+            <td><strong>Today:&nbsp;</strong></td>
+            <td><i>Some_User</i>&nbsp;</td>
+            <td><font color="yellow">Score</font></td>
+          </tr>
+          <tr>
+            <td><strong>This week:&nbsp;</strong></td>
+            <td><i>wwwwwwwwwwwwwww</i>&nbsp;</td>
+            <td><font color="yellow">Score</font></td>
+          </tr>
+          <tr>
+            <td><strong>This Month:&nbsp;</strong></td>
+            <td><i>Hello</i>&nbsp;</td>
+            <td><font color="yellow">Score</font></td>
+          </tr>
+          <tr>
+            <td><strong>All-Time:&nbsp;</strong></td>
+            <td><i>Rockster160</i>&nbsp;</td>
+            <td><font color="yellow">Score</font></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  <% end %>
+</div>
+</div>
