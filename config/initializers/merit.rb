@@ -75,6 +75,27 @@ Merit::Badge.create! (
   custom_fields: { difficulty: :hard }
 )
 
+Merit::Badge.create! (
+  id: 8,
+  name: "first-checkpoint-reached",
+  description: "You reached the first checkpoint!",
+  custom_fields: { difficulty: :easy }
+)
+
+Merit::Badge.create! (
+  id: 9,
+  name: "second-checkpoint-reached",
+  description: "You reached the second checkpoint!",
+  custom_fields: { difficulty: :medium }
+)
+
+Merit::Badge.create! (
+  id: 10,
+  name: "game-completed",
+  description: "You beat the game!",
+  custom_fields: { difficulty: :hard }
+)
+
 # Create application badges (uses https://github.com/norman/ambry)
 # badge_id = 0
 # [{

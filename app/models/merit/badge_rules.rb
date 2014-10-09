@@ -77,5 +77,17 @@ module Merit
       all.levels.completed == true
     end
 
+    grant_on 'mazerunner#game', badge: 'first-checkpoint-reached', to: :user do |first-checkpoint-reached|
+      first.checkpoint.reached == true
+    end
+
+    grant_on 'mazerunner#game', badge: 'second-checkpoint-reached', to: :user do |second-checkpoint-reached|
+      second.checkpoint.reached == true
+    end
+
+    grant_on 'mazerunner#game', badge: 'game-completed', to: :user do |game-completed|
+      game.completed == true
+    end
+
   end
 end
