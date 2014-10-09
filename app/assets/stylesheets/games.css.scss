@@ -1,5 +1,7 @@
+@import 'utilities/variables';
+
 #playNow {
-  background: green;
+  background: $primaryfocus;
   border-radius: 10px;
   padding: 10px 0 0 15px;
   margin: 10px auto;
@@ -7,7 +9,7 @@
   height: 5vw;
 }
 #noPlayNow {
-  background: gray;
+  background: $blendbgdark;
   border-radius: 10px;
   padding: 10px 0 0 15px;
   margin: 10px auto;
