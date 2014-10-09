@@ -8,6 +8,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    unless current_user.id.to_s == params[:id]
+      redirect_to :controller => 'users', :action => 'update', :id => current_user.id
+    end
+  end
+
   private
 
   # Use strong_parameters for attribute whitelisting
@@ -18,9 +24,6 @@ class UsersController < ApplicationController
   end
 
   def read
-  end
-
-  def update
   end
 
   def destroy

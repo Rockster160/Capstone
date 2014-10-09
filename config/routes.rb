@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'games/read'
   resources :users, :games, only: [:show]
 
-  get 'users/update/:id' => 'users#update'
+  get 'users/update/:id' => 'users#update', as: 'update'
   get 'games/:id' => 'games#show'
   get 'index/contact'
 

@@ -22,12 +22,12 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cogs fa-lg"></i> Account<span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-              <li><a href="../users/update"><i class="fa fa-cog fa-lg"></i> Edit Account</a></li>
+              <li><a href="../users/update/<%= current_user.id %>"><i class="fa fa-cog fa-lg"></i> Edit Account</a></li>
               <li><%= link_to destroy_user_session_path, method: :delete do %>
                 <i class="fa fa-sign-out fa-lg"></i> Sign Out
               <% end %></li>
                <li class="divider"></li>
-               <li><a href="../users/update" id="num-for-coin"><%= image_tag('spinningcoin.gif', id: "coin-on-page", size: "24x24") %><%=number_with_delimiter( current_user.coin ) %></a></li>
+               <li><a href="#" id="num-for-coin"><%= image_tag('spinningcoin.gif', id: "coin-on-page", size: "24x24") %><%= number_with_delimiter( current_user.coin ) %></a></li>
             </ul>
           </li>
         <% else %>
