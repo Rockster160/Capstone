@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'activities/index'
+
   # devise_for :users, controllers: { registrations: 'registrations' }, :path_prefix => 'd'
   devise_for :users
   devise_scope :user do
