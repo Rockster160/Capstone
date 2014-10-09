@@ -6,9 +6,12 @@ class UsersController < ApplicationController
     unless user_signed_in?
       redirect_to root_path
     end
+    @data = 0 if !(@data)
     if params[:passId]
+      # binding.pry
       @data = params[:passId]
     end
+
   end
 
   def getscores

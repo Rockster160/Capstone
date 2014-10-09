@@ -1,6 +1,8 @@
 <div id="page-body" width="100%">
 
   <div id="columnOne">
+    <%# binding.pry if @data %>
+    <%= @data %>
     <span id="namedisp"><%= @user.username.capitalize %></span>
     <%= image_tag(@user.avatar.url, id: "avatar") %>
     <% if user_signed_in? && current_user.username == @user.username %>
@@ -45,9 +47,9 @@
       </div>
     </div>
   <div id="columnTwo">
-    <% if @data == true && @data.to_i > 0 %>
-      <%= render 'layouts/modals/gamemodal', data: @data.to_i %>
-    <% end %>
+    <%# if @data == true && @data.to_i > 0 %>
+      <%= render 'layouts/modals/genericModal', data: @data %>
+    <%# end %>
 
   </div>
 </div>
