@@ -9,6 +9,10 @@
  @import "search_results";
  @import "users";
 
+ html {
+   background: white;
+ }
+
 #all-header
 {
   width: 90%;
@@ -20,8 +24,8 @@
   margin-top: -5px;
 }
 
-body {
-  // background: #C0C0C0 //url("./gamehub.png") no-repeat top;
+.gamebutton {
+  &:hover { cursor: pointer; }
 }
 
 #namedisp {

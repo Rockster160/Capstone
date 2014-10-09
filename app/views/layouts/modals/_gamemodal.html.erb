@@ -1,0 +1,15 @@
+<div id="gameDirect" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div id='store'>
+          Hello world, I am some script.
+          <% data = @data.to_i if @data == true && @data > 0%>
+          <% if data > 0%>
+            <%= data %>
+            <%= image_tag(Game.find(data: data).ava, id: "user-fav") %>
+            <% binding.pry %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>

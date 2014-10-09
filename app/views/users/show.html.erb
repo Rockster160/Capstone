@@ -31,25 +31,23 @@
 
   <div id="columnThree">
     Just some filler to take up room and be a place holder for now.
-    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-      Launch demo modal
-    </button>
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-     <%= render 'layouts/gamemodal' %>
-    </div>
   </div>
     <div id="fav_col">
       <div id="favs_box">
           <!-- These ordered to Favorite select first, then most played. Limit to 5. -->
           <% 5.times do |fav| %>
             <% if @user.favorites.length > fav %>
-              <li><a href="/games/<%= Game.find(@user.favorites[fav]).id %>"><%= image_tag(Game.find(@user.favorites[fav]).ava, id: "user-fav") %></a></li>
+              <li><span class="gamebutton" id="<%= @user.favorites[fav] %>"><%= image_tag(Game.find(@user.favorites[fav]).ava, id: "user-fav") %></span></li>
             <% else %>
-              <li><a href="#"><%= image_tag('missingicon.png', id: "user-fav") %></a></li>
+              <li><a href="./update/<%= current_user.id %>"><%= image_tag('missingicon.png', id: "user-fav") %></a></li>
             <% end %>
           <% end %>
       </div>
     </div>
   <div id="columnTwo">
+    <% if @data == true && @data.to_i > 0 %>
+      <%= render 'layouts/modals/gamemodal', data: @data.to_i %>
+    <% end %>
+
   </div>
 </div>

@@ -6,6 +6,12 @@ class UsersController < ApplicationController
     unless user_signed_in?
       redirect_to root_path
     end
+    if params[:passId]
+      @data = params[:passId]
+    end
+  end
+
+  def getscores
   end
 
   def update
