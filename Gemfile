@@ -46,6 +46,7 @@ gem 'cocoon'
 
 gem 'ransack'
 gem 'pg_search'
+gem 'public_activity'
 
 group :development, :test do
   gem 'pry-byebug'
