@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   get 'users/update/:id' => 'users#update', as: 'update'
   get 'games/:id' => 'games#show'
+  get 'games/:id/info' => 'games#info', as: 'game_info'
   get 'index/contact'
 
   # get 'games/play/rpg'

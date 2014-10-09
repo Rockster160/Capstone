@@ -8,16 +8,19 @@ class UsersController < ApplicationController
     end
     @data = 0 if !(@data)
     if params[:passId]
-      # binding.pry
       @data = params[:passId]
     end
-
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def getscores
   end
 
   def update
+    @user = User.find(params[:id])
     unless current_user.id.to_s == params[:id]
       redirect_to :controller => 'users', :action => 'update', :id => current_user.id
     end

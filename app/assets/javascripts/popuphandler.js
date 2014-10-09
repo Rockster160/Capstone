@@ -1,15 +1,15 @@
 $(document).ready(function(){
 
 
-  $('.gamebutton').click(function(){
-    var my_id = $(this).attr('id');
-    var url = window.location.href;
-     $.get(url,{passId : my_id}).done(function() {
-      //  alert("done!");
-      console.log(my_id);
-        $('#gameDirect').modal();
-     });
-   });
+  // $('.gamebutton').click(function(){
+  //   var my_id = $(this).attr('id');
+  //   var url = window.location.href+'.js';
+  //    $.get(url,{passId : my_id}).done(function(data) {
+  //     //  alert("done!");
+  //     console.log(data);
+  //       $('#gameDirect').modal();
+  //    });
+  //  });
 });
 
 

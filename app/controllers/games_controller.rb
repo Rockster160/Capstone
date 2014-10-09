@@ -10,6 +10,11 @@ class GamesController < ApplicationController
     end
   end
 
+  # Used via AJAX
+  def info
+    @game = Game.find(params[:id])
+  end
+
   def show
     @game = Game.find(params[:id])
   end

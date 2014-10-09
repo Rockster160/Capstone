@@ -3,6 +3,7 @@
   <div id="columnOne">
     <%# binding.pry if @data %>
     <%= @data %>
+    <%= params[:passId] %>
     <span id="namedisp"><%= @user.username.capitalize %></span>
     <%= image_tag(@user.avatar.url, id: "avatar") %>
     <% if user_signed_in? && current_user.username == @user.username %>
@@ -39,7 +40,13 @@
           <!-- These ordered to Favorite select first, then most played. Limit to 5. -->
           <% 5.times do |fav| %>
             <% if @user.favorites.length > fav %>
-              <li><span class="gamebutton" id="<%= @user.favorites[fav] %>"><%= image_tag(Game.find(@user.favorites[fav]).ava, id: "user-fav") %></span></li>
+              <li>
+                <%= link_to game_info_path(id: @user.favorites[fav]), remote: true do  %>
+                  <span class="gamebutton" id="<%= @user.favorites[fav] %>">
+                    <%= image_tag(Game.find(@user.favorites[fav]).ava, id: "user-fav") %>
+                  </span>
+                <% end %>
+              </li>
             <% else %>
               <li><a href="./update/<%= current_user.id %>"><%= image_tag('missingicon.png', id: "user-fav") %></a></li>
             <% end %>
@@ -47,9 +54,14 @@
       </div>
     </div>
   <div id="columnTwo">
-    <%# if @data == true && @data.to_i > 0 %>
+    <% if @data == true && @data.to_i > 0 %>
       <%= render 'layouts/modals/genericModal', data: @data %>
-    <%# end %>
+    <% end %>
+    <div id='game-modal-div'>
+        <!-- Place holder for the modal data -->
+    </div>
+
+    </div>
 
   </div>
 </div>
