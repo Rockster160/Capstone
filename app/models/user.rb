@@ -1,9 +1,7 @@
 class User < ActiveRecord::Base
-
-class Article < ActiveRecord::Base
   include PublicActivity::Model
   tracked
-end
+
 
   include PgSearch
   multisearchable :against => [:username]
