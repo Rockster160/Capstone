@@ -1,5 +1,15 @@
+  <%# @user.notifications.each do |notify| %>
+  <div id="pop-container">
+    <% 5.times do |notify| %>
+      <div class='popup-notification' style="top: <%= (notify * 90).to_s %>px;">Hello World</div>
+    <% end %>
+  </div>
 <div id="page-body" width="100%">
-
+  <!-- <div class='popup-notification'>
+    Hello World<br/>
+    This is text<br/>
+    You won: 50gold!<br/>
+  </div> -->
   <div id="columnOne">
     <span id="namedisp"><%= @user.username.capitalize %></span>
     <%= image_tag(@user.avatar.url, id: "avatar") %>
@@ -51,9 +61,6 @@
       </div>
     </div>
   <div id="columnTwo">
-    <% if @data == true && @data.to_i > 0 %>
-      <%= render 'layouts/modals/genericModal', data: @data %>
-    <% end %>
     <div id='game-modal-div'>
         <!-- Place holder for the modal data -->
     </div>

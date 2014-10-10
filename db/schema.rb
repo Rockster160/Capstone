@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141010153140) do
+ActiveRecord::Schema.define(version: 20141010203652) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,20 +28,21 @@ ActiveRecord::Schema.define(version: 20141010153140) do
     t.string   "thumb"
   end
 
+  create_table "notifications", force: true do |t|
+    t.integer  "userid"
+    t.string   "message"
+    t.boolean  "isRead",     default: false
+    t.integer  "gold"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "pg_search_documents", force: true do |t|
     t.text     "content"
     t.integer  "searchable_id"
     t.string   "searchable_type"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-  end
-
-  create_table "scores", force: true do |t|
-    t.integer  "userid"
-    t.integer  "gameid"
-    t.integer  "score"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
@@ -67,6 +68,7 @@ ActiveRecord::Schema.define(version: 20141010153140) do
     t.datetime "avatar_updated_at"
     t.integer  "coinTo",                 default: 20
     t.integer  "favorites",              default: [],              array: true
+    t.integer  "popup",                  default: [],              array: true
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

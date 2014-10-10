@@ -1,0 +1,22 @@
+$(document).ready(function(){
+  notificationPopper();
+});
+
+function notificationPopper() {
+  var theDiv = $('.popup-notification')
+
+  theDiv.delay(5000).slideUp();
+
+  theDiv.click(function(){
+    $(this).stop(true).slideUp(300);
+  })
+
+  theDiv.mouseover(function() {
+    $(this).stop(true);
+  });
+
+  theDiv.mouseleave(function() {
+    $(this).delay(500).slideUp(300);
+  });
+
+}
