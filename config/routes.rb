@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
 
   get 'games/read'
-  resources :users, :games, only: [:show]
+  resources :users, :games, :play, only: [:show]
 
   get 'users/edit' => 'users#edit', as: 'edit'
   get 'games/:id' => 'games#show'
