@@ -17,6 +17,9 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+    current_user.notifications.create(:game_id => @game.id,
+                                      :message => "You visited a game!",
+                                      :gold => @game.cost)
   end
 
   def play_count(game, increment)

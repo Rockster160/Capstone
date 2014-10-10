@@ -1,5 +1,24 @@
+<div id="pop-container">
+<% Notification.all.each do |notify| %>
+  <% alertid = Notification.find(notify) %>
+        <%# binding.pry %>
+  <% if current_user.id && !(alertid.isRead) %>
+      <div class='popup-notification' style="">
+    <%= Game.find(alertid.game_id).name %><br/>
+    <%= alertid.message %></br>
+    You won: <%= alertid.gold %>
+    <%# binding.pry %>
+    <% alertid.update_attribute(:isRead, true) %>
+      </div>
+  <% end %>
+<% end %>
+  </div>
 <div id="page-body" width="100%">
-
+  <!-- <div class='popup-notification'>
+    Hello World<br/>
+    This is text<br/>
+    You won: 50gold!<br/>
+  </div> -->
   <div id="columnOne">
     <span id="namedisp"><%= @user.username.capitalize %></span>
     <%= image_tag(@user.avatar.url, id: "avatar") %>
@@ -51,9 +70,6 @@
       </div>
     </div>
   <div id="columnTwo">
-    <% if @data == true && @data.to_i > 0 %>
-      <%= render 'layouts/modals/genericModal', data: @data %>
-    <% end %>
     <div id='game-modal-div'>
         <!-- Place holder for the modal data -->
     </div>
