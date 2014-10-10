@@ -14,7 +14,7 @@
 #              about: "",
 #              howto: "" )
 #
-Game.create( id: 0 ,
+Game.create( #id: 0 ,
               name: 'Bowling' ,
               ava: 'bowling.png' ,
               play: './games/play/bowling' ,
@@ -60,7 +60,7 @@ Game.create( id: 0 ,
                       you slam the keys, the faster your rev rate
                       will be in the direction you chose!" )
 
-Game.create( id: 1 ,
+Game.create( #id: 1 ,
               name: 'Pacman' ,
               ava: 'pacman.png' ,
               play: './games/play/pacman' ,
@@ -81,7 +81,7 @@ Game.create( id: 1 ,
                       keys. Collect all coins on a level to
                       progress." )
 
-Game.create( id: 2 ,
+Game.create( #id: 2 ,
               name: 'Platformer' ,
               ava: 'platformer.png' ,
               play: '' ,
@@ -89,7 +89,7 @@ Game.create( id: 2 ,
               about: "Jump around, collect coins, profit!" ,
               howto: "See description above" )
 
-Game.create( id: 3 ,
+Game.create( #id: 3 ,
               name: 'Pusoy' ,
               ava: 'pusoy.png' ,
               play: '' ,
@@ -97,7 +97,7 @@ Game.create( id: 3 ,
               about: "Strange card game where high card is 2 and low card is 3." ,
               howto: "Throw cards, match people, first out wins!" )
 
-Game.create( id: 4 ,
+Game.create( #id: 4 ,
               name: 'Hoops' ,
               ava: 'hoops.png' ,
               play: '' ,
@@ -105,7 +105,7 @@ Game.create( id: 4 ,
               about: "Shoot hoops, score points, become a pro!" ,
               howto: "Flick your finger or click and drag the throw the ball." )
 
-Game.create( id: 5 ,
+Game.create( #id: 5 ,
               name: 'RPG' ,
               ava: 'rpg.png' ,
               play: '' ,
@@ -125,7 +125,7 @@ Game.create( id: 5 ,
 #              avatar: '',
             #  favorites: [])
 
-User.create( id: 0,
+User.create( #id: 0,
              name: 'Zoro',
              about: 'Santouryu',
              coin: 999999,
@@ -137,7 +137,7 @@ User.create( id: 0,
             #  avatar: File.new("#{Rails.root}/app/assets/images/hoops.png", 'r'),
              favorites: [5, 2, 0])
 
-User.create( id: 1,
+User.create( #id: 1,
              name: 'Luffy',
              about: 'Gomu Gomu',
              coin: 12,
@@ -149,7 +149,7 @@ User.create( id: 1,
              avatar: '',
              favorites: [1, 4])
 
-User.create( id: 2,
+User.create( #id: 2,
             name: 'Sam',
             about: 'Hello I am Sam',
             coin: 7856,
@@ -161,7 +161,7 @@ User.create( id: 2,
             avatar: '',
             favorites: [0, 4, 1])
 
-User.create( id: 3,
+User.create( #id: 3,
              name: 'Rocco',
              about: 'I like to flip off stuff',
              coin: 2345,
@@ -173,7 +173,7 @@ User.create( id: 3,
              avatar: '',
              favorites: [0, 5, 2, 1])
 
-User.create( id: 4,
+User.create( #id: 4,
             name: 'Brendan',
             about: 'I bowl and sell life insurance',
             coin: 19872,
@@ -185,7 +185,7 @@ User.create( id: 4,
             avatar: '',
             favorites: [0])
 
-User.create( id: 5,
+User.create( #id: 5,
              name: 'Jason',
              about: 'I am the co instructor at DPL',
              coin: 2345,
@@ -197,7 +197,7 @@ User.create( id: 5,
              avatar: '',
              favorites: [1, 3])
 
- User.create( id: 6,
+ User.create( #id: 6,
               name: 'Alex',
               about: 'I play games',
               coin: 21,
@@ -209,7 +209,7 @@ User.create( id: 5,
               avatar: '',
               favorites: [1, 2, 3, 4, 5])
 
-User.create( id: 7,
+User.create( #id: 7,
              name: 'Preston',
              about: 'I am Mr.PlayBook',
              coin: 987654,
@@ -221,7 +221,7 @@ User.create( id: 7,
              avatar: '',
              favorites: [3, 4, 1])
 
-User.create( id: 8,
+User.create( #id: 8,
             name: 'Test',
             about: 'I am the breaker and I test stuff.',
             coin: 111111111,
@@ -233,7 +233,7 @@ User.create( id: 8,
             avatar: '',
             favorites: [5, 4, 3, 2, 0])
 
-User.create( id: 9,
+User.create( #id: 9,
              name: 'Timer',
              about: 'I just look pretty',
              coin: 123456789,
@@ -245,7 +245,7 @@ User.create( id: 9,
              avatar: '',
              favorites: [])
 
-User.create( id: 10,
+User.create( #id: 10,
              name: 'GameHub',
              about: 'I am the AI for this site! :D',
              coin: 99999999,
