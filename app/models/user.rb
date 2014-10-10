@@ -10,4 +10,17 @@ class User < ActiveRecord::Base
 
   has_attached_file :avatar, :styles => { :medium => "200x300>", :thumb => "100x100>" }, :default_url => "samurai.jpeg"
   validates_attachment_content_type :avatar, :content_type => /\Aimages\/.*\Z/
+
+  has_many :games
+  has_many :rules
+
+  def award(achievement)
+    rules << rule.new
+  end
+
+  def awarded(achievement)
+    games.count(:conditons => { :type => achievement }) > 0
+  end
+
+  
 end

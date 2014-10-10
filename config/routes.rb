@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :rules
+
   post 'users/getscores' => 'users#getscores'
   # devise_for :users, controllers: { registrations: 'registrations' }, :path_prefix => 'd'
   devise_for :users
