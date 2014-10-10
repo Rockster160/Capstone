@@ -12,11 +12,6 @@ Rails.application.routes.draw do
 
   get 'activities/index'
   # resources :activites
-
-  # devise_for :users, controllers: { registrations: 'registrations' }, :path_prefix => 'd'
-  devise_for :users
-
-
   get 'games/read'
   resources :users, :games, :play, only: [:show]
 
