@@ -37,13 +37,28 @@
           <!-- These ordered to Favorite select first, then most played. Limit to 5. -->
           <% 5.times do |fav| %>
             <% if @user.favorites.length > fav %>
-              <li><a href="/games/<%= Game.find(@user.favorites[fav]).id %>"><%= image_tag(Game.find(@user.favorites[fav]).ava, id: "user-fav") %></a></li>
+              <li>
+                <%= link_to game_info_path(id: @user.favorites[fav]), remote: true do  %>
+                  <span class="gamebutton" id="<%= @user.favorites[fav] %>">
+                    <%= image_tag(Game.find(@user.favorites[fav]).ava, id: "user-fav") %>
+                  </span>
+                <% end %>
+              </li>
             <% else %>
-              <li><a href="#"><%= image_tag('missingicon.png', id: "user-fav") %></a></li>
+              <li><a href="./edit"><%= image_tag('missingicon.png', id: "user-fav") %></a></li>
             <% end %>
           <% end %>
       </div>
     </div>
   <div id="columnTwo">
+    <% if @data == true && @data.to_i > 0 %>
+      <%= render 'layouts/modals/genericModal', data: @data %>
+    <% end %>
+    <div id='game-modal-div'>
+        <!-- Place holder for the modal data -->
+    </div>
+
+    </div>
+
   </div>
 </div>

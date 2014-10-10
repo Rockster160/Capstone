@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  post 'users/getscores' => 'users#getscores'
   # devise_for :users, controllers: { registrations: 'registrations' }, :path_prefix => 'd'
   devise_for :users
   devise_scope :user do
@@ -8,10 +9,11 @@ Rails.application.routes.draw do
   end
 
   get 'games/read'
-  resources :users, :games, only: [:show]
+  resources :users, :games, :play, only: [:show]
 
-  get 'users/update/:id' => 'users#update'
+  get 'users/edit' => 'users#edit', as: 'edit'
   get 'games/:id' => 'games#show'
+  get 'games/:id/info' => 'games#info', as: 'game_info'
   get 'index/contact'
 
   # get 'games/play/rpg'

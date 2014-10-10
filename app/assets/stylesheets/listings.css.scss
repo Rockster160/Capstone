@@ -1,16 +1,19 @@
+@import 'utilities/variables';
+
 #listitem {
   height: 120px;
-  background: rgb(205,52,39);
-  border: 5px solid gold;
+  background: $blendbg;
+  border: 5px solid $blendbgdark;
   border-radius: 20px;
   margin-bottom: 10px;
+  // padding: 20px;
   #gameicon {
     float: left;
     background: white;
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    border: 5px dotted purple;
+    border: 5px dotted $border;
     margin: 5px 4vw;
   }
   #title {
@@ -23,6 +26,10 @@
     float: right;
     margin: -10px 20px 0 0;
     list-style-type: none;
+  }
+  #scorefont {
+    font-weight: bold;
+    color: $money;
   }
 }
 
