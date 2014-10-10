@@ -1,6 +1,5 @@
-body {
-  // background: red;
-}
+@import 'utilities/variables';
+
 #columnOne {
   visibility: visible;
   float: left;
@@ -20,7 +19,7 @@ body {
   }
 
   #trophiescase {
-    border: 2px dotted yellow;
+    border: 2px dotted $money;
     height: 100px;
   }
 }
@@ -43,7 +42,7 @@ body {
   }
     #user-fav {
       background: white;
-      border: 0.5vw dotted purple;
+      border: 0.5vw dotted $border;
       height: 100%;
       margin: 0.5vw 0.75vw 0 0.5vw;
       border-radius: 50%;
@@ -63,7 +62,7 @@ body {
   float: right;
   width: 22vw;
   height: 100vh;
-  background: red;
+  background: $placeholder;
   border-radius: 10%;
   padding: 10px;
 }

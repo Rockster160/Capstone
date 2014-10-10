@@ -6,6 +6,24 @@ class UsersController < ApplicationController
     unless user_signed_in?
       redirect_to root_path
     end
+    @data = 0 if !(@data)
+    if params[:passId]
+      @data = params[:passId]
+    end
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
+  def getscores
+  end
+
+  def update
+    @user = User.find(params[:id])
+    unless current_user.id.to_s == params[:id]
+      redirect_to :controller => 'users', :action => 'update', :id => current_user.id
+    end
   end
 
   private
@@ -18,9 +36,6 @@ class UsersController < ApplicationController
   end
 
   def read
-  end
-
-  def update
   end
 
   def destroy

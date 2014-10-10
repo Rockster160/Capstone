@@ -1,3 +1,5 @@
+@import 'utilities/variables';
+
 #columnOne {
   visibility: visible;
   float: left;
@@ -17,7 +19,7 @@
   }
 
   #trophiescase {
-    border: 2px dotted yellow;
+    border: 2px dotted $money;
     height: 100px;
   }
 }
@@ -39,7 +41,7 @@
     }
   }
     #user-fav {
-      border: 0.5vw dotted purple;
+      border: 0.5vw dotted $border;
       height: 100%;
       margin: 0.5vw 0.75vw 0 0.5vw;
       border-radius: 50%;

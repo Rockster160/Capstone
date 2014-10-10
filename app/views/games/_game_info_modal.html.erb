@@ -1,0 +1,21 @@
+<div id="gameInfoModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-sm">
+  <div class="modal-content">
+    <div id='store'>
+        <% if game  %>
+          <%= link_to game_path(id: game.id) do  %>
+            <span class="gamebutton" id="<%= game.id %>">
+              <%= image_tag(game.ava, id: "modal-icon", size: "100x100") %>
+            </span>
+          <% end %>
+          <h3><%= game.name %></h3>
+          <p><%= game.about %><p>
+          <%= link_to play_path(id: game.id) do %>
+            <span class="quickplay" id="<%= game.id %>">
+              <button type="button" class="btn btn-primary">Quick Play!</button>
+            </span>
+          <% end %>
+        <% end  %>
+    </div>
+  </div>
+</div>
