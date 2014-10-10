@@ -1,11 +1,17 @@
 <div id="page-body" width="100%">
 
   <div id="columnOne">
-    <%= image_tag("samurai.jpeg", id: "avatar") %>
+    <span id="namedisp"><%= @user.username.capitalize %></span>
+    <%= image_tag(@user.avatar.url, id: "avatar") %>
+    <% if user_signed_in? && current_user.username == @user.username %>
+      <span id="num-for-coin">
+        <%= image_tag('spinningcoin.gif', id: "coin-on-page", size: "24x24") %>
+        <%= number_with_delimiter( current_user.coin ) %>
+      </span>
+    <% end %>
     <div id="user-about">
       <h1>About Me</h1>
-      <p>Hello this is the about me and I talk
-        about myself and what sports I like.</p>
+      <p><%= @user.about %></p>
       <a href="#" class="fa fa-facebook-square"> This is my website.</a><br/>
       <a href="#" class="fa fa-github"> This is my website.</a><br/>
       <a href="#" class="fa fa-google"> This is my website.</a><br/>
@@ -29,13 +35,30 @@
     <div id="fav_col">
       <div id="favs_box">
           <!-- These ordered to Favorite select first, then most played. Limit to 5. -->
-          <li><%= image_submit_tag("bowling.png", id: "user-fav", class: 'gotobowling') %></li>
-          <li><%= image_submit_tag("rpg.png", id: "user-fav", class: 'gotorpg') %></li>
-          <li><%= image_submit_tag("hoops.png", id: "user-fav", class: 'gotohoops') %></li>
-          <li><%= image_submit_tag("pacman.png", id: "user-fav", class: 'gotopacman') %></li>
-          <li><%= image_submit_tag("platformer.png", id: "user-fav", class: 'gotoplatformer') %></li>
+          <% 5.times do |fav| %>
+            <% if @user.favorites.length > fav %>
+              <li>
+                <%= link_to game_info_path(id: @user.favorites[fav]), remote: true do  %>
+                  <span class="gamebutton" id="<%= @user.favorites[fav] %>">
+                    <%= image_tag(Game.find(@user.favorites[fav]).ava, id: "user-fav") %>
+                  </span>
+                <% end %>
+              </li>
+            <% else %>
+              <li><a href="./edit"><%= image_tag('missingicon.png', id: "user-fav") %></a></li>
+            <% end %>
+          <% end %>
       </div>
     </div>
   <div id="columnTwo">
+    <% if @data == true && @data.to_i > 0 %>
+      <%= render 'layouts/modals/genericModal', data: @data %>
+    <% end %>
+    <div id='game-modal-div'>
+        <!-- Place holder for the modal data -->
+    </div>
+
+    </div>
+
   </div>
 </div>

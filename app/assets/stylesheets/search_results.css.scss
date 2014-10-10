@@ -1,0 +1,77 @@
+@import 'utilities/variables';
+
+#searchlist {
+
+  #searchitem {
+    height: 120px;
+    background: $blendbg;
+    border: 5px solid $blendbgdark;
+    border-radius: 20px;
+    margin: 0 1vw 1vw;
+  }
+  #searchicon {
+    float: left;
+    background: white;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 5px dotted $border;
+    margin: 5px 2vw;
+  }
+  #searchtitle {
+    float: left;
+    margin-top: -9px;
+    height: 120px;
+    overflow: hidden;
+  }
+  #searchtrophies {
+    float: right;
+    overflow: hidden;
+    margin: -10px 20px 0 0;
+    list-style-type: none;
+  }
+  #scorefont {
+    font-weight: bold;
+    color: $money;
+  }
+}
+
+@media (min-width: 1301px) {
+  #searchlist {
+    float: left;
+    width: 48vw;
+  }
+  #searchtrophies { display: block; }
+  #searchdesc { width: 10vw; }
+  #wrapper {
+    .gameslisting { display: block; }
+    .userslisting { display: block; }
+  }
+}
+
+@media (min-width: 701px) and (max-width: 1300px) {
+  #searchlist {
+    float: left;
+    width: 48vw;
+  }
+  #searchdesc, #searchtitle { width: 26vw; }
+  #searchtrophies { display: none; }
+  #wrapper {
+    .gameslisting { display: block; }
+    .userslisting { display: block; }
+  }
+}
+
+@media (max-width: 700px) {
+  #search-img-bg { float: left; }
+  #searchlist {
+    float: none;
+    width: 100%;
+  }
+  #searchtitle { width: 60%; }
+  #searchtrophies { display: none; }
+  #wrapper {
+    .gameslisting { display: table-header-group; }
+    .userslisting { display: table-footer-group; }
+  }
+}

@@ -1,23 +1,15 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- */
-
  // <1k, lose C3.
  // <600 lose C1
+ @import 'utilities/variables';
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import "games";
+ @import "index";
+ @import "listings";
+ @import "search_results";
+ @import "users";
+ @import "edituserpage";
+ @import "modalstyler";
 
 #all-header
 {
@@ -30,8 +22,24 @@
   margin-top: -5px;
 }
 
-body {
-  background: #C0C0C0 url("./gamehub.png") no-repeat top;
+.gamebutton {
+  &:hover { cursor: pointer; }
+}
+
+#namedisp {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+#coin-on-page {
+  margin-top: -5px;
+  margin-right: 5px;
+}
+
+#num-for-coin {
+  font-weight: bold;
+  font-size: 18px;
+  color: $money;
 }
 
 #page-body {
@@ -39,13 +47,21 @@ body {
   margin-right: 2vw;
 }
 
-#nav_searchbar {
-  margin: 10px 10px 0 10px;
-  right: 30px;
-  height: 30px;
-  width: 180px;
-  border: solid 1px #E5E5E5;
-  border-radius: 7px;
+// #nav_searchbar {
+//   margin: 10px 10px 0 10px;
+//   right: 30px;
+//   height: 30px;
+//   width: 180px;
+//   background: $blendbg;
+//   border: solid 1px $blendbgdark;
+//   border-radius: 7px;
+// }
+
+.navbar {
+  min-height: 70px;
+}
+.container-fluid {
+  margin-top: 10px;
 }
 
 @media (min-width: 1101px) {
