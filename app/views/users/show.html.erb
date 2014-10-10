@@ -1,8 +1,17 @@
-  <%# @user.notifications.each do |notify| %>
-  <div id="pop-container">
-    <% 5.times do |notify| %>
-      <div class='popup-notification' style="top: <%= (notify * 90).to_s %>px;">Hello World</div>
-    <% end %>
+<div id="pop-container">
+<% Notification.all.each do |notify| %>
+  <% alertid = Notification.find(notify) %>
+        <%# binding.pry %>
+  <% if current_user.id && !(alertid.isRead) %>
+      <div class='popup-notification' style="">
+    <%= Game.find(alertid.game_id).name %><br/>
+    <%= alertid.message %></br>
+    You won: <%= alertid.gold %>
+    <%# binding.pry %>
+    <% alertid.update_attribute(:isRead, true) %>
+      </div>
+  <% end %>
+<% end %>
   </div>
 <div id="page-body" width="100%">
   <!-- <div class='popup-notification'>

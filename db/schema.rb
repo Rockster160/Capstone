@@ -29,7 +29,8 @@ ActiveRecord::Schema.define(version: 20141010203652) do
   end
 
   create_table "notifications", force: true do |t|
-    t.integer  "userid"
+    t.integer  "game_id"
+    t.integer  "user_id"
     t.string   "message"
     t.boolean  "isRead",     default: false
     t.integer  "gold"
