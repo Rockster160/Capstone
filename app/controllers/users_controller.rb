@@ -14,6 +14,9 @@ class UsersController < ApplicationController
       format.html
       format.js
     end
+    if @user.coinTo > 0
+      @user.popup << 0
+    end
   end
 
   def getscores
@@ -25,11 +28,6 @@ class UsersController < ApplicationController
       redirect_to :controller => 'users', :action => 'update', :id => current_user.id
     end
   end
-
-  private
-
-  # Use strong_parameters for attribute whitelisting
-  # Be sure to update your create() and update() controller methods.
 
   def user_params
     params.require(:user).permit(:avatar)
@@ -45,5 +43,11 @@ class UsersController < ApplicationController
 
   def index
   end
+
+  private
+
+  # Use strong_parameters for attribute whitelisting
+  # Be sure to update your create() and update() controller methods.
+
 
 end
