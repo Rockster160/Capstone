@@ -20,6 +20,10 @@
   margin-bottom: 50px;
 }
 
+#clicky {
+  &:hover { cursor: pointer; }
+}
+
 #all-header
 {
   width: 90%;
