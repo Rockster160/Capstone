@@ -20,8 +20,9 @@ class GamesController < ApplicationController
     # binding.pry
 
     @notification = current_user.notifications.find_or_create_by(
-                            :message => "You visited a game!")
+                            :notify_id => 0)
     @notification.update_attributes(
+                            :message => "You visited a game!",
                             :game_id => @game.id,
                             :gold => @game.cost)
   end

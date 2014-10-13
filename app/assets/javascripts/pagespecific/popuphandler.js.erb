@@ -1,14 +1,17 @@
 $(document).ready(function(){
-  notificationPopper();
+  setInterval(notificationPopper, 4000);
 });
 
-function notificationPopper() {
+var notificationPopper = function() {
   var theDiv = $('.popup-notification')
+  var divId = $('#popup-id')
 
-  theDiv.delay(5000).slideUp();
+  divId.delay(500).slideUp(300, rmElement);
 
   theDiv.click(function(){
-    $(this).stop(true).slideUp(300);
+    $(this).slideUp(300, function(){
+      $(this).remove();
+    });
   })
 
   theDiv.mouseover(function() {
@@ -16,7 +19,10 @@ function notificationPopper() {
   });
 
   theDiv.mouseleave(function() {
-    $(this).delay(500).slideUp(300);
+    $(this).delay(500).slideUp(300, rmElement);
   });
-
 }
+
+var rmElement = function() {
+  $('#popup-id').remove();
+};

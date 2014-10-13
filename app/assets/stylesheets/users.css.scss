@@ -1,12 +1,12 @@
 @import 'utilities/variables';
 
 #pop-container {
-  position: absolute;
+  position: fixed;
+  top: 10px;
   width: 100%;
 .popup-notification {
   z-index: 100;
   position: relative;
-  // float: right;
   margin: 0 0 5px auto;
   border-radius: 5px;
   padding: 10px;
@@ -17,7 +17,6 @@
   color: darken($primaryfocus, 30%);
   font-weight: bold;
   border: 2px solid darken($primaryfocus, 10%);
-  // background-image: url('../../app/assets/images/spinningcoin.gif');
   opacity: 0.8;
 }
 }
