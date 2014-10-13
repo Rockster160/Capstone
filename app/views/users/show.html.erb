@@ -1,15 +1,14 @@
 <div id="pop-container">
 <% Notification.all.each do |notify| %>
   <% alertid = Notification.find(notify) %>
-  <%# if current_user.id && !(alertid.isRead) %>
+  <% if current_user.id && !(alertid.isRead) %>
       <div class='popup-notification' id="popup-id">
-        <!-- alertid.game_id -->
-    <%= Game.find(3).name %><br/>
-    <%= alertid.message %></br>
-    You won: <%= alertid.gold %>
-    <% alertid.update_attribute(:isRead, true) %>
+        <%= Game.find(alertid.game_id).name %><br/>
+        <%= alertid.message %></br>
+        You won: <%= alertid.gold %>
+        <% alertid.update_attribute(:isRead, true) %>
       </div>
-  <%# end %>
+  <% end %>
 <% end %>
   </div>
 <div id="page-body" width="100%">
@@ -18,8 +17,10 @@
     <%= image_tag(@user.avatar.url, id: "avatar") %>
     <% if user_signed_in? && current_user.username == @user.username %>
       <span id="num-for-coin">
-        <%= image_tag('spinningcoin.gif', id: "coin-on-page", size: "24x24") %>
-        <%= number_with_delimiter( current_user.coin ) %>
+        <canvas id="coinupdater" width="150" height="200">
+        </canvas>
+          <%= image_tag('spinningcoin.gif', id: "coin-on-page", size: "24x24") %>
+          <%= number_with_delimiter( current_user.coin ) %>
       </span>
     <% end %>
     <div id="user-about">

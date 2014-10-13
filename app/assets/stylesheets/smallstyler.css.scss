@@ -11,6 +11,13 @@
     border-radius: 100%;
     margin-bottom: 20px;
   }
+
+    #coinupdater {
+      z-index: -1;
+      position: absolute;
+      left: 20px;
+      top:80vw;
+    }
   #trophiescase {
     border: 2px dotted $money;
     height: 100px;
