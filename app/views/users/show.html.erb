@@ -1,7 +1,7 @@
 <div id="pop-container">
 <% Notification.all.each do |notify| %>
   <% alertid = Notification.find(notify) %>
-  <%# if current_user.id && (alertid.isRead) %>
+  <%# if current_user.id && !(alertid.isRead) %>
       <div class='popup-notification' id="popup-id">
         <!-- alertid.game_id -->
     <%= Game.find(3).name %><br/>

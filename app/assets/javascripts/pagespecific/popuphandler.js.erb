@@ -1,28 +1,37 @@
 $(document).ready(function(){
-  setInterval(notificationPopper, 4000);
+  notificationPopper();
 });
 
 var notificationPopper = function() {
   var theDiv = $('.popup-notification')
   var divId = $('#popup-id')
 
-  divId.delay(500).slideUp(300, rmElement);
-
   theDiv.click(function(){
-    $(this).slideUp(300, function(){
+    console.log("I've been clicked!");
+    $(this).stop().slideUp(300, function(){
       $(this).remove();
+      notificationPopper();
     });
   })
 
   theDiv.mouseover(function() {
-    $(this).stop(true);
+    $('.popup-notification').stop(true);
   });
 
   theDiv.mouseleave(function() {
-    $(this).delay(500).slideUp(300, rmElement);
+    divId.delay(1000).slideUp(300, function(){
+      $(this).remove();
+      notificationPopper();
+    });
+  });
+
+  divId.delay(1000).slideUp(300, function(){
+    $(this).remove();
+    notificationPopper();
   });
 }
 
-var rmElement = function() {
-  $('#popup-id').remove();
+var rmElement = function(pass) {
+  $(pass).remove();
+  notificationPopper();
 };
