@@ -14,6 +14,13 @@
     margin-bottom: 20px;
   }
 
+    #coinupdater {
+      z-index: -1;
+      position: absolute;
+      left: 20px;
+      top:35vw;
+    }
+
   #user-about {
     padding: 1vw;
   }

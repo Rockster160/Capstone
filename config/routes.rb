@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get 'games/read'
   resources :users, :games, :play, only: [:show]
 
+  get 'games/play/mazegame' => 'games#mazegame', as: 'mazegame'
+
   get 'users/edit' => 'users#edit', as: 'edit'
   get 'games/:id' => 'games#show'
   get 'games/:id/info' => 'games#info', as: 'game_info'
