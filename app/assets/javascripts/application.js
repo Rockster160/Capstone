@@ -13,8 +13,6 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
-//= require mazeGame/lib/impact/impact.js
-//= require mazeGame/lib/game/main.js
 //= require_tree .
 
 var open = false;

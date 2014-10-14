@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :users, :games, :play, only: [:show]
 
   get 'games/play/mazegame' => 'games#mazegame', as: 'mazegame'
+  # get 'vendor/assets/javascripts/mazeGame/mazegame' => 'games#mazegame', as: 'mazegame'
 
   get 'users/edit' => 'users#edit', as: 'edit'
   get 'games/:id' => 'games#show'
