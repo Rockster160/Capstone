@@ -41,17 +41,17 @@
       <div id="favs_box">
           <!-- These ordered to Favorite select first, then most played. Limit to 5. -->
           <% 5.times do |fav| %>
-            <% if @user.favorites.length > fav %>
               <li>
-                <%= link_to game_edit_path(id: @user.favorites[fav]), remote: true do  %>
-                  <span class="gamebutton" id="<%= @user.favorites[fav] %>">
-                    <%= image_tag(Game.find(@user.favorites[fav]).ava, id: "user-fav") %>
+                <%= link_to game_edit_path(id: fav), remote: true do  %>
+                  <span class="gamebutton" id="<%= fav %>">
+                      <% if @user.favorites.length > fav %>
+                        <%= image_tag(Game.find(@user.favorites[fav]).ava, id: "user-fav") %>
+                      <% else %>
+                        <li><%= image_tag('missingicon.png', id: "user-fav") %></li>
+                      <% end %>
                   </span>
                 <% end %>
               </li>
-            <% else %>
-              <li><a href="./edit"><%= image_tag('missingicon.png', id: "user-fav") %></a></li>
-            <% end %>
           <% end %>
       </div>
     </div>
