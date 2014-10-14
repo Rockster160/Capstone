@@ -7,15 +7,66 @@
     <div class="format-navbar" id="edit-pw-confirm"><%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm Password" %></div>
     <div class="format-navbar" id="edit-submit"><%= f.password_field :current_password, autocomplete: "off", placeholder: "Current Password" %></div>
     <div class="format-navbar" id="edit-sub-button"><%= f.submit "Update", id: "edit-sub-btn", class: "btn btn-success" %></div>
-    <!-- <input class="btn btn-success" id="edit-sub-btn" type="submit" value="Update"> -->
   </div>
 
   <%= devise_error_messages! %>
-<% end %>
 
-<%= button_to "Cancel my account", registration_path(resource_name),
-              data: { confirm: "Do you really want to deactivate your account?\n
-                                This is permanent and cannot be undone." },
-              method: :delete,
-              id: "edit-delete-btn",
-              class: "btn btn-danger" %>
+<div id="page-body" width="100%">
+  <div id="columnOne">
+    <span id="namedisp"><%= @user.username.capitalize %></span>
+    <%= image_tag(@user.avatar.url, id: "avatar") %>
+    <div id="user-about">
+      <h1>About Me</h1>
+      <div><%= f.text_field :about, placeholder: @user.about %></div>
+      <a href="#" class="fa fa-facebook-square"> This is my website.</a><br/>
+      <a href="#" class="fa fa-github"> This is my website.</a><br/>
+      <a href="#" class="fa fa-google"> This is my website.</a><br/>
+      <a href="#" class="fa fa-linkedin-square"> This is my website.</a><br/>
+      <a href="#" class="fa fa-slack"> This is my website.</a><br/>
+      <a href="#" class="fa fa-reddit"> This is my website.</a><br/>
+      <a href="#" class="fa fa-tumblr-square"> This is my website.</a><br/>
+      <a href="#" class="fa fa-twitter"> This is my website.</a><br/>
+      <a href="#">This is my website.</a>
+    </div>
+  </div>
+
+  <div id="clicksidebar">
+    <div id="sidebaricon"><i class="fa fa-bars fa-lg fa-rotate-90 fa-2x" style=""></i></div>
+  </div>
+
+  <div id="columnThree">
+    Just some filler to take up room and be a place holder for now.
+  </div>
+    <div id="fav_col">
+      <div id="favs_box">
+          <!-- These ordered to Favorite select first, then most played. Limit to 5. -->
+          <% 5.times do |fav| %>
+            <% if @user.favorites.length > fav %>
+              <li>
+                <%= link_to game_edit_path(id: @user.favorites[fav]), remote: true do  %>
+                  <span class="gamebutton" id="<%= @user.favorites[fav] %>">
+                    <%= image_tag(Game.find(@user.favorites[fav]).ava, id: "user-fav") %>
+                  </span>
+                <% end %>
+              </li>
+            <% else %>
+              <li><a href="./edit"><%= image_tag('missingicon.png', id: "user-fav") %></a></li>
+            <% end %>
+          <% end %>
+      </div>
+    </div>
+    <div id="columnTwo">
+      <div id='game-modal-div'>
+          <!-- Place holder for the modal data -->
+      </div>
+    </div>
+  </div>
+</div>
+ <% end %>
+
+  <%= button_to "Cancel my account", registration_path(resource_name),
+                data: { confirm: "Do you really want to deactivate your account?\n
+                                  This is permanent and cannot be undone." },
+                method: :delete,
+                id: "edit-delete-btn",
+                class: "btn btn-danger" %>
