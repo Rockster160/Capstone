@@ -20,13 +20,13 @@
               <% 4.times do |fav| %>
                 <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
                   <div class="hmpg-favbtn">
-                      <%= link_to game_edit_path(id: fav), remote: true do %>
-                    <% if @user.favorites.length > fav %>
-                        <%= image_tag(Game.find(@user.favorites[fav]).ava, id: "favs") %>
-                    <% else %>
-                      <%= image_tag('missingicon.png', id: "favs") %>
-                    <% end %>
+                    <%= link_to game_edit_path(id: fav), remote: true do %>
+                      <% if @user.favorites[fav] != 0 %>
+                          <%= image_tag(Game.find(@user.favorites[fav]).ava, id: "favs") %>
+                      <% else %>
+                        <%= image_tag('missingicon.png', id: "favs") %>
                       <% end %>
+                    <% end %>
                   </div>
                 </div>
               <% end %>
