@@ -52,6 +52,8 @@ gem 'therubyracer'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 
+gem 'masonry-rails'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
