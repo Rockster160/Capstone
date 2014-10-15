@@ -5,16 +5,46 @@
 
 #mysearchbar {
   margin: 10px 0 0 20px;
-  width: 200px;
+  width: 190px;
   padding: 6px 15px 6px 30px;
   height: 30px;
 	border-radius:15px;
 	-moz-border-radius:15px;
 	-webkit-border-radius:15px;
-  // background: grey;
 }
-#searchicon {
+#searchbaricon {
   position: absolute;
   top: 18px;
   left: 28px;
+}
+
+#columnThree {
+  display: block;
+  background: red;
+  z-index: 100;
+  position: fixed;
+  right: -50vw;
+  top: 20vh;
+  width: 50vw;
+  height: 70vh;
+  border-radius: 20px 0 0 20px;
+}
+
+#clicksidebar {
+  z-index: 100;
+  visibility: visible;
+  border: 5px solid #999;
+  border-radius: 100% 0 0 100%;
+  position: fixed;
+  right: -5px;
+  top: 40vh;
+  height: 200px;
+  width: 40px;
+  background: #888;
+  #sidebaricon {
+    position: relative;
+    right: 0;
+    top: 45%;
+    margin-top: 0px;
+  }
 }
