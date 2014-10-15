@@ -6,16 +6,14 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #
-# Game.create( id: ,
-#              name: '',
+# Game.create( name: '',
 #              ava: '',
 #              play: '',
 #              cost: ,
 #              about: "",
 #              howto: "" )
 #
-Game.create( #id: 0 ,
-              name: 'Bowling' ,
+Game.create(  name: 'Bowling' ,
               ava: 'bowling.png' ,
               play: './games/play/bowling' ,
               cost: 50 ,
@@ -60,9 +58,8 @@ Game.create( #id: 0 ,
                       you slam the keys, the faster your rev rate
                       will be in the direction you chose!" )
 
-Game.create( #id: 1 ,
-              name: 'Pacman' ,
-              ava: 'pacman.png' ,
+Game.create(  name: 'Pacman' ,
+              ava: 'pacman.jpeg' ,
               play: './games/play/pacman' ,
               cost: 50 ,
               about: "This is a Pacman remake. As the Pacman
@@ -81,37 +78,47 @@ Game.create( #id: 1 ,
                       keys. Collect all coins on a level to
                       progress." )
 
-Game.create( #id: 2 ,
-              name: 'Platformer' ,
-              ava: 'platformer.png' ,
+Game.create(  name: 'Platformer' ,
+              ava: 'mrgaw.jpg' ,
               play: '' ,
               cost: 50 ,
               about: "Jump around, collect coins, profit!" ,
               howto: "See description above" )
 
-Game.create( #id: 3 ,
-              name: 'Pusoy' ,
-              ava: 'pusoy.png' ,
+Game.create(  name: 'Pusoy' ,
+              ava: 'dice.png' ,
               play: '' ,
               cost: 50 ,
               about: "Strange card game where high card is 2 and low card is 3." ,
               howto: "Throw cards, match people, first out wins!" )
 
-Game.create( #id: 4 ,
-              name: 'Hoops' ,
-              ava: 'hoops.png' ,
+Game.create(  name: 'Hoops' ,
+              ava: 'basketball.png' ,
               play: '' ,
               cost: 50 ,
               about: "Shoot hoops, score points, become a pro!" ,
               howto: "Flick your finger or click and drag the throw the ball." )
 
-Game.create( #id: 5 ,
-              name: 'RPG' ,
-              ava: 'rpg.png' ,
+Game.create(  name: 'RPG' ,
+              ava: 'swords.jpeg' ,
               play: '' ,
               cost: 50 ,
               about: "This is an rpg run around magic spell casting game!" ,
               howto: "Click on stuff to fire attack, level up spells to increase damage." )
+
+Game.create( name: 'DevLabs',
+             ava: 'devlabs.png',
+             play: '',
+             cost: 100,
+             about: "11 week deep dive boot camp learning web development.",
+             howto: "Prepare yourself!" )
+
+Game.create( name: 'Random',
+             ava: 'swap-bag.png',
+             play: '',
+             cost: 100,
+             about: "Play the game, get random stuff!",
+             howto: "Click on things, receive items, gamble your life away." )
 #                     )
 # User.create( id: ,
 #              name: '',
