@@ -1,0 +1,20 @@
+ // <1k, lose C3.
+ // <600 lose C1
+ //= require_tree .
+@import 'btoverrides';
+
+#mysearchbar {
+  margin: 10px 0 0 20px;
+  width: 200px;
+  padding: 6px 15px 6px 30px;
+  height: 30px;
+	border-radius:15px;
+	-moz-border-radius:15px;
+	-webkit-border-radius:15px;
+  // background: grey;
+}
+#searchicon {
+  position: absolute;
+  top: 18px;
+  left: 28px;
+}
