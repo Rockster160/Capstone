@@ -3,11 +3,12 @@
 #listitem {
   padding: 5px;
   width: 240px;
-  height: 440px;
+  height: 470px;
   background: $blendbg;
   border: 5px solid $blendbgdark;
   border-radius: 20px;
   margin: 5px;
+  .quickplay { margin-left: 28%; }
 }
 
 #userlistitem {
@@ -20,16 +21,6 @@
   margin: 5px;
 }
 
-#modallistitem {
-  padding: 5px;
-  width: 240px;
-  height: 470px;
-  background: $blendbg;
-  border: 5px solid $blendbgdark;
-  border-radius: 20px;
-  margin: 5px;
-  .quickplay { margin-left: 28%; }
-}
 #gameicon {
   background: $gameiconbg;
   padding: 5px;

@@ -31,6 +31,11 @@
               <li><i>Rockster160</i>&nbsp;</li>
 
         </div>
+        <%= link_to play_path(id: game.id) do %>
+          <span class="quickplay" id="<%= game.id %>">
+            <button type="button" class="btn btn-primary">Quick Play!</button>
+          </span>
+        <% end %>
       </div>
     </div>
   <% end %>
