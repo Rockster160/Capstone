@@ -1,0 +1,15 @@
+@import 'utilities/variables';
+
+#store {
+  padding: 20px;
+  h3 { margin-left: 130px; }
+  .quickplay { margin-left: 30%; }
+}
+
+#modal-icon {
+  float: left;
+  border: 0.5vw dotted $border;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 20px;
+}

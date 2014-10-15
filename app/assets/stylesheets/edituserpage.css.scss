@@ -1,0 +1,48 @@
+@import 'utilities/variables';
+
+#editing-navbar {
+  width: 100%;
+  height: 100px;
+  background: $editing;
+  border-bottom-left-radius: 7vw 30px;
+  border-bottom-right-radius: 7vw 30px;
+}
+
+.format-navbar { position: absolute; }
+
+#edit-email, #edit-username {
+  margin: -10px 0 0 15px;
+  left: 10px;
+}
+
+#edit-pw, #edit-pw-confirm {
+  margin: -10px 15px 0 0;
+  right: 10px;
+}
+
+#edit-username, #edit-pw { top: 78px; }
+#edit-email, #edit-pw-confirm { top: 118px; }
+
+#edit-submit, #edit-sub-button {
+  top: 70px;
+  left: 50%;
+  margin-left: -77px;
+}
+
+input[type=submit] { width: 154px; }
+#edit-sub-button {
+  top: 96px;
+}
+
+#footer { width: 100% }
+#edit-delete-btn {
+  position: absolute;
+  left: 50%;
+  margin-left: -77px;
+}
+
+@media (max-width: 550px) {
+  #edit-submit { top: 190px; }
+  #edit-sub-button { top: 216px; }
+  #editing-navbar { height: 200px; }
+}
