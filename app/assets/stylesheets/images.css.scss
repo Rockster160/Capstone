@@ -3,15 +3,18 @@
 #coin-inline {
   color: $money;
   font-weight: bold;
+  z-index: 2;
 }
 
 #homepage {
 
   #coinupdater {
     position: absolute;
-    z-index: -1;
+    opacity: 0.5;
+    z-index: 0;
+    margin: -40px 0 0 -30px;
   }
-  #coin { margin-top: -10px;}
+  #coin { margin-top: -10px; }
 
   #avatar {
     padding: 5px;

@@ -14,8 +14,8 @@ $(document).ready(function() {
     };
 
     function create_particle() {
-      this.myX = Math.random()*(W - 50) + 30;
-      this.myY = Math.random()*20 + (H/2) - 5;
+      this.myX = Math.random()*(W - 50) + 15;
+      this.myY = Math.random()*15 + (H/2) - 40;
 
       this.velX = Math.random()*4 - 2;
       this.velY = -Math.random()*10 - 10;
@@ -27,8 +27,8 @@ $(document).ready(function() {
     function draw() {
     	ctx.fillStyle = "rgba(255,255,255, 1)";
     	ctx.fillRect(0, 0, W, H);
-        ctx.fillStyle = "rgba(255,255,25, 1)";
-        ctx.fillRect(30, (H/2) - 5, (W - 50), 15);
+        // ctx.fillStyle = "rgba(255,255,25, 1)";
+        // ctx.fillRect(15, (H/2) - 40, (W - 50), 15);
 
       for (var t=0;t<particles.length;t++) {
         var par = particles[t];
@@ -68,10 +68,10 @@ $(document).ready(function() {
 
            draw();
 
-           if (++x === 40) {
+           if (++x === 100) {
                window.clearInterval(intervalID);
            }
-        }, 1500);
-    });
+        }, 40);
+    }, 1500);
   }
 })

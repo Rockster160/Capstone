@@ -8,9 +8,9 @@
             <% if user_signed_in? && current_user.username == @user.username %>
             <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
                 <h1 id="coin-inline">
-                  <canvas id="coinupdater"></canvas>
                   <%= image_tag('spinningcoin.gif', id: "coin", size: "32x32") %>
                   <%= number_with_delimiter( current_user.coin ) %>
+                  <canvas id="coinupdater"></canvas>
                 </h1>
             </div>
             <% end %>
@@ -33,6 +33,10 @@
                 </div>
               </div>
             <% end %>
+
+            <div id='game-modal-div'>
+                <!-- Place holder for the modal data -->
+            </div>
 
           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
             <h1>About Me</h1>
