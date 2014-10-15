@@ -135,7 +135,7 @@ User.create( #id: 0,
              password_confirmation: 'password',
              username: 'Zoro',
             #  avatar: File.new("#{Rails.root}/app/assets/images/hoops.png", 'r'),
-             favorites: [6, 3, 1])
+             favorites: [6, 3, 1, 0, 0])
 
 User.create( #id: 1,
              name: 'Luffy',
@@ -147,7 +147,7 @@ User.create( #id: 1,
              password_confirmation: 'password',
              username: 'luffy',
              avatar: '',
-             favorites: [2, 5])
+             favorites: [2, 5, 0, 0, 0])
 
 User.create( #id: 2,
             name: 'Sam',
@@ -159,7 +159,7 @@ User.create( #id: 2,
             password_confirmation: 'password',
             username: 'SamIam',
             avatar: '',
-            favorites: [1, 5, 2])
+            favorites: [1, 5, 2, 0, 0])
 
 User.create( #id: 3,
              name: 'Rocco',
@@ -171,7 +171,7 @@ User.create( #id: 3,
              password_confirmation: 'password',
              username: 'Rockster160',
              avatar: '',
-             favorites: [1, 6, 3, 2])
+             favorites: [1, 6, 3, 2, 0])
 
 User.create( #id: 4,
             name: 'Brendan',
@@ -183,7 +183,7 @@ User.create( #id: 4,
             password_confirmation: 'password',
             username: 'Brendan',
             avatar: '',
-            favorites: [1])
+            favorites: [1, 0, 0, 0, 0])
 
 User.create( #id: 5,
              name: 'Jason',
@@ -195,7 +195,7 @@ User.create( #id: 5,
              password_confirmation: 'password',
              username: 'Jasonwc',
              avatar: '',
-             favorites: [2, 4])
+             favorites: [2, 4, 0, 0, 0])
 
  User.create( #id: 6,
               name: 'Alex',
@@ -219,7 +219,7 @@ User.create( #id: 7,
              password_confirmation: 'password',
              username: 'PrestonJohnson',
              avatar: '',
-             favorites: [4, 5, 2])
+             favorites: [4, 5, 2, 0, 0])
 
 User.create( #id: 8,
             name: 'Test',
@@ -243,7 +243,7 @@ User.create( #id: 9,
              password_confirmation: 'password',
              username: 'GrandfatherTime',
              avatar: '',
-             favorites: [])
+             favorites: [0, 0, 0, 0, 0])
 
 User.create( #id: 10,
              name: 'GameHub',

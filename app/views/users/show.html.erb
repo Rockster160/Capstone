@@ -9,8 +9,8 @@
             <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
                 <h1 id="coin-inline">
                   <%= image_tag('spinningcoin.gif', id: "coin", size: "32x32") %>
-                  <%= number_with_delimiter( current_user.coin ) %>
                   <canvas id="coinupdater"></canvas>
+                  <%= number_with_delimiter( current_user.coin ) %>
                 </h1>
             </div>
             <% end %>
@@ -23,7 +23,7 @@
             <% 4.times do |fav| %>
               <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
                 <div class="hmpg-favbtn">
-                  <% if @user.favorites.length > fav %>
+                  <% if @user.favorites[fav] != 0 %>
                     <%= link_to game_info_path(id: @user.favorites[fav]), remote: true do %>
                       <%= image_tag(Game.find(@user.favorites[fav]).ava, id: "favs") %>
                     <% end %>
