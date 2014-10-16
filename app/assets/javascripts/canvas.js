@@ -25,7 +25,8 @@ $(document).ready(function() {
     }
 
     function draw() {
-    	ctx.fillStyle = "rgba(255,255,255, 1)";
+      ctx.clearRect(0, 0, W, H);
+    	ctx.fillStyle = "rgba(255,255,255, 0)";
     	ctx.fillRect(0, 0, W, H);
         // ctx.fillStyle = "rgba(255,255,25, 1)";
         // ctx.fillRect(15, (H/2) - 40, (W - 50), 15);
@@ -50,25 +51,13 @@ $(document).ready(function() {
       }
     }
 
-  //   function setIntervalX(delay, repetitions) {
-  //     var x = 0;
-  //     var intervalID = window.setInterval(function () {
-  //
-  //        draw();
-  //
-  //        if (++x === repetitions) {
-  //            window.clearInterval(intervalID);
-  //        }
-  //     }, delay);
-  // }
-
     setTimeout(function () {
         var x = 0;
         var intervalID = window.setInterval(function () {
 
            draw();
 
-           if (++x === 100) {
+           if (++x === 40) {
                window.clearInterval(intervalID);
            }
         }, 40);

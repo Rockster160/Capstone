@@ -28,7 +28,11 @@
                       <%= image_tag(Game.find(@user.favorites[fav]).ava, id: "favs") %>
                     <% end %>
                   <% else %>
-                    <a href="./edit"><%= image_tag('missingicon.png', id: "favs") %></a>
+                    <% if current_user.username == @user.username %>
+                      <a href="./edit"><%= image_tag('add.png', id: "favs") %></a>
+                    <% else %>
+                      <a href="./edit"><%= image_tag('missing.png', id: "favs") %></a>
+                    <% end %>
                   <% end %>
                 </div>
               </div>
@@ -66,7 +70,7 @@
             <div class="col-md-8 col-sm-6 col-xs-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <i class="fa fa-bar-chart-o fa-fw"></i> Trophy Case
+                        <i class="fa fa-trophy fa-2x" style="color: gold;"></i> Trophy Case
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">

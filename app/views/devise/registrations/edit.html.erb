@@ -11,7 +11,7 @@
   </div>
   <%= devise_error_messages! %>
 
-  <div id="wrapper">
+  <div id="wrapper" style="margin-top: 15px;">
   <div id="homepage">
       <div id="page-wrapper">
           <div class="row">
@@ -23,7 +23,7 @@
                       <% if @user.favorites[fav] != 0 %>
                           <%= image_tag(Game.find(@user.favorites[fav]).ava, id: "favs") %>
                       <% else %>
-                        <%= image_tag('missingicon.png', id: "favs") %>
+                        <%= image_tag('add.png', id: "favs") %>
                       <% end %>
                     <% end %>
                   </div>

@@ -2,27 +2,31 @@
 
 #coin-inline {
   color: $money;
+  font-size: 1.5em;
+  text-shadow: 1px 1px 1px darken($money, 10%);
   font-weight: bold;
   z-index: 2;
+  #coin {
+    margin: 0 10px 0 -10px;
+  }
 }
 
 #homepage {
-
   #coinupdater {
     position: absolute;
-    opacity: 0.5;
     z-index: 0;
     margin: -40px 0 0 -30px;
   }
-  #coin { margin-top: -10px; }
+  #coin { margin-top: -8px; }
+  #coin-inline { font-size: 2em; }
 
   #avatar {
     padding: 5px;
-    background: blue;
+    background: $gameiconbg;
   }
 
   #favs {
-    background: blue;
+    background: $gameiconbg;
     padding: 5px;
     margin-bottom: 10px;
     height: 12vw;
