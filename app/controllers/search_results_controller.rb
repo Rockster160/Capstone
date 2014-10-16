@@ -1,8 +1,6 @@
 class SearchResultsController < ApplicationController
 
   def index
-    searchuser = PgSearch.multisearch(params[:q]).where(:searchable_type => "User").collect(&:searchable)
-    searchgame = PgSearch.multisearch(params[:q]).where(:searchable_type => "Game").collect(&:searchable)
     @listuser = []
     @listgame = []
     @temp = []

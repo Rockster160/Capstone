@@ -6,17 +6,12 @@ class UsersController < ApplicationController
     unless user_signed_in?
       redirect_to root_path
     end
-    @data = 0 if !(@data)
-    if params[:passId]
-      @data = params[:passId]
-    end
     respond_to do |format|
       format.html
       format.js
     end
-    if @user.coinTo > 0
-      # @user.popup << 0
-    end
+    @user.update_attribute(:coin, @user.coin+@user.coinTo)
+    @user.update_attribute(:coinTo, 0)
   end
 
   def getscores

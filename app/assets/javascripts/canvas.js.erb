@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
   var canvas = document.getElementById("coinupdater");
-  if (canvas) {
+  if (canvas && coinTo) {
     var ctx = canvas.getContext("2d");
 
     var W = 150;
@@ -9,12 +9,12 @@ $(document).ready(function() {
     var g = 1;
 
     var particles = [];
-    for (var i=0;i<100;i++) {
+    for (var i=0;i<150;i++) {
       particles.push(new create_particle())
     };
 
     function create_particle() {
-      this.myX = Math.random()*(W - 50) + 15;
+      this.myX = Math.random()*(W) + 15;
       this.myY = Math.random()*15 + (H/2) - 40;
 
       this.velX = Math.random()*4 - 2;
@@ -26,10 +26,10 @@ $(document).ready(function() {
 
     function draw() {
       ctx.clearRect(0, 0, W, H);
-    	ctx.fillStyle = "rgba(255,255,255, 0)";
-    	ctx.fillRect(0, 0, W, H);
+      ctx.fillStyle = "rgba(255,255,255, 0)";
+      ctx.fillRect(0, 0, W, H);
         // ctx.fillStyle = "rgba(255,255,25, 1)";
-        // ctx.fillRect(15, (H/2) - 40, (W - 50), 15);
+        // ctx.fillRect(15, (H/2) - 40, (W), 15);
 
       for (var t=0;t<particles.length;t++) {
         var par = particles[t];
@@ -53,6 +53,8 @@ $(document).ready(function() {
 
     setTimeout(function () {
         var x = 0;
+        $('#coin_on_page').html(coinTo);
+
         var intervalID = window.setInterval(function () {
 
            draw();

@@ -1,3 +1,11 @@
+<%= javascript_tag do %>
+  <% if @user.coinTo > 0 %>
+    window.coinTo = '<%= j (number_with_delimiter(@user.coin + @user.coinTo)).to_s %>';
+  <% else %>
+    window.coinTo = false;
+  <% end %>
+<% end %>
+
 <div id="wrapper">
 <div id="homepage">
     <div id="page-wrapper">
@@ -10,7 +18,7 @@
                 <h1 id="coin-inline">
                   <%= image_tag('spinningcoin.gif', id: "coin", size: "32x32") %>
                   <canvas id="coinupdater"></canvas>
-                  <%= number_with_delimiter( current_user.coin ) %>
+                  <span id="coin_on_page"><%= number_with_delimiter( current_user.coin ) %></span>
                 </h1>
             </div>
             <% end %>
