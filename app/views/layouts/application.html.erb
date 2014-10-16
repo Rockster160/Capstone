@@ -17,7 +17,18 @@
   <%= render 'layouts/header' %>
 	<%= render 'layouts/messages' %>
 
-<%= yield %>
+	<%= render partial: 'layouts/header' %>
+<!--note: outside of pagewrap -->
+
+<div class="page_wrap">
+
+
+  <%= yield %>
+
+
+  <%= render partial: 'layouts/footer' %>
+  <!--note: inside of pagewrap after content -->
+</div>
 
 </body>
 </html>

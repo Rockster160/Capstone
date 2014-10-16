@@ -88,3 +88,23 @@
 // @media (max-width: 1100px) and (min-width: 590) {
 //   @import "midstyler";
 // }
+html { height: 100%; }
+body { height: 100%; background: blue; }
+
+/* .page_wrap expands with the page content,
+	but is never less than 100% of body/html */
+
+.page_wrap {
+	min-height: 100%;
+	position: relative;
+}
+
+/* footer is absolutly positioned to the bottom of .page_wrap */
+
+.footer {
+	position: absolute;
+	height: 80px;
+	width: 100%;
+	background: $color_panel;
+	bottom: 0px;
+}
