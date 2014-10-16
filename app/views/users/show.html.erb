@@ -17,7 +17,7 @@
             <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
                 <h1 id="coin-inline">
                   <%= image_tag('spinningcoin.gif', id: "coin", size: "32x32") %>
-                  <canvas id="coinupdater"></canvas>
+                  <canvas id="coinupdater" width=150 height=300></canvas>
                   <span id="coin_on_page"><%= number_with_delimiter( current_user.coin ) %></span>
                 </h1>
             </div>
