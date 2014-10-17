@@ -1,3 +1,4 @@
+#Redirects information regarding the User to appropriate places.
 class UsersController < ApplicationController
   before_filter :authenticate_user!, :only => :show
 
@@ -19,8 +20,9 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    unless current_user.id.to_s == params[:id]
-      redirect_to :controller => 'users', :action => 'update', :id => current_user.id
+    @myId = current_user.id
+    unless @myId.to_s == params[:id]
+      redirect_to :controller => 'users', :action => 'update', :id => @myId
     end
   end
 

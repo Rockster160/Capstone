@@ -1,3 +1,4 @@
+#Retrieves input from search bar, performs the search and sends the information back.
 class SearchResultsController < ApplicationController
 
   def index
@@ -5,22 +6,21 @@ class SearchResultsController < ApplicationController
     @listgame = []
     @temp = []
     @fwd = params[:q].downcase.chars.sort { |a, b| a.casecmp(b) }.join
-    @len_of_str = (Float(@fwd.length)/1.5).ceil
-    User.all.each do |f|
+    @length = @fwd.length
+    @len_of_str = (Float(@length)/1.5).ceil
+    User.all.each do |user|
       count = 0
-      # @temp << f.username.downcase.chars.sort { |a, b| a.casecmp(b) }.join
-      @fwd.length.times do |pfwd|
-        count += 1 if f.username.downcase.include?(@fwd[pfwd])
+      @length.times do |pfwd|
+        count += 1 if user.username.downcase.include?(@fwd[pfwd])
       end
-      @listuser << [f.id, count] if count >= @len_of_str
+      @listuser << [user.id, count] if count >= @len_of_str
     end
-    Game.all.each do |f|
+    Game.all.each do |game|
       count = 0
-      # @temp << f.name.downcase.chars.sort { |a, b| a.casecmp(b) }.join
-      @fwd.length.times do |pfwd|
-        count += 1 if f.name.downcase.include?(@fwd[pfwd])
+      @length.times do |pfwd|
+        count += 1 if game.name.downcase.include?(@fwd[pfwd])
       end
-      @listgame << [f.id, count] if count >= @len_of_str
+      @listgame << [game.id, count] if count >= @len_of_str
     end
     @fwd = @len_of_str
     @listuser = @listuser.sort_by{|x,y|y}.reverse

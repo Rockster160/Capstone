@@ -1,3 +1,4 @@
+#Give the user default values
 class AddDefaultsToUser < ActiveRecord::Migration
   def change
     change_column :users, :coin, :integer, default: 0

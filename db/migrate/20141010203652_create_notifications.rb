@@ -1,3 +1,4 @@
+#Create table for notifications
 class CreateNotifications < ActiveRecord::Migration
   def change
     create_table :notifications do |t|
