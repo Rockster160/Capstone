@@ -9,12 +9,15 @@ class GamesController < ApplicationController
       @games << game.name
     end
   end
-
   # Used via AJAX
   def info
     @game = Game.find(params[:id])
   end
 
+  def edit
+    @game = Game.find(params[:id])
+  end
+  # No more AJAX. :D
   def show
     @game = Game.find(params[:id])
     # binding.pry

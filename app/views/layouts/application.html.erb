@@ -5,7 +5,30 @@
 	</style>
 	<link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
   <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
   <title>GameHub</title>
+
+		<!-- Bootstrap Core CSS -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- MetisMenu CSS -->
+		<link href="css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+		<!-- Timeline CSS -->
+		<link href="css/plugins/timeline.css" rel="stylesheet">
+
+		<!-- Custom CSS -->
+		<link href="css/sb-admin-2.css" rel="stylesheet">
+
+		<!-- Morris Charts CSS -->
+		<link href="css/plugins/morris.css" rel="stylesheet">
+
+		<!-- Custom Fonts -->
+		<link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -17,6 +40,7 @@
   <%= render 'layouts/header' %>
 	<%= render 'layouts/messages' %>
 
+<<<<<<< HEAD
 	<%= render partial: 'layouts/header' %>
 <!--note: outside of pagewrap -->
 
@@ -29,6 +53,17 @@
   <%= render partial: 'layouts/footer' %>
   <!--note: inside of pagewrap after content -->
 </div>
+=======
+	<div id="clicksidebar">
+		<div id="sidebaricon"><i class="fa fa-bars fa-lg fa-rotate-90 fa-2x" style=""></i></div>
+	</div>
+
+	<div id="columnThree">
+		Just some filler to take up room and be a place holder for now.
+	</div>
+
+<%= yield %>
+>>>>>>> 69e6b7b70d08e0cca6b92e782523f0e8311bca5d
 
 </body>
 </html>

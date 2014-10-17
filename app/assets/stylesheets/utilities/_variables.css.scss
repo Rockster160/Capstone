@@ -1,9 +1,13 @@
-//variables here: $primary: color;\
+//variables $primary: color;
 //lighten($primary, 10%)
+$money: gold;
+
+
 $blendbg: rgb(227,227,227);
 $blendbgdark: darken($blendbg, 10%);
 $money: gold;
 $border: purple;
 $primaryfocus: lighten(purple, 10%);
 $placeholder: red;
+$gameiconbg: blue;
 $editing: rgb(250,255,177);
