@@ -1,0 +1,12 @@
+$(document).keyup(function() {
+
+  url = "/search.json";
+  var str = $('#live-search').serialize().substr(2);
+  $.get(url, {q : str}, function(searchResults) {
+    //newVal = {Array manipulation, send single string of all gameids}
+    //Change below searchResults to newVal
+    $('#live-search-results').html(searchResults);
+    console.log(searchResults);
+    console.log(str);
+  });
+})
