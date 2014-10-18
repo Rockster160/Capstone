@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @fav = @user.favorites
     # binding.pry
-    @fav[params[:passFav].to_i] = params[:passId].to_i
+    @fav[params[:passFav].to_i - 1] = params[:passId].to_i
     @user.update_attribute(:favorites, @fav)
     # binding.pry
     respond_to do |format|

@@ -21,10 +21,10 @@ $(document).keyup(function() {
 })
 
 function liveBeenClicked(id, fav) {
+  // alert(id+", "+fav);
   url = userId+'/update'
   $.post(url, {passId: id, passFav: fav}, function(done_data) {
     $('#user-favorites-div').html(done_data);
   })
   $('#gameEditModal').modal('hide');
-
 }

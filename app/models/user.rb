@@ -29,7 +29,7 @@ def ensure_is_valid
   if self.valid?
     # binding.pry
   else
-    # binding.pry
+    binding.pry
   end
 end
 end
