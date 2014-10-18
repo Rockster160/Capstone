@@ -18,15 +18,17 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @fav = @user.favorites
-    # binding.pry
-    @fav[params[:passFav].to_i - 1] = params[:passId].to_i
-    @user.update_attribute(:favorites, @fav)
-    # binding.pry
+    @passFav = params[:passFav].to_i - 1
+    @passId = params[:passId].to_i
+    @fav[@passFav] = @passId
+    # @user.favorites[params[:passFav].to_i - 1] = params[:passId].to_i
+    # @user.update_attribute(:favorites, @fav)
+    User.find(@user.id).update_attribute(:favorites, @fav)
+    @user.save
     respond_to do |format|
       format.html { render partial: 'user_favorite_games', locals: { user: @user, url: :edit }}
       format.js
     end
-    # binding.pry
   end
 
   def user_params
