@@ -7,23 +7,26 @@ class UsersController < ApplicationController
     unless user_signed_in?
       redirect_to root_path
     end
+    @user.update_attribute(:coin, @user.coin+@user.coinTo)
+    @user.update_attribute(:coinTo, 0)
     respond_to do |format|
       format.html
       format.js
     end
-    @user.update_attribute(:coin, @user.coin+@user.coinTo)
-    @user.update_attribute(:coinTo, 0)
-  end
-
-  def getscores
   end
 
   def update
     @user = User.find(params[:id])
-    @myId = current_user.id
-    unless @myId.to_s == params[:id]
-      redirect_to :controller => 'users', :action => 'update', :id => @myId
+    @fav = @user.favorites
+    # binding.pry
+    @fav[params[:passFav].to_i] = params[:passId].to_i
+    @user.update_attribute(:favorites, @fav)
+    # binding.pry
+    respond_to do |format|
+      format.html { render partial: 'user_favorite_games', locals: { user: @user, url: :edit }}
+      format.js
     end
+    # binding.pry
   end
 
   def user_params

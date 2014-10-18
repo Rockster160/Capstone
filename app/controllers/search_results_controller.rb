@@ -25,9 +25,15 @@ class SearchResultsController < ApplicationController
     @fwd = @len_of_str
     @listuser = @listuser.sort_by{|x,y|y}.reverse
     @listgame = @listgame.sort_by{|x,y|y}.reverse
+    liveResults = []
+    @listgame.each do |x|
+      #binding.pry
+      game = Game.find(x[0])
+      liveResults << [ game.id, game.name, game.ava ]
+    end
     respond_to do |format|
       format.html
-      format.json {render json: @listgame}
+      format.json {render json: liveResults.to_json }
     end
   end
 end

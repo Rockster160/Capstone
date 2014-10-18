@@ -1,5 +1,19 @@
 @import 'utilities/variables';
 
+#circle-image {
+  width: 63px;
+  height: 63px;
+  border-radius: 50%;
+  padding: 4px;
+  margin: 5px 15px 10px 10px;
+  background: $gameiconbg;
+}
+#live-search-list {
+  &:hover {
+    background: grey;
+  }
+}
+
 #coin-inline {
   color: $money;
   font-size: 1.5em;
