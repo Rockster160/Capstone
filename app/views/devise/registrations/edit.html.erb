@@ -24,7 +24,7 @@
 
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
               <h1>About Me</h1>
-              <div><%= f.text_field :about, placeholder: @user.about %></div>
+              <div><%= f.text_area :about, placeholder: @user.about, :maxlength => 200, id: "edit-aboutfield", rows: 5 %></div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
               <h1>My Links</h1>

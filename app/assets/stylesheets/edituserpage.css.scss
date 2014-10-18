@@ -41,6 +41,11 @@ input[type=submit] { width: 154px; }
   margin-left: -77px;
 }
 
+#edit-aboutfield {
+  width: 100%;
+  rows: 5;
+}
+
 @media (max-width: 550px) {
   #edit-submit { top: 190px; }
   #edit-sub-button { top: 216px; }
