@@ -22,13 +22,16 @@ class GamesController < ApplicationController
   def show
     @game = Game.find(params[:id])
     # binding.pry
-
-    @notification = current_user.notifications.find_or_create_by(
-                            :notify_id => 0)
-    @notification.update_attributes(
-                            :message => "You visited a game!",
-                            :game_id => @game.id,
-                            :gold => @game.cost)
+    if user_signed_in?
+      @notification = current_user.notifications.find_or_create_by(
+                              :notify_id => 0) #Only if notification is unique
+      @notification.update_attributes(
+                              :title => "First visit!",
+                              :message => "You visited your first game!",
+                              :game_id => @game.id,
+                              :icon => 0
+                              :gold => 50)
+    end
   end
 
   def play_count

@@ -1,6 +1,5 @@
 #Handles Devise methods and authentications
 class User < ActiveRecord::Base
-  before_save :ensure_is_valid
   has_many :notifications
   include PublicActivity::Model
 
@@ -22,14 +21,4 @@ class User < ActiveRecord::Base
     end
     return favs
   end
-
-  private
-def ensure_is_valid
-  # binding.pry
-  if self.valid?
-    # binding.pry
-  else
-    binding.pry
-  end
-end
 end
