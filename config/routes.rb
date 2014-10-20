@@ -14,9 +14,7 @@ Rails.application.routes.draw do
   # resources :activites
   get 'games/read'
   get 'notifications/show' => 'notifications#show', as: 'notifications'
-  resources :users, :games, :play, only: [:show]
-
-  get 'games/play/mazegame' => 'games#mazegame', as: 'mazegame'
+  resources :users, :games, only: [:show]
 
   get 'users/edit' => 'users#edit', as: 'edit'
   post 'users/:id/update' => 'users#update', as: 'update'
@@ -28,12 +26,7 @@ Rails.application.routes.draw do
 
   get 'index/contact', as: 'contact'
 
-  # get 'games/play/rpg'
-  # get 'games/play/hoops'
-  # get 'games/play/pacman'
-  # get 'games/play/platformer'
-  # get 'games/play/pusoy'
-  # get 'games/play/bowling'
+  get 'games/play/:id' => 'games#play', as: 'play'
 
   get '/search' => 'search_results#index'
 end

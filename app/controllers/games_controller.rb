@@ -33,7 +33,15 @@ class GamesController < ApplicationController
     end
   end
 
-  def play_count
+  def play
+    @game = Game.find(params[:id])
+    @user = User.find(current_user.id)
+    user_game_statistics.where(@user, @game).increment_play_count
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def update
