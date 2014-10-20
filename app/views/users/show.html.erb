@@ -234,7 +234,7 @@
                     <div class="panel-body">
                         <div class="list-group">
                           <% @unread.first(10).each do |notify| %>
-                            <a href="<%= notifications_path %>" class="list-group-item" style="height: 50px;background:gold;">
+                            <a href="<%= notifications_path %>" class="list-group-item" style="height: 50px;background:lemonchiffon;">
                               <i class="fa fa-<%=notify.image_convert%> fa-fw"></i> <%= notify.title %>
                               <span class="pull-right text-muted small"><em><%= notify.formatted_ago %></em></span>
                             </a>

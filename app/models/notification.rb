@@ -18,12 +18,11 @@ class Notification < ActiveRecord::Base
       (time_diff/60/60/24).round.to_s + " days ago"
     when (time_diff*60/60/24/7 < 12)
       (time_diff*60/60/24/7).round.to_s + " weeks ago"
-    when (time_diff*60/60/24/7/12 < 12)
+    when (time_diff*60/60/24/7/12 < 30)
       (time_diff*60/60/24/7/12).round.to_s + " months ago"
     else
-      time_diff.round.to_s + " was really long ago"# "A really long time ago"
+      "A really long time ago"
     end
-    # how_long_ago = time_ago_in_words(self.created_at)
     return how_long_ago
   end
 

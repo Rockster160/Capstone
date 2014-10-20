@@ -17,7 +17,7 @@
                 <i class="fa fa-caret-down"></i><i class="fa fa-bell fa-fw"></i>
             </a>
             <ul class="dropdown-menu dropdown-alerts">
-              <% @unread.each do |notify| %>
+              <% current_user.notifications.where(isRead: false).reverse.each do |notify| %>
                 <li>
                   <a href="<%= notifications_path %>">
                     <div>

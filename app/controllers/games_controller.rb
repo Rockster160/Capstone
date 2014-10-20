@@ -21,7 +21,6 @@ class GamesController < ApplicationController
   # No more AJAX. :D
   def show
     @game = Game.find(params[:id])
-    # binding.pry
     if user_signed_in?
       @notification = current_user.notifications.find_or_create_by(
                               :notify_id => 0) #Only if notification is unique
