@@ -1,4 +1,6 @@
-<% @unread_notifications = current_user.notifications.where(isRead: false).reverse.first(10) %>
+<% if user_signed_in? %>
+  <% @unread_notifications = current_user.notifications.where(isRead: false).reverse.first(10) %>
+<% end %>
 <!-- Navigation -->
 <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0;
                                                                               height: 51px;">
