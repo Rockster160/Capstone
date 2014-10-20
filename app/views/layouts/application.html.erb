@@ -11,49 +11,14 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
   <title>GameHub</title>
-
-		<!-- Bootstrap Core CSS -->
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-
-		<!-- MetisMenu CSS -->
-		<link href="css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
-
-		<!-- Timeline CSS -->
-		<link href="css/plugins/timeline.css" rel="stylesheet">
-
-		<!-- Custom CSS -->
-		<link href="css/sb-admin-2.css" rel="stylesheet">
-
-		<!-- Morris Charts CSS -->
-		<link href="css/plugins/morris.css" rel="stylesheet">
-
-		<!-- Custom Fonts -->
-		<link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
-  <%= javascript_include_tag 'pagespecific/popuphandler' if params[:controller] == 'users' && params['action'] == 'show' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
   <%= render 'layouts/header' %>
 	<%= render 'layouts/messages' %>
 
-<<<<<<< HEAD
-	<%= render partial: 'layouts/header' %>
-<!--note: outside of pagewrap -->
-
-<div class="page_wrap">
-
-
-  <%= yield %>
-
-
-  <%= render partial: 'layouts/footer' %>
-  <!--note: inside of pagewrap after content -->
-</div>
-=======
 	<div id="clicksidebar">
 		<div id="sidebaricon"><i class="fa fa-bars fa-lg fa-rotate-90 fa-2x" style=""></i></div>
 	</div>
@@ -63,7 +28,6 @@
 	</div>
 
 <%= yield %>
->>>>>>> 69e6b7b70d08e0cca6b92e782523f0e8311bca5d
 
 </body>
 </html>

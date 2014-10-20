@@ -1,3 +1,13 @@
+<%= javascript_tag do %>
+  <% if @user.coinTo > 0 %>
+    window.coinTo = '<%= j (number_with_delimiter(@user.coin + @user.coinTo)).to_s %>';
+  <% else %>
+    window.coinTo = false;
+  <% end %>
+<% end %>
+
+<%# binding.pry %>
+
 <div id="wrapper">
 <div id="homepage">
     <div id="page-wrapper">
@@ -9,8 +19,8 @@
             <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
                 <h1 id="coin-inline">
                   <%= image_tag('spinningcoin.gif', id: "coin", size: "32x32") %>
-                  <canvas id="coinupdater"></canvas>
-                  <%= number_with_delimiter( current_user.coin ) %>
+                  <canvas id="coinupdater" width=150 height=300></canvas>
+                  <span id="coin_on_page"><%= number_with_delimiter( current_user.coin ) %></span>
                 </h1>
             </div>
             <% end %>
@@ -19,21 +29,9 @@
         <!-- /.row -->
         <div class="row">
           <%= image_tag(@user.avatar.url, id: "avatar", class: "col-lg-3 col-md-4 col-sm-4 col-xs-4") %>
-
-            <% 4.times do |fav| %>
-              <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
-                <div class="hmpg-favbtn">
-                  <% if @user.favorites[fav] != 0 %>
-                    <%= link_to game_info_path(id: @user.favorites[fav]), remote: true do %>
-                      <%= image_tag(Game.find(@user.favorites[fav]).ava, id: "favs") %>
-                    <% end %>
-                  <% else %>
-                    <a href="./edit"><%= image_tag('missingicon.png', id: "favs") %></a>
-                  <% end %>
-                </div>
-              </div>
-            <% end %>
-
+            <div id='user-favorites-div'>
+              <%= render partial: 'user_favorite_games', locals: { user: @user, url: :show } %>
+            </div>
             <div id='game-modal-div'>
                 <!-- Place holder for the modal data -->
             </div>
@@ -66,7 +64,7 @@
             <div class="col-md-8 col-sm-6 col-xs-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <i class="fa fa-bar-chart-o fa-fw"></i> Trophy Case
+                        <i class="fa fa-trophy fa-2x" style="color: gold;"></i> Trophy Case
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
