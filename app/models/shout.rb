@@ -1,5 +1,6 @@
-class Notification < ActiveRecord::Base
+class Shout < ActiveRecord::Base
   belongs_to :user
+  belongs_to :game
 
   def formatted_ago
     time_diff = Time.now - self.created_at
@@ -26,24 +27,5 @@ class Notification < ActiveRecord::Base
       "A really long time ago"
     end
     return how_long_ago
-  end
-
-  def image_convert
-    icon_id = self.icon
-    myicon = case icon_id
-    when 0
-      "exclamation"
-    when 1
-      "comment"
-    when 2
-      "trophy"
-    when 3
-      "usd"
-    when 4
-      "chain-broken"
-    else
-      "question-circle"
-    end
-    return myicon
   end
 end
