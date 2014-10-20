@@ -29,7 +29,7 @@ class GamesController < ApplicationController
                               :title => "First visit!",
                               :message => "You visited your first game!",
                               :game_id => @game.id,
-                              :icon => 0
+                              :icon => 0,
                               :gold => 50)
     end
   end

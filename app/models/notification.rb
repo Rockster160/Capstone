@@ -6,9 +6,13 @@ class Notification < ActiveRecord::Base
     how_long_ago = case
     when (time_diff < 60)
       time_diff.round.to_s + " seconds ago"
+    when ((time_diff/60).round == 1)
+      (time_diff/60).round.to_s + " minute ago"
     when (time_diff/60 < 60)
       (time_diff/60).round.to_s + " minutes ago"
-    when (time_diff/60/60 < 24)
+    when ((time_diff/60/60).round == 1)
+      (time_diff/60/60).round.to_s + " hour ago"
+    when (time_diff/60/60/24 < 30)
       (time_diff/60/60).round.to_s + " hours ago"
     when (time_diff/60/60/24 < 30)
       (time_diff/60/60/24).round.to_s + " days ago"
@@ -27,15 +31,15 @@ class Notification < ActiveRecord::Base
     icon_id = self.icon
     myicon = case icon_id
     when 0
-      "exclamation fa-circle"
+      "exclamation"
     when 1
       "comment"
     when 2
       "trophy"
     when 3
-      "usd fa-circle"
+      "usd"
     when 4
-      "bomb"
+      "chain-broken"
     else
       "question-circle"
     end

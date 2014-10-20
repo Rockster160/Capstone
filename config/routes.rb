@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'activities/index'
   # resources :activites
   get 'games/read'
+  get 'notifications/show' => 'notifications#show', as: 'notifications'
   resources :users, :games, :play, only: [:show]
 
   get 'games/play/mazegame' => 'games#mazegame', as: 'mazegame'
