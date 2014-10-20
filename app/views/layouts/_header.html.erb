@@ -17,7 +17,7 @@
                 <i class="fa fa-caret-down"></i><i class="fa fa-bell fa-fw"></i>
             </a>
             <ul class="dropdown-menu dropdown-alerts">
-              <% @user.notifications.reverse.first(5).each do |notify| %>
+              <% @unread.each do |notify| %>
                 <li>
                   <a href="<%= notifications_path %>">
                     <div>
@@ -28,11 +28,13 @@
                 </li>
                 <li class="divider"></li>
               <% end %>
-              <a href="<%= notifications_path %>">
-                <div>
-                  View All Notifications
-                </div>
-              </a>
+              <li>
+                <a href="<%= notifications_path %>">
+                  <div>
+                    View All Notifications
+                  </div>
+                </a>
+              </li>
             </ul>
             <!-- /.dropdown-alerts -->
         </li>

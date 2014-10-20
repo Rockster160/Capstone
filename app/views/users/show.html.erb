@@ -233,10 +233,16 @@
                     <!-- /.panel-heading -->
                     <div class="panel-body">
                         <div class="list-group">
-                          <% @user.notifications.reverse.first(10).each do |notify| %>
+                          <% @unread.first(10).each do |notify| %>
+                            <a href="<%= notifications_path %>" class="list-group-item" style="height: 50px;background:gold;">
+                              <i class="fa fa-<%=notify.image_convert%> fa-fw"></i> <%= notify.title %>
+                              <span class="pull-right text-muted small"><em><%= notify.formatted_ago %></em></span>
+                            </a>
+                          <% end %>
+                          <% @display.each do |notify| %>
                             <a href="<%= notifications_path %>" class="list-group-item" style="height: 50px;">
-                                <i class="fa fa-<%=notify.image_convert%> fa-fw"></i> <%= notify.title %>
-                                <span class="pull-right text-muted small"><em><%= notify.formatted_ago %></em></span>
+                              <i class="fa fa-<%=notify.image_convert%> fa-fw"></i> <%= notify.title %>
+                              <span class="pull-right text-muted small"><em><%= notify.formatted_ago %></em></span>
                             </a>
                           <% end %>
                         </div>
