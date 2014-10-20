@@ -1,3 +1,4 @@
+<% @unread_notifications = current_user.notifications.where(isRead: false).reverse.first(10) %>
 <!-- Navigation -->
 <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0;
                                                                               height: 51px;">
@@ -14,10 +15,15 @@
         <% if user_signed_in? %>
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <i class="fa fa-caret-down"></i><i class="fa fa-bell fa-fw"></i>
+              <i class="fa fa-caret-down"></i>
+              <% if @unread_notifications.length > 0 %>
+                <i class="fa fa-bell fa-fw text-danger"></i>
+              <% else %>
+                <i class="fa fa-bell fa-fw"></i>
+              <% end %>
             </a>
             <ul class="dropdown-menu dropdown-alerts">
-              <% current_user.notifications.where(isRead: false).reverse.each do |notify| %>
+              <% @unread_notifications.each do |notify| %>
                 <li>
                   <a href="<%= notifications_path %>">
                     <div>
