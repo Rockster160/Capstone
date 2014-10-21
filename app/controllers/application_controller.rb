@@ -1,3 +1,4 @@
+#Handles Devise
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -17,7 +18,6 @@ class ApplicationController < ActionController::Base
   end
 
   def read
-    @q = User.search(params[:q])
-    @users = @q.result
+    @users = User.search(params[:q]).result
   end
 end

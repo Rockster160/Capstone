@@ -11,32 +11,21 @@
   </div>
   <%= devise_error_messages! %>
 
-  <div id="wrapper">
+  <div id="wrapper" style="margin-top: 15px;">
   <div id="homepage">
       <div id="page-wrapper">
           <div class="row">
             <%= image_tag(@user.avatar.url, id: "avatar", class: "col-lg-3 col-md-4 col-sm-4 col-xs-4") %>
-              <% 4.times do |fav| %>
-                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
-                  <div class="hmpg-favbtn">
-                    <%= link_to game_edit_path(id: fav), remote: true do %>
-                      <% if @user.favorites[fav] != 0 %>
-                          <%= image_tag(Game.find(@user.favorites[fav]).ava, id: "favs") %>
-                      <% else %>
-                        <%= image_tag('missingicon.png', id: "favs") %>
-                      <% end %>
-                    <% end %>
-                  </div>
-                </div>
-              <% end %>
-
+              <div id='user-favorites-div'>
+                <%= render partial: 'users/user_favorite_games', locals: { user: @user, url: :edit } %>
+              </div>
               <div id='game-modal-div'>
                   <!-- Place holder for the modal data -->
               </div>
 
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
               <h1>About Me</h1>
-      <div><%= f.text_field :about, placeholder: @user.about %></div>
+              <div><%= f.text_field :about, placeholder: @user.about %></div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
               <h1>My Links</h1>

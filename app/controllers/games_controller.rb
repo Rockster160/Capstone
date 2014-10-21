@@ -1,3 +1,4 @@
+#Game Controller, redirects any information from games and sends notifications.
 class GamesController < ApplicationController
   def create
   end
@@ -30,10 +31,8 @@ class GamesController < ApplicationController
                             :gold => @game.cost)
   end
 
-  def play_count(game, increment)
-    Game.find(game.id).update_attribute(:cost, game.cost += increment)
+  def play_count
   end
-  helper_method :play_count
 
   def update
   end

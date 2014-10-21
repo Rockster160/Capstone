@@ -1,3 +1,4 @@
+#Create tables for games as follows:
 class CreateGames < ActiveRecord::Migration
   def change
     create_table :games do |t|

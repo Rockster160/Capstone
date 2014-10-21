@@ -23,6 +23,7 @@
 
 #gameicon {
   background: $gameiconbg;
+  border-radius: 15px;
   padding: 5px;
   width: 100px;
   height: 100px;
@@ -43,4 +44,5 @@
   float: right;
   font-weight: bold;
   color: $money;
+  text-shadow: 1px 1px 1px darken($money, 10%);
 }

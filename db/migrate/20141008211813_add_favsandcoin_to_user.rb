@@ -1,3 +1,4 @@
+# Add favorits and coinTo value columns to User
 class AddFavsandcoinToUser < ActiveRecord::Migration
   def change
     add_column :users, :coinTo, :integer
