@@ -10,7 +10,7 @@ $(document).ready(function() {
 
     var particles = [];
     for (var i=0;i<150;i++) {
-      particles.push(new create_particle())
+      particles.push(new create_particle());
     };
 
     function create_particle() {
@@ -53,16 +53,18 @@ $(document).ready(function() {
 
     setTimeout(function () {
         var x = 0;
-        $('#coin_on_page').html(coinTo);
 
-        var intervalID = window.setInterval(function () {
+        if ($('#coin_on_page').html() != coinTo) {
+          $('#coin_on_page').html(coinTo);
+          var intervalID = window.setInterval(function () {
 
-           draw();
+             draw();
 
-           if (++x === 40) {
-               window.clearInterval(intervalID);
-           }
-        }, 40);
+             if (++x === 40) {
+                 window.clearInterval(intervalID);
+             }
+          }, 40);          
+        }
     }, 1500);
   }
 })

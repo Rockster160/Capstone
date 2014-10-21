@@ -1,12 +1,6 @@
 <%= javascript_tag do %>
-  <% if @user.coinTo > 0 %>
-    window.coinTo = '<%= j (number_with_delimiter(@user.coin + @user.coinTo)).to_s %>';
-  <% else %>
-    window.coinTo = false;
-  <% end %>
+  window.coinTo = '<%= j (number_with_delimiter(@user.coin + @user.coinTo)).to_s %>';
 <% end %>
-
-<%# binding.pry %>
 
 <div id="wrapper">
 <div id="homepage">
@@ -59,7 +53,7 @@
           <!-- ./col-lg-9 -->
         </div>
         <!-- /.row -->
-        <div class="page-header"></div>
+        <div class="page-header col-xs-12"></div>
         <div class="row">
             <div class="col-md-8 col-sm-6 col-xs-12">
                 <div class="panel panel-default">
@@ -149,69 +143,9 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-4">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered table-hover table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Date</th>
-                                                <th>Time</th>
-                                                <th>Amount</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>3326</td>
-                                                <td>10/21/2013</td>
-                                                <td>3:29 PM</td>
-                                                <td>$321.33</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3325</td>
-                                                <td>10/21/2013</td>
-                                                <td>3:20 PM</td>
-                                                <td>$234.34</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3324</td>
-                                                <td>10/21/2013</td>
-                                                <td>3:03 PM</td>
-                                                <td>$724.17</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3323</td>
-                                                <td>10/21/2013</td>
-                                                <td>3:00 PM</td>
-                                                <td>$23.71</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3322</td>
-                                                <td>10/21/2013</td>
-                                                <td>2:49 PM</td>
-                                                <td>$8345.23</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3321</td>
-                                                <td>10/21/2013</td>
-                                                <td>2:23 PM</td>
-                                                <td>$245.12</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3320</td>
-                                                <td>10/21/2013</td>
-                                                <td>2:15 PM</td>
-                                                <td>$5663.54</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3319</td>
-                                                <td>10/21/2013</td>
-                                                <td>2:13 PM</td>
-                                                <td>$943.45</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <!-- /.table-responsive -->
+                              <% @history.each do |historylog| %>
+                                  <%= historylog %></br>
+                              <% end %>
                             </div>
                             <!-- /.col-lg-4 (nested) -->
                             <div class="col-lg-8">
@@ -235,54 +169,21 @@
                     <!-- /.panel-heading -->
                     <div class="panel-body">
                         <div class="list-group">
-                            <a href="#" class="list-group-item">
-                                <i class="fa fa-comment fa-fw"></i> New Comment
-                                <span class="pull-right text-muted small"><em>4 minutes ago</em>
-                                </span>
+                          <% @unread.first(10).each do |notify| %>
+                            <a href="<%= notifications_path %>" class="list-group-item" style="height: 50px;background:lemonchiffon;">
+                              <i class="fa fa-<%=notify.image_convert%> fa-fw"></i> <%= notify.title %>
+                              <span class="pull-right text-muted small"><em><%= notify.formatted_ago %></em></span>
                             </a>
-                            <a href="#" class="list-group-item">
-                                <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                                <span class="pull-right text-muted small"><em>12 minutes ago</em>
-                                </span>
+                          <% end %>
+                          <% @display.each do |notify| %>
+                            <a href="<%= notifications_path %>" class="list-group-item" style="height: 50px;">
+                              <i class="fa fa-<%=notify.image_convert%> fa-fw"></i> <%= notify.title %>
+                              <span class="pull-right text-muted small"><em><%= notify.formatted_ago %></em></span>
                             </a>
-                            <a href="#" class="list-group-item">
-                                <i class="fa fa-envelope fa-fw"></i> Message Sent
-                                <span class="pull-right text-muted small"><em>27 minutes ago</em>
-                                </span>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <i class="fa fa-tasks fa-fw"></i> New Task
-                                <span class="pull-right text-muted small"><em>43 minutes ago</em>
-                                </span>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                                <span class="pull-right text-muted small"><em>11:32 AM</em>
-                                </span>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <i class="fa fa-bolt fa-fw"></i> Server Crashed!
-                                <span class="pull-right text-muted small"><em>11:13 AM</em>
-                                </span>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <i class="fa fa-warning fa-fw"></i> Server Not Responding
-                                <span class="pull-right text-muted small"><em>10:57 AM</em>
-                                </span>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <i class="fa fa-shopping-cart fa-fw"></i> New Order Placed
-                                <span class="pull-right text-muted small"><em>9:49 AM</em>
-                                </span>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <i class="fa fa-money fa-fw"></i> Payment Received
-                                <span class="pull-right text-muted small"><em>Yesterday</em>
-                                </span>
-                            </a>
+                          <% end %>
                         </div>
                         <!-- /.list-group -->
-                        <a href="#" class="btn btn-default btn-block">View All Alerts</a>
+                        <a href="<%= notifications_path %>" class="btn btn-default btn-block">View All Alerts</a>
                     </div>
                     <!-- /.panel-body -->
                 </div>
@@ -296,13 +197,16 @@
                     <!-- /.panel-heading -->
                     <div class="panel-body">
                         <ul class="chat">
+                          <% @user.shouts.first(5).each_with_index do |shout, pos| %>
+                          <% @thatuser = User.find(10) %>
+                            <% if pos.odd? %>
                             <li class="left clearfix">
                                 <span class="chat-img pull-left">
-                                    <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />
+                                    <img src="<%= @thatuser.avatar %>" alt="User Avatar" class="img-circle" />
                                 </span>
                                 <div class="chat-body clearfix">
                                     <div class="header">
-                                        <strong class="primary-font">Jack Sparrow</strong>
+                                        <strong class="primary-font"><%= @thatuser.username %></strong>
                                         <small class="pull-right text-muted">
                                             <i class="fa fa-clock-o fa-fw"></i> 12 mins ago
                                         </small>
@@ -312,6 +216,7 @@
                                     </p>
                                 </div>
                             </li>
+                            <% else %>
                             <li class="right clearfix">
                                 <span class="chat-img pull-right">
                                     <img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle" />
@@ -327,49 +232,26 @@
                                     </p>
                                 </div>
                             </li>
-                            <li class="left clearfix">
-                                <span class="chat-img pull-left">
-                                    <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />
-                                </span>
-                                <div class="chat-body clearfix">
-                                    <div class="header">
-                                        <strong class="primary-font">Jack Sparrow</strong>
-                                        <small class="pull-right text-muted">
-                                            <i class="fa fa-clock-o fa-fw"></i> 14 mins ago</small>
-                                    </div>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                                    </p>
-                                </div>
-                            </li>
-                            <li class="right clearfix">
-                                <span class="chat-img pull-right">
-                                    <img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle" />
-                                </span>
-                                <div class="chat-body clearfix">
-                                    <div class="header">
-                                        <small class=" text-muted">
-                                            <i class="fa fa-clock-o fa-fw"></i> 15 mins ago</small>
-                                        <strong class="pull-right primary-font">Bhaumik Patel</strong>
-                                    </div>
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                                    </p>
-                                </div>
-                            </li>
+                            <% end %>
+                            <% end %>
                         </ul>
                         <a href="#" class="btn btn-default btn-block">View All Shouts</a>
                     </div>
                     <!-- /.panel-body -->
                     <div class="panel-footer">
-                        <div class="input-group">
-                            <input id="btn-input" type="text" class="form-control input-sm" placeholder='<%= "Leave a shout for " + @user.username.capitalize %>' />
+                        <!-- <div class="input-group"> -->
                             <span class="input-group-btn">
-                                <button class="btn btn-warning btn-sm" id="btn-chat">
-                                    Shout it!
-                                </button>
+                                <span class="btn btn-warning btn-sm" id="btn-chat" style="margin-left: 80%;">
+                                    <div id="Very">Shout it!</div>
+                                </span>
                             </span>
-                        </div>
+                            <textarea id="btn-input"
+                                      type="text"
+                                      class="form-control input-sm"
+                                      placeholder='<%= "Leave a shout for " + @user.username.capitalize %>'
+                                      rows="4"
+                                      cols="50"></textarea>
+                        <!-- </div> -->
                     </div>
                     <!-- /.panel-footer -->
                 </div>

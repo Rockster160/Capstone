@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
 
   post 'users/getscores' => 'users#getscores'
-  # devise_for :users, controllers: { registrations: 'registrations' }, :path_prefix => 'd'
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'registrations' }
+  # devise_for :users
 
   devise_scope :user do
     root to: 'devise/sessions#new'
@@ -13,23 +13,20 @@ Rails.application.routes.draw do
   get 'activities/index'
   # resources :activites
   get 'games/read'
-  resources :users, :games, :play, only: [:show]
-
-  get 'games/play/mazegame' => 'games#mazegame', as: 'mazegame'
+  get 'notifications/show' => 'notifications#show', as: 'notifications'
+  resources :users, :games, only: [:show]
 
   get 'users/edit' => 'users#edit', as: 'edit'
   post 'users/:id/update' => 'users#update', as: 'update'
+  post 'users/:id/shout' => 'users#shout', as: 'shout'
+
   get 'games/:id' => 'games#show'
   get 'games/:id/info' => 'games#info', as: 'game_info'
   get 'games/:id/editpopup' => 'games#edit', as: 'game_edit'
+
   get 'index/contact', as: 'contact'
 
-  # get 'games/play/rpg'
-  # get 'games/play/hoops'
-  # get 'games/play/pacman'
-  # get 'games/play/platformer'
-  # get 'games/play/pusoy'
-  # get 'games/play/bowling'
+  get 'games/play/:id' => 'games#play', as: 'play'
 
   get '/search' => 'search_results#index'
 end

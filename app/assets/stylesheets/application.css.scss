@@ -6,6 +6,8 @@
 html { height: 100%; }
 
 // ** search bar ** //
+textarea { resize: none; }
+
 #mysearchbar {
   margin: 10px 0 0 20px;
   width: 190px;

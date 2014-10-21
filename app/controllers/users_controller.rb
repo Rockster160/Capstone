@@ -3,12 +3,21 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!, :only => :show
 
   def show
-    @user = User.find(params[:id])
     unless user_signed_in?
       redirect_to root_path
     end
+    @user = User.find(params[:id])
+    @unread = @user.notifications.where(isRead: false).reverse
+    @history = []
+    UserGameLog.where(user_id: @user).reverse.each do |history|
+      @history << history.play_history_format
+    end
+    if @unread.length < 10
+      @display = @user.notifications.where(isRead: true).reverse.first(10 - @unread.length)
+    end
     @user.update_attribute(:coin, @user.coin+@user.coinTo)
     @user.update_attribute(:coinTo, 0)
+    current_user.init
     respond_to do |format|
       format.html
       format.js
@@ -21,14 +30,18 @@ class UsersController < ApplicationController
     @passFav = params[:passFav].to_i - 1
     @passId = params[:passId].to_i
     @fav[@passFav] = @passId
-    # @user.favorites[params[:passFav].to_i - 1] = params[:passId].to_i
-    # @user.update_attribute(:favorites, @fav)
     User.find(@user.id).update_attribute(:favorites, @fav)
     @user.save
     respond_to do |format|
       format.html { render partial: 'user_favorite_games', locals: { user: @user, url: :edit }}
       format.js
     end
+  end
+
+  def shout
+    # @user = User.find(params[:id])
+    # User.find(@user.id).shouts.create(:message => params[:message],
+    #                                   :user_id => current_user)
   end
 
   def user_params
