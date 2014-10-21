@@ -12,7 +12,10 @@ class GamesController < ApplicationController
   end
   # Used via AJAX
   def info
+    binding.pry
     @game = Game.find(params[:id])
+    binding.pry
+    @game
   end
 
   def edit
