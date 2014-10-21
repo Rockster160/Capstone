@@ -27,7 +27,7 @@ nav.navbar {
   height: 51px;
 }
 
-
+//** click sidebar thing **//
 #columnThree {
   display: block;
   background: red;
@@ -59,6 +59,9 @@ nav.navbar {
   }
 }
 
+//** contact page **//
+
+
 //Mobile screen
 // @media (max-width: 1100px) and (min-width: 590) {
 //   @import "midstyler";
@@ -69,17 +72,28 @@ nav.navbar {
 /* .page_wrap expands with the page content,
 	but is never less than 100% of body/html */
 
-.page_wrap {
-	min-height: 100%;
-	position: relative;
-}
-
+//.page_wrap {
+//	min-height: 100%;
+//	position: relative;
+//
 /* footer is absolutly positioned to the bottom of .page_wrap */
 
-.footer {
-	position: absolute;
-	height: 80px;
-	width: 100%;
-	// background: $color_panel;
-	bottom: 0px;
+//.footer {
+//	position: absolute;
+//	height: 80px;
+//	// background: $color_panel;
+	// bottom: 0px;
+// }
+
+footer {
+  border: 1px solid black;
+  padding: 15px 0;
+  margin: 20px 0;
+  background: #428BCA;
+  ul {
+    list-style: none;
+    li {
+      text-align: center;
+    }
+  }
 }
