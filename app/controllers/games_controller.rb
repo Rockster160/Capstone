@@ -34,9 +34,13 @@ class GamesController < ApplicationController
   end
 
   def play
-    @game = Game.find(params[:id])
     @user = User.find(current_user.id)
-    user_game_statistics.where(@user, @game).increment_play_count
+    @game = Game.find(params[:id])
+    if params[:passScore]
+      stat = UserGameStatistic.where(user_id: @user.id, game_id: @game.id).first
+      stat ||= UserGameStatistic.create(user_id: @user.id, game_id: @game.id)
+      stat.increment_play_count
+    end
 
     respond_to do |format|
       format.html
