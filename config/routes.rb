@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
-  match '/users', to: 'users#index', via: 'get'
-  match '/users/:id', to: 'users#show', via: 'get'
 
+  post 'users/getscores' => 'users#getscores'
+  # devise_for :users, controllers: { registrations: 'registrations' }, :path_prefix => 'd'
+  devise_for :users
 
   devise_for :admins
   get 'index/contact'
@@ -20,72 +21,30 @@ Rails.application.routes.draw do
 
   # devise_for :users, controllers: { registrations: 'user/registrations' }
   devise_scope :user do
-    get "user/registrations/read", to: 'registrations#read', as: 'usersprofile'
+    root to: 'devise/sessions#new'
+    # get "user/registrations/read", to: 'registrations#read', as: 'usersprofile'
   end
 
-  get 'games/create', as: 'creategames'
+  get 'activities/index'
+  # resources :activites
   get 'games/read'
-  get 'games/update'
-  get 'games/destroy'
+  resources :users, :games, :play, only: [:show]
 
-  # get 'profile/read'
-  # get 'profile/update'
-  # get 'profile/destroy'
+  get 'games/play/mazegame' => 'games#mazegame', as: 'mazegame'
 
+  get 'users/edit' => 'users#edit', as: 'edit'
+  post 'users/:id/update' => 'users#update', as: 'update'
+  get 'games/:id' => 'games#show'
+  get 'games/:id/info' => 'games#info', as: 'game_info'
+  get 'games/:id/editpopup' => 'games#edit', as: 'game_edit'
+  get 'index/contact', as: 'contact'
 
+  # get 'games/play/rpg'
+  # get 'games/play/hoops'
+  # get 'games/play/pacman'
+  # get 'games/play/platformer'
+  # get 'games/play/pusoy'
+  # get 'games/play/bowling'
 
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
-
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
-
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
-
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
-
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  get '/search' => 'search_results#index'
 end

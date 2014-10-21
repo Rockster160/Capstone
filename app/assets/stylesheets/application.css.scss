@@ -1,65 +1,50 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- */
-
  // <1k, lose C3.
  // <600 lose C1
- @import "bootstrap-sprockets";
- @import "bootstrap";
+ //= require_tree .
+@import 'btoverrides';
 
-#all-header
-{
-  width: 90%;
-  height: 10vw;
-  margin: 0 5%;
-}
-
-#profilebutton {
-  margin-top: -5px;
-}
-
-body {
-  background: #C0C0C0 url("./gamehub.png") no-repeat top;
-}
-
-#page-body {
-  margin-left: 2vw;
-  margin-right: 2vw;
-}
-
-#nav_searchbar {
-  margin: 10px 10px 0 10px;
-  right: 30px;
+#mysearchbar {
+  margin: 10px 0 0 20px;
+  width: 190px;
+  padding: 6px 15px 6px 30px;
   height: 30px;
-  width: 180px;
-  border: solid 1px #E5E5E5;
-  border-radius: 7px;
+	border-radius:15px;
+	-moz-border-radius:15px;
+	-webkit-border-radius:15px;
+}
+#searchbaricon {
+  position: absolute;
+  top: 18px;
+  left: 28px;
 }
 
-@media (min-width: 1101px) {
-  @import "largestyler";
+#columnThree {
+  display: block;
+  background: red;
+  z-index: 100;
+  position: fixed;
+  right: -50vw;
+  top: 20vh;
+  width: 50vw;
+  height: 70vh;
+  border-radius: 20px 0 0 20px;
 }
 
-@media (max-width: 1100px) and (min-width: 591px) {
-  @import "midstyler";
+#clicksidebar {
+  z-index: 100;
+  visibility: visible;
+  border: 5px solid #999;
+  border-radius: 100% 0 0 100%;
+  position: fixed;
+  right: -5px;
+  top: 40vh;
+  height: 200px;
+  width: 40px;
+  background: #888;
+  #sidebaricon {
+    position: relative;
+    right: 0;
+    top: 45%;
+    margin-top: 0px;
+  }
 }
-
-@media (max-width: 590px) {
-  @import "smallstyler";
-}
-//Mobile screen
-// @media (max-width: 1100px) and (min-width: 590) {
-//   @import "midstyler";
-// }

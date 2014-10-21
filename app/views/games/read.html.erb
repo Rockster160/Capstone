@@ -1,16 +1,42 @@
-<div id="listitem">
-  <div id="gameicon"></div>
-  <div id="title">
-    <h4>Bowling</h4>
-  <div id="description">This is a bowling game. Refer to page to view how to play.
-  I need this to be longer so it can break onto two separate lines so that I can tell where the breaks are
-  so that I can see how long it is so that I can figure out how big the trophies will need to be.</div>
-  </div>
-  <div id="trophies">
-    <h4>Trophies</h4>
-    <li><b>Today:</b><i>Some user:</i> Score</li>
-    <li><b>This week:</b><i>Some user:</i> Score</li>
-    <li><b>This month:</b><i>wwwwwwwwwwwwwww:</i> Score</li>
-    <li><b>All-Time:</b><i>Some user:</i> Score</li>
-  </div>
+<div class="row">
+  <% Game.all.each do |game| %>
+    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+      <div id="listitem">
+        <div id="gameimage">
+          <a href="/games/<%= game.id %>"><%= image_tag(game.ava, id: "gameicon") %></a>
+        </div>
+        <div id="title">
+          <h4><%= game.name %></h4>
+          <div id="briefing">
+            <%= game.about %>
+          </div>
+        </div>
+        <div id="trophies">
+          <h4>Trophies</h4>
+
+              <li><strong>Today:&nbsp;</strong>
+              <span id="scorefont">Score</span></li>
+              <li><i>Some_User</i>&nbsp;</li>
+
+              <li><strong>This Week:&nbsp;</strong>
+              <span id="scorefont">Score</span></li>
+              <li><i>Hello</i>&nbsp;</li>
+
+              <li><strong>This Month:&nbsp;</strong>
+              <span id="scorefont">Score</span></li>
+              <li><i>WWWWWWWWWWWWWWWW</i>&nbsp;</li>
+
+              <li><strong>All-Time:&nbsp;</strong>
+              <span id="scorefont">Score</span></li>
+              <li><i>Rockster160</i>&nbsp;</li>
+
+        </div>
+        <%= link_to play_path(id: game.id) do %>
+          <span class="quickplay" id="<%= game.id %>">
+            <button type="button" class="btn btn-primary">Quick Play!</button>
+          </span>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 </div>

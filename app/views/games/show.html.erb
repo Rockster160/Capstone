@@ -1,0 +1,22 @@
+<div id="columnOne">
+    <%= image_tag(@game.ava, id: "avatar") %>
+  <div id="game_trophies">
+  </div>
+</div>
+  <% if user_signed_in? %>
+    <div id="playNow">Play Now!</div>
+  <% else %>
+    <div id="noPlayNow">Please Sign in...</div>
+  <% end %>
+<div id="columnTwo">
+  <h1><%= @game.name %></h1>
+  <div id="description">
+    <p><%= @game.about %></p>
+  </div>
+  <div id="howTo">
+    <p><%= @game.howto %></p>
+  </div>
+</div>
+
+<div id="columnThree">
+</div>

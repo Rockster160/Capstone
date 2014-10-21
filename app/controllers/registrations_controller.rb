@@ -1,7 +1,7 @@
+#Forwards search function
 class RegistrationsController < Devise::RegistrationsController
 
   def read
-    @q = User.search(params[:q])
-    @users = @q.result
+    @users = User.search(params[:q]).result
   end
 end
