@@ -16,21 +16,21 @@
                <li><a href="../../games/read"><i class="fa fa-gamepad fa-lg"></i></a></li>
         <% if user_signed_in? %>
         <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-              <i class="fa fa-caret-down"></i>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="notifydropdown">
               <% if @unread_notifications.length > 0 %>
-                <i class="fa fa-bell fa-fw text-danger"></i>
+                <i class="fa fa-caret-down"></i><i class="fa fa-bell fa-fw text-danger"></i>
               <% else %>
-                <i class="fa fa-bell fa-fw"></i>
+                <i class="fa fa-caret-down"></i><i class="fa fa-bell fa-fw"></i>
               <% end %>
             </a>
             <ul class="dropdown-menu dropdown-alerts">
-              <% @unread_notifications.each do |notify| %>
+              <% @unread_notifications.first(10).each do |notify| %>
                 <li>
                   <a href="<%= notifications_path %>">
                     <div>
                       <i class="fa fa-<%=notify.image_convert%> fa-fw"></i> <%= notify.title %>
                       <span class="pull-right text-muted small"><em><%= notify.formatted_ago %></em></span>
+                      <% notify.update_attribute(:isRead, true) %>
                     </div>
                   </a>
                 </li>

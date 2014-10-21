@@ -28,6 +28,7 @@ class GamesController < ApplicationController
                     :title => "First visit!",
                     :message => "You visited your first game!",
                     :game_id => @game.id,
+                    :user_id => current_user.id,
                     :icon => 0,
                     :notify_id => 0)
         User.find(current_user).update_attribute(:coinTo, 50)
