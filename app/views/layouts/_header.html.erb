@@ -1,3 +1,6 @@
+<% if user_signed_in? %>
+  <% @unread_notifications = current_user.notifications.where(isRead: false).reverse.first(10) %>
+<% end %>
 <!-- Navigation -->
 <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0;
                                                                               height: 51px;">
@@ -14,60 +17,32 @@
         <% if user_signed_in? %>
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <i class="fa fa-caret-down"></i><i class="fa fa-bell fa-fw"></i>
+              <i class="fa fa-caret-down"></i>
+              <% if @unread_notifications.length > 0 %>
+                <i class="fa fa-bell fa-fw text-danger"></i>
+              <% else %>
+                <i class="fa fa-bell fa-fw"></i>
+              <% end %>
             </a>
             <ul class="dropdown-menu dropdown-alerts">
+              <% @unread_notifications.each do |notify| %>
                 <li>
-                    <a href="#">
-                        <div>
-                            <i class="fa fa-comment fa-fw"></i> New Comment
-                            <span class="pull-right text-muted small">4 minutes ago</span>
-                        </div>
-                    </a>
+                  <a href="<%= notifications_path %>">
+                    <div>
+                      <i class="fa fa-<%=notify.image_convert%> fa-fw"></i> <%= notify.title %>
+                      <span class="pull-right text-muted small"><em><%= notify.formatted_ago %></em></span>
+                    </div>
+                  </a>
                 </li>
                 <li class="divider"></li>
-                <li>
-                    <a href="#">
-                        <div>
-                            <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                            <span class="pull-right text-muted small">12 minutes ago</span>
-                        </div>
-                    </a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                    <a href="#">
-                        <div>
-                            <i class="fa fa-envelope fa-fw"></i> Message Sent
-                            <span class="pull-right text-muted small">4 minutes ago</span>
-                        </div>
-                    </a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                    <a href="#">
-                        <div>
-                            <i class="fa fa-tasks fa-fw"></i> New Task
-                            <span class="pull-right text-muted small">4 minutes ago</span>
-                        </div>
-                    </a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                    <a href="#">
-                        <div>
-                            <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                            <span class="pull-right text-muted small">4 minutes ago</span>
-                        </div>
-                    </a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                    <a class="text-center" href="#">
-                        <strong>See All Alerts</strong>
-                        <i class="fa fa-angle-right"></i>
-                    </a>
-                </li>
+              <% end %>
+              <li>
+                <a href="<%= notifications_path %>">
+                  <div>
+                    View All Notifications
+                  </div>
+                </a>
+              </li>
             </ul>
             <!-- /.dropdown-alerts -->
         </li>

@@ -3,6 +3,8 @@
  //= require_tree .
 @import 'btoverrides';
 
+textarea { resize: none; }
+
 #mysearchbar {
   margin: 10px 0 0 20px;
   width: 190px;
