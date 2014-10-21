@@ -17,6 +17,7 @@ class UsersController < ApplicationController
     end
     @user.update_attribute(:coin, @user.coin+@user.coinTo)
     @user.update_attribute(:coinTo, 0)
+
     current_user.init
     respond_to do |format|
       format.html

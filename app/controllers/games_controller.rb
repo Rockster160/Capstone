@@ -37,19 +37,23 @@ class GamesController < ApplicationController
   end
 
   def play
-    @user = User.find(current_user.id)
-    @game = Game.find(params[:id])
-    @uId = @user.id
-    @gId = @game.id
-    if params[:passScore]
-      stat = UserGameStatistic.where(user_id: @uId, game_id: @gId).first
-      stat ||= UserGameStatistic.create(user_id: @uId, game_id: @gId)
-      UserGameLog.create(user_id: @uId, game_id: @gId, score: params[:passScore])
-      stat.increment_play_count
-    end
-    respond_to do |format|
-      format.html
-      format.js
+    if user_signed_in?
+      @user = User.find(current_user.id)
+      @game = Game.find(params[:id])
+      @uId = @user.id
+      @gId = @game.id
+      if params[:passScore]
+        stat = UserGameStatistic.where(user_id: @uId, game_id: @gId).first
+        stat ||= UserGameStatistic.create(user_id: @uId, game_id: @gId)
+        UserGameLog.create(user_id: @uId, game_id: @gId, score: params[:passScore])
+        stat.increment_play_count
+      end
+      respond_to do |format|
+        format.html
+        format.js
+      end
+    else
+      redirect_to root_path
     end
   end
 
