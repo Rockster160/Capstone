@@ -3,16 +3,21 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!, :only => :show
 
   def show
-    @user = User.find(params[:id])
-    @unread = @user.notifications.where(isRead: false).reverse
-    if @unread.length < 10
-      @display = @user.notifications.where(isRead: true).reverse.first(10 - @unread.length)
-    end
     unless user_signed_in?
       redirect_to root_path
     end
+    @user = User.find(params[:id])
+    @unread = @user.notifications.where(isRead: false).reverse
+    @history = []
+    UserGameLog.where(user_id: @user).reverse.each do |history|
+      @history << history.play_history_format
+    end
+    if @unread.length < 10
+      @display = @user.notifications.where(isRead: true).reverse.first(10 - @unread.length)
+    end
     @user.update_attribute(:coin, @user.coin+@user.coinTo)
     @user.update_attribute(:coinTo, 0)
+    current_user.init
     respond_to do |format|
       format.html
       format.js
