@@ -49,6 +49,13 @@ gem 'cocoon'
 
 gem 'ransack'
 gem 'pg_search'
+gem 'public_activity'
+
+gem 'therubyracer'
+gem 'less-rails'
+gem 'twitter-bootstrap-rails'
+
+gem 'masonry-rails'
 
 group :development, :test do
   gem 'pry-byebug'

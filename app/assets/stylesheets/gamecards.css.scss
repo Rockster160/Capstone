@@ -1,0 +1,48 @@
+@import 'utilities/variables';
+
+#listitem {
+  padding: 5px;
+  width: 240px;
+  height: 470px;
+  background: $blendbg;
+  border: 5px solid $blendbgdark;
+  border-radius: 20px;
+  margin: 5px;
+  .quickplay { margin-left: 28%; }
+}
+
+#userlistitem {
+  padding: 5px;
+  width: 240px;
+  height: 250px;
+  background: $blendbg;
+  border: 5px solid $blendbgdark;
+  border-radius: 20px;
+  margin: 5px;
+}
+
+#gameicon {
+  background: $gameiconbg;
+  border-radius: 15px;
+  padding: 5px;
+  width: 100px;
+  height: 100px;
+  margin: 0 55px;
+}
+#title {
+  margin-top: -9px;
+  margin-bottom: 10px;
+  height: 120px;
+  overflow: hidden;
+}
+#trophies {
+  width: 100%;
+  margin: 20px 0 0 0;
+  list-style-type: none;
+}
+#scorefont {
+  float: right;
+  font-weight: bold;
+  color: $money;
+  text-shadow: 1px 1px 1px darken($money, 10%);
+}

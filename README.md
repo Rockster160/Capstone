@@ -4,7 +4,6 @@ https://docs.google.com/document/d/1SDMJoGJ4TOtJgP2WeVPHQFVs-4tvDDLc1R5WXwhXfBo/
 DevPoint Labs Fall 2014
 
 Capstone Project Name: GameHub
-
 Team Members:
 Preston
 Rocco
@@ -56,7 +55,7 @@ Roadmap/Milestones:
   √ Create blank application.
   √ Prepare Repo (https://github.com/DevPointLabsFall2014/)
 Phase 1:
-  Create Initial Schema, associate tables and have CRUD working and tested.
+ √ Create Initial Schema, associate tables and have CRUD working and tested.
 Phase 2:
   Do stuff
 

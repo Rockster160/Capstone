@@ -1,0 +1,24 @@
+<%= javascript_tag do %>
+  window.favParam =  <%= params[:id] %>
+  window.userId = <%= current_user.id %>
+<% end %>
+
+<div id="gameEditModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div id='store'>
+      <%= form_tag(search_path, method: :get) do %>
+        <%= text_field_tag(:q, '',
+                            placeholder: 'Type the name of your favorite game',
+                            class: 'form-control',
+                            autocomplete: "off",
+                            autofocus: true,
+                            id: "live-search") %>
+        <div id="live-search-results">
+          <!-- Placeholder for JS content- displays search items -->
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

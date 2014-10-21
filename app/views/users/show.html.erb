@@ -1,50 +1,386 @@
-<div id="page-body" width="100%">
+<%= javascript_tag do %>
+  <% if @user.coinTo > 0 %>
+    window.coinTo = '<%= j (number_with_delimiter(@user.coin + @user.coinTo)).to_s %>';
+  <% else %>
+    window.coinTo = false;
+  <% end %>
+<% end %>
 
-  <div id="columnOne">
-    <span id="namedisp"><%= @user.username.capitalize %></span>
-    <%= image_tag(@user.avatar.url, id: "avatar") %> 
-    <% image_tag @user.avatar.url(:medium) %>
-    <% image_tag @user.avatar.url(:thumb) %>
-    <% if user_signed_in? && current_user.username == @user.username %>
-      <span id="num-for-coin">
-        <%= image_tag('moon.png', id: "coin-on-page", size: "16x16") %>
-        <%=number_with_delimiter( current_user.coin ) %>
-      </span>
-    <% end %>
-    <div id="user-about">
-      <h1>About Me</h1>
-      <p>Hello this is the about me and I talk
-        about myself and what sports I like.</p>
-      <a href="#" class="fa fa-facebook-square"> This is my website.</a><br/>
-      <a href="#" class="fa fa-github"> This is my website.</a><br/>
-      <a href="#" class="fa fa-google"> This is my website.</a><br/>
-      <a href="#" class="fa fa-linkedin-square"> This is my website.</a><br/>
-      <a href="#" class="fa fa-slack"> This is my website.</a><br/>
-      <a href="#" class="fa fa-reddit"> This is my website.</a><br/>
-      <a href="#" class="fa fa-tumblr-square"> This is my website.</a><br/>
-      <a href="#" class="fa fa-twitter"> This is my website.</a><br/>
-      <a href="#">This is my website.</a>
+<%# binding.pry %>
+
+<div id="wrapper">
+<div id="homepage">
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-9 col-md-8 col-sm-6 col-xs-12">
+                <h1 class="page-header"><%= @user.username.capitalize %></h1>
+            </div>
+            <% if user_signed_in? && current_user.username == @user.username %>
+            <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
+                <h1 id="coin-inline">
+                  <%= image_tag('spinningcoin.gif', id: "coin", size: "32x32") %>
+                  <canvas id="coinupdater" width=150 height=300></canvas>
+                  <span id="coin_on_page"><%= number_with_delimiter( current_user.coin ) %></span>
+                </h1>
+            </div>
+            <% end %>
+            <!-- /.col-lg-12 -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
+          <%= image_tag(@user.avatar.url, id: "avatar", class: "col-lg-3 col-md-4 col-sm-4 col-xs-4") %>
+            <div id='user-favorites-div'>
+              <%= render partial: 'user_favorite_games', locals: { user: @user, url: :show } %>
+            </div>
+            <div id='game-modal-div'>
+                <!-- Place holder for the modal data -->
+            </div>
+
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+            <h1>About Me</h1>
+            <p><%= @user.about %></p>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+            <h1>My Links</h1>
+            <!-- List a max of 8 links -->
+            <div class="col-xs-6">
+              <a href="#" class="fa fa-facebook-square"> Website</a><br />
+              <a href="#" class="fa fa-github"> Website</a><br />
+              <a href="#" class="fa fa-reddit"> Website</a><br />
+              <a href="#" class="fa fa-twitter"> Website</a><br />
+            </div>
+            <div class="col-xs-6">
+              <a href="#" class="fa fa-google"> Website</a><br />
+              <a href="#" class="fa fa-linkedin-square"> Website</a><br />
+              <a href="#" class="fa fa-tumblr-square"> Website</a><br />
+              <a href="#" class="fa fa-slack"> Website</a><br />
+            </div>
+          </div>
+          <!-- ./col-lg-9 -->
+        </div>
+        <!-- /.row -->
+        <div class="page-header"></div>
+        <div class="row">
+            <div class="col-md-8 col-sm-6 col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-trophy fa-2x" style="color: gold;"></i> Trophy Case
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Date</th>
+                                                <th>Time</th>
+                                                <th>Amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>3326</td>
+                                                <td>10/21/2013</td>
+                                                <td>3:29 PM</td>
+                                                <td>$321.33</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3325</td>
+                                                <td>10/21/2013</td>
+                                                <td>3:20 PM</td>
+                                                <td>$234.34</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3324</td>
+                                                <td>10/21/2013</td>
+                                                <td>3:03 PM</td>
+                                                <td>$724.17</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3323</td>
+                                                <td>10/21/2013</td>
+                                                <td>3:00 PM</td>
+                                                <td>$23.71</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3322</td>
+                                                <td>10/21/2013</td>
+                                                <td>2:49 PM</td>
+                                                <td>$8345.23</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3321</td>
+                                                <td>10/21/2013</td>
+                                                <td>2:23 PM</td>
+                                                <td>$245.12</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3320</td>
+                                                <td>10/21/2013</td>
+                                                <td>2:15 PM</td>
+                                                <td>$5663.54</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3319</td>
+                                                <td>10/21/2013</td>
+                                                <td>2:13 PM</td>
+                                                <td>$943.45</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- /.table-responsive -->
+                            </div>
+                            <!-- /.col-lg-4 (nested) -->
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-bar-chart-o fa-fw"></i> Game Play History
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Date</th>
+                                                <th>Time</th>
+                                                <th>Amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>3326</td>
+                                                <td>10/21/2013</td>
+                                                <td>3:29 PM</td>
+                                                <td>$321.33</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3325</td>
+                                                <td>10/21/2013</td>
+                                                <td>3:20 PM</td>
+                                                <td>$234.34</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3324</td>
+                                                <td>10/21/2013</td>
+                                                <td>3:03 PM</td>
+                                                <td>$724.17</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3323</td>
+                                                <td>10/21/2013</td>
+                                                <td>3:00 PM</td>
+                                                <td>$23.71</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3322</td>
+                                                <td>10/21/2013</td>
+                                                <td>2:49 PM</td>
+                                                <td>$8345.23</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3321</td>
+                                                <td>10/21/2013</td>
+                                                <td>2:23 PM</td>
+                                                <td>$245.12</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3320</td>
+                                                <td>10/21/2013</td>
+                                                <td>2:15 PM</td>
+                                                <td>$5663.54</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3319</td>
+                                                <td>10/21/2013</td>
+                                                <td>2:13 PM</td>
+                                                <td>$943.45</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- /.table-responsive -->
+                            </div>
+                            <!-- /.col-lg-4 (nested) -->
+                            <div class="col-lg-8">
+                                <div id="morris-bar-chart"></div>
+                            </div>
+                            <!-- /.col-lg-8 (nested) -->
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+            <!-- /.col-lg-8 -->
+            <div class="col-md-4 col-sm-6 col-xs-12">
+              <% if user_signed_in? && current_user.username == @user.username %>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-bell fa-fw"></i> Notifications Panel
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item">
+                                <i class="fa fa-comment fa-fw"></i> New Comment
+                                <span class="pull-right text-muted small"><em>4 minutes ago</em>
+                                </span>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                <span class="pull-right text-muted small"><em>12 minutes ago</em>
+                                </span>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <i class="fa fa-envelope fa-fw"></i> Message Sent
+                                <span class="pull-right text-muted small"><em>27 minutes ago</em>
+                                </span>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <i class="fa fa-tasks fa-fw"></i> New Task
+                                <span class="pull-right text-muted small"><em>43 minutes ago</em>
+                                </span>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                <span class="pull-right text-muted small"><em>11:32 AM</em>
+                                </span>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <i class="fa fa-bolt fa-fw"></i> Server Crashed!
+                                <span class="pull-right text-muted small"><em>11:13 AM</em>
+                                </span>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <i class="fa fa-warning fa-fw"></i> Server Not Responding
+                                <span class="pull-right text-muted small"><em>10:57 AM</em>
+                                </span>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <i class="fa fa-shopping-cart fa-fw"></i> New Order Placed
+                                <span class="pull-right text-muted small"><em>9:49 AM</em>
+                                </span>
+                            </a>
+                            <a href="#" class="list-group-item">
+                                <i class="fa fa-money fa-fw"></i> Payment Received
+                                <span class="pull-right text-muted small"><em>Yesterday</em>
+                                </span>
+                            </a>
+                        </div>
+                        <!-- /.list-group -->
+                        <a href="#" class="btn btn-default btn-block">View All Alerts</a>
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+                <% end %>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-comments fa-fw"></i>
+                        Shoutbox
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <ul class="chat">
+                            <li class="left clearfix">
+                                <span class="chat-img pull-left">
+                                    <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />
+                                </span>
+                                <div class="chat-body clearfix">
+                                    <div class="header">
+                                        <strong class="primary-font">Jack Sparrow</strong>
+                                        <small class="pull-right text-muted">
+                                            <i class="fa fa-clock-o fa-fw"></i> 12 mins ago
+                                        </small>
+                                    </div>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="right clearfix">
+                                <span class="chat-img pull-right">
+                                    <img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle" />
+                                </span>
+                                <div class="chat-body clearfix">
+                                    <div class="header">
+                                        <small class=" text-muted">
+                                            <i class="fa fa-clock-o fa-fw"></i> 13 mins ago</small>
+                                        <strong class="pull-right primary-font">Bhaumik Patel</strong>
+                                    </div>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="left clearfix">
+                                <span class="chat-img pull-left">
+                                    <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />
+                                </span>
+                                <div class="chat-body clearfix">
+                                    <div class="header">
+                                        <strong class="primary-font">Jack Sparrow</strong>
+                                        <small class="pull-right text-muted">
+                                            <i class="fa fa-clock-o fa-fw"></i> 14 mins ago</small>
+                                    </div>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="right clearfix">
+                                <span class="chat-img pull-right">
+                                    <img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle" />
+                                </span>
+                                <div class="chat-body clearfix">
+                                    <div class="header">
+                                        <small class=" text-muted">
+                                            <i class="fa fa-clock-o fa-fw"></i> 15 mins ago</small>
+                                        <strong class="pull-right primary-font">Bhaumik Patel</strong>
+                                    </div>
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                        <a href="#" class="btn btn-default btn-block">View All Shouts</a>
+                    </div>
+                    <!-- /.panel-body -->
+                    <div class="panel-footer">
+                        <div class="input-group">
+                            <input id="btn-input" type="text" class="form-control input-sm" placeholder='<%= "Leave a shout for " + @user.username.capitalize %>' />
+                            <span class="input-group-btn">
+                                <button class="btn btn-warning btn-sm" id="btn-chat">
+                                    Shout it!
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                    <!-- /.panel-footer -->
+                </div>
+                <!-- /.panel .chat-panel -->
+            </div>
+            <!-- /.col-lg-4 -->
+        </div>
+        <!-- /.row -->
     </div>
-    <!-- <div id="trophiescase"></div> -->
-  </div>
-
-  <div id="clicksidebar">
-    <div id="sidebaricon"><i class="fa fa-bars fa-lg fa-rotate-90 fa-2x" style=""></i></div>
-  </div>
-
-  <div id="columnThree">
-    Just some filler to take up room and be a place holder for now.
-  </div>
-    <div id="fav_col">
-      <div id="favs_box">
-          <!-- These ordered to Favorite select first, then most played. Limit to 5. -->
-          <li><%= image_submit_tag("bowling.png", id: "user-fav", class: 'gotobowling') %></li>
-          <li><%= image_submit_tag("rpg.png", id: "user-fav", class: 'gotorpg') %></li>
-          <li><%= image_submit_tag("hoops.png", id: "user-fav", class: 'gotohoops') %></li>
-          <li><%= image_submit_tag("pacman.png", id: "user-fav", class: 'gotopacman') %></li>
-          <li><%= image_submit_tag("platformer.png", id: "user-fav", class: 'gotoplatformer') %></li>
-      </div>
-    </div>
-  <div id="columnTwo">
-  </div>
+    <!-- /#page-wrapper -->
 </div>
+<!-- #homepage -->
+</div>
+<!-- /#wrapper -->

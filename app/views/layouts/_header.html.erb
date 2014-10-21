@@ -1,41 +1,97 @@
-<%= image_tag("header.png", id: "all-header") %>
-<!-- Home Contact Search Games Account^ -->
-<!-- EditAcc SignOut  -->
-
-<nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0;
+                                                                              height: 51px;">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/"><i class="fa fa-user fa-2x" id="profilebutton"></i></a>
-          <%= render 'layouts/pgsearchbar' %>
+      <%= render 'layouts/pgsearchbar' %>
     </div>
+    <!-- /.navbar-header -->
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="../../games/read"><i class="fa fa-gamepad fa-lg"></i> Games</a></li>
+    <ul class="nav navbar-top-links navbar-right"
+        style="position: absolute;
+               right: 0;
+               top: 0;">
+               <li><a href="../../games/read"><i class="fa fa-gamepad fa-lg"></i></a></li>
         <% if user_signed_in? %>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cogs fa-lg"></i> Account<span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="../users/update"><i class="fa fa-cog fa-lg"></i> Edit Account</a></li>
-              <li><%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out fa-lg"></i> Sign Out
-              <% end %></li>
-               <li class="divider"></li>
-               <li><a href="../users/update" id="num-for-coin"><%= image_tag('moon.png', id: "coin-on-page", size: "16x16") %>&nbsp;<%=number_with_delimiter( current_user.coin ) %></a></li>
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <i class="fa fa-caret-down"></i><i class="fa fa-bell fa-fw"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-alerts">
+                <li>
+                    <a href="#">
+                        <div>
+                            <i class="fa fa-comment fa-fw"></i> New Comment
+                            <span class="pull-right text-muted small">4 minutes ago</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="#">
+                        <div>
+                            <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                            <span class="pull-right text-muted small">12 minutes ago</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="#">
+                        <div>
+                            <i class="fa fa-envelope fa-fw"></i> Message Sent
+                            <span class="pull-right text-muted small">4 minutes ago</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="#">
+                        <div>
+                            <i class="fa fa-tasks fa-fw"></i> New Task
+                            <span class="pull-right text-muted small">4 minutes ago</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="#">
+                        <div>
+                            <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                            <span class="pull-right text-muted small">4 minutes ago</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a class="text-center" href="#">
+                        <strong>See All Alerts</strong>
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </li>
             </ul>
-          </li>
+            <!-- /.dropdown-alerts -->
+        </li>
+        <!-- /.dropdown -->
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <i class="fa fa-caret-down"></i><i class="fa fa-user fa-fw"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-user">
+                <li><a href="/"><i class="fa fa-user fa-fw"></i> Profile</a></li>
+                <li><a href="../users/edit"><i class="fa fa-cogs fa-fw"></i> Edit Account</a></li>
+                <li><%= link_to destroy_user_session_path, method: :delete do %>
+                  <i class="fa fa-sign-out fa-fw"></i> Sign Out
+                  <% end %></li>
+                <li class="divider"></li>
+                <li><a href="#" id="coin-inline"><%= image_tag('spinningcoin.gif', id: "coin", size: "24x24") %><%= number_with_delimiter( current_user.coin + current_user.coinTo ) %></a></li>
+            </ul>
+            <!-- /.dropdown-user -->
+        </li>
+        <!-- /.dropdown -->
         <% else %>
-          <li><%= link_to "Sign in", new_user_session_path %></li>
+          <li><%= link_to "Sign In", new_user_session_path %></li>
         <% end %>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+
+    </ul>
+    <!-- /.navbar-top-links -->
 </nav>

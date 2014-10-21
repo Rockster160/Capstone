@@ -1,3 +1,4 @@
+#Give Users uploadable avatars.
 class AddAttachmentAvatarToUsers < ActiveRecord::Migration
   def self.up
     add_attachment :users, :avatar

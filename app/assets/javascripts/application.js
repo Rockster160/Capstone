@@ -13,7 +13,7 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
-//= require_tree .
+//=  require_tree
 
 var open = false;
 
@@ -32,6 +32,7 @@ $(document).ready(function(){
     };
   });
 });
+
 
 function sidebarOpen() {
   $("#columnThree").animate({right: "0"}, "slow", "swing").show();
