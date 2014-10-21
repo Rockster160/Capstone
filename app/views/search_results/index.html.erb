@@ -1,83 +1,92 @@
 <div id="wrapper">
-<div id="searchlist" class="userslisting">
-  <h1>Users</h1>
-  <% (@listuser.length).times do |list| %>
-    <div id="searchitem">
-      <% user = User.find(@listuser[list][0]) %>
-      <div id="search-img-bg"><a href="/users/<%= user.id %>"><%= image_tag(user.avatar.url(:thumb), id: "searchicon") %></a></div>
-      <div id="searchtitle">
-        <h4><%= user.username.capitalize %></h4>
-        <div id="searchdesc">
-          <% user.about %>
-          Hello world I am a description and I am doing something to take up space.
+<% if @listgame.length > 0 %>
+  <% if @listuser.length > 0 %>
+    <div id="searchlist" class="col-md-6 col-xs-12">
+  <% else %>
+    <div id="searchlist" class="col-xs-12">
+  <% end %>
+    <h1>Games</h1>
+    <% if @listgame.length > 10 %>
+      <% how_many_games = 10 %>
+    <% else %>
+      <% how_many_games = @listgame.length %>
+    <% end %>
+    <% how_many_games.times do |list| %>
+      <div id="searchitem">
+        <% game = Game.find(@listgame[list][0]) %>
+        <div class="col-lg-6 col-md-6 col-sm-4 col-xs-6">
+          <div id="listitem">
+            <div id="gameimage">
+              <a href="/games/<%= game.id %>"><%= image_tag(game.ava, id: "gameicon") %></a>
+            </div>
+            <div id="title">
+              <h4><%= game.name %></h4>
+              <div id="briefing">
+                <%= game.about %>
+              </div>
+            </div>
+            <div id="trophies">
+              <h4>Trophies</h4>
+
+                  <li><strong>Today:&nbsp;</strong>
+                  <span id="scorefont">Score</span></li>
+                  <li><i>Some_User</i>&nbsp;</li>
+
+                  <li><strong>This Week:&nbsp;</strong>
+                  <span id="scorefont">Score</span></li>
+                  <li><i>Hello</i>&nbsp;</li>
+
+                  <li><strong>This Month:&nbsp;</strong>
+                  <span id="scorefont">Score</span></li>
+                  <li><i>WWWWWWWWWWWWWWWW</i>&nbsp;</li>
+
+                  <li><strong>All-Time:&nbsp;</strong>
+                  <span id="scorefont">Score</span></li>
+                  <li><i>Rockster160</i>&nbsp;</li>
+
+            </div>
+        <%= link_to play_path(id: game.id) do %>
+          <span class="quickplay" id="<%= game.id %>">
+            <button type="button" class="btn btn-primary">Quick Play!</button>
+          </span>
+        <% end %>
+          </div>
         </div>
       </div>
-      <div id="searchtrophies">
-        <h4>Trophies</h4>
-        <table>
-          <tr>
-            <td><strong>Today:&nbsp;</strong></td>
-            <td><i>Some_User</i>&nbsp;</td>
-            <td id="scorefont">Score</td>
-          </tr>
-          <tr>
-            <td><strong>This week:&nbsp;</strong></td>
-            <td><i>wwwwwwwwwwwwwww</i>&nbsp;</td>
-            <td id="scorefont">Score</td>
-          </tr>
-          <tr>
-            <td><strong>This Month:&nbsp;</strong></td>
-            <td><i>Hello</i>&nbsp;</td>
-            <td id="scorefont">Score</td>
-          </tr>
-          <tr>
-            <td><strong>All-Time:&nbsp;</strong></td>
-            <td><i>Rockster160</i>&nbsp;</td>
-            <td id="scorefont">Score</td>
-          </tr>
-        </table>
-      </div>
-    </div>
+    <% end %>
+  </div>
+<% end %>
+
+<% if @listuser.length > 0 %>
+  <% if @listgame.length > 0 %>
+    <div id="searchlist" class="col-md-6 col-xs-12">
+  <% else %>
+    <div id="searchlist" class="col-xs-12">
   <% end %>
-</div>
-<div id="searchlist" class="gameslisting">
-  <h1>Games</h1>
-  <% (@listgame.length).times do |list| %>
-    <div id="searchitem">
-      <% game = Game.find(@listgame[list][0]) %>
-      <div id="search-img-bg"><a href="/games/<%= game.id %>"><%= image_tag(game.ava, id: "searchicon") %></a></div>
-      <div id="searchtitle">
-        <h4><%= game.name.capitalize %></h4>
-        <div id="searchdesc">
-          <%= game.about %>
+    <h1>Users</h1>
+    <% if @listuser.length > 20 %>
+      <% how_many_user = 20 %>
+    <% else %>
+      <% how_many_user = @listuser.length %>
+    <% end %>
+    <% (how_many_user).times do |list| %>
+      <div id="searchitem">
+        <% user = User.find(@listuser[list][0]) %>
+        <div class="col-lg-6 col-md-6 col-sm-4 col-xs-6">
+          <div id="userlistitem">
+            <div id="gameimage">
+              <a href="/users/<%= user.id %>"><%= image_tag(user.avatar, id: "gameicon") %></a>
+            </div>
+            <div id="title">
+              <h4><%= user.username %></h4>
+              <div id="briefing">
+                <%= user.about %>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div id="searchtrophies">
-        <h4>Trophies</h4>
-        <table>
-          <tr>
-            <td><strong>Today:&nbsp;</strong></td>
-            <td><i>Some_User</i>&nbsp;</td>
-            <td id="scorefont">Score</td>
-          </tr>
-          <tr>
-            <td><strong>This week:&nbsp;</strong></td>
-            <td><i>wwwwwwwwwwwwwww</i>&nbsp;</td>
-            <td id="scorefont">Score</td>
-          </tr>
-          <tr>
-            <td><strong>This Month:&nbsp;</strong></td>
-            <td><i>Hello</i>&nbsp;</td>
-            <td id="scorefont">Score</td>
-          </tr>
-          <tr>
-            <td><strong>All-Time:&nbsp;</strong></td>
-            <td><i>Rockster160</i>&nbsp;</td>
-            <td id="scorefont">Score</td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+<% end %>
 </div>

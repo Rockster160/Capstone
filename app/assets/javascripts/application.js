@@ -33,6 +33,7 @@ $(document).ready(function(){
   });
 });
 
+
 function sidebarOpen() {
   $("#columnThree").animate({right: "0"}, "slow", "swing").show();
   $('#clicksidebar').animate({right: "50vw"}, "slow", "swing");

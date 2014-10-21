@@ -1,0 +1,36 @@
+@import 'utilities/variables';
+
+#coin-inline {
+  color: $money;
+  font-weight: bold;
+  z-index: 2;
+}
+
+#homepage {
+
+  #coinupdater {
+    position: absolute;
+    opacity: 0.5;
+    z-index: 0;
+    margin: -40px 0 0 -30px;
+  }
+  #coin { margin-top: -10px; }
+
+  #avatar {
+    padding: 5px;
+    background: blue;
+  }
+
+  #favs {
+    background: blue;
+    padding: 5px;
+    margin-bottom: 10px;
+    height: 12vw;
+    width: 12vw;
+    @media (max-width: 750px) {
+      height: 20vw;
+      width: 20vw;
+    }
+  }
+
+}
