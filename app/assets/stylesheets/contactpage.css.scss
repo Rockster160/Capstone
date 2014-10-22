@@ -1,7 +1,24 @@
 @import 'utilities/variables';
 
+h1 {
+  text-align: center;
+}
+
 #whole-page-container {
   min-height: 100vh;
+}
+
+.fa-envelope {
+  color: #00CC00;
+
+}
+
+.fa-facebook-square {
+  color: blue;
+}
+
+.fa-twitter-square {
+  color: #6699FF;
 }
 
 .page-wrap {
@@ -20,4 +37,8 @@ footer {
       text-align: center;
     }
   }
+}
+
+.spac3-tech {
+  font-family: 'Spac3 Tech';
 }
