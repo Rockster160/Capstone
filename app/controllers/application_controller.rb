@@ -20,4 +20,8 @@ class ApplicationController < ActionController::Base
   def read
     @users = User.search(params[:q]).result
   end
+
+  def internalclock
+
+  end
 end

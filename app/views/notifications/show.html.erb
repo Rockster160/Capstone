@@ -1,0 +1,5 @@
+<% @user.notifications.reverse.first(50).each do |notify| %>
+  <%= notify.title %>
+  <%= notify.message %>
+  <br/>
+<% end %>

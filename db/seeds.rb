@@ -20,23 +20,23 @@ Game.create(  name: 'Bowling' ,
               play: './games/play/bowling' ,
               cost: 50 ,
               about: "This is a virtual bowling game. Bowling
-                      consists of rolling a ball down a lane at a
-                      number of pins, keeping track of the number
+                      consists of rolling a ball down a lane at 10
+                      pins keeping track of the number of pins
                       knocked down through 10 frames consecutively.
-                      In each frame, you have two chances to knock
-                      down as many pins as you can, with bonuses to
-                      your score in successfully knocking all 10
+                      In each frame you have two chances to knock
+                      down as many pins as you can with bonuses to
+                      your score if you successfully knock all 10
                       down. If all 10 pins are knocked down on the
-                      first try, it is called a Strike. As a bonus,
+                      first try, it is called a strike. As a bonus,
                       your next ball(throw) on your next frame will
                       be doubled. Bonuses stack! If all 10 pins are
                       knocked down on the second try, it is called a
                       spare. As a bonus, your first ball on your next
                       frame will be doubled. In the tenth/final frame,
-                      spares do not give bonuses as there is no next
+                      spares do not give bonuses since there is not a next
                       frame. However, if a spare or a strike is
-                      rolled in the tenth, you are given an
-                      opportunity to have 3 ball in the tenth
+                      rolled in the tenth frame, you are given an
+                      opportunity to have a 3rd ball in the tenth
                       frame, irregardless of whether or not you
                       knock them all down. This makes it possible
                       to get 3 strikes in the tenth frame alone,
@@ -44,7 +44,7 @@ Game.create(  name: 'Bowling' ,
                       strikes were rolled in the 8th and 9th frames.
                       For each completed frame and for each point
                       earned, you will receive 1 point." ,
-              howto: "At the beginning of the game, you may click on any
+              howto: "At the beginning of the game you may click on any
                       position on the approach to select your
                       starting standing position. You will then
                       select a target throwing position by clicking
@@ -59,6 +59,16 @@ Game.create(  name: 'Bowling' ,
                       arrow keys to rotate your ball. The more times
                       you slam the keys, the faster your rev rate
                       will be in the direction you chose!" )
+
+Game.create(  name: 'Platformer' ,
+              ava: 'mrgaw.jpg' ,
+              play: '' ,
+              cost: 50 ,
+              about: "Jump around, collect coins, profit! There isn\'t an easier way to
+                      earn bonuses and collect extra coins on GameHub than in Platformer.
+                      Each level gives the user multiple opportunities to pad their credit
+                      stack." ,
+              howto: "See description above." )
 
 Game.create(  name: 'Pacman' ,
               ava: 'pacman.jpeg' ,
@@ -80,33 +90,42 @@ Game.create(  name: 'Pacman' ,
                       keys. Collect all coins on a level to
                       progress." )
 
-Game.create(  name: 'Platformer' ,
-              ava: 'mrgaw.jpg' ,
-              play: '' ,
-              cost: 50 ,
-              about: "Jump around, collect coins, profit!" ,
-              howto: "See description above" )
-
 Game.create(  name: 'Pusoy' ,
               ava: 'dice.png' ,
               play: '' ,
               cost: 50 ,
-              about: "Strange card game where high card is 2 and low card is 3." ,
-              howto: "Throw cards, match people, first out wins!" )
+              about: "Pusoy is the Filipino version of poker played with 3 players. The
+                      object of the game is to be the first to discard your hand by playing
+                      them to the table. If one cannot be first to play all cards, then the
+                      aim is to have as few cards as possible. Cards can be played separately
+                      or in certain combinations using poker hand rankings. Players earn
+                      points when they are first to discard their hand. For each card their
+                      opponent is still holding in their hand they receive 1 point. The suit
+                      order from highest to lowest is diamonds, hearts, spades, clubs with the
+                      2 of diamonds being the highest card and the 3 of clubs being the lowest.
+                      The player that is dealt the 3 of clubs leads/begins each game." ,
+              howto: "Select and play cards using poker hands. Take turns with the other players.
+                      First one to get rid of their cards wins!" )
 
 Game.create(  name: 'Hoops' ,
               ava: 'basketball.png' ,
               play: '' ,
               cost: 50 ,
-              about: "Shoot hoops, score points, become a pro!" ,
-              howto: "Flick your finger or click and drag the throw the ball." )
+              about: "Shoot hoops in this vintage style basketball arcade game to earn points
+                      and bonuses when you set a high score. The more times you play,
+                      the more you can win!" ,
+              howto: "Flick your finger or click and drag to shoot the ball into the hoop." )
 
 Game.create(  name: 'RPG' ,
               ava: 'swords.jpeg' ,
               play: '' ,
               cost: 50 ,
-              about: "This is an rpg run around magic spell casting game!" ,
-              howto: "Click on stuff to fire attack, level up spells to increase damage." )
+              about: "This is an rpg run around magic spell casting game! Fight off enemies
+                      using special spells to level up and earn bonuses. Save the world one
+                      level at a time. Earn points for defeating enemies as well as increasing
+                      damage and leveling up." ,
+              howto: "Click to fire and attack. Level up and seek out special spells to
+                      increase damage." )
 
 Game.create( name: 'DevLabs',
              ava: 'devlabs.png',

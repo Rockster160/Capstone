@@ -1,27 +1,28 @@
 $(document).keyup(function() {
-  url = "/search.json";
-  var str = $('#live-search').serialize().substr(2);
-  $.get(url, {q : str}, function(searchResults) {
-    if (str.length > 0) {
-      $('#live-search-results').html("")
-      for(var i=0;i<searchResults.length;i++){
-        $('#live-search-results').append('<li id="live-search-list" style="list-style-type:none;" onClick="liveBeenClicked(' +
-          searchResults[i][0] +
-          ', ' +
-          favParam +
-          ');"><img src="/assets/' +
-          searchResults[i][2] +
-          '" id="circle-image">' +
-          searchResults[i][1] +
-          '</li>');
+  if ($('#live-search').is(':visible')) {
+    url = "/search.json";
+    var str = $('#live-search').serialize().substr(2);
+    $.get(url, {q : str}, function(searchResults) {
+      if (str.length > 0) {
+        $('#live-search-results').html("")
+        for(var i=0;i<searchResults.length;i++){
+          $('#live-search-results').append('<li id="live-search-list" style="list-style-type:none;" onClick="liveBeenClicked(' +
+            searchResults[i][0] +
+            ', ' +
+            favParam +
+            ');"><img src="/assets/' +
+            searchResults[i][2] +
+            '" id="circle-image">' +
+            searchResults[i][1] +
+            '</li>');
+        }
       }
-    }
-    if (str.length == 0) { $('#live-search-results').html("") }
-  });
+      if (str.length == 0) { $('#live-search-results').html("") }
+    });
+  }
 })
 
 function liveBeenClicked(id, fav) {
-  // alert(id+", "+fav);
   url = userId+'/update'
   $.post(url, {passId: id, passFav: fav}, function(done_data) {
     $('#user-favorites-div').html(done_data);
