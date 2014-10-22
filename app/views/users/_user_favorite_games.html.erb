@@ -8,11 +8,21 @@
         <% end %>
       <% else %>
         <% link_url = url == :show ? edit_path : game_edit_path(pos + 1) %>
-        <%= link_to link_url, remote: true do %>
-          <% if current_user.username == user.username %>
-            <%= image_tag('add.png', id: "favs") %>
-          <% else %>
-            <%= image_tag('missing.png', id: "favs") %>
+        <% if url == :show %>
+          <%= link_to link_url do %>
+            <% if current_user.username == user.username %>
+              <%= image_tag('add.png', id: "favs") %>
+            <% else %>
+              <%= image_tag('missing.png', id: "favs") %>
+            <% end %>
+          <% end %>
+        <% else %>
+          <%= link_to link_url, remote: true do %>
+            <% if current_user.username == user.username %>
+              <%= image_tag('add.png', id: "favs") %>
+            <% else %>
+              <%= image_tag('missing.png', id: "favs") %>
+            <% end %>
           <% end %>
         <% end %>
       <% end %>
