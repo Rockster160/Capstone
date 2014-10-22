@@ -1,0 +1,19 @@
+@import 'utilities/variables';
+
+.page-wrap {
+  min-height: 100%;
+  position: relative;
+}
+
+footer {
+  border: 1px solid $navborder;
+  padding: 15px 0;
+  margin: 20px 0 0 0;
+  background: $navbg;
+  ul {
+    list-style: none;
+    li {
+      text-align: center;
+    }
+  }
+}
