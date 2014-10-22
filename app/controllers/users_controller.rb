@@ -8,17 +8,21 @@ class UsersController < ApplicationController
     end
     @user = User.find(params[:id])
     @unread = @user.notifications.where(isRead: false).reverse
+    if @unread.length < 5
+      @display = @user.notifications.where(isRead: true).reverse.first(5 - @unread.length)
+    else
+      @display = []
+    end
     @history = []
     UserGameLog.where(user_id: @user).reverse.each do |history|
       @history << history.play_history_format
     end
-    if @unread.length < 10
-      @display = @user.notifications.where(isRead: true).reverse.first(10 - @unread.length)
-    end
-    @user.update_attribute(:coin, @user.coin+@user.coinTo)
+    @trophies = []
+    @trophies = Trophy.where(user_id: @user).reverse
+
+    @user.update_attribute(:coin, @user.coin + @user.coinTo)
     @user.update_attribute(:coinTo, 0)
 
-    current_user.init
     respond_to do |format|
       format.html
       format.js

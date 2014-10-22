@@ -2,6 +2,7 @@
 class User < ActiveRecord::Base
   has_many :notifications
   has_many :shouts
+  has_many :trophies
   has_many :user_game_statistics
   has_many :user_game_logs
   include PublicActivity::Model
@@ -23,8 +24,5 @@ class User < ActiveRecord::Base
       end
     end
     return favs
-  end
-
-  def init
   end
 end
