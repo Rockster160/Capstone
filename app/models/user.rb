@@ -103,7 +103,5 @@ class User < ActiveRecord::Base
     end
   end
 
-  def init
-  end
   
 end
