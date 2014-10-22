@@ -1,5 +1,6 @@
 #Forwards search function
 class RegistrationsController < Devise::RegistrationsController
+  include ::Formatter
 
 	def create
 	  @user = User.create( user_params )

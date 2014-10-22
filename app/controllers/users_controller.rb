@@ -41,6 +41,7 @@ class UsersController < ApplicationController
 
   def create
   @user = User.create( user_params )
+  end
 
   def shout
     # @user = User.find(params[:id])
@@ -72,10 +73,5 @@ class UsersController < ApplicationController
   end
 
   def badges 
-  end
-
-  private
-  def user_params
-    params.require(:user).permit(:avatar)
   end
 end

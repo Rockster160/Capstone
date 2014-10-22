@@ -101,7 +101,9 @@ class User < ActiveRecord::Base
     else
       binding.pry
     end
+  end
 
   def init
   end
+  
 end
