@@ -22,6 +22,5 @@ class ApplicationController < ActionController::Base
   end
 
   def internalclock
-
   end
 end
