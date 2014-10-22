@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.find(user_params[:id])
     @fav = @user.favorites
     @passFav = params[:passFav].to_i - 1
     @passId = params[:passId].to_i
@@ -33,12 +33,6 @@ class UsersController < ApplicationController
 
   def create
   @user = User.create( user_params )
-  end
-
-  private
-
-  def user_params
-    params.require(:user).permit(:avatar)
   end
 
   def read
@@ -59,4 +53,7 @@ class UsersController < ApplicationController
   end
 
   private
+  def user_params
+    params.require(:user).permit(:avatar)
+  end
 end

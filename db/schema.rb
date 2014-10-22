@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141008190028) do
+ActiveRecord::Schema.define(version: 20141021170437) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,17 +52,6 @@ ActiveRecord::Schema.define(version: 20141008190028) do
     t.string   "thumb"
   end
 
-  create_table "notifications", force: true do |t|
-    t.integer  "notify_id"
-    t.integer  "game_id"
-    t.integer  "user_id"
-    t.string   "message"
-    t.boolean  "isRead",     default: false
-    t.integer  "gold"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "kinds", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -74,6 +63,19 @@ ActiveRecord::Schema.define(version: 20141008190028) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "notifications", force: true do |t|
+    t.integer  "notify_id"
+    t.integer  "game_id"
+    t.integer  "user_id"
+    t.string   "message"
+    t.boolean  "isRead",     default: false
+    t.integer  "gold"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "title"
+    t.integer  "icon"
   end
 
   create_table "pg_search_documents", force: true do |t|
@@ -92,18 +94,43 @@ ActiveRecord::Schema.define(version: 20141008190028) do
     t.datetime "updated_at"
   end
 
+  create_table "shouts", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "sent_from_id"
+    t.string   "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_game_logs", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "game_id"
+    t.integer  "score"
+    t.string   "event",      default: "played"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_game_statistics", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "game_id"
+    t.integer  "count",      default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
     t.string   "name"
     t.text     "about"
     t.integer  "coin",                   default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "email",                  default: "",           null: false
-    t.string   "encrypted_password",     default: "",           null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,            null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
@@ -114,8 +141,8 @@ ActiveRecord::Schema.define(version: 20141008190028) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.integer  "coinTo",                 default: 20
-    t.integer  "favorites",              default: [0, 0, 0, 0],              array: true
-    t.integer  "popup",                  default: [],                        array: true
+    t.integer  "favorites",              default: [],              array: true
+    t.integer  "popup",                  default: [],              array: true
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

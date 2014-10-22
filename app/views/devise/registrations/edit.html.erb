@@ -15,7 +15,7 @@
   <div id="homepage">
       <div id="page-wrapper">
           <div class="row">
-            <%= image_tag(@user.avatar.url, id: "avatar", class: "col-lg-3 col-md-4 col-sm-4 col-xs-4") %>
+            <%= image_tag(@user.avatar.url(:medium), id: "avatar", class: "col-lg-3 col-md-4 col-sm-4 col-xs-4") %>
               <div id='user-favorites-div'>
                 <%= render partial: 'users/user_favorite_games', locals: { user: @user, url: :edit } %>
               </div>
@@ -26,6 +26,7 @@
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
               <h1>About Me</h1>
               <div><%= f.text_field :about, placeholder: @user.about %></div>
+              <div><%= f.file_field :avatar %></div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
               <h1>My Links</h1>
