@@ -53,10 +53,10 @@ class GamesController < ApplicationController
                                       " and won " +
                                       gold.to_s +
                                       " coins!!",
-                            gold: gold,
                             title: "You won some coins!",
                             icon: 3
                             )
+        User.find(@user.id).update_attribute(:coinTo, gold + @user.coinTo)
         UserGameLog.create(user_id: @uId, game_id: @gId, score: @score)
         stat = UserGameStatistic.where(user_id: @uId, game_id: @gId).first
         stat ||= UserGameStatistic.create(user_id: @uId, game_id: @gId)

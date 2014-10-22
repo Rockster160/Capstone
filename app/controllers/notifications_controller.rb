@@ -4,10 +4,4 @@ class NotificationsController < ApplicationController
       @user = current_user
     end
   end
-
-  def create
-    self.gold
-    binding.pry
-    self.gold
-  end
 end
