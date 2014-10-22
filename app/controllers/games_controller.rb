@@ -43,9 +43,23 @@ class GamesController < ApplicationController
       @uId = @user.id
       @gId = @game.id
       if params[:passScore]
+        @score = params[:passScore]
+        gold = @game.mapScoreToCoin(@score)
+        Notification.create(
+                            game_id: @gId,
+                            user_id: @uId,
+                            message: "You played " +
+                                      @game.name +
+                                      " and won " +
+                                      gold.to_s +
+                                      " coins!!",
+                            gold: gold,
+                            title: "You won some coins!",
+                            icon: 3
+                            )
+        UserGameLog.create(user_id: @uId, game_id: @gId, score: @score)
         stat = UserGameStatistic.where(user_id: @uId, game_id: @gId).first
         stat ||= UserGameStatistic.create(user_id: @uId, game_id: @gId)
-        UserGameLog.create(user_id: @uId, game_id: @gId, score: params[:passScore])
         stat.increment_play_count
       end
       respond_to do |format|
