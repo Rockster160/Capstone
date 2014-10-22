@@ -1,5 +1,9 @@
 @import 'utilities/variables';
 
+#whole-page-container {
+  min-height: 100vh;
+}
+
 .page-wrap {
   min-height: 100%;
   position: relative;

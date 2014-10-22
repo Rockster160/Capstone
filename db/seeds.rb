@@ -58,6 +58,16 @@ Game.create(  name: 'Bowling' ,
                       you slam the keys, the faster your rev rate
                       will be in the direction you chose!" )
 
+Game.create(  name: 'Platformer' ,
+              ava: 'mrgaw.jpg' ,
+              play: '' ,
+              cost: 50 ,
+              about: "Jump around, collect coins, profit! There isn\'t an easier way to
+                      earn bonuses and collect extra coins on GameHub than in Platformer.
+                      Each level gives the user multiple opportunities to pad their credit
+                      stack." ,
+              howto: "See description above." )
+
 Game.create(  name: 'Pacman' ,
               ava: 'pacman.jpeg' ,
               play: './games/play/pacman' ,
@@ -78,31 +88,21 @@ Game.create(  name: 'Pacman' ,
                       keys. Collect all coins on a level to
                       progress." )
 
-Game.create(  name: 'Platformer' ,
-              ava: 'mrgaw.jpg' ,
-              play: '' ,
-              cost: 50 ,
-              about: "Jump around, collect coins, profit! There isn't an easier way to
-                      earn bonuses and collect extra coins on GameHub than in Platformer. 
-                      Each level gives the user multiple opportunities to pad their credit
-                      stack." ,
-              howto: "See description above." )
-
 Game.create(  name: 'Pusoy' ,
               ava: 'dice.png' ,
               play: '' ,
               cost: 50 ,
-              about: "Pusoy is the Filipino version of poker played with 3 players. The 
-                      object of the game is to be the first to discard your hand by playing 
-                      them to the table. If one cannot be first to play all cards, then the 
-                      aim is to have as few cards as possible. Cards can be played separately 
+              about: "Pusoy is the Filipino version of poker played with 3 players. The
+                      object of the game is to be the first to discard your hand by playing
+                      them to the table. If one cannot be first to play all cards, then the
+                      aim is to have as few cards as possible. Cards can be played separately
                       or in certain combinations using poker hand rankings. Players earn
                       points when they are first to discard their hand. For each card their
                       opponent is still holding in their hand they receive 1 point. The suit
                       order from highest to lowest is diamonds, hearts, spades, clubs with the
                       2 of diamonds being the highest card and the 3 of clubs being the lowest.
                       The player that is dealt the 3 of clubs leads/begins each game." ,
-              howto: "Select and play cards using poker hands. Take turns with the other players. 
+              howto: "Select and play cards using poker hands. Take turns with the other players.
                       First one to get rid of their cards wins!" )
 
 Game.create(  name: 'Hoops' ,
@@ -122,7 +122,7 @@ Game.create(  name: 'RPG' ,
                       using special spells to level up and earn bonuses. Save the world one
                       level at a time. Earn points for defeating enemies as well as increasing
                       damage and leveling up." ,
-              howto: "Click to fire and attack. Level up and seek out special spells to 
+              howto: "Click to fire and attack. Level up and seek out special spells to
                       increase damage." )
 
 Game.create( name: 'DevLabs',

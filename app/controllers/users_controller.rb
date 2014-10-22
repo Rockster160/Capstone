@@ -50,6 +50,11 @@ class UsersController < ApplicationController
   end
 
   def read
+    if params[:readNotification]
+      Notification.where(user_id: User.find(params[:id]).id).each do |notify|
+        notify.update_attribute(:isRead, true)
+      end
+    end
   end
 
   def destroy

@@ -1,8 +1,11 @@
 $(document).ready(function() {
-  $('#Very').click(function () {
-    $('#Very').html("");
-    // var str = $('#btn-input').html();
-    // alert(str);
-    // str.html("");
-  });
+  $('#notifydropdown').click(function() {
+    setTimeout(function() {
+      if ( $('.open').length ) {
+        $('#notifydropdown').html('<i class="fa fa-caret-down"></i><i class="fa fa-bell fa-fw"></i>');
+        var url = '/users/' + user + '/read';
+        $.get(url, {readNotification: true}, console.log("Success!"));
+      }
+    }, 100)
+  })
 });
