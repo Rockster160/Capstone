@@ -7,30 +7,9 @@ class Trophy < ActiveRecord::Base
     @user = self.user_id
     @theGame = Game.find(@game)
     @theUser = User.find(@user)
-    perfectScore(score)
+    everyPlay(score)
     allTime(score)
-    everyPlay
-  end
-
-  def everyPlay
-    @theUser
-    games = Game.all.length
-    playedall = 0
-    games.times do |checkHistory|
-      has_played = UserGameLog.where(user_id: @user, game_id: checkHistory)
-      playedall += 1 if has_played.length > 0
-    end
-    if playedall >= games
-      Notification.create(
-                          game_id: @game,
-                          user_id: @user,
-                          message: "You've played every game hosted on GameHub!",
-                          title: "Every Game Played!",
-                          icon: 2
-      )
-      self.update_attribute(:uniq_id, 3)
-      self.save!
-    end
+    perfectScore(score)
   end
 
   def perfectScore(score)
@@ -46,6 +25,19 @@ class Trophy < ActiveRecord::Base
                           title: "Perfect score!",
                           icon: 2
       )
+      Trophy.where(uniq_id: 2, game_id: @game).all.each do |beatenUser|
+        Notification.create(
+                            game_id: @game,
+                            user_id: beatenUser.user_id,
+                            message: "Your score has been beaten in " +
+                                      @theGame.name +
+                                      " by " + User.find(@user).username +
+                                      "with a " + score + ".",
+                            title: "High score beaten!",
+                            icon: 4
+        )
+        beatenUser.destroy
+      end
       @theUser.update_attribute(:coinTo, 500 + @theUser.coinTo)
     end
   end
@@ -81,6 +73,30 @@ class Trophy < ActiveRecord::Base
       self.update_attribute(:uniq_id, 2)
       self.save!
       @theUser.update_attribute(:coinTo, 100 + @theUser.coinTo)
+    end
+  end
+
+  def everyPlay(score)
+    if Trophy.where(user_id: @user, uniq_id: 3).length == 0
+      games = Game.all.length
+      playedall = 0
+      games.times do |checkHistory|
+        has_played = UserGameLog.where(user_id: @user, game_id: (checkHistory + 1))
+        playedall += 1 if has_played.length > 0
+      end
+      if playedall >= games
+        Notification.create(
+                            game_id: @game,
+                            user_id: @user,
+                            message: "You've played every game hosted on GameHub!" +
+                                    "Additionally, you win 500 coins!",
+                            title: "Every Game Played!",
+                            icon: 2
+        )
+        @theUser.update_attribute(:coinTo, 500 + @theUser.coinTo)
+        self.update_attribute(:uniq_id, 3)
+        self.save!
+      end
     end
   end
 end

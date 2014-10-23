@@ -83,8 +83,15 @@
                 <div class="row">
                   <% @trophies.each do |trophy| %>
                     <div class="col-xs-12">
-                      <%= Game.find(trophy.game_id).name %> <%= UserGameLog.where(game_id: trophy.game_id, user_id: @user).reverse.first.score %>
-                      <% if  %>
+                      <% if trophy.uniq_id == 1 %>
+                        Perfect Score in <%= Game.find(trophy.game_id).name %> with a <%= UserGameLog.where(game_id: trophy.game_id, user_id: @user).reverse.first.score %>
+                      <% end %>
+                      <% if trophy.uniq_id == 2 %>
+                        High Score: <%= Game.find(trophy.game_id).name %> <%= UserGameLog.where(game_id: trophy.game_id, user_id: @user).reverse.first.score %>
+                      <% end %>
+                      <% if trophy.uniq_id == 3 %>
+                        Played all Games!!
+                      <% end %>
                     </div>
                   <% end %>
                   <!-- /.col-lg-4 (nested) -->
