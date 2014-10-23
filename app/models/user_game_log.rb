@@ -7,7 +7,7 @@ class UserGameLog < ActiveRecord::Base
     @user = User.find(self.user_id).username
     @game = Game.find(self.game_id).name
     if self.event == "played"
-      this_history = @user + " got a " + self.score.to_s + " playing " + @game + " " + self.formatted_ago
+      this_history = @user + " got a " + self.score.to_s + " in " + @game + " " + self.formatted_ago
     end
     return this_history
   end

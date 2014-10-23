@@ -1,5 +1,6 @@
 #Handles Devise methods and authentications
 class User < ActiveRecord::Base
+  after_create :randomAvatar
   has_many :notifications
   has_many :shouts
   has_many :trophies
@@ -14,7 +15,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_attached_file :avatar, :styles => { :medium => "400x400>", :thumb => "100x100>" }, :default_url => "defaultpic.jpg"
-  validates_attachment_content_type :avatar, :content_type => ["image/jpg","image/png"]
+  validates_attachment_content_type :avatar, :content_type => ["image/jpg","image/png", "image/jpeg"]
 
   def favorite_games
     favs = self.favorites
@@ -24,5 +25,23 @@ class User < ActiveRecord::Base
       end
     end
     return favs
+  end
+
+  def randomAvatar
+    rng = case rand(6)
+    when 0
+      "One"
+    when 1
+      "Two"
+    when 2
+      "Three"
+    when 3
+      "Four"
+    when 4
+      "Five"
+    when 5
+      "Six"
+    end
+    self.update_attribute(:ava, "defAva" + rng + ".jpeg")
   end
 end
