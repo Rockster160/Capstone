@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_attached_file :avatar, :styles => { :medium => "400x400>", :thumb => "100x100>" }, :default_url => "defaultpic.jpg"
-  validates_attachment_content_type :avatar, :content_type => ["image/jpg","image/png"]
+  validates_attachment_content_type :avatar, :content_type => ["image/jpg","image/png", "image/jpeg"]
 
   def favorite_games
     favs = self.favorites
