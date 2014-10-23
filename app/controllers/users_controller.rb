@@ -49,9 +49,9 @@ class UsersController < ApplicationController
   end
 
   def shout
-    # @user = User.find(params[:id])
-    # User.find(@user.id).shouts.create(:message => params[:message],
-    #                                   :user_id => current_user)
+    @user = User.find(params[:id])
+    User.find(@user.id).shouts.create(:message => params[:message],
+                                      :user_id => current_user)
   end
 
   def user_params

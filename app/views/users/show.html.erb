@@ -182,36 +182,40 @@
                   <% @user.shouts.first(5).each_with_index do |shout, pos| %>
                     <% @thatuser = User.find(10) %>
                     <% if pos.odd? %>
-                      <li class="left clearfix">
-                        <span class="chat-img pull-left">
-                          <img src="<%= @thatuser.ava %>" alt="User Avatar" class="img-circle" />
-                        </span>
-                        <div class="chat-body clearfix">
-                          <div class="header">
-                            <strong class="primary-font"><%= @thatuser.username %></strong>
-                            <small class="pull-right text-muted">
-                              <i class="fa fa-clock-o fa-fw"></i> 12 mins ago
-                            </small>
+                      <div class="shout-wrapper">
+                        <li class="left clearfix">
+                          <span class="chat-img pull-left">
+                            <img src="<%= @thatuser.ava %>" alt="User Avatar" class="img-circle" />
+                          </span>
+                          <div class="chat-body clearfix">
+                            <div class="header">
+                              <strong class="primary-font"><%= @thatuser.username %></strong>
+                              <small class="pull-right text-muted">
+                                <i class="fa fa-clock-o fa-fw"></i> 12 mins ago
+                              </small>
+                            </div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.</p>
                           </div>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.</p>
-                        </div>
-                      </li>
+                        </li>
+                      </div>
                     <% else %>
-                      <li class="right clearfix">
-                        <span class="chat-img pull-right">
-                          <img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle" />
-                        </span>
-                        <div class="chat-body clearfix">
-                          <div class="header">
-                            <small class=" text-muted">
-                              <i class="fa fa-clock-o fa-fw"></i> 13 mins ago</small>
-                            <strong class="pull-right primary-font">Bhaumik Patel</strong>
+                      <div class="shout-wrapper">
+                        <li class="right clearfix">
+                          <span class="chat-img pull-right">
+                            <img src="http://placehold.it/50/FA6F57/fff" alt="User Avatar" class="img-circle" />
+                          </span>
+                          <div class="chat-body clearfix">
+                            <div class="header">
+                              <small class=" text-muted">
+                                <i class="fa fa-clock-o fa-fw"></i> 13 mins ago</small>
+                              <strong class="pull-right primary-font">Bhaumik Patel</strong>
+                            </div>
+                            <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                            </p>
                           </div>
-                          <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
-                          </p>
-                        </div>
-                      </li>
+                        </li>
+                      </div>
                     <% end %>
                   <% end %>
                 </ul>
@@ -230,10 +234,10 @@
               <!-- <div class="input-group"> -->
               <span class="input-group-btn">
                 <span class="btn btn-warning btn-sm" id="btn-chat" style="margin-left: 80%;">
-                  <div id="Very">Shout it!</div>
+                  <div id="btn-input">Shout it!</div>
                 </span>
               </span>
-              <textarea id="btn-input"
+              <textarea id="shout-area"
                         type="text"
                         class="form-control input-sm"
                         placeholder='<%= "Leave a shout for " + @user.username.capitalize %>'
