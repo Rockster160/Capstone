@@ -8,6 +8,8 @@ class UsersController < ApplicationController
     end
     @user = User.find(params[:id])
 
+    @rng_game = Game.find(rand(Game.all.length) + 1).id
+
     @unread = @user.notifications.where(isRead: false).reverse
     if @unread.length < 5
       @display = @user.notifications.where(isRead: true).reverse.first(5 - @unread.length)

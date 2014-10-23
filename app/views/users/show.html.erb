@@ -36,7 +36,7 @@
             <p><%= @user.about %></p>
           <% else %>
             <% if current_user.id == @user.id %>
-              <p>You haven't updated your About Me section of your profile yet! Please go to your Profile Editing page and tell us a bit about yourself!</p>
+              <p>You haven't updated your About Me section of your profile yet! Please go to your <a href="<%= edit_path %>">Profile Editing Page</a> and tell us a bit about yourself!</p>
             <% else %>
               <p>This user has not updated their About Me section.</p>
             <% end %>
@@ -60,7 +60,7 @@
             <% end %>
             <% if has_url == false %>
               <% if @user.id == current_user.id %>
-                <p>You have not added any links yet! Please go to your Profile editing page and tell us where we can find you.</p>
+                <p>You have not added any links yet! Please go to your <a href="<%= edit_path %>">Profile Editing Page</a> and let us know where we may find you.</p>
               <% else %>
                 <p>This user has not yet added any external links.</p>
               <% end %>
@@ -98,6 +98,9 @@
           <div class="panel panel-default">
             <div class="panel-heading">
               <i class="fa fa-bar-chart-o fa-fw"></i> Game Play History
+              <div class="pull-right">
+                <a href="<%= '/games/' + @rng_game.to_s %>" class="btn btn-default btn-xs">Random Game</a>
+              </div>
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
@@ -110,7 +113,7 @@
                   <% else %>
                     <% if current_user.id == @user.id %>
                       <p>You haven't played any games yet!</p>
-                      <p>Visit the Games listing page to check out some you may enjoy!</p>
+                      <p>Visit the <a href="<%= games_path %>">Games Listing Page</a> to check out some you may enjoy!</p>
                     <% else %>
                       <p>This user hasn't played any games yet. Leave them a shout and challenge them!</p>
                     <% end %>
@@ -152,7 +155,7 @@
                 <a href="<%= notifications_path %>" class="btn btn-default btn-block">View All Alerts</a>
               <% else %>
                 <p>You have no Notifications. :(</p>
-                <p>Visit any game to get your first notification!</p>
+                <p>Visit <a href="<%= '/games/' + @rng_game.to_s %>">any game</a> to get your first notification!</p>
               <% end %>
             </div>
             <!-- /.panel-body -->
