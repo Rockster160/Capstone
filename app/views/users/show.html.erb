@@ -70,8 +70,7 @@
                 <div class="row">
                   <% @trophies.each do |trophy| %>
                     <div class="col-xs-12">
-                      <% binding.pry %>
-                      <%= Game.find(trophy.game_id).name %>
+                      <%= Game.find(trophy.game_id).name %> <%= UserGameLog.where(game_id: trophy.game_id, user_id: @user).reverse.first.score %>
                     </div>
                   <% end %>
                   <!-- /.col-lg-4 (nested) -->

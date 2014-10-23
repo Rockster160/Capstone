@@ -282,3 +282,81 @@ User.create( #id: 10,
              username: 'ghub',
              avatar: '',
              favorites: [5, 1, 2, 3])
+
+# UserGameLog.create( #id:
+#                     user_id: ,
+#                     game_id:
+#                     )
+
+UserGameLog.create( #id:
+                    user_id: 1,
+                    game_id: 1,
+                    score: 100
+                    )
+
+UserGameLog.create( #id:
+                    user_id: 2,
+                    game_id: 2,
+                    score: 10
+                    )
+
+UserGameLog.create( #id:
+                    user_id: 5,
+                    game_id: 3,
+                    score: 100
+                    )
+
+UserGameLog.create( #id:
+                    user_id: 7,
+                    game_id: 4,
+                    score: 0
+                    )
+
+UserGameLog.create( #id:
+                    user_id: 8,
+                    game_id: 5,
+                    score: 10
+                    )
+
+UserGameLog.create( #id:
+                    user_id: 9,
+                    game_id: 6,
+                    score: 1000
+                    )
+
+UserGameLog.create( #id:
+                    user_id: 2,
+                    game_id: 7,
+                    score: 5
+                    )
+
+UserGameLog.create( #id:
+                    user_id: 4,
+                    game_id: 8,
+                    score: 10
+                    )
+
+# Trophy.create ( #id:
+#                 user_id: ,
+#                 game_id: ,
+#                 uniq_id:
+# )
+
+Trophy.create( #id:
+                user_id: 7,
+                game_id: 4,
+                uniq_id: 1
+)
+
+Trophy.create( #id:
+                user_id: 7,
+                game_id: 4,
+                uniq_id: 2
+)
+
+
+Trophy.create( #id:
+                user_id: 1,
+                game_id: 1,
+                uniq_id: 2
+)
