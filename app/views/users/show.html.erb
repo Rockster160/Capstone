@@ -22,7 +22,7 @@
       </div>
       <!-- /.row -->
       <div class="row">
-        <%= image_tag(@user.ava, id: "avatar", class: "col-lg-4 col-md-3 col-sm-3 col-xs-3") %>
+        <%= image_tag(@user.ava, id: "avatar", class: "col-sm-4 col-xs-9") %>
         <div id='user-favorites-div'>
           <%= render partial: 'user_favorite_games', locals: { user: @user, url: :show } %>
         </div>
@@ -35,12 +35,15 @@
           <% if @user.about  && @user.about.length > 5 %>
             <p><%= @user.about %></p>
           <% else %>
-            <p>You haven't updated your About Me section of your profile yet! Please go to your Profile Editing page and tell us a bit about yourself!</p>
+            <% if current_user.id == @user.id %>
+              <p>You haven't updated your About Me section of your profile yet! Please go to your Profile Editing page and tell us a bit about yourself!</p>
+            <% else %>
+              <p>This user has not updated their About Me section.</p>
+            <% end %>
           <% end %>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
           <h1>My Links</h1>
-          <!-- List a max of 8 links -->
           <div class="col-xs-12">
             <% has_url = false %>
             <% if @user.facebook_url.length > 0 %>
@@ -105,8 +108,12 @@
                       <%= historylog %></br>
                     <% end %>
                   <% else %>
-                    <p>You haven't played any games yet!</p>
-                    <p>Visit the Games listing page to check out some you may enjoy!</p>
+                    <% if current_user.id == @user.id %>
+                      <p>You haven't played any games yet!</p>
+                      <p>Visit the Games listing page to check out some you may enjoy!</p>
+                    <% else %>
+                      <p>This user hasn't played any games yet. Leave them a shout and challenge them!</p>
+                    <% end %>
                   <% end %>
                 </div>
                 <!-- /.col-lg-4 (nested) -->
@@ -199,8 +206,12 @@
                 </ul>
                 <a href="#" class="btn btn-default btn-block">View All Shouts</a>
               <% else %>
-                <p>You have no shouts. :(</p>
-                <p>Try leaving a shout on somebody else's profile to make some friends!</p>
+                <% if current_user.id == @user.id %>
+                  <p>You have no shouts. :(</p>
+                  <p>Try leaving a shout on somebody else's profile to make some friends!</p>
+                <% else %>
+                  <p>This user doesn't have any shouts yet! Leave them their first!</p>
+                <% end %>
               <% end %>
             </div>
             <!-- /.panel-body -->
