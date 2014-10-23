@@ -42,16 +42,9 @@
           <h1>My Links</h1>
           <!-- List a max of 8 links -->
           <div class="col-xs-6">
-            <a href="#" class="fa fa-facebook-square"> Website</a><br />
-            <a href="#" class="fa fa-github"> Website</a><br />
-            <a href="#" class="fa fa-reddit"> Website</a><br />
-            <a href="#" class="fa fa-twitter"> Website</a><br />
-          </div>
-          <div class="col-xs-6">
-            <a href="#" class="fa fa-google"> Website</a><br />
-            <a href="#" class="fa fa-linkedin-square"> Website</a><br />
-            <a href="#" class="fa fa-tumblr-square"> Website</a><br />
-            <a href="#" class="fa fa-slack"> Website</a><br />
+            <i class='fa fa-facebook'><%= link_to "Facebook", @user.facebook_url %></i>
+            <i class='fa fa-twitter'><%= link_to "Twitter", @user.twitter_url %></i>
+            <i class='fa fa-globe'><%= link_to "Website", @user.website_url %></i>
           </div>
         </div>
         <!-- ./col-lg-9 -->
