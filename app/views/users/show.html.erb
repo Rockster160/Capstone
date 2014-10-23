@@ -22,7 +22,7 @@
       </div>
       <!-- /.row -->
       <div class="row">
-        <%= image_tag(@user.avatar.url, id: "avatar", class: "col-lg-3 col-md-4 col-sm-4 col-xs-4") %>
+        <%= image_tag(@user.ava, id: "avatar", class: "col-lg-3 col-md-4 col-sm-4 col-xs-4") %>
         <div id='user-favorites-div'>
           <%= render partial: 'user_favorite_games', locals: { user: @user, url: :show } %>
         </div>
@@ -166,7 +166,7 @@
                     <% if pos.odd? %>
                       <li class="left clearfix">
                         <span class="chat-img pull-left">
-                          <img src="<%= @thatuser.avatar %>" alt="User Avatar" class="img-circle" />
+                          <img src="<%= @thatuser.ava %>" alt="User Avatar" class="img-circle" />
                         </span>
                         <div class="chat-body clearfix">
                           <div class="header">
