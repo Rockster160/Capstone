@@ -30,18 +30,18 @@ class User < ActiveRecord::Base
   def randomAvatar
     rng = case rand(6)
     when 0
-      "defAvaOne.png"
+      "One"
     when 1
-      "defAvaTwo.png"
+      "Two"
     when 2
-      "defAvaThree.png"
+      "Three"
     when 3
-      "defAvaFour.png"
+      "Four"
     when 4
-      "defAvaFive.png"
+      "Five"
     when 5
-      "defAvaSix.png"
+      "Six"
     end
-    self.update_attribute(:ava, rng)
+    self.update_attribute(:ava, "defAva" + rng + ".png")
   end
 end
