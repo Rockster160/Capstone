@@ -7,7 +7,7 @@
     <div id="page-wrapper">
       <div class="row">
         <div class="col-lg-9 col-md-8 col-sm-6 col-xs-12">
-          <h1 class="page-header"><%= @user.username.capitalize %></h1>
+          <h1 class="page-header"><%= @user.username %></h1>
         </div>
         <% if user_signed_in? && current_user.username == @user.username %>
           <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
@@ -84,6 +84,7 @@
                   <% @trophies.each do |trophy| %>
                     <div class="col-xs-12">
                       <%= Game.find(trophy.game_id).name %> <%= UserGameLog.where(game_id: trophy.game_id, user_id: @user).reverse.first.score %>
+                      <% if  %>
                     </div>
                   <% end %>
                   <!-- /.col-lg-4 (nested) -->
