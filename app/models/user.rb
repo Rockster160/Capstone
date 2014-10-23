@@ -42,6 +42,6 @@ class User < ActiveRecord::Base
     when 5
       "Six"
     end
-    self.update_attribute(:ava, "defAva" + rng + ".png")
+    self.update_attribute(:ava, "defAva" + rng + ".jpeg")
   end
 end
