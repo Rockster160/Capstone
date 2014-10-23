@@ -1,7 +1,27 @@
 @import 'utilities/variables';
 
+#contact-header {
+  text-align: center;
+}
+
 #whole-page-container {
   min-height: 100vh;
+}
+
+.mail-icon {
+  color: #00CC00;
+}
+
+.fb-icon {
+  color: blue;
+}
+
+.twtr-icon {
+  color: #6699FF;
+}
+
+.black-link {
+  color: black;
 }
 
 .page-wrap {
@@ -20,4 +40,8 @@ footer {
       text-align: center;
     }
   }
+}
+
+.spac3-tech {
+  font-family: 'Spac3 Tech';
 }

@@ -14,6 +14,7 @@
   <div id="homepage">
       <div id="page-wrapper">
           <div class="row">
+            <i class="fa fa-pencil fa-4x"></i>
             <%= image_tag(@user.avatar.url, id: "avatar", class: "col-lg-3 col-md-4 col-sm-4 col-xs-4") %>
               <div id='user-favorites-div'>
                 <%= render partial: 'users/user_favorite_games', locals: { user: @user, url: :edit } %>
@@ -29,17 +30,10 @@
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
               <h1>My Links</h1>
               <!-- List a max of 8 links -->
-              <div class="col-xs-6">
-                <a href="#" class="fa fa-facebook-square"> Website</a><br />
-                <a href="#" class="fa fa-github"> Website</a><br />
-                <a href="#" class="fa fa-reddit"> Website</a><br />
-                <a href="#" class="fa fa-twitter"> Website</a><br />
-              </div>
-              <div class="col-xs-6">
-                <a href="#" class="fa fa-google"> Website</a><br />
-                <a href="#" class="fa fa-linkedin-square"> Website</a><br />
-                <a href="#" class="fa fa-tumblr-square"> Website</a><br />
-                <a href="#" class="fa fa-slack"> Website</a><br />
+              <div class="col-xs-12">
+                <div><%= f.text_field :facebook_url, placeholder: "Facebook URL" %></div>
+                <div><%= f.text_field :twitter_url, placeholder: "Twitter URL" %></div>
+                <div><%= f.text_field :website_url, placeholder: "Website URL" %></div>
               </div>
             </div>
             <!-- ./col-lg-9 -->
@@ -56,69 +50,6 @@
                       <div class="panel-body">
                           <div class="row">
                               <div class="col-lg-4">
-                                  <div class="table-responsive">
-                                      <table class="table table-bordered table-hover table-striped">
-                                          <thead>
-                                              <tr>
-                                                  <th>#</th>
-                                                  <th>Date</th>
-                                                  <th>Time</th>
-                                                  <th>Amount</th>
-                                              </tr>
-                                          </thead>
-                                          <tbody>
-                                              <tr>
-                                                  <td>3326</td>
-                                                  <td>10/21/2013</td>
-                                                  <td>3:29 PM</td>
-                                                  <td>$321.33</td>
-                                              </tr>
-                                              <tr>
-                                                  <td>3325</td>
-                                                  <td>10/21/2013</td>
-                                                  <td>3:20 PM</td>
-                                                  <td>$234.34</td>
-                                              </tr>
-                                              <tr>
-                                                  <td>3324</td>
-                                                  <td>10/21/2013</td>
-                                                  <td>3:03 PM</td>
-                                                  <td>$724.17</td>
-                                              </tr>
-                                              <tr>
-                                                  <td>3323</td>
-                                                  <td>10/21/2013</td>
-                                                  <td>3:00 PM</td>
-                                                  <td>$23.71</td>
-                                              </tr>
-                                              <tr>
-                                                  <td>3322</td>
-                                                  <td>10/21/2013</td>
-                                                  <td>2:49 PM</td>
-                                                  <td>$8345.23</td>
-                                              </tr>
-                                              <tr>
-                                                  <td>3321</td>
-                                                  <td>10/21/2013</td>
-                                                  <td>2:23 PM</td>
-                                                  <td>$245.12</td>
-                                              </tr>
-                                              <tr>
-                                                  <td>3320</td>
-                                                  <td>10/21/2013</td>
-                                                  <td>2:15 PM</td>
-                                                  <td>$5663.54</td>
-                                              </tr>
-                                              <tr>
-                                                  <td>3319</td>
-                                                  <td>10/21/2013</td>
-                                                  <td>2:13 PM</td>
-                                                  <td>$943.45</td>
-                                              </tr>
-                                          </tbody>
-                                      </table>
-                                  </div>
-                                  <!-- /.table-responsive -->
                               </div>
                               <!-- /.col-lg-4 (nested) -->
                           </div>
