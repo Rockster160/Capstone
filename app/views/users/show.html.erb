@@ -45,20 +45,10 @@
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
           <h1>My Links</h1>
           <div class="col-xs-12">
-            <% has_url = false %>
-            <% if @user.facebook_url.length > 0 %>
-              <a href="<%= @user.facebook_url %>" class="fb-icon"><i class="fa fa-facebook-square fa-fw"></i> Facebook</a><br/>
-              <% has_url = true %>
+            <% @has_url.length.times do |link| %>
+              <!-- <a href="<%= @has_url[link][1] %>"><i class='fa fa-<%= @has_url[link][0] %> fa-fw>'</i><%= @has_url[link][2] %></a><br/> -->
             <% end %>
-            <% if @user.twitter_url.length > 0 %>
-              <a href="<%= @user.twitter_url %>" class="twtr-icon"><i class="fa fa-twitter-square fa-fw"></i> Twitter</a><br/>
-              <% has_url = true %>
-            <% end %>
-            <% if @user.website_url.length > 0 %>
-              <a href="<%= @user.website_url %>" class="black-link"><i class="fa fa-globe fa-fw"></i> Website</a>
-              <% has_url = true %>
-            <% end %>
-            <% if has_url == false %>
+            <% if @has_url.length == 0 %>
               <% if @user.id == current_user.id %>
                 <p>You have not added any links yet! Please go to your <a href="<%= edit_path %>">Profile Editing Page</a> and let us know where we may find you.</p>
               <% else %>

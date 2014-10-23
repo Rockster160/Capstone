@@ -7,6 +7,16 @@ class UsersController < ApplicationController
       redirect_to root_path
     end
     @user = User.find(params[:id])
+    @has_url = [] #icon, url, name
+    if @user.facebook_url.length > 0
+      @has_url << ["facebook-square", @user.facebook_url, " Facebook"]
+    end
+    if @user.twitter_url.length > 0
+      @has_url << ["<i class='fa fa-twitter-square fa-fw'></i>", @user.twitter_url, " Twitter"]
+    end
+    if @user.website_url.length > 0
+      @has_url << ["<i class='fa fa-globe fa-fw'></i>", @user.website_url, " My website"]
+    end
 
     @rng_game = Game.find(rand(Game.all.length) + 1).id
 
