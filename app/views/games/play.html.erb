@@ -3,9 +3,10 @@
     <br/>
     <br/>
   <form>
-    Score: <input type="text" score="score" id="cheatinput">
+    Score: <input type="text" score="score" id="cheatinput" autofocus, autocomplete="off">
     <br/>
     <br/>
     <div id="pullscore">Cheat Score</div>
   </form>
+  <%= Game.find(@game.id).detailscore %>
 </div>
