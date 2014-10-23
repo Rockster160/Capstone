@@ -1,5 +1,6 @@
 #Handles Devise methods and authentications
 class User < ActiveRecord::Base
+  after_create :randomAvatar
   has_many :notifications
   has_many :shouts
   has_many :trophies
@@ -24,5 +25,23 @@ class User < ActiveRecord::Base
       end
     end
     return favs
+  end
+
+  def randomAvatar
+    rng = case rand(6)
+    when 0
+      "defAvaOne.png"
+    when 1
+      "defAvaTwo.png"
+    when 2
+      "defAvaThree.png"
+    when 3
+      "defAvaFour.png"
+    when 4
+      "defAvaFive.png"
+    when 5
+      "defAvaSix.png"
+    end
+    self.update_attribute(:avatar_file_name, rng)
   end
 end

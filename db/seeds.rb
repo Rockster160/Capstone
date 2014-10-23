@@ -148,8 +148,7 @@ Game.create( name: 'Random',
 #              password: '',
 #              password_confirmation: '',
 #              username: '',
-#              avatar: '',
-            #  favorites: [])
+#              favorites: [])
 
 User.create( #id: 0,
              name: 'Zoro',
@@ -160,7 +159,6 @@ User.create( #id: 0,
              password: 'password',
              password_confirmation: 'password',
              username: 'Zoro',
-            #  avatar: File.new("#{Rails.root}/app/assets/images/hoops.png", 'r'),
              favorites: [6, 3, 1, 0])
 
 User.create( #id: 1,
@@ -172,7 +170,6 @@ User.create( #id: 1,
              password: 'password',
              password_confirmation: 'password',
              username: 'luffy',
-             avatar: '',
              favorites: [2, 5, 0, 0])
 
 User.create( #id: 2,
@@ -184,7 +181,6 @@ User.create( #id: 2,
             password: 'password',
             password_confirmation: 'password',
             username: 'SamIam',
-            avatar: '',
             favorites: [1, 5, 2, 0])
 
 User.create( #id: 3,
@@ -196,7 +192,6 @@ User.create( #id: 3,
              password: 'password',
              password_confirmation: 'password',
              username: 'Rockster160',
-             avatar: '',
              favorites: [1, 6, 3, 2])
 
 User.create( #id: 4,
@@ -208,7 +203,6 @@ User.create( #id: 4,
             password: 'password',
             password_confirmation: 'password',
             username: 'Brendan',
-            avatar: '',
             favorites: [1, 0, 0, 0])
 
 User.create( #id: 5,
@@ -220,7 +214,6 @@ User.create( #id: 5,
              password: 'password',
              password_confirmation: 'password',
              username: 'Jasonwc',
-             avatar: '',
              favorites: [2, 4, 0, 0])
 
  User.create( #id: 6,
@@ -232,7 +225,6 @@ User.create( #id: 5,
               password: 'password',
               password_confirmation: 'password',
               username: 'AlexPlays',
-              avatar: '',
               favorites: [2, 3, 4, 5])
 
 User.create( #id: 7,
@@ -244,7 +236,6 @@ User.create( #id: 7,
              password: 'password',
              password_confirmation: 'password',
              username: 'PrestonJohnson',
-             avatar: '',
              favorites: [4, 5, 2, 0])
 
 User.create( #id: 8,
@@ -256,7 +247,6 @@ User.create( #id: 8,
             password: 'password',
             password_confirmation: 'password',
             username: 'tester',
-            avatar: '',
             favorites: [5, 4, 3, 2])
 
 User.create( #id: 9,
@@ -268,7 +258,6 @@ User.create( #id: 9,
              password: 'password',
              password_confirmation: 'password',
              username: 'GrandfatherTime',
-             avatar: '',
              favorites: [0, 0, 0, 0])
 
 User.create( #id: 10,
@@ -280,7 +269,6 @@ User.create( #id: 10,
              password: 'password',
              password_confirmation: 'password',
              username: 'ghub',
-             avatar: '',
              favorites: [5, 1, 2, 3])
 
 # UserGameLog.create( #id:
