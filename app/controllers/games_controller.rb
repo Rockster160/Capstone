@@ -25,12 +25,13 @@ class GamesController < ApplicationController
       @check = Notification.where(notify_id: 0, user_id: current_user.id)
       if @check.length == 0 #^^ If Notification is unique
         Notification.create(
-                    :title => "First visit!",
-                    :message => "You visited your first game!",
-                    :game_id => @game.id,
-                    :user_id => current_user.id,
-                    :icon => 0,
-                    :notify_id => 0)
+                            :title => "First visit!",
+                            :message => "You visited your first game!",
+                            :game_id => @game.id,
+                            :user_id => current_user.id,
+                            :icon => 0,
+                            :notify_id => 0
+                            )
         User.find(current_user).update_attribute(:coinTo, 50)
       end
     end
@@ -43,9 +44,29 @@ class GamesController < ApplicationController
       @uId = @user.id
       @gId = @game.id
       if params[:passScore]
+        @score = params[:passScore]
+        gold = @game.mapScoreToCoin(@score)
+        Notification.create(
+                            game_id: @gId,
+                            user_id: @uId,
+                            message: "You played " +
+                                      @game.name +
+                                      " and won " +
+                                      gold.to_s +
+                                      " coins!!",
+                            title: "You won some coins!",
+                            icon: 3
+        )
+        User.find(@user.id).update_attribute(:coinTo, gold + @user.coinTo)
+
+        checkTrophy =  Trophy.new(user_id: @uId,
+                                  game_id: @gId)
+        checkTrophy.checker(@score)
+
+        UserGameLog.create(user_id: @uId, game_id: @gId, score: @score)
+        
         stat = UserGameStatistic.where(user_id: @uId, game_id: @gId).first
         stat ||= UserGameStatistic.create(user_id: @uId, game_id: @gId)
-        UserGameLog.create(user_id: @uId, game_id: @gId, score: params[:passScore])
         stat.increment_play_count
       end
       respond_to do |format|

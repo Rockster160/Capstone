@@ -13,6 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20141023000120) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -70,6 +71,15 @@ ActiveRecord::Schema.define(version: 20141023000120) do
     t.integer  "user_id"
     t.integer  "sent_from_id"
     t.string   "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "trophies", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "game_id"
+    t.integer  "uniq_id"
+    t.boolean  "seen",       default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
