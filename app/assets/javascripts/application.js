@@ -20,8 +20,8 @@ var open = false;
 $(document).ready(function(){
   $('#clicksidebar').click(function(){
   x = $('#clicksidebar').position();
-  var vpw = $(window).width();
-  if (x > (vpw/2)) { open = false}
+  var vpw = $('#columnThree').offsetWidth;
+  if (x > (vpw)) { open = false}
     if (open == false) {
       sidebarOpen();
       open = true;
@@ -36,10 +36,10 @@ $(document).ready(function(){
 
 function sidebarOpen() {
   $("#columnThree").animate({right: "0"}, "slow", "swing").show();
-  $('#clicksidebar').animate({right: "50vw"}, "slow", "swing");
+  $('#clicksidebar').animate({right: "350px"}, "slow", "swing");
 }
 
 function sidebarClose() {
-  $("#columnThree").animate({right: "-50vw"}, "slow", "swing");
+  $("#columnThree").animate({right: "-350px"}, "slow", "swing");
   $('#clicksidebar').animate({right: "-5px"}, "slow", "swing");
 }

@@ -9,7 +9,7 @@ if (shout_text.length > 0) {
     if (lon > 5) {
       $('.shout-wrapper').last().slideUp(400, function() {$(this).remove();});
     };
-    $('.chat').prepend("<%= j render(partial: 'shoutmessage', locals: {shoutIndex: Shout.where(user_id: current_user.id).last})%>").hide(0, function() {
+    $('.chat').prepend("<%= j render(partial: 'users/shoutmessage', locals: {shoutIndex: Shout.where(user_id: current_user.id).last})%>").hide(0, function() {
       $(this).show().slideDown(400);
     });
     console.log("Shouted!");

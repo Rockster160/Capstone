@@ -1,0 +1,38 @@
+<div id='listitem'>
+    <% if game %>
+      <div id="gameimage">
+        <a href="/games/<%= game.id %>"><%= image_tag(game.ava, id: "gameicon") %></a>
+      </div>
+      <div id="title">
+        <h4><%= game.name %></h4>
+        <div id="briefing">
+          <%= game.about %>
+        </div>
+      </div>
+      <div id="trophies">
+        <h4>Recent High Scores</h4>
+
+            <li><strong>Today:&nbsp;</strong>
+            <span id="scorefont"><%= game.daily.score %></span></li>
+            <li><i><%= User.find(game.daily.user_id).username %></i>&nbsp;</li>
+
+            <li><strong>This Week:&nbsp;</strong>
+            <span id="scorefont"><%= game.weekly.score %></span></li>
+            <li><i><%= User.find(game.weekly.user_id).username %></i>&nbsp;</li>
+
+            <li><strong>This Month:&nbsp;</strong>
+            <span id="scorefont"><%= game.monthly.score %></span></li>
+            <li><i><%= User.find(game.monthly.user_id).username %></i>&nbsp;</li>
+
+            <li><strong>All-Time:&nbsp;</strong>
+            <span id="scorefont"><%= game.alltime.score %></span></li>
+            <li><i><%= User.find(game.alltime.user_id).username %></i>&nbsp;</li>
+
+      </div>
+      <%= link_to play_path(id: game.id) do %>
+        <span class="quickplay" id="<%= game.id %>">
+          <button type="button" class="btn btn-primary">Quick Play!</button>
+        </span>
+      <% end %>
+    <% end  %>
+</div>

@@ -16,6 +16,30 @@ class Game < ActiveRecord::Base
     return output.round
   end
 
+  def trophies
+    Trophy.where(game_id: @game.id).reverse
+  end
+
+  def history
+    UserGameLog.where(game_id: @game.id).reverse
+  end
+
+  def daily
+    UserGameLog.where(game_id: self.id).where("created_at > ?", (Time.now - 1.day)).order(:score).reverse.first
+  end
+
+  def weekly
+    UserGameLog.where(game_id: self.id).where("created_at > ?", (Time.now - 7.day)).order(:score).reverse.first
+  end
+
+  def monthly
+    UserGameLog.where(game_id: self.id).where("created_at > ?", (Time.now - 31.day)).order(:score).reverse.first
+  end
+
+  def alltime
+    UserGameLog.where(game_id: self.id).order(:score).reverse.first
+  end
+
   def checker(score)
   end
 end
