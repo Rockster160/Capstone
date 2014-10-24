@@ -46,3 +46,15 @@
   color: $money;
   text-shadow: 1px 1px 1px darken($money, 10%);
 }
+
+.game-header-btn {
+  width: 200px;
+  height: 70px;
+  padding:10px;
+  border-radius: 15px;
+  background: brown;
+}
+#bland {
+  color: grey;
+  background: brown;
+}

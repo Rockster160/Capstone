@@ -1,14 +1,6 @@
 #Game Controller, redirects any information from games and sends notifications.
 class GamesController < ApplicationController
-  def create
-  end
-
   def read
-    @games = []
-    Game.all.each do |game|
-      game.cost = 0 if !(game.cost > 0)
-      @games << game.name
-    end
   end
   # Used via AJAX
   def info
@@ -34,6 +26,18 @@ class GamesController < ApplicationController
                             )
         User.find(current_user).update_attribute(:coinTo, 50)
       end
+    end
+    @trophies = []
+    @trophies = Trophy.where(game_id: @game).reverse
+
+    @history = []
+    UserGameLog.where(game_id: @game).reverse.each do |history|
+      @history << history.play_history_format
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
 
@@ -64,7 +68,7 @@ class GamesController < ApplicationController
         checkTrophy.checker(@score)
 
         UserGameLog.create(user_id: @uId, game_id: @gId, score: @score)
-        
+
         stat = UserGameStatistic.where(user_id: @uId, game_id: @gId).first
         stat ||= UserGameStatistic.create(user_id: @uId, game_id: @gId)
         stat.increment_play_count

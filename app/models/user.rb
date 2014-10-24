@@ -1,5 +1,6 @@
 #Handles Devise methods and authentications
 class User < ActiveRecord::Base
+  include ::Formatter
   after_create :randomAvatar
   has_many :notifications
   has_many :shouts
