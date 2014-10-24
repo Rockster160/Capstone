@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # devise_for :users
 
   devise_scope :user do
-    root to: 'devise/sessions#new'
+    root to: 'devise/sessions#new', as: 'home'
     # get "user/registrations/read", to: 'registrations#read', as: 'usersprofile'
   end
 
