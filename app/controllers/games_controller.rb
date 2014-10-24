@@ -32,6 +32,18 @@ class GamesController < ApplicationController
         User.find(current_user).update_attribute(:coinTo, 50)
       end
     end
+    @trophies = []
+    @trophies = Trophy.where(game_id: @game).reverse
+
+    @history = []
+    UserGameLog.where(game_id: @game).reverse.each do |history|
+      @history << history.play_history_format
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def play
