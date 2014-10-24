@@ -12,23 +12,23 @@
             </div>
           </div>
           <div id="trophies">
-            <h4>Trophies</h4>
+            <h4>Recent High Scores</h4>
 
                 <li><strong>Today:&nbsp;</strong>
-                <span id="scorefont">Score</span></li>
-                <li><i>Some_User</i>&nbsp;</li>
+                <span id="scorefont"><%= @daily.score %></span></li>
+                <li><i><%= User.find(@daily.user_id).username %></i>&nbsp;</li>
 
                 <li><strong>This Week:&nbsp;</strong>
-                <span id="scorefont">Score</span></li>
-                <li><i>Hello</i>&nbsp;</li>
+                <span id="scorefont"><%= @weekly.score %></span></li>
+                <li><i><%= User.find(@daily.user_id).username %></i>&nbsp;</li>
 
                 <li><strong>This Month:&nbsp;</strong>
-                <span id="scorefont">Score</span></li>
-                <li><i>WWWWWWWWWWWWWWWW</i>&nbsp;</li>
+                <span id="scorefont"><%= @monthly.score %></span></li>
+                <li><i><%= User.find(@monthly.user_id).username %></i>&nbsp;</li>
 
                 <li><strong>All-Time:&nbsp;</strong>
-                <span id="scorefont">Score</span></li>
-                <li><i>Rockster160</i>&nbsp;</li>
+                <span id="scorefont"><%= @alltime.score %></span></li>
+                <li><i><%= User.find(@alltime.user_id).username %></i>&nbsp;</li>
 
           </div>
           <%= link_to play_path(id: game.id) do %>

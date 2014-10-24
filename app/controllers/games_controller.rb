@@ -1,15 +1,16 @@
 #Game Controller, redirects any information from games and sends notifications.
 class GamesController < ApplicationController
   def read
-    @games = []
-    Game.all.each do |game|
-      game.cost = 0 if !(game.cost > 0)
-      @games << game.name
-    end
   end
   # Used via AJAX
   def info
     @game = Game.find(params[:id])
+    @trophies = Trophy.where(game_id: @game.id).reverse
+    @history = UserGameLog.where(game_id: @game.id).reverse
+    @daily = UserGameLog.where(game_id: @game.id).where("created_at > ?", (Time.now - 1.day)).order(:score).reverse.first
+    @weekly = UserGameLog.where(game_id: @game.id).where("created_at > ?", (Time.now - 7.day)).order(:score).reverse.first
+    @monthly = UserGameLog.where(game_id: @game.id).where("created_at > ?", (Time.now - 31.day)).order(:score).reverse.first
+    @alltime = UserGameLog.where(game_id: @game.id).order(:score).reverse.first
   end
 
   def edit
