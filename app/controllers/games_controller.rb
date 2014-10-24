@@ -1,8 +1,5 @@
 #Game Controller, redirects any information from games and sends notifications.
 class GamesController < ApplicationController
-  def create
-  end
-
   def read
     @games = []
     Game.all.each do |game|
@@ -64,7 +61,7 @@ class GamesController < ApplicationController
         checkTrophy.checker(@score)
 
         UserGameLog.create(user_id: @uId, game_id: @gId, score: @score)
-        
+
         stat = UserGameStatistic.where(user_id: @uId, game_id: @gId).first
         stat ||= UserGameStatistic.create(user_id: @uId, game_id: @gId)
         stat.increment_play_count

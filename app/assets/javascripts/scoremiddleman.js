@@ -11,15 +11,4 @@ $(document).ready(function(){
     }
   });
 
-  $('#btn-input').click(function(){
-    var shout_text = $('#shout-area').val()
-    $('#shout-area').val("");
-    url = window.location.href;
-    if (shout_text >= 0) {
-      $.get(url, {passScore: shout_text}, function(searchResults) {
-        //Slide in Prepend shout_text
-        //Slide out $(.shout-wrapper).last
-      })
-    }
-  });
 })
