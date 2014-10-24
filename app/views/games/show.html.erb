@@ -5,13 +5,18 @@
               <div class="col-lg-9 col-md-8 col-sm-6 col-xs-12">
                   <h1 class="page-header"><%= @game.name.capitalize %></h1>
               </div>
-              <% if user_signed_in? %>
               <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
-                  <h1 id="coin-inline">
-                    Play Now!
-                  </h1>
+                  <%= link_to "play/" + params[:id] do %>
+                    <% if user_signed_in? %>
+                      <h1 class="game-header-btn" id="coin-inline">
+                        Play Now!
+                    <% else %>
+                      <h1 class="game-header-btn" id="bland">
+                        Sign In
+                    <% end %>
+                      </h1>
+                  <% end %>
               </div>
-              <% end %>
               <!-- /.col-lg-12 -->
           </div>
           <!-- /.row -->
