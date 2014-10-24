@@ -21,23 +21,27 @@ class Game < ActiveRecord::Base
   end
 
   def history
-    UserGameLog.where(game_id: @game.id).reverse
+    UserGameLog.where(game_id: self.id).reverse
   end
 
   def daily
-    UserGameLog.where(game_id: self.id).where("created_at > ?", (Time.now - 1.day)).order(:score).reverse.first
+    day = UserGameLog.where(game_id: self.id).where("created_at > ?", (Time.now - 1.day)).order(:score).reverse.first
+    day ||= self.history.first
   end
 
   def weekly
-    UserGameLog.where(game_id: self.id).where("created_at > ?", (Time.now - 7.day)).order(:score).reverse.first
+    week = UserGameLog.where(game_id: self.id).where("created_at > ?", (Time.now - 7.day)).order(:score).reverse.first
+    week ||= self.history.first
   end
 
   def monthly
-    UserGameLog.where(game_id: self.id).where("created_at > ?", (Time.now - 31.day)).order(:score).reverse.first
+    month = UserGameLog.where(game_id: self.id).where("created_at > ?", (Time.now - 31.day)).order(:score).reverse.first
+    month ||= self.history.first
   end
 
   def alltime
-    UserGameLog.where(game_id: self.id).order(:score).reverse.first
+    all = UserGameLog.where(game_id: self.id).order(:score).reverse.first
+    all ||= self.history.first
   end
 
   def checker(score)
