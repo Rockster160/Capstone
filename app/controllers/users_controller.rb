@@ -78,8 +78,12 @@ class UsersController < ApplicationController
   end
 
   def shoutmessage
-    binding.pry
-    @pos = params[:pos] if params[:pos]
+    # binding.pry
+    # @pos = params[:pos] if params[:pos]
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   private

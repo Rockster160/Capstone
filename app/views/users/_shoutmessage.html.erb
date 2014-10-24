@@ -1,7 +1,5 @@
-<% pos = @pos if @pos %>
-<%# binding.pry %>
-<% shout = shoutIndex[pos] %>
-<% user = User.find(shout.sent_from_id) %>
+<% pos = Shout.where(user_id: current_user.id).count if !(pos)%>
+<% user = User.find(shoutIndex.sent_from_id) %>
   <div class="shout-wrapper">
 <% if pos.odd? %>
     <li class="left clearfix">
@@ -17,14 +15,14 @@
 <% if pos.odd? %>
           <strong class="primary-font"><%= user.username %></strong>
           <small class="pull-right text-muted">
-              <i class="fa fa-clock-o fa-fw"></i> <%= shout.formatted_ago %></small>
+              <i class="fa fa-clock-o fa-fw"></i> <%= shoutIndex.formatted_ago %></small>
 <% else %>
             <strong class="pull-right primary-font"><%= user.username %></strong>
             <small class="pull-left text-muted">
-                <i class="fa fa-clock-o fa-fw"></i> <%= shout.formatted_ago %></small>
+                <i class="fa fa-clock-o fa-fw"></i> <%= shoutIndex.formatted_ago %></small>
 <% end %>
         </div>
-        <p style="height:100px; width: 100%; overflow: hidden;"><%= shout.message %></p>
+        <p style="height:100px; width: 100%; overflow: hidden;"><%= shoutIndex.message %></p>
       </div>
     </li>
   </div>

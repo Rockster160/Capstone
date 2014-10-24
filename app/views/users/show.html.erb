@@ -181,7 +181,7 @@
                 <ul class="chat">
               <% if @user.shouts.length > 0 %>
                   <% @user.shouts.first(5).each_with_index do |shout, pos| %>
-                    <%= render :partial => 'users/shoutmessage', locals: {shoutIndex: Shout.where(user_id: current_user.id), pos: pos} %>
+                    <%= render :partial => 'users/shoutmessage', locals: {shoutIndex: Shout.where(user_id: current_user.id)[pos], pos: pos + 1} %>
                   <% end %>
                 </ul>
                 <a href="#" class="btn btn-default btn-block">View All Shouts</a>
