@@ -19,7 +19,8 @@ Rails.application.routes.draw do
 
   get 'users/edit' => 'users#edit', as: 'edit'
   post 'users/:id/update' => 'users#update', as: 'update'
-  post 'users/:id/shout' => 'users#shout', as: 'shout'
+  get 'users/:id/shout' => 'users#shout', as: 'shout'
+  get 'users/:id/shoutmessage' => 'users#shoutmessage'
   get 'users/:id/read' => 'users#read'
 
   get 'games/:id' => 'games#show'

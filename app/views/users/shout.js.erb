@@ -1,0 +1,17 @@
+console.log(currentUser);
+<% binding.pry %>
+var shout_text = $('#shout-area').val();
+$('#shout-area').val("");
+url = '/users/' + currentUser + '/shoutmessage';
+var lon = $('.shout-wrapper').length + 1;
+if (shout_text.length > 0) {
+  $.get(url, {message: shout_text}, function() {
+    if (lon > 5) {
+      $('.shout-wrapper').last().slideUp(400, function() {$(this).remove();});
+    };
+    $('.chat').prepend("<%= j render(partial: 'users/shoutmessage', locals: {shoutIndex: Shout.where(user_id: current_user.id).last})%>").hide(0, function() {
+      $(this).show().slideDown(400);
+    });
+    console.log("Shouted!");
+  })
+}
