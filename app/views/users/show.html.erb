@@ -7,7 +7,7 @@
     <div id="page-wrapper">
       <div class="row">
         <div class="col-lg-9 col-md-8 col-sm-6 col-xs-12">
-          <h1 class="page-header"><%= @user.username.capitalize %></h1>
+          <h1 class="page-header"><%= @user.username %></h1>
         </div>
         <% if user_signed_in? && current_user.username == @user.username %>
           <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
@@ -22,7 +22,7 @@
       </div>
       <!-- /.row -->
       <div class="row">
-        <%= image_tag(@user.avatar.url, id: "avatar", class: "col-lg-3 col-md-4 col-sm-4 col-xs-4") %>
+        <%= image_tag(@user.ava, id: "avatar", class: "col-sm-4 col-xs-9") %>
         <div id='user-favorites-div'>
           <%= render partial: 'user_favorite_games', locals: { user: @user, url: :show } %>
         </div>
@@ -35,16 +35,36 @@
           <% if @user.about  && @user.about.length > 5 %>
             <p><%= @user.about %></p>
           <% else %>
-            <p>You haven't updated your About Me section of your profile yet! Please go to your Profile Editing page and tell us a bit about yourself!</p>
+            <% if current_user.id == @user.id %>
+              <p>You haven't updated your About Me section of your profile yet! Please go to your <a href="<%= edit_path %>">Profile Editing Page</a> and tell us a bit about yourself!</p>
+            <% else %>
+              <p>This user has not updated their About Me section.</p>
+            <% end %>
           <% end %>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
           <h1>My Links</h1>
-          <!-- List a max of 8 links -->
           <div class="col-xs-12">
-            <a href="<%= @user.facebook_url %>" class="fb-icon"><i class="fa fa-facebook-square fa-fw"></i> Facebook</a><br/>
-            <a href="<%= @user.twitter_url %>" class="twtr-icon"><i class="fa fa-twitter-square fa-fw"></i> Twitter</a><br/>
-            <a href="<%= @user.website_url %>" class="black-link"><i class="fa fa-globe fa-fw"></i> Website</a>
+            <% has_url = false %>
+            <% if @user.facebook_url.length > 0 %>
+              <a href="@user.facebook_url" class="fb-icon"><i class="fa fa-facebook-square fa-fw"></i> Facebook</a><br/>
+              <% has_url = true %>
+            <% end %>
+            <% if @user.twitter_url.length > 0 %>
+              <a href="@user.twitter_url" class="twtr-icon"><i class="fa fa-twitter-square fa-fw"></i> Twitter</a><br/>
+              <% has_url = true %>
+            <% end %>
+            <% if @user.website_url.length > 0 %>
+              <a href="@user.website_url" class="black-link"><i class="fa fa-globe fa-fw"></i> My Website</a>
+              <% has_url = true %>
+            <% end %>
+            <% if has_url == false %>
+              <% if @user.id == current_user.id %>
+                <p>You have not added any links yet! Please go to your <a href="<%= edit_path %>">Profile Editing Page</a> and let us know where we may find you.</p>
+              <% else %>
+                <p>This user has not yet added any external links.</p>
+              <% end %>
+            <% end %>
           </div>
         </div>
         <!-- ./col-lg-9 -->
@@ -63,7 +83,15 @@
                 <div class="row">
                   <% @trophies.each do |trophy| %>
                     <div class="col-xs-12">
-                      <%= Game.find(trophy.game_id).name %> <%= UserGameLog.where(game_id: trophy.game_id, user_id: @user).reverse.first.score %>
+                      <% if trophy.uniq_id == 1 %>
+                        Perfect Score in <%= Game.find(trophy.game_id).name %> with a <%= UserGameLog.where(game_id: trophy.game_id, user_id: @user).reverse.first.score %>
+                      <% end %>
+                      <% if trophy.uniq_id == 2 %>
+                        High Score: <%= Game.find(trophy.game_id).name %> <%= UserGameLog.where(game_id: trophy.game_id, user_id: @user).reverse.first.score %>
+                      <% end %>
+                      <% if trophy.uniq_id == 3 %>
+                        Played all Games!!
+                      <% end %>
                     </div>
                   <% end %>
                   <!-- /.col-lg-4 (nested) -->
@@ -78,6 +106,9 @@
           <div class="panel panel-default">
             <div class="panel-heading">
               <i class="fa fa-bar-chart-o fa-fw"></i> Game Play History
+              <div class="pull-right">
+                <a href="<%= '/games/' + @rng_game.to_s %>" class="btn btn-default btn-xs">Random Game</a>
+              </div>
             </div>
             <!-- /.panel-heading -->
             <div class="panel-body">
@@ -88,8 +119,12 @@
                       <%= historylog %></br>
                     <% end %>
                   <% else %>
-                    <p>You haven't played any games yet!</p>
-                    <p>Visit the Games listing page to check out some you may enjoy!</p>
+                    <% if current_user.id == @user.id %>
+                      <p>You haven't played any games yet!</p>
+                      <p>Visit the <a href="<%= games_path %>">Games Listing Page</a> to check out some you may enjoy!</p>
+                    <% else %>
+                      <p>This user hasn't played any games yet. Leave them a shout and challenge them!</p>
+                    <% end %>
                   <% end %>
                 </div>
                 <!-- /.col-lg-4 (nested) -->
@@ -128,7 +163,7 @@
                 <a href="<%= notifications_path %>" class="btn btn-default btn-block">View All Alerts</a>
               <% else %>
                 <p>You have no Notifications. :(</p>
-                <p>Visit any game to get your first notification!</p>
+                <p>Visit <a href="<%= '/games/' + @rng_game.to_s %>">any game</a> to get your first notification!</p>
               <% end %>
             </div>
             <!-- /.panel-body -->
@@ -149,7 +184,7 @@
                     <% if pos.odd? %>
                       <li class="left clearfix">
                         <span class="chat-img pull-left">
-                          <img src="<%= @thatuser.avatar %>" alt="User Avatar" class="img-circle" />
+                          <img src="<%= @thatuser.ava %>" alt="User Avatar" class="img-circle" />
                         </span>
                         <div class="chat-body clearfix">
                           <div class="header">
@@ -182,8 +217,12 @@
                 </ul>
                 <a href="#" class="btn btn-default btn-block">View All Shouts</a>
               <% else %>
-                <p>You have no shouts. :(</p>
-                <p>Try leaving a shout on somebody else's profile to make some friends!</p>
+                <% if current_user.id == @user.id %>
+                  <p>You have no shouts. :(</p>
+                  <p>Try leaving a shout on somebody else's profile to make some friends!</p>
+                <% else %>
+                  <p>This user doesn't have any shouts yet! Leave them their first!</p>
+                <% end %>
               <% end %>
             </div>
             <!-- /.panel-body -->
