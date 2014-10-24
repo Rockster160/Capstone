@@ -1,3 +1,5 @@
+<% pos = @pos if @pos %>
+<%# binding.pry %>
 <% shout = shoutIndex[pos] %>
 <% user = User.find(shout.sent_from_id) %>
   <div class="shout-wrapper">

@@ -1,3 +1,7 @@
+<%= javascript_tag do %>
+  window.score_low = <%= Game.find(@game.id).detailscore.first %>
+  window.score_high = <%= Game.find(@game.id).detailscore.last %>
+<% end %>
 <div id="cheat-page">
   <span id="title"><%= @game.name %></span>
     <br/>
@@ -6,7 +10,7 @@
     Score: <input type="text" score="score" id="cheatinput" autofocus, autocomplete="off">
     <br/>
     <br/>
-    <div id="pullscore">Cheat Score</div>
+    <div id="pullscore">Random Score</div>
   </form>
   <%= Game.find(@game.id).detailscore %>
 </div>

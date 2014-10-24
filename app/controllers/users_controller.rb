@@ -48,9 +48,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def shout
-  end
-
   def user_params
     params.require(:user).permit(:avatar)
   end
@@ -78,6 +75,11 @@ class UsersController < ApplicationController
       format.html
       format.js
     end
+  end
+
+  def shoutmessage
+    binding.pry
+    @pos = params[:pos] if params[:pos]
   end
 
   private
