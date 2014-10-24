@@ -43,12 +43,11 @@ nav.navbar {
 //** click sidebar thing **//
 #columnThree {
   display: block;
-  background: red;
   z-index: 100;
   position: fixed;
-  right: -50vw;
+  right: -350px;
   top: 20vh;
-  width: 50vw;
+  width: 350px;
   height: 70vh;
   border-radius: 20px 0 0 20px;
 }
