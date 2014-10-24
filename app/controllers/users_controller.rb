@@ -8,6 +8,8 @@ class UsersController < ApplicationController
     end
     @user = User.find(params[:id])
 
+    @rng_game = Game.find(rand(Game.all.length) + 1).id
+
     @unread = @user.notifications.where(isRead: false).reverse
     if @unread.length < 5
       @display = @user.notifications.where(isRead: true).reverse.first(5 - @unread.length)
@@ -21,7 +23,7 @@ class UsersController < ApplicationController
     @history = []
     UserGameLog.where(user_id: @user).reverse.each do |history|
       @history << history.play_history_format
-    end    
+    end
 
     @user.update_attribute(:coin, @user.coin + @user.coinTo)
     @user.update_attribute(:coinTo, 0)
@@ -62,11 +64,6 @@ class UsersController < ApplicationController
         notify.update_attribute(:isRead, true)
       end
     end
-  end
-
-  def destroy
-    @user.avatar = nil
-    @user.save
   end
 
   def index
