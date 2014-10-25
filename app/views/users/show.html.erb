@@ -19,6 +19,12 @@
             </h1>
           </div>
           <!-- /.col-lg-12 -->
+        <% else %>
+          <% if current_user.following?(@user) %>
+            <%= button_to "Unfollow", unfollow_path(id: @user.id), method: 'delete', class: "btn btn-danger" %>
+          <% else %>
+            <%= button_to "Follow", follow_path(id: @user.id), method: 'post', class: "btn btn-success" %>
+          <% end %>
         <% end %>
       </div>
       <!-- /.row -->
@@ -136,7 +142,38 @@
             <!-- /.panel-body -->
           </div>
           <!-- /.panel -->
+          <!-- /.panel -->
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <i class="fa fa-users"></i> Following
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-lg-12">
+                <% if @user.follow_count > 0 %>
+                  <% @user.following_users.each do |user| %>
+                    <%= image_tag user.ava %>
+                    <%= link_to user.name, user_path(user) %>
+                  <% end %>
+                <% else %>
+                  <% if current_user == @user %>
+                    <p>You haven't followed anyone yet!</p>
+                    <p>Visit another users profile and click the button to follow them.</p>
+                  <% else %>
+                    <p>This user hasn't followed anyone yet!</p>
+                  <% end %>
+                <% end %>
+                </div>
+                <!-- /.col-lg-4 (nested) -->
+              </div>
+              <!-- /.row -->
+            </div>
+            <!-- /.panel-body -->
+          </div>
+          <!-- /.panel -->
         </div>
+
         <!-- /.col-lg-8 -->
         <div class="col-lg-4 col-sm-6 col-xs-12">
           <% if user_signed_in? && current_user.username == @user.username %>

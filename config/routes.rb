@@ -11,6 +11,9 @@ Rails.application.routes.draw do
     # get "user/registrations/read", to: 'registrations#read', as: 'usersprofile'
   end
 
+  post "/users/follow", to: "users#follow", as: :follow
+  delete "/users/unfollow", to: "users#unfollow", as: :unfollow
+
   get 'activities/index'
   # resources :activites
   get 'games/read', as: 'games'
