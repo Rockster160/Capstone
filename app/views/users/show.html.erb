@@ -9,13 +9,6 @@
       <div class="row">
         <div class="col-lg-9 col-md-8 col-sm-6 col-xs-12">
           <h1 class="page-header"><%= @user.username %></h1>
-          <% if current_user != @user %>
-            <% if current_user.following?(@user) %>
-              <%= button_to "Unfollow", unfollow_path(id: @user.id), method: 'delete', class: "btn btn-danger" %>
-            <% else %>
-              <%= button_to "Follow", follow_path(id: @user.id), method: 'post', class: "btn btn-success" %>
-            <% end %>
-          <% end %>
         </div>
         <% if user_signed_in? && current_user.username == @user.username %>
           <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
@@ -26,6 +19,12 @@
             </h1>
           </div>
           <!-- /.col-lg-12 -->
+        <% else %>
+          <% if current_user.following?(@user) %>
+            <%= button_to "Unfollow", unfollow_path(id: @user.id), method: 'delete', class: "btn btn-danger" %>
+          <% else %>
+            <%= button_to "Follow", follow_path(id: @user.id), method: 'post', class: "btn btn-success" %>
+          <% end %>
         <% end %>
       </div>
       <!-- /.row -->
