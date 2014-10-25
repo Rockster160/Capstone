@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   has_many :trophies
   has_many :user_game_statistics
   has_many :user_game_logs
+  acts_as_followable
+  acts_as_follower
 
   validates :username, presence: true, length: {maximum: 15}, uniqueness: {case_sensitive: false }, format: { with: /\A[a-zA-Z0-9]*\z/, message: "May only contain letters and numbers." }
   # Include default devise modules. Others available are:
