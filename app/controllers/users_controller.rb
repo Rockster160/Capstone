@@ -61,29 +61,24 @@ class UsersController < ApplicationController
   end
 
   def shout
-    if params[:message]
-      if params[:controller] == "users"
-        @receiver = User.find(params[:id])
-      else
-        @receiver = Game.find(params[:id])
-      end
-      @receiver.shouts.create(:message => params[:message],
-                              :sent_from_id => current_user.id
+    # binding.pry
+    if params[:controller] == "users"
+      @receiver = User.find(params[:id])
+    else
+      @receiver = Game.find(params[:id])
+    end
+    if params[:shout]
+      @shout = @receiver.shouts.create(:message => params[:shout][:message],
+                                      :sent_from_id => current_user.id
       )
     end
-    respond_to do |format|
-      format.html
-      format.js
-    end
+    # respond_to do |format|
+    #   format.html
+    #   format.js
+    # end
   end
 
   def shoutmessage
-    # binding.pry
-    # @pos = params[:pos] if params[:pos]
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
   private
