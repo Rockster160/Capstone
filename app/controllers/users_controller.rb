@@ -75,7 +75,6 @@ class UsersController < ApplicationController
   end
 
   def shout
-    # binding.pry
     if params[:controller] == "users"
       @receiver = User.find(params[:id])
     else
