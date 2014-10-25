@@ -46,9 +46,27 @@
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
           <h1>My Links</h1>
           <div class="col-xs-12">
-            <a href="<%= @user.facebook_url %>" class="fb-icon" target= "blank"><i class="fa fa-facebook-square fa-fw"></i> Facebook</a><br/>
-            <a href="<%= @user.twitter_url %>" class="twtr-icon" target= "blank"><i class="fa fa-twitter-square fa-fw"></i> Twitter</a><br/>
-            <a href="<%= @user.website_url %>" class="black-link" target= "blank"><i class="fa fa-globe fa-fw"></i> Website</a>
+            <div class="col-xs-12">
+             <% has_url = false %>
+             <% if @user.facebook_url.length > 0 %>
+               <a href="<%= @user.facebook_url %>" class="fb-icon" target="blank"><i class="fa fa-facebook-square fa-fw"></i> Facebook</a><br/>
+               <% has_url = true %>
+             <% end %>
+             <% if @user.twitter_url.length > 0 %>
+               <a href="<%= @user.twitter_url %>" class="twtr-icon" target="blank"><i class="fa fa-twitter-square fa-fw"></i> Twitter</a><br/>
+               <% has_url = true %>
+             <% end %>
+             <% if @user.website_url.length > 0 %>
+               <a href="<%= @user.website_url %>" class="black-link" target="blank"><i class="fa fa-globe fa-fw"></i> Website</a>
+               <% has_url = true %>
+             <% end %>
+             <% if has_url == false %>
+               <% if @user.id == current_user.id %>
+                <p>You have not added any links yet! Please go to your <a href="<%= edit_path %>">Profile Editing Page</a> and let us know where we may find you.</p>
+               <% else %>
+                 <p>This user has not yet added any external links.</p>
+               <% end %>
+             <% end %>
           </div>
         </div>
         <!-- ./col-lg-9 -->
