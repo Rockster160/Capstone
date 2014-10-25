@@ -17,11 +17,7 @@ gem 'spring',        group: :development
 
 gem 'devise'
 gem 'cocoon'
-
-# gem "paperclip", "~> 4.2" #Until we remove its internals...
-# gem 'public_activity'
-
-
+gem "acts_as_follower"
 gem 'therubyracer'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
