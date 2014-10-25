@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # devise_for :users
 
   devise_scope :user do
-    root to: 'devise/sessions#new'
+    root to: 'devise/sessions#new', as: 'home'
     # get "user/registrations/read", to: 'registrations#read', as: 'usersprofile'
   end
 
@@ -15,13 +15,15 @@ Rails.application.routes.draw do
   # resources :activites
   get 'games/read', as: 'games'
   get 'notifications/show' => 'notifications#show', as: 'notifications'
+  get 'notifications/showalerts' => 'notifications#showalerts', as: 'allshouts'
   resources :users, :games, only: [:show]
 
   get 'users/edit' => 'users#edit', as: 'edit'
   post 'users/:id/update' => 'users#update', as: 'update'
-  get 'users/:id/shout' => 'users#shout', as: 'shout'
+  post 'users/:id/shout' => 'users#shout', as: 'shout'
   get 'users/:id/shoutmessage' => 'users#shoutmessage'
   get 'users/:id/read' => 'users#read'
+  get 'users/:id/destroyshout' => 'users#destroyshout', as: 'destroyshout'
 
   get 'games/:id' => 'games#show'
   get 'games/:id/info' => 'games#info', as: 'game_info'

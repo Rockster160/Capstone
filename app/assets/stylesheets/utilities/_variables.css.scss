@@ -1,5 +1,6 @@
 //variables $primary: color;
 //lighten($primary, 10%)
+// @include font-face(Spac3Tech, 'spac3_tech_free_promo_webfont', $asset-pipeline: true);
 
 $blendbg: rgb(227,227,227);
 $blendbgdark: darken($blendbg, 10%);
@@ -12,5 +13,5 @@ $money: gold;
 $border: purple;
 $primaryfocus: lighten(purple, 10%);
 $placeholder: red;
-$gameiconbg: url('imgbkgd.png');
+$gameiconbg: image-url('imgbkgd.png');
 $editing: rgb(250,255,177);

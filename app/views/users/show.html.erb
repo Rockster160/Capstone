@@ -1,6 +1,6 @@
 <%= javascript_tag do %>
   window.coinTo = '<%= j (number_with_delimiter(@user.coin + @user.coinTo)).to_s %>';
-  window.currentUser = '<%= current_user.id %>'
+  window.currentUser = '<%= @user.id %>'
 <% end %>
 
 <div id="wrapper">
@@ -46,26 +46,27 @@
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
           <h1>My Links</h1>
           <div class="col-xs-12">
-            <% has_url = false %>
-            <% if @user.facebook_url.length > 0 %>
-              <a href="@user.facebook_url" class="fb-icon"><i class="fa fa-facebook-square fa-fw"></i> Facebook</a><br/>
-              <% has_url = true %>
-            <% end %>
-            <% if @user.twitter_url.length > 0 %>
-              <a href="@user.twitter_url" class="twtr-icon"><i class="fa fa-twitter-square fa-fw"></i> Twitter</a><br/>
-              <% has_url = true %>
-            <% end %>
-            <% if @user.website_url.length > 0 %>
-              <a href="@user.website_url" class="black-link"><i class="fa fa-globe fa-fw"></i> My Website</a>
-              <% has_url = true %>
-            <% end %>
-            <% if has_url == false %>
-              <% if @user.id == current_user.id %>
+            <div class="col-xs-12">
+             <% has_url = false %>
+             <% if @user.facebook_url.length > 0 %>
+               <a href="<%= @user.facebook_url %>" class="fb-icon" target="blank"><i class="fa fa-facebook-square fa-fw"></i> Facebook</a><br/>
+               <% has_url = true %>
+             <% end %>
+             <% if @user.twitter_url.length > 0 %>
+               <a href="<%= @user.twitter_url %>" class="twtr-icon" target="blank"><i class="fa fa-twitter-square fa-fw"></i> Twitter</a><br/>
+               <% has_url = true %>
+             <% end %>
+             <% if @user.website_url.length > 0 %>
+               <a href="<%= @user.website_url %>" class="black-link" target="blank"><i class="fa fa-globe fa-fw"></i> Website</a>
+               <% has_url = true %>
+             <% end %>
+             <% if has_url == false %>
+               <% if @user.id == current_user.id %>
                 <p>You have not added any links yet! Please go to your <a href="<%= edit_path %>">Profile Editing Page</a> and let us know where we may find you.</p>
-              <% else %>
-                <p>This user has not yet added any external links.</p>
-              <% end %>
-            <% end %>
+               <% else %>
+                 <p>This user has not yet added any external links.</p>
+               <% end %>
+             <% end %>
           </div>
         </div>
         <!-- ./col-lg-9 -->
@@ -180,11 +181,11 @@
             <div class="panel-body">
                 <ul class="chat">
               <% if @user.shouts.length > 0 %>
-                  <% @user.shouts.first(5).each_with_index do |shout, pos| %>
-                    <%= render :partial => 'users/shoutmessage', locals: {shoutIndex: Shout.where(user_id: current_user.id)[pos], pos: pos + 1} %>
+              <% @user.shouts.reverse.first(5).each_with_index do |shout, pos| %>
+                    <%= render :partial => 'users/shoutmessage', locals: {shoutIndex: shout, pos: pos} %>
                   <% end %>
                 </ul>
-                <a href="#" class="btn btn-default btn-block">View All Shouts</a>
+                <a href="/notifications/showalerts" class="btn btn-default btn-block">View All Shouts</a>
               <% else %>
                 <% if current_user.id == @user.id %>
                   <p>You have no shouts. :(</p>
@@ -197,19 +198,15 @@
             <!-- /.panel-body -->
             <div class="panel-footer">
               <!-- <div class="input-group"> -->
-              <span class="input-group-btn">
-                <span class="btn btn-warning btn-sm" id="btn-chat" style="margin-left: 80%;">
-                  <%= link_to shout_path(current_user.id), remote: true do %>
-                    <div id="btn-input">Shout it!</div>
-                  <% end %>
-                </span>
-              </span>
-              <textarea id="shout-area"
-                        type="text"
-                        class="form-control input-sm"
-                        placeholder='<%= "Leave a shout for " + @user.username %>'
-                        rows="4"
-                        cols="50"></textarea>
+              <%= form_for(:shout, url: shout_path, remote: true) do |f| %>
+                <%= f.submit "Shout it!" %>
+                <%= f.text_area :message,
+                                placeholder: "Leave a shout for " + @user.username ,
+                                id: 'shout-area',
+                                class: 'form-control input-sm',
+                                rows: 4,
+                                cols: 50 %>
+              <% end %>
               <!-- </div> -->
             </div>
             <!-- /.panel-footer -->

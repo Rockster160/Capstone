@@ -2,6 +2,7 @@
  // <600 lose C1
  //= require_tree .
 @import 'btoverrides';
+@import 'images';
 
 @font-face {
   font-family: 'Space3 Tech';
@@ -54,6 +55,7 @@ nav.navbar {
 
 #clicksidebar {
   z-index: 100;
+  opacity: 0.4;
   visibility: visible;
   border: 5px solid #999;
   border-radius: 100% 0 0 100%;
@@ -61,7 +63,7 @@ nav.navbar {
   right: -5px;
   top: 40vh;
   height: 200px;
-  width: 40px;
+  width: 35px;
   background: #888;
   #sidebaricon {
     position: relative;
