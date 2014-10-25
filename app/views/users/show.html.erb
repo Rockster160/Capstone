@@ -185,7 +185,7 @@
                     <%= render :partial => 'users/shoutmessage', locals: {shoutIndex: shout, pos: pos} %>
                   <% end %>
                 </ul>
-                <a href="#" class="btn btn-default btn-block">View All Shouts</a>
+                <a href="/notifications/showalerts" class="btn btn-default btn-block">View All Shouts</a>
               <% else %>
                 <% if current_user.id == @user.id %>
                   <p>You have no shouts. :(</p>

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   # resources :activites
   get 'games/read', as: 'games'
   get 'notifications/show' => 'notifications#show', as: 'notifications'
+  get 'notifications/showalerts' => 'notifications#showalerts', as: 'allshouts'
   resources :users, :games, only: [:show]
 
   get 'users/edit' => 'users#edit', as: 'edit'
