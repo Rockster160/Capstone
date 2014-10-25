@@ -1,5 +1,6 @@
 //variables $primary: color;
 //lighten($primary, 10%)
+// @include font-face(Spac3Tech, 'spac3_tech_free_promo_webfont', $asset-pipeline: true);
 
 $blendbg: rgb(227,227,227);
 $blendbgdark: darken($blendbg, 10%);
