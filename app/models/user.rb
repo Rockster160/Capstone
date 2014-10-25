@@ -40,7 +40,11 @@ class User < ActiveRecord::Base
       "Five"
     when 5
       "Six"
+    when 6
+      "Seven"
+    when 7
+      "Eight"
     end
-    self.update_attribute(:ava, "defAva" + rng + ".jpeg")
+    self.update_attribute(:ava, "defAva" + rng + ".jpg")
   end
 end

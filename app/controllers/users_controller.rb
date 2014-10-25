@@ -1,12 +1,26 @@
 #Redirects information regarding the User to appropriate places.
 class UsersController < ApplicationController
   before_filter :authenticate_user!, :only => :show
+  before_filter :authenticate_user!, :except => :destroyshout
 
   def show
     unless user_signed_in?
       redirect_to home_path
     end
+
     @user = User.find(params[:id])
+
+    if Time.now - @user.last_in > 1.day - 1.hour
+      Notification.create(
+                          user_id: @user.id,
+                          message: "You got a daily sign in bonus of 50 coins! Thanks for visiting!",
+                          title: "Daily sign in bonus!",
+                          icon: 0
+      )
+      @user.update_attribute(:coinTo, 50)
+    end
+
+    @user.update_attribute(:last_in, Time.now)
 
     @rng_game = Game.find(rand(Game.all.length) + 1).id
 
@@ -61,16 +75,23 @@ class UsersController < ApplicationController
   end
 
   def shout
-    # binding.pry
     if params[:controller] == "users"
       @receiver = User.find(params[:id])
     else
       @receiver = Game.find(params[:id])
     end
-    if params[:shout]
+    if params[:shout] && params[:shout].length > 1
       @shout = @receiver.shouts.create(:message => params[:shout][:message],
                                       :sent_from_id => current_user.id
       )
+      if params[:controller] == "users"
+        Notification.create(
+                            user_id: @receiver.id,
+                            message: @receiver.username + " has left you a shout!",
+                            title: "You have a new shout!",
+                            icon: 1
+        )
+      end
     end
     # respond_to do |format|
     #   format.html
@@ -91,6 +112,14 @@ class UsersController < ApplicationController
   end
 
   def shoutmessage
+  end
+
+  def destroyshout
+    Shout.find(params[:shout_id]).destroy
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   private

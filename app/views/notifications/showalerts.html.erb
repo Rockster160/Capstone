@@ -1,0 +1,6 @@
+<% @user.shouts.reverse.first(50).each do |notify| %>
+  <%= notify.user_id %>
+  <%= notify.message %>
+  <!-- user_id, sent_from_id, message, created_at, game_id -->
+  <br/>
+<% end %>
