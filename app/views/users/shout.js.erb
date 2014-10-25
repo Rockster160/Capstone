@@ -2,19 +2,5 @@ var shout_text = $('#shout-area').val();
 $('#shout-area').val("");
 url = '/users/' + currentUser + '/shout';
 if (shout_text.length > 0) {
-  $.post(url, {message: shout_text}, function() {
-    // var lon = $('.shout-wrapper').length;
-    // if (lon > 5) {
-    //   $('.shout-wrapper').last().slideUp(400, function() {
-    //     $(this).remove();
-    //     nowPrependIt();
-    //   });
-    // };
-    // $('.chat').prepend("<%#= j render(partial: 'users/shoutmessage', locals: {shoutIndex: Shout.where(user_id: params[:id]).last})%>").hide(0, function() {
-    //   $(this).slideDown(400);
-    // });
-  }
+  $.post(url, {message: shout_text}, window.location.reload());
 }
-
-// function nowPrependIt() {
-// }
