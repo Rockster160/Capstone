@@ -279,193 +279,193 @@ User.create( #id: 10,
 UserGameLog.create( #id:
                     user_id: 1,
                     game_id: 1,
-                    created_at: Time.new(2014, 10, 25, 12, 19, 55)
+                    created_at: Time.new(2014, 10, 25, 12, 19, 55),
                     score: 300
                     )
 UserGameLog.create( #id:
                     user_id: 3,
                     game_id: 1,
-                    created_at: Time.new(2014, 10, 27, 08, 45, 10)
+                    created_at: Time.new(2014, 10, 27, 8, 45, 10),
                     score: 256
                     )
 UserGameLog.create( #id:
                     user_id: 5,
                     game_id: 1,
-                    created_at: Time.new(2014, 09, 25, 11, 15, 10)
+                    created_at: Time.new(2014, 9, 25, 11, 15, 10),
                     score: 199
                     )
 UserGameLog.create( #id:
                     user_id: 7,
                     game_id: 1,
-                    created_at: Time.new(2014, 08, 10, 21, 30, 40)
+                    created_at: Time.new(2014, 8, 10, 21, 30, 40),
                     score: 143
                     )
 UserGameLog.create( #id:
                     user_id: 1,
                     game_id: 2,
-                    created_at: Time.new(2014, 10, 30, 10, 30, 20)
+                    created_at: Time.new(2014, 10, 30, 10, 30, 20),
                     score: 50
                     )
 UserGameLog.create( #id:
                     user_id: 5,
                     game_id: 2,
-                    created_at: Time.new(2014, 10, 27, 21, 30, 40)
+                    created_at: Time.new(2014, 10, 27, 21, 30, 40),
                     score: 43
                     )
 UserGameLog.create( #id:
                     user_id: 2,
                     game_id: 2,
-                    created_at: Time.new(2014, 08, 10, 21, 30, 40)
+                    created_at: Time.new(2014, 8, 10, 21, 30, 40),
                     score: 32
                     )
 UserGameLog.create( #id:
                     user_id: 6,
                     game_id: 2,
-                    created_at: Time.new(2014, 08, 10, 21, 30, 40)
+                    created_at: Time.new(2014, 8, 10, 21, 30, 40),
                     score: 13
                     )
 UserGameLog.create( #id:
                     user_id: 6,
                     game_id: 3,
-                    created_at: Time.new(2014, 10, 30, 09, 34, 40)
+                    created_at: Time.new(2014, 10, 30, 9, 34, 40),
                     score: 500
                     )
 UserGameLog.create( #id:
                     user_id: 5,
                     game_id: 3,
-                    created_at: Time.new(2014, 10, 27, 11, 38, 40)
+                    created_at: Time.new(2014, 10, 27, 11, 38, 40),
                     score: 423
                     )
 UserGameLog.create( #id:
                     user_id: 8,
                     game_id: 3,
-                    created_at: Time.new(2014, 09, 10, 21, 30, 40)
+                    created_at: Time.new(2014, 9, 10, 21, 30, 40),
                     score: 365
                     )
 UserGameLog.create( #id:
                     user_id: 5,
                     game_id: 3,
-                    created_at: Time.new(2014, 08, 07, 07, 12, 25)
+                    created_at: Time.new(2014, 8, 07, 07, 12, 25),
                     score: 100
                     )
 UserGameLog.create( #id:
                     user_id: 1,
                     game_id: 4,
-                    created_at: Time.new(2014, 10, 30, 22, 13, 50)
+                    created_at: Time.new(2014, 10, 30, 22, 13, 50),
                     score: 1
                     )
 UserGameLog.create( #id:
                     user_id: 6,
                     game_id: 4,
-                    created_at: Time.new(2014, 10, 28, 08, 17, 32)
+                    created_at: Time.new(2014, 10, 28, 8, 17, 32),
                     score: 3
                     )
 UserGameLog.create( #id:
                     user_id: 6,
                     game_id: 4,
-                    created_at: Time.new(2014, 09, 27, 12, 15, 00)
+                    created_at: Time.new(2014, 9, 27, 12, 15, 00),
                     score: 10
                     )
 UserGameLog.create( #id:
                     user_id: 6,
                     game_id: 4,
-                    created_at: Time.new(2014, 08, 22, 09, 22, 24)
+                    created_at: Time.new(2014, 8, 22, 9, 22, 24),
                     score: 13
                     )
 UserGameLog.create( #id:
                     user_id: 1,
                     game_id: 5,
-                    created_at: Time.new(2014, 10, 30, 09, 24, 00)
+                    created_at: Time.new(2014, 10, 30, 9, 24, 00),
                     score: 50
                     )
 UserGameLog.create( #id:
                     user_id: 3,
                     game_id: 5,
-                    created_at: Time.new(2014, 10, 28, 11, 35, 10)
+                    created_at: Time.new(2014, 10, 28, 11, 35, 10),
                     score: 41
                     )
 UserGameLog.create( #id:
                     user_id: 4,
                     game_id: 5,
-                    created_at: Time.new(2014, 09, 21, 09, 45, 45)
+                    created_at: Time.new(2014, 9, 21, 9, 45, 45),
                     score: 32
                     )
 UserGameLog.create( #id:
                     user_id: 6,
                     game_id: 5,
-                    created_at: Time.new(2014, 08, 29, 08, 47, 10)
+                    created_at: Time.new(2014, 8, 29, 8, 47, 10),
                     score: 21
                     )
 UserGameLog.create( #id:
                     user_id: 7,
                     game_id: 6,
-                    created_at: Time.new(2014, 10, 30, 18, 00, 00)
+                    created_at: Time.new(2014, 10, 30, 18, 00, 00),
                     score: 5000
                     )
 UserGameLog.create( #id:
                     user_id: 6,
                     game_id: 6,
-                    created_at: Time.new(2014, 10, 28, 19, 24, 30)
+                    created_at: Time.new(2014, 10, 28, 19, 24, 30),
                     score: 4398
                     )
 UserGameLog.create( #id:
                     user_id: 3,
                     game_id: 6,
-                    created_at: Time.new(2014, 09, 29, 20, 10, 34)
+                    created_at: Time.new(2014, 9, 29, 20, 10, 34),
                     score: 3000
                     )
 UserGameLog.create( #id:
                     user_id: 1,
                     game_id: 6,
-                    created_at: Time.new(2014, 08, 22, 12, 01, 05)
+                    created_at: Time.new(2014, 8, 22, 12, 01, 05),
                     score: 2112
                     )
 UserGameLog.create( #id:
                     user_id: 3,
                     game_id: 7,
-                    created_at: Time.new(2014, 10, 30, 15, 22, 12)
+                    created_at: Time.new(2014, 10, 30, 15, 22, 12),
                     score: 11
                     )
 UserGameLog.create( #id:
                     user_id: 4,
                     game_id: 7,
-                    created_at: Time.new(2014, 10, 28, 13, 10, 11)
+                    created_at: Time.new(2014, 10, 28, 13, 10, 11),
                     score: 9
                     )
 UserGameLog.create( #id:
                     user_id: 7,
                     game_id: 7,
-                    created_at: Time.new(2014, 09, 10, 10, 10, 10)
+                    created_at: Time.new(2014, 9, 10, 10, 10, 10),
                     score: 4
                     )
 UserGameLog.create( #id:
                     user_id: 5,
                     game_id: 7,
-                    created_at: Time.new(2014, 08, 21, 21, 23, 10)
+                    created_at: Time.new(2014, 8, 21, 21, 23, 10),
                     score: 1
                     )
 UserGameLog.create( #id:
                     user_id: 8,
                     game_id: 8,
-                    created_at: Time.new(2014, 10, 30, 14, 30, 00)
+                    created_at: Time.new(2014, 10, 30, 14, 30, 00),
                     score: 100
                     )
 UserGameLog.create( #id:
                     user_id: 7,
                     game_id: 8,
-                    created_at: Time.new(2014, 10, 28, 11, 24, 30)
+                    created_at: Time.new(2014, 10, 28, 11, 24, 30),
                     score: 75
                     )
 UserGameLog.create( #id:
                     user_id: 5,
                     game_id: 8,
-                    created_at: Time.new(2014, 09, 24, 10, 12, 30)
+                    created_at: Time.new(2014, 9, 24, 10, 12, 30),
                     score: 57
                     )
 UserGameLog.create( #id:
                     user_id: 4,
                     game_id: 8,
-                    created_at: Time.new(2014, 08, 10, 16, 15, 23)
+                    created_at: Time.new(2014, 8, 10, 16, 15, 23),
                     score: 10
                     )
 
