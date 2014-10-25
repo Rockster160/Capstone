@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   # resources :activites
   get 'games/read', as: 'games'
   get 'notifications/show' => 'notifications#show', as: 'notifications'
+  get 'notifications/showalerts' => 'notifications#showalerts', as: 'allshouts'
   resources :users, :games, only: [:show]
 
   get 'users/edit' => 'users#edit', as: 'edit'
@@ -22,6 +23,7 @@ Rails.application.routes.draw do
   post 'users/:id/shout' => 'users#shout', as: 'shout'
   get 'users/:id/shoutmessage' => 'users#shoutmessage'
   get 'users/:id/read' => 'users#read'
+  get 'users/:id/destroyshout' => 'users#destroyshout', as: 'destroyshout'
 
   get 'games/:id' => 'games#show'
   get 'games/:id/info' => 'games#info', as: 'game_info'
