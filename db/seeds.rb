@@ -19,7 +19,7 @@ Game.create(  name: 'Bowling' ,
               cost: 50 ,
               about: "This is a virtual bowling game. Bowling
                       consists of rolling a ball down a lane at 10
-                      pins keeping track of the number of pins
+                      pins and keeping track of the number of pins
                       knocked down through 10 frames consecutively.
                       In each frame you have two chances to knock
                       down as many pins as you can with bonuses to
@@ -33,7 +33,7 @@ Game.create(  name: 'Bowling' ,
                       frame will be doubled. In the tenth/final frame,
                       spares do not give bonuses since there is not a next
                       frame. However, if a spare or a strike is
-                      rolled in the tenth frame, you are given an
+                      rolled in the tenth frame you are given an
                       opportunity to have a 3rd ball in the tenth
                       frame, irregardless of whether or not you
                       knock them all down. This makes it possible
@@ -49,10 +49,10 @@ Game.create(  name: 'Bowling' ,
                       anywhere on the visible lane. You must click
                       and HOLD your position. A single click will
                       result in dropping the ball and restarting the
-                      frame. Be quick now. Upon clicking, you will
-                      begin your approach. Once you release, you
-                      will drop the ball. If released at the proper
-                      time, your ball will be sent flying down the
+                      frame. Be quick. Upon clicking you will
+                      begin your approach. Once you release you
+                      will then drop the ball. If released at the proper
+                      time your ball will be sent flying down the
                       lane. While your approach is active, use the
                       arrow keys to rotate your ball. The more times
                       you slam the keys, the faster your rev rate
