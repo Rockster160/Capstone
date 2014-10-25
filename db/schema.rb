@@ -125,9 +125,9 @@ ActiveRecord::Schema.define(version: 20141023234336) do
     t.integer  "coinTo",                 default: 20
     t.integer  "favorites",              default: [0, 0, 0, 0],              array: true
     t.integer  "popup",                  default: [],                        array: true
-    t.string   "facebook_url"
-    t.string   "twitter_url"
-    t.string   "website_url"
+    t.string   "facebook_url",           default: ""
+    t.string   "twitter_url",            default: ""
+    t.string   "website_url",            default: ""
     t.string   "ava"
   end
 
