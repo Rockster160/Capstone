@@ -104,39 +104,6 @@
               </div>
               <!-- /.col-lg-8 -->
               <div class="col-lg-4 col-sm-6 col-xs-12">
-                <% if user_signed_in? && current_user.username == @user.username %>
-                  <div class="panel panel-default">
-                    <div class="panel-heading">
-                      <i class="fa fa-bell fa-fw"></i> Notifications Panel
-                    </div>
-                    <!-- /.panel-heading -->
-                    <div class="panel-body">
-                      <% if @unread.length > 0 || @display.length > 0 %>
-                        <div class="list-group">
-                          <% @unread.first(5).each do |notify| %>
-                          <a href="<%= notifications_path %>" class="list-group-item" style="height: 50px;background:lemonchiffon;">
-                            <i class="fa fa-<%=notify.image_convert%> fa-fw"></i> <%= notify.title %>
-                            <span class="pull-right text-muted small"><em><%= notify.formatted_ago %></em></span>
-                          </a>
-                          <% end %>
-                          <% @display.each do |notify| %>
-                            <a href="<%= notifications_path %>" class="list-group-item" style="height: 50px;">
-                              <i class="fa fa-<%=notify.image_convert%> fa-fw"></i> <%= notify.title %>
-                              <span class="pull-right text-muted small"><em><%= notify.formatted_ago %></em></span>
-                            </a>
-                          <% end %>
-                        </div>
-                        <!-- /.list-group -->
-                        <a href="<%= notifications_path %>" class="btn btn-default btn-block">View All Alerts</a>
-                      <% else %>
-                        <p>You have no Notifications. :(</p>
-                        <p>Visit <a href="<%= '/games/' + @rng_game.to_s %>">any game</a> to get your first notification!</p>
-                      <% end %>
-                    </div>
-                    <!-- /.panel-body -->
-                  </div>
-                  <!-- /.panel -->
-                <% end %>
                   <div class="panel panel-default">
                       <div class="panel-heading">
                           <i class="fa fa-comments fa-fw"></i>
