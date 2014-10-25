@@ -123,8 +123,8 @@ ActiveRecord::Schema.define(version: 20141025184231) do
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.integer  "coinTo",                 default: 1000
-    t.integer  "favorites",              default: [0, 0, 0, 0],                       array: true
-    t.integer  "popup",                  default: [],                                 array: true
+    t.integer  "favorites",              default: [0, 0, 0, 0],      array: true
+    t.integer  "popup",                  default: [],                array: true
     t.string   "facebook_url",           default: ""
     t.string   "twitter_url",            default: ""
     t.string   "website_url",            default: ""
