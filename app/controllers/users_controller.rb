@@ -80,7 +80,7 @@ class UsersController < ApplicationController
     else
       @receiver = Game.find(params[:id])
     end
-    if params[:shout]
+    if params[:shout] && params[:shout].length > 1
       @shout = @receiver.shouts.create(:message => params[:shout][:message],
                                       :sent_from_id => current_user.id
       )
