@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     unless user_signed_in?
       redirect_to home_path
     end
+    #@user.username[0] = @user.username[0].capitalize
 
     @user = User.find(params[:id])
 
@@ -80,7 +81,8 @@ class UsersController < ApplicationController
     else
       @receiver = Game.find(params[:id])
     end
-    if params[:shout] && params[:shout].length > 1
+      # binding.pry
+    if params[:shout] && params[:shout][:message].length > 1
       @shout = @receiver.shouts.create(:message => params[:shout][:message],
                                       :sent_from_id => current_user.id
       )

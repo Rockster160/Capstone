@@ -1,6 +1,7 @@
  // <1k, lose C3.
  // <600 lose C1
  //= require_tree .
+@import 'utilities/variables';
 @import 'btoverrides';
 @import 'images';
 
@@ -16,10 +17,27 @@
 }
 
 html { height: 100%; }
+body {
+  background: $bodybg;
+  margin-top: 70px;
+}
+a { color: white; }
 
-// ** search bar ** //
+#page-wrapper {
+  border-radius: 20px;
+}
+
+.btn-neutral {
+  background: $btn-neutral;
+  color: black;
+  border-color: darken($btn-neutral, 10%)
+}
+
 textarea { resize: none; }
 
+.money { color: $money; }
+
+// ** search bar ** //
 #mysearchbar {
   margin: 10px 0 0 20px;
   width: 190px;
