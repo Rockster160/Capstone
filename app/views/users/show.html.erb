@@ -95,8 +95,10 @@
         </div>
         <!-- /Left Column -->
         <div class="col-md-8 col-sm-6 col-xs-12"> <!-- Right Column -->
-          <h1 style="margin: 0 auto">My Games</h1>
-          <span class="text-muted">Click to play!</span>
+          <div id="games-title">
+            <h1>My Games</h1>
+            <span class="text-muted">Click to play!</span>
+          </div>
           <!-- <div class="page-header col-xs-12"></div> -->
           <div id='user-favorites-div' class="row"> <!-- Games -->
             <%= render partial: 'user_favorite_games', locals: { user: @user, url: :show } %>
