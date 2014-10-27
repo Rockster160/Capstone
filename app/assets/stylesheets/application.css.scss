@@ -39,18 +39,19 @@ textarea { resize: none; }
 
 // ** search bar ** //
 #search-placeholder {
-  background: blue;
+  z-index: 100;
+  color: black;
   position: absolute;
   top:0;
-  right: 0;
+  right: -190px;
   height: 50px;
   width: 190px;
 }
 
 #mysearchbar {
-  margin: 10px 0 0 20px;
-  width: 190px;
-  padding: 6px 15px 6px 30px;
+  margin: 10px 0 0 5px;
+  width: 160px;
+  padding: 6px 15px 6px 10px;
   height: 30px;
 	border-radius:15px;
 	-moz-border-radius:15px;

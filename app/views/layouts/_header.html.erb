@@ -7,7 +7,7 @@
 <!-- Navigation -->
 <nav class="navbar navbar-default navbar-static-top" role="navigation" >
   <div class="navbar-header">
-    <%= render 'layouts/searchbar' %>
+    <!-- Link to Home Page -->
   </div>
   <!-- /.navbar-header -->
     <ul class="nav navbar-top-links navbar-right"
@@ -15,9 +15,8 @@
                right: 0;
                top: 0;">
         <li id="searchpopout"><a href="#"><i class="fa fa-search fa-lg"></i></a></li>
-          <div style="display:none;"><%= render 'layouts/searchbar' %></div>
-        </li>
         <div id="search-placeholder" tabindex="-1">
+          <%= render 'layouts/searchbar' %>
         </div>
         <!-- /search-dropdown -->
         <li><a href="../../games/read"><i class="fa fa-gamepad fa-lg"></i></a></li>

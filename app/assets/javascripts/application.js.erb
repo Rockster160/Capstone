@@ -34,12 +34,16 @@ $(document).ready(function(){
   });
 
   var toggle = false;
+  $('#search-placeholder').hide();
   $('#searchpopout').click(function(){
     if (toggle == false) {
-      $('#search-placeholder').animate("<%= j render :partial => 'layouts/searchbar' %>");
+      $('#search-placeholder').show();
+      $('#search-placeholder').animate({right:"0"}, 400);
       toggle = true;
     } else {
-      $('#search-placeholder').animate("");
+      $('#search-placeholder').animate({right:"-190px"}, 400, function(){
+        $('#search-placeholder').hide();
+      });
       toggle = false;
     }
   });
