@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   devise_scope :user do
     root to: 'devise/sessions#new', as: 'login'
   end
-  resources :users, :games, only: [:show]
 
   get 'games/read', as: 'games'
+  resources :users, :games, only: [:show]
   get 'users/:id/read' => 'users#read'
 
   get 'notifications/show' => 'notifications#show', as: 'notifications'
