@@ -1,8 +1,141 @@
-<h1>Index#home</h1>
-<p>Find me in app/views/index/home.html.erb</p>
-
-
-Sign in page
-
-
-
+<div id="wrapper">
+  <div id="homepage">
+    <div id="page-wrapper">
+      <div class="row"><!-- Underneath -->
+        <div class="col-md-4 col-sm-6 col-xs-12"><!-- Left Column -->
+          <h1 class="page-header">GameHub</h1>
+          <%= image_tag('favicon0.ico', id: "avatar") %>
+          <div class="row"> <!-- About -->
+            <h1>About Me</h1>
+            Welcome to GameHub! We play games, earn coins, act like cool people and give away game cards!
+          </div>
+          <!-- /About -->
+          <div class="row"><!-- Links -->
+           <h1>My Links</h1>
+           Link to DPL<br/>
+           Link to GameHub Twitter<br/>
+           Link to Contact Page<br/>
+          </div>
+          <!-- /Links -->
+        </div>
+        <!-- /Left Column -->
+        <div class="col-md-8 col-sm-6 col-xs-12"> <!-- Right Column -->
+          <div id="games-title">
+            <h1 id="games-title">Popular Games</h1>
+            <span id="games-title" class="text-muted">Click to play!</span>
+          </div>
+          <!-- <div class="page-header col-xs-12"></div> -->
+          <div id='user-favorites-div' class="row"> <!-- Games -->
+            <%= render partial: 'user_favorite_games', locals: { user: @user, url: :show } %>
+            <div id='game-modal-div'>
+              <!-- Place holder for the modal data -->
+            </div>
+          </div>
+          <!-- /Game Row -->
+          <div class="row"> <!-- Trophies/History - Shouts -->
+            <div class="col-md-6 col-xs-12">
+              <% if @trophies.length > 0 %> <!-- Trophies -->
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <i class="fa fa-bar-chart-o fa-fw"></i> Trophy Case
+                  </div>
+                  <div class="panel-body">
+                      <% @trophies.each do |trophy| %>
+                        <div class="col-xs-12">
+                          <% if trophy.uniq_id == 1 %>
+                            Perfect Score in <%= Game.find(trophy.game_id).name %> with a <%= UserGameLog.where(game_id: trophy.game_id, user_id: @user).reverse.first.score %>
+                          <% end %>
+                          <% if trophy.uniq_id == 2 %>
+                            High Score: <%= Game.find(trophy.game_id).name %> <%= UserGameLog.where(game_id: trophy.game_id, user_id: @user).reverse.first.score %>
+                          <% end %>
+                          <% if trophy.uniq_id == 3 %>
+                            Played all Games!!
+                          <% end %>
+                        </div>
+                      <% end %>
+                  </div>
+                </div>
+              <% end %>
+              <div class="panel panel-default"><!-- History -->
+                <div class="panel-heading">
+                  <i class="fa fa-bar-chart-o fa-fw"></i> Game Play History
+                    <a href="<%= '/games/' + @rng_game.to_s %>" class="btn btn-success btn-xs pull-right">Random Game</a>
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <% if @history.length > 0 %>
+                        <% @history.first(10).each do |historylog| %>
+                          <%= historylog %></br>
+                        <% end %>
+                      <% else %>
+                        <% if current_user.id == @user.id %>
+                          <p>You haven't played any games yet!</p>
+                          <p>Visit the <a href="<%= games_path %>">Games Listing Page</a> to check out some you may enjoy!</p>
+                        <% else %>
+                          <p>This user hasn't played any games yet. Leave them a shout and challenge them!</p>
+                        <% end %>
+                      <% end %>
+                    </div>
+                  </div>
+                  <!-- /.row -->
+                </div>
+                <!-- /.panel-body -->
+              </div>
+              <!-- /History -->
+            </div>
+            <!-- /Trophies -->
+            <div class="col-md-6 col-xs-12"><!-- Shouts -->
+                <%= form_for(:shout, url: shout_path, remote: true) do |f| %>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <i class="fa fa-comments fa-fw"></i>
+                  Shoutbox
+                  <%= f.submit "Shout it!", class: "btn btn-success btn-xs pull-right" %>
+                </div>
+                <!-- /.panel-heading -->
+                  <div class="panel-footer">
+                      <%= f.text_area :message,
+                                      placeholder: "Leave a shout for " + @user.username ,
+                                      id: 'shout-area',
+                                      class: 'form-control input-sm',
+                                      rows: 4,
+                                      cols: 50 %>
+                  </div>
+                <!-- /.panel-footer -->
+                <div class="panel-body">
+                  <% if @user.shouts.length > 0 %>
+                    <ul class="chat">
+                      <% @user.shouts.reverse.first(5).each_with_index do |shout, pos| %>
+                        <%= render :partial => 'users/shoutmessage', locals: {shoutIndex: shout, pos: pos} %>
+                      <% end %>
+                    </ul>
+                    <a href="/notifications/showalerts" class="btn btn-success btn-block">View All Shouts</a>
+                  <% else %>
+                    <% if current_user.id == @user.id %>
+                      <p>You have no shouts. :(</p>
+                      <p>Try leaving a shout on somebody else's profile to make some friends!</p>
+                    <% else %>
+                      <p>This user doesn't have any shouts yet! Leave them their first!</p>
+                    <% end %>
+                  <% end %>
+                </div>
+              <!-- /.panel-body -->
+              </div>
+                <% end %>
+              <!-- /panel-default -->
+            </div>
+            <!-- /Shouts -->
+          </div>
+          <!-- /Trophies-History Shouts -->
+        </div>
+        <!-- /Right Column -->
+      </div>
+      <!-- /Underneath -->
+    </div>
+    <!-- /#page-wrapper -->
+  </div>
+  <!-- #homepage -->
+</div>
+<!-- /#wrapper -->

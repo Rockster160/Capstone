@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def show
     unless user_signed_in?
-      redirect_to login_path
+      redirect_to home_path
     end
     #@user.username[0] = @user.username[0].capitalize
 
