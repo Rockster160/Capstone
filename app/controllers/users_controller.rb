@@ -2,10 +2,10 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!, :only => :show
   before_filter :authenticate_user!, :except => :destroyshout
-  
+
   def show
     unless user_signed_in?
-      redirect_to home_path
+      redirect_to login_path
     end
     #@user.username[0] = @user.username[0].capitalize
 

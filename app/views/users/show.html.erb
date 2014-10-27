@@ -8,9 +8,15 @@
     <div id="page-wrapper">
       <div class="row"><!-- Header-Username/Gold/Follow -->
         <div class="col-lg-9 col-md-8 col-sm-6 col-xs-12">
-          <h1 class="page-header"><%= @user.username %></h1>
         </div>
         <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
+
+        </div>
+      </div>
+      <div class="row"><!-- Underneath -->
+        <div class="col-md-4 col-sm-6 col-xs-12"><!-- Left Column -->
+          <h1 class="page-header"><%= @user.username %></h1>
+          <%= image_tag(@user.ava, id: "avatar") %>
           <% if user_signed_in? && current_user.username == @user.username %>
               <h1 id="coin-inline">
                 <%= image_tag('spinningcoin.gif', id: "coin", size: "32x32") %>
@@ -19,16 +25,11 @@
               </h1>
           <% else %>
             <% if current_user.following?(@user) %>
-              <%= button_to "Unfollow", unfollow_path(id: @user.id), method: 'delete', class: "btn btn-danger page-header pull-right" %>
+              <%= button_to "Unfollow", unfollow_path(id: @user.id), method: 'delete', class: "btn btn-danger" %>
             <% else %>
-              <%= button_to "Follow", follow_path(id: @user.id), method: 'post', class: "btn btn-success page-header pull-right" %>
+              <%= button_to "Follow", follow_path(id: @user.id), method: 'post', class: "btn btn-success" %>
             <% end %>
           <% end %>
-        </div>
-      </div>
-      <div class="row"><!-- Underneath -->
-        <div class="col-md-4 col-sm-6 col-xs-12"><!-- Left Column -->
-          <%= image_tag(@user.ava, id: "avatar") %>
           <div class="row"> <!-- About -->
             <h1>About Me</h1>
             <% if @user.about  && @user.about.length > 5 %>
@@ -96,8 +97,8 @@
         <!-- /Left Column -->
         <div class="col-md-8 col-sm-6 col-xs-12"> <!-- Right Column -->
           <div id="games-title">
-            <h1>My Games</h1>
-            <span class="text-muted">Click to play!</span>
+            <h1 id="games-title">My Games</h1>
+            <span id="games-title" class="text-muted">Click to play!</span>
           </div>
           <!-- <div class="page-header col-xs-12"></div> -->
           <div id='user-favorites-div' class="row"> <!-- Games -->
@@ -186,7 +187,7 @@
                         <%= render :partial => 'users/shoutmessage', locals: {shoutIndex: shout, pos: pos} %>
                       <% end %>
                     </ul>
-                    <a href="/notifications/showalerts" class="btn btn-default btn-block">View All Shouts</a>
+                    <a href="/notifications/showalerts" class="btn btn-success btn-block">View All Shouts</a>
                   <% else %>
                     <% if current_user.id == @user.id %>
                       <p>You have no shouts. :(</p>

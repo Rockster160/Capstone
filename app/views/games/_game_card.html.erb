@@ -1,6 +1,10 @@
 <div id='listitem'>
   <div id="uppercard">
-    <a href="/games/<%= game.id %>" id="gameimage"><%= image_tag(game.ava, id: "gameicon") %></a>
+    <% if url == "user" %>
+      <a href="/users/<%= game.id %>" id="gameimage"><%= image_tag(game.ava, id: "gameicon") %></a>
+    <% else %>
+      <a href="/games/<%= game.id %>" id="gameimage"><%= image_tag(game.ava, id: "gameicon") %></a>
+    <% end %>
     <% if url == 'game' %>
       <h4 id="title"><%= game.name %></h4>
     <% else %>

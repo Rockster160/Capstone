@@ -6,48 +6,87 @@
     <div class="format-navbar" id="edit-pw"><%= f.password_field :password, autocomplete: "off", placeholder: "New Password" %></div>
     <div class="format-navbar" id="edit-pw-confirm"><%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm Password" %></div>
     <div class="format-navbar" id="edit-submit"><%= f.password_field :current_password, autocomplete: "off", placeholder: "Current Password" %></div>
-    <div class="format-navbar" id="edit-sub-button"><%= f.submit "Update", id: "edit-sub-btn", class: "btn btn-success" %></div>
+    <div class="format-navbar" id="edit-sub-button"><%= f.submit "Update", id: "edit-sub-button", class: "btn btn-success" %></div>
   </div>
   <%= devise_error_messages! %>
 
   <div id="wrapper" style="margin-top: 15px;">
-  <div id="homepage">
+    <div id="homepage">
       <div id="page-wrapper">
-          <div class="row">
+        <div class="row"><!-- Underneath -->
+          <div class="col-md-4 col-sm-6 col-xs-12"><!-- Left Column -->
+            <h1 class="page-header"><%= @user.username %></h1>
             <i class="fa fa-pencil fa-4x"></i>
-            <%= image_tag(@user.ava, id: "avatar", class: "col-lg-3 col-md-4 col-sm-4 col-xs-4") %>
-              <div id='user-favorites-div'>
-                <%= render partial: 'users/user_favorite_games', locals: { user: @user, url: :edit } %>
-              </div>
-              <div id='game-modal-div'>
-                  <!-- Place holder for the modal data -->
-              </div>
-
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+            <%= image_tag(@user.ava, id: "avatar") %>
+            <h1 id="coin-inline">
+              <%= image_tag('spinningcoin.gif', id: "coin", size: "32x32") %>
+              <span id="coin_on_page"><%= number_with_delimiter( current_user.coin ) %></span>
+            </h1>
+            <div class="row"> <!-- About -->
               <h1>About Me</h1>
               <div><%= f.text_area :about, placeholder: @user.about, :maxlength => 200, id: "edit-aboutfield", rows: 5 %></div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-              <h1>My Links</h1>
-              <div class="col-xs-12">
-                <div><%= f.text_field :facebook_url, placeholder: "Facebook URL" %></div>
-                <div><%= f.text_field :twitter_url, placeholder: "Twitter URL" %></div>
-                <div><%= f.text_field :website_url, placeholder: "Website URL" %></div>
+            <!-- /About -->
+            <div class="row"><!-- Links -->
+             <h1>My Links</h1>
+
+             <div class="col-xs-12">
+               <div><%= f.text_field :facebook_url, placeholder: "Facebook URL" %></div>
+               <div><%= f.text_field :twitter_url, placeholder: "Twitter URL" %></div>
+               <div><%= f.text_field :website_url, placeholder: "Website URL" %></div>
+             </div>
+            </div>
+            <br/>
+            <!-- /Links -->
+            <div class="row"><!-- Following -->
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <i class="fa fa-users"></i> Following
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                  <% if @user.follow_count > 0 %>
+                    <% @user.following_users.each do |user| %>
+                      <%= image_tag user.ava %>
+                      <%= link_to user.name, user_path(user) %>
+                    <% end %>
+                  <% else %>
+                    <% if current_user == @user %>
+                      <p>You haven't followed anyone yet!</p>
+                      <p>Visit another users profile and click the button to follow them.</p>
+                    <% else %>
+                      <p>This user hasn't followed anyone yet!</p>
+                    <% end %>
+                  <% end %>
+                </div>
+                <!-- /.panel-body -->
+              </div>
+              <!-- /panel-default -->
+            </div>
+            <!-- Following -->
+          </div>
+          <!-- /Left Column -->
+          <div class="col-md-8 col-sm-6 col-xs-12"> <!-- Right Column -->
+            <div id="games-title">
+              <h1>My Games</h1>
+              <span class="text-muted">Click to edit!</span>
+            </div>
+            <!-- <div class="page-header col-xs-12"></div> -->
+            <div id='user-favorites-div' class="row"> <!-- Games -->
+              <%= render partial: 'users/user_favorite_games', locals: { user: @user, url: :edit } %>
+              <div id='game-modal-div'>
+                <!-- Place holder for the modal data -->
               </div>
             </div>
-          </div>
-          <!-- /.row -->
-          <div class="page-header"></div>
-          <div class="row">
-              <div class="col-lg-8 col-sm-6 col-xs-12">
-                <% if @trophies.length > 0 %>
+            <!-- /Game Row -->
+            <div class="row"> <!-- Trophies/History - Shouts -->
+              <div class="col-md-6 col-xs-12">
+                <% if @trophies.length > 0 %> <!-- Trophies -->
                   <div class="panel panel-default">
                     <div class="panel-heading">
                       <i class="fa fa-bar-chart-o fa-fw"></i> Trophy Case
                     </div>
-                    <!-- /.panel-heading -->
                     <div class="panel-body">
-                      <div class="row">
                         <% @trophies.each do |trophy| %>
                           <div class="col-xs-12">
                             <% if trophy.uniq_id == 1 %>
@@ -61,21 +100,12 @@
                             <% end %>
                           </div>
                         <% end %>
-                        <!-- /.col-lg-4 (nested) -->
-                      </div>
-                      <!-- /.row -->
                     </div>
-                    <!-- /.panel-body -->
                   </div>
-                  <!-- /.panel -->
                 <% end %>
-                <!-- /.panel -->
-                <div class="panel panel-default">
+                <div class="panel panel-default"><!-- History -->
                   <div class="panel-heading">
                     <i class="fa fa-bar-chart-o fa-fw"></i> Game Play History
-                    <div class="pull-right">
-                      <a href="<%= '/games/' + @rng_game.to_s %>" class="btn btn-default btn-xs">Random Game</a>
-                    </div>
                   </div>
                   <!-- /.panel-heading -->
                   <div class="panel-body">
@@ -94,59 +124,54 @@
                           <% end %>
                         <% end %>
                       </div>
-                      <!-- /.col-lg-4 (nested) -->
                     </div>
                     <!-- /.row -->
                   </div>
                   <!-- /.panel-body -->
                 </div>
-                <!-- /.panel -->
+                <!-- /History -->
               </div>
-              <!-- /.col-lg-8 -->
-              <div class="col-lg-4 col-sm-6 col-xs-12">
-                  <div class="panel panel-default">
-                      <div class="panel-heading">
-                          <i class="fa fa-comments fa-fw"></i>
-                          Shoutbox
-                      </div>
-                      <!-- /.panel-heading -->
-                      <div class="panel-body">
-                          <ul class="chat" id="shoutbox">
-                        <% if @user.shouts.length > 0 %>
-                            <% @user.shouts.reverse.first(5).each_with_index do |shout, pos| %>
-                              <%= render :partial => 'users/shoutmessage', locals: {shoutIndex: shout, pos: pos, url: "edit"} %>
-                            <% end %>
-                          </ul>
-                          <a href="#" class="btn btn-default btn-block">View All Shouts</a>
-                        <% else %>
-                          <% if current_user.id == @user.id %>
-                            <p>You have no shouts. :(</p>
-                            <p>Try leaving a shout on somebody else's profile to make some friends!</p>
-                          <% else %>
-                            <p>This user doesn't have any shouts yet! Leave them their first!</p>
-                          <% end %>
-                        <% end %>
-                      </div>
-                      <!-- /.panel-body -->
+              <!-- /Trophies -->
+              <div class="col-md-6 col-xs-12"><!-- Shouts -->
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <i class="fa fa-comments fa-fw"></i>
+                    Shoutbox
                   </div>
-                  <!-- /.panel .chat-panel -->
+                  <!-- /.panel-heading -->
+                  <div class="panel-body">
+                    <% if @user.shouts.length > 0 %>
+                      <ul class="chat">
+                        <% @user.shouts.reverse.first(5).each_with_index do |shout, pos| %>
+                          <%= render :partial => 'users/shoutmessage', locals: {shoutIndex: shout, pos: pos, url: "edit"} %>
+                        <% end %>
+                      </ul>
+                      <a href="/notifications/showalerts" class="btn btn-success btn-block btn-gh">View All Shouts</a>
+                    <% else %>
+                      <% if current_user.id == @user.id %>
+                        <p>You have no shouts. :(</p>
+                        <p>Try leaving a shout on somebody else's profile to make some friends!</p>
+                      <% else %>
+                        <p>This user doesn't have any shouts yet! Leave them their first!</p>
+                      <% end %>
+                    <% end %>
+                  </div>
+                <!-- /.panel-body -->
+                </div>
+                <!-- /panel-default -->
               </div>
-              <!-- /.col-lg-4 -->
+              <!-- /Shouts -->
+            </div>
+            <!-- /Trophies-History Shouts -->
           </div>
-          <!-- /.row -->
+          <!-- /Right Column -->
+        </div>
+        <!-- /Underneath -->
       </div>
       <!-- /#page-wrapper -->
-  </div>
-  <!-- #homepage -->
+    </div>
+    <!-- #homepage -->
   </div>
   <!-- /#wrapper -->
 <% end %>
-</div>
-<div id="footer">
-  <%= button_to "Cancel my account", registration_path(resource_name),
-                data: { confirm: "Do you really want to deactivate your account?\n
-                                  This is permanent and cannot be undone." },
-                method: :delete,
-                id: "edit-delete-btn",
-                class: "btn btn-danger" %>
 </div>

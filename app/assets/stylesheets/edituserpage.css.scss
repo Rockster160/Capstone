@@ -1,6 +1,9 @@
 @import 'utilities/variables';
 
-#games-title { text-align: center; }
+#games-title {
+  text-align: center;
+  width: 100%;
+}
 
 .fa-pencil {
   color: $linkcolor;
@@ -11,7 +14,8 @@
 }
 
 #editing-navbar {
-  width: 100%;
+  width: 100vw;
+  margin: -20px 0 0 -30px;
   height: 100px;
   background: $editing;
   border-bottom-left-radius: 7vw 30px;
@@ -39,13 +43,14 @@
   margin-left: -77px;
 }
 
-// input[type=submit] {  }
 #edit-sub-button {
   top: 96px;
   width: 154px;
+  margin-left: -39px;
 }
 
-#footer { width: 100% }
+#footer-edit { width: 100% }
+
 #edit-delete-btn {
   position: absolute;
   left: 50%;
@@ -58,7 +63,7 @@
 }
 
 @media (max-width: 550px) {
-  #edit-submit { top: 190px; }
-  #edit-sub-button { top: 216px; }
+  #edit-submit { top: 170px; }
+  #edit-sub-button { top: 196px; }
   #editing-navbar { height: 200px; }
 }
