@@ -1,5 +1,6 @@
 <div id="editpagewrapper">
 <%= form_for(@user, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<div id="edit-header">
   <div id="editing-navbar">
     <div class="format-navbar" id="edit-email"><%= f.email_field :email %></div>
     <div class="format-navbar" id="edit-username"><%= f.text_field :username %></div>
@@ -8,6 +9,7 @@
     <div class="format-navbar" id="edit-submit"><%= f.password_field :current_password, autocomplete: "off", placeholder: "Current Password" %></div>
     <div class="format-navbar" id="edit-sub-button"><%= f.submit "Update", id: "edit-sub-button", class: "btn btn-success" %></div>
   </div>
+</div>
   <%= devise_error_messages! %>
 
   <div id="wrapper" style="margin-top: 15px;">
@@ -74,9 +76,9 @@
             <!-- <div class="page-header col-xs-12"></div> -->
             <div id='user-favorites-div' class="row"> <!-- Games -->
               <%= render partial: 'users/user_favorite_games', locals: { user: @user, url: :edit } %>
-              <div id='game-modal-div'>
-                <!-- Place holder for the modal data -->
-              </div>
+            </div>
+            <div id='game-modal-div'>
+              <!-- Place holder for the modal data -->
             </div>
             <!-- /Game Row -->
             <div class="row"> <!-- Trophies/History - Shouts -->
