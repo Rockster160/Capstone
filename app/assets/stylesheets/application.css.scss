@@ -38,6 +38,15 @@ textarea { resize: none; }
 .money { color: $money; }
 
 // ** search bar ** //
+#search-placeholder {
+  background: blue;
+  position: absolute;
+  top:0;
+  right: 0;
+  height: 50px;
+  width: 190px;
+}
+
 #mysearchbar {
   margin: 10px 0 0 20px;
   width: 190px;
@@ -46,11 +55,6 @@ textarea { resize: none; }
 	border-radius:15px;
 	-moz-border-radius:15px;
 	-webkit-border-radius:15px;
-}
-#searchbaricon {
-  position: absolute;
-  top: 18px;
-  left: 28px;
 }
 
 //** header partial **//

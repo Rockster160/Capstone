@@ -1,7 +1,7 @@
 <div class="row">
   <% Game.all.each do |game| %>
     <div class="col-lg-4 col-md-4 col-sm-6 col-xs-8" style="margin: auto;">
-      <%= render partial: 'games/game_card', locals: {game: game} %>
+      <%= render partial: 'games/game_card', locals: {game: game, url: 'game'} %>
     </div>
   <% end %>
 </div>

@@ -1,31 +1,37 @@
 <div id='listitem'>
   <div id="uppercard">
     <a href="/games/<%= game.id %>" id="gameimage"><%= image_tag(game.ava, id: "gameicon") %></a>
-    <h4 id="title"><%= game.name %></h4>
+    <% if url == 'game' %>
+      <h4 id="title"><%= game.name %></h4>
+    <% else %>
+      <h4 id="title"><%= game.username %></h4>
+    <% end %>
     <div id="briefing">
       <%= game.about %>
     </div>
   </div>
-  <%= link_to "Quick Play!", play_path(id: game.id), class: "btn btn-success pull-left" %>
-  <%= link_to play_path(id: game.id), class: "btn btn-neutral pull-right", id: "trophy-button", remote: true do %>
-    Trophies
-    <div id="trophies" style="display:none;">
-      <h4>Recent High Scores</h4>
-          <li><strong>Today:&nbsp;</strong>
-          <span id="scorefont"><%= game.daily.score %></span></li>
-          <li><i><%= User.find(game.daily.user_id).username %></i>&nbsp;</li>
+  <% if url == 'game' %>
+    <%= link_to "Quick Play!", play_path(id: game.id), class: "btn btn-success pull-left" %>
+    <%#= link_to play_path(id: game.id), class: "btn btn-neutral pull-right", id: "trophy-button", remote: true do %>
+      <!-- Trophies -->
+      <div id="trophies" style="display:none;">
+        <h4>Recent High Scores</h4>
+            <li><strong>Today:&nbsp;</strong>
+            <span id="scorefont"><%= game.daily.score %></span></li>
+            <li><i><%= User.find(game.daily.user_id).username %></i>&nbsp;</li>
 
-          <li><strong>This Week:&nbsp;</strong>
-          <span id="scorefont"><%= game.weekly.score %></span></li>
-          <li><i><%= User.find(game.weekly.user_id).username %></i>&nbsp;</li>
+            <li><strong>This Week:&nbsp;</strong>
+            <span id="scorefont"><%= game.weekly.score %></span></li>
+            <li><i><%= User.find(game.weekly.user_id).username %></i>&nbsp;</li>
 
-          <li><strong>This Month:&nbsp;</strong>
-          <span id="scorefont"><%= game.monthly.score %></span></li>
-          <li><i><%= User.find(game.monthly.user_id).username %></i>&nbsp;</li>
+            <li><strong>This Month:&nbsp;</strong>
+            <span id="scorefont"><%= game.monthly.score %></span></li>
+            <li><i><%= User.find(game.monthly.user_id).username %></i>&nbsp;</li>
 
-          <li><strong>All-Time:&nbsp;</strong>
-          <span id="scorefont"><%= game.alltime.score %></span></li>
-          <li><i><%= User.find(game.alltime.user_id).username %></i>&nbsp;</li>
-    </div>
+            <li><strong>All-Time:&nbsp;</strong>
+            <span id="scorefont"><%= game.alltime.score %></span></li>
+            <li><i><%= User.find(game.alltime.user_id).username %></i>&nbsp;</li>
+      </div>
+    <%# end %>
   <% end %>
 </div>
