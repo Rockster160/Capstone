@@ -1,8 +1,5 @@
 $(document).ready(function(){
-  $('#avatar').click(function(){
-    window.location.href = "/";
-  });
-
+  
   $('#trophy-button').click(function() {
     console.log("Clicked!");
     child = $('#trophy-button').find('#trophies');
