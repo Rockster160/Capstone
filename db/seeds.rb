@@ -211,7 +211,7 @@ User.create( #id: 4,
 User.create( #id: 5,
              about: 'I am the co instructor at DPL. I like Germany and Jimmy Johns. I\'ll have a
                     cigarette from time to time. When I ask people to play Game of Thrones with
-                    me they say yes but then nobody ends up playing.',
+                    me they say yes but then nobody ends up playing. :( ',
              coin: 2345,
              coinTo: 10,
              email: 'jason@email.com',
