@@ -20,10 +20,9 @@ class UsersController < ApplicationController
     @trophies = []
     @trophies = Trophy.where(user_id: @user).reverse
 
-    @history = []
-    UserGameLog.where(user_id: @user).reverse.each do |history|
-      @history << history.play_history_format
-    end
+    @history = UserGameLog.where(user_id: @user).reverse
+
+
 
     @user.update_attribute(:coin, @user.coin + @user.coinTo)
     @user.update_attribute(:coinTo, 0)
