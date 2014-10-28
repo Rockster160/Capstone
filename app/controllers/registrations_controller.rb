@@ -7,7 +7,8 @@ class RegistrationsController < Devise::RegistrationsController
 
   def edit
     @rng_game = Game.find(rand(Game.all.length) + 1).id
-
+    @trophies = Trophy.where(user_id: @user).reverse
+    @history = UserGameLog.where(user_id: @user).reverse
     @unread = @user.notifications.where(isRead: false).reverse
     if @unread.length < 5
       @display = @user.notifications.where(isRead: true).reverse.first(5 - @unread.length)
@@ -15,12 +16,12 @@ class RegistrationsController < Devise::RegistrationsController
       @display = []
     end
 
-    @trophies = []
-    @trophies = Trophy.where(user_id: @user).reverse
+    @user.update_attribute(:coin, @user.coin + @user.coinTo)
+    @user.update_attribute(:coinTo, 0)
 
-    @history = []
-    UserGameLog.where(user_id: @user).reverse.each do |history|
-      @history << history.play_history_format
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
 

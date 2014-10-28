@@ -43,14 +43,15 @@
             <div class="row"><!-- Following -->
               <div class="panel panel-default">
                 <div class="panel-heading">
-                  <i class="fa fa-users"></i> Following
+                  <i class="fa fa-users"></i> Unfollow
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
                   <% if @user.follow_count > 0 %>
                     <% @user.following_users.each do |user| %>
-                      <%= image_tag user.ava %>
-                      <%= link_to user.name, user_path(user) %>
+                      <%= link_to unfollow_path(id: user.id), method: 'delete' do %>
+                        <%= image_tag user.ava, class: "shout-image" %>
+                      <% end %>
                     <% end %>
                   <% else %>
                     <% if current_user == @user %>
@@ -107,24 +108,15 @@
                 <% end %>
                 <div class="panel panel-default"><!-- History -->
                   <div class="panel-heading">
-                    <i class="fa fa-bar-chart-o fa-fw"></i> Game Play History
+                    <i class="fa fa-bar-chart-o fa-fw"></i> Play History
                   </div>
                   <!-- /.panel-heading -->
                   <div class="panel-body">
                     <div class="row">
                       <div class="col-lg-12">
-                        <% if @history.length > 0 %>
-                          <% @history.first(10).each do |historylog| %>
-                            <%= historylog %></br>
-                          <% end %>
-                        <% else %>
-                          <% if current_user.id == @user.id %>
-                            <p>You haven't played any games yet!</p>
-                            <p>Visit the <a href="<%= games_path %>">Games Listing Page</a> to check out some you may enjoy!</p>
-                          <% else %>
-                            <p>This user hasn't played any games yet. Leave them a shout and challenge them!</p>
-                          <% end %>
-                        <% end %>
+                        <ul class="chat">
+                          <%= render :partial => 'users/history', locals: {passhistory: @history} %>
+                        </ul>
                       </div>
                     </div>
                     <!-- /.row -->
