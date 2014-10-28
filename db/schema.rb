@@ -113,7 +113,7 @@ ActiveRecord::Schema.define(version: 20141025210707) do
     t.string   "twitter_url",            default: ""
     t.string   "website_url",            default: ""
     t.string   "ava"
-    t.datetime "last_in",                default: '2014-10-27 15:27:09'
+    t.datetime "last_in",                default: '2014-10-27 23:52:32'
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

@@ -62,16 +62,7 @@ class GamesController < ApplicationController
                             icon: 3
         )
         User.find(@user.id).update_attribute(:coinTo, gold + @user.coinTo)
-
-        checkTrophy =  Trophy.new(user_id: @uId,
-                                  game_id: @gId)
-        checkTrophy.checker(@score)
-
         UserGameLog.create(user_id: @uId, game_id: @gId, score: @score)
-
-        stat = UserGameStatistic.where(user_id: @uId, game_id: @gId).first
-        stat ||= UserGameStatistic.create(user_id: @uId, game_id: @gId)
-        stat.increment_play_count
       end
       respond_to do |format|
         format.html

@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
 
   get 'index/contact', as: 'contact'
-    root 'index#home'
+  get 'index/home' => 'index#home', as: 'home'
 
   devise_for :users, controllers: { registrations: 'registrations' }
   devise_scope :user do
-    # root to: 'devise/sessions#new', as: 'login'
+    root to: 'devise/sessions#new', as: 'login'
   end
 
   get 'games/read', as: 'games'
