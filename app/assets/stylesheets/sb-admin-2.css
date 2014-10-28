@@ -169,7 +169,7 @@ body {
 .btn-info.btn-outline:hover,
 .btn-warning.btn-outline:hover,
 .btn-danger.btn-outline:hover {
-    color: #fff;
+    color: #ffffff;
 }
 
 .chat {
@@ -181,7 +181,7 @@ body {
 .chat li {
     margin-bottom: 10px;
     padding-bottom: 5px;
-    border-bottom: 1px dotted #999;
+    border-bottom: 1px dotted #999999;
 }
 
 .chat li.left .chat-body {

@@ -65,7 +65,7 @@
               <% end %>
               <div class="panel panel-default"><!-- History -->
                 <div class="panel-heading">
-                  <i class="fa fa-bar-chart-o fa-fw"></i> Game Play History
+                  <i class="fa fa-bar-chart-o fa-fw"></i> Play History
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
@@ -112,7 +112,7 @@
                         <%= render :partial => 'users/shoutmessage', locals: {shoutIndex: shout, pos: pos} %>
                       <% end %>
                     </ul>
-                    <a href="/notifications/showalerts" class="btn btn-success btn-block">View All Shouts</a>
+                    <a href="/notifications/<%= @game.id %>/gamealerts" class="btn btn-success btn-block">View All Shouts</a>
                   <% else %>
                       <p>This game doesn't have any shouts yet! Leave it the first!</p>
                   <% end %>

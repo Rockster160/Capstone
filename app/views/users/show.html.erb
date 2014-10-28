@@ -127,7 +127,7 @@
               <% end %>
               <div class="panel panel-default"><!-- History -->
                 <div class="panel-heading">
-                  <i class="fa fa-bar-chart-o fa-fw"></i> Game Play History
+                  <i class="fa fa-bar-chart-o fa-fw"></i> Play History
                     <a href="<%= '/games/' + @rng_game.to_s %>" class="btn btn-success btn-xs pull-right">Random Game</a>
                 </div>
                 <!-- /.panel-heading -->
@@ -180,7 +180,7 @@
                         <%= render :partial => 'users/shoutmessage', locals: {shoutIndex: shout, pos: pos} %>
                       <% end %>
                     </ul>
-                    <a href="/notifications/showalerts" class="btn btn-success btn-block">View All Shouts</a>
+                    <a href="/notifications/<%= @user.id %>/useralerts" class="btn btn-success btn-block">View All Shouts</a>
                   <% else %>
                     <% if current_user.id == @user.id %>
                       <p>You have no shouts. :(</p>

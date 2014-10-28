@@ -1,5 +1,4 @@
 <% @user.notifications.reverse.first(50).each do |notify| %>
-
   <%= notify.title %>
   <%= notify.message %>
   <%= link_to Game.find(notify.game_id).name, game_path(notify.game_id) %>

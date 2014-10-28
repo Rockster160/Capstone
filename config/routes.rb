@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   get 'index/contact', as: 'contact'
   get 'index/home' => 'index#home', as: 'home'
+  get 'index/:id/partialswitch' => 'index#partialswitch', as: 'homeFormSwitch'
 
   devise_for :users, controllers: { registrations: 'registrations' }
   devise_scope :user do
@@ -13,7 +14,8 @@ Rails.application.routes.draw do
   get 'users/:id/read' => 'users#read'
 
   get 'notifications/show' => 'notifications#show', as: 'notifications'
-  get 'notifications/showalerts' => 'notifications#showalerts', as: 'allshouts'
+  get 'notifications/:id/useralerts' => 'notifications#useralerts', as: 'usershouts'
+  get 'notifications/:id/gamealerts' => 'notifications#gamealerts', as: 'gameshouts'
 
   get 'users/edit' => 'users#edit', as: 'edit'
   get 'trophies/checker'

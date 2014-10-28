@@ -1,0 +1,5 @@
+if ('<%= params[:id] %>' == '1') {
+  $('#ghTitle').html('<%= j render partial: 'devise/registrations/new' %>');
+} else {
+  $('#ghTitle').html('<%= j render partial: 'devise/sessions/new' %>');
+};
