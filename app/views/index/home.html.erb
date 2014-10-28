@@ -43,13 +43,13 @@
                       <% @trophies.each do |trophy| %>
                         <div class="col-xs-12">
                           <% if trophy.uniq_id == 1 %>
-                             <%= User.find(trophy.user_id).username %> got a Perfect Score in <%= Game.find(trophy.game_id).name %> with a <%= UserGameLog.where(game_id: trophy.game_id, user_id: trophy.user_id).reverse.first.score %>
+                             <%= link_to trophy.user.username, user_path(trophy.user_id) %> got a Perfect Score in <%= link_to Game.find(trophy.game_id).name, game_path(trophy.game_id) %> with a <%= UserGameLog.where(game_id: trophy.game_id, user_id: trophy.user_id).reverse.first.score %>
                           <% end %>
                           <% if trophy.uniq_id == 2 %>
-                            <%= User.find(trophy.user_id).username %> holds the High Score in <%= Game.find(trophy.game_id).name %> with a <%= UserGameLog.where(game_id: trophy.game_id, user_id: trophy.user_id).reverse.first.score %>
+                            <%= link_to trophy.user.username, user_path(trophy.user_id) %> holds the High Score in <%= link_to Game.find(trophy.game_id).name, game_path(trophy.game_id) %> with a <%= UserGameLog.where(game_id: trophy.game_id, user_id: trophy.user_id).reverse.first.score %>
                           <% end %>
                           <% if trophy.uniq_id == 3 %>
-                            <%= User.find(trophy.user_id).username %> has played every game!!
+                            <%= link_to trophy.user.username, user_path(trophy.user_id) %> has played every game!!
                           <% end %>
                         </div>
                       <% end %>

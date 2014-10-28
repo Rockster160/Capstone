@@ -20,16 +20,14 @@ class UsersController < ApplicationController
 
     @rng_game = Game.find(rand(Game.all.length) + 1).id
 
+    @trophies = Trophy.where(user_id: @user).reverse
+    @history = UserGameLog.where(user_id: @user).reverse
     @unread = @user.notifications.where(isRead: false).reverse
     if @unread.length < 5
       @display = @user.notifications.where(isRead: true).reverse.first(5 - @unread.length)
     else
       @display = []
     end
-
-    @trophies = Trophy.where(user_id: @user).reverse
-
-    @history = UserGameLog.where(user_id: @user).reverse
 
     @user.update_attribute(:coin, @user.coin + @user.coinTo)
     @user.update_attribute(:coinTo, 0)
@@ -85,6 +83,14 @@ class UsersController < ApplicationController
     # end
   end
 
+  def destroyshout
+    Shout.find(params[:shout_id]).destroy
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
   def follow
     user = User.find(params[:id])
     current_user.follow(user)
@@ -96,14 +102,4 @@ class UsersController < ApplicationController
     current_user.stop_following(user)
     redirect_to user_path(user)
   end
-
-  def destroyshout
-    Shout.find(params[:shout_id]).destroy
-    respond_to do |format|
-      format.html
-      format.js
-    end
-  end
-
-  private
 end
