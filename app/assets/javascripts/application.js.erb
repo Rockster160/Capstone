@@ -21,14 +21,15 @@ $(document).ready(function(){
 
   $('#clicksidebar').click(function(){
   x = $('#clicksidebar').position();
-  var vpw = $('#columnThree').offsetWidth;
+  var vpw = document.getElementById('columnThree').offsetWidth;
+  console.log(vpw);
   if (x > (vpw)) { open = false}
     if (open == false) {
-      sidebarOpen();
+      sidebarOpen(vpw);
       open = true;
     }
     else {
-      sidebarClose();
+      sidebarClose(vpw);
       open = false;
     };
   });
@@ -50,12 +51,12 @@ $(document).ready(function(){
 });
 
 
-function sidebarOpen() {
+function sidebarOpen(vpw) {
   $("#columnThree").animate({right: "0"}, "slow", "swing").show();
-  $('#clicksidebar').animate({right: "350px"}, "slow", "swing");
+  $('#clicksidebar').animate({right: vpw}, "slow", "swing");
 }
 
-function sidebarClose() {
-  $("#columnThree").animate({right: "-350px"}, "slow", "swing");
+function sidebarClose(vpw) {
+  $("#columnThree").animate({right: -vpw}, "slow", "swing");
   $('#clicksidebar').animate({right: "-5px"}, "slow", "swing");
 }
