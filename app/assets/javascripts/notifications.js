@@ -4,7 +4,7 @@ $(document).ready(function() {
       if ( $('.open').length ) {
         $('#notifydropdown').html('<i class="fa fa-caret-down"></i><i class="fa fa-bell fa-fw"></i>');
         var url = '/users/' + user + '/read';
-        $.get(url, {readNotification: true}, console.log("Success!"));
+        $.get(url, {readNotification: true});
       }
     }, 100)
   })

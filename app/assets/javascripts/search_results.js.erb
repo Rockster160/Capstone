@@ -1,4 +1,8 @@
 $(document).keyup(function() {
+
+  $('.focus-on-me').click();
+
+
   if ($('#live-search').is(':visible')) {
     url = "/search.json";
     var str = $('#live-search').serialize().substr(2);
@@ -23,9 +27,10 @@ $(document).keyup(function() {
 })
 
 function liveBeenClicked(id, fav) {
-  url = userId+'/update'
+  url = userId+'/update';
   $.post(url, {passId: id, passFav: fav}, function(done_data) {
     $('#user-favorites-div').html(done_data);
-  })
+  });
   $('#gameEditModal').modal('hide');
+  $('.modal').removeClass('in');
 }

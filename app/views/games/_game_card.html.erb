@@ -1,17 +1,25 @@
 <div id='listitem'>
-    <% if game %>
-      <div id="gameimage">
-        <a href="/games/<%= game.id %>"><%= image_tag(game.ava, id: "gameicon") %></a>
-      </div>
-      <div id="title">
-        <h4><%= game.name %></h4>
-        <div id="briefing">
-          <%= game.about %>
-        </div>
-      </div>
-      <div id="trophies">
+  <div id="uppercard">
+    <% if url == "user" %>
+      <a href="/users/<%= game.id %>" id="gameimage"><%= image_tag(game.ava, id: "gameicon") %></a>
+    <% else %>
+      <a href="/games/<%= game.id %>" id="gameimage"><%= image_tag(game.ava, id: "gameicon") %></a>
+    <% end %>
+    <% if url == 'game' %>
+      <h4 id="title"><%= game.name %></h4>
+    <% else %>
+      <h4 id="title"><%= game.username %></h4>
+    <% end %>
+    <div id="briefing">
+      <%= game.about %>
+    </div>
+  </div>
+  <% if url == 'game' %>
+    <%= link_to "Quick Play!", play_path(id: game.id), class: "btn btn-success pull-left" %>
+    <%#= link_to play_path(id: game.id), class: "btn btn-neutral pull-right", id: "trophy-button", remote: true do %>
+      <!-- Trophies -->
+      <div id="trophies" style="display:none;">
         <h4>Recent High Scores</h4>
-
             <li><strong>Today:&nbsp;</strong>
             <span id="scorefont"><%= game.daily.score %></span></li>
             <li><i><%= User.find(game.daily.user_id).username %></i>&nbsp;</li>
@@ -27,12 +35,7 @@
             <li><strong>All-Time:&nbsp;</strong>
             <span id="scorefont"><%= game.alltime.score %></span></li>
             <li><i><%= User.find(game.alltime.user_id).username %></i>&nbsp;</li>
-
       </div>
-      <%= link_to play_path(id: game.id) do %>
-        <span class="quickplay" id="<%= game.id %>">
-          <button type="button" class="btn btn-primary">Quick Play!</button>
-        </span>
-      <% end %>
-    <% end  %>
+    <%# end %>
+  <% end %>
 </div>
