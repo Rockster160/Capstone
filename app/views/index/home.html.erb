@@ -80,7 +80,7 @@
             </div>
             <!-- /Trophies -->
             <div class="col-md-6 col-xs-12"><!-- Shouts -->
-                <%= form_for(:shout, url: shout_path(0), remote: true) do |f| %>
+                <%= form_for(:shout, url: shout_path(@user.id), remote: true) do |f| %>
               <div class="panel panel-default">
                 <div class="panel-heading">
                   <i class="fa fa-comments fa-fw"></i>
@@ -98,13 +98,13 @@
                   </div>
                 <!-- /.panel-footer -->
                 <div class="panel-body">
-                  <% if User.find(0).shouts.length > 0 %>
+                  <% if @user.shouts.length > 0 %>
                     <ul class="chat">
-                      <% User.find(0).shouts.reverse.first(5).each_with_index do |shout, pos| %>
+                      <% @user.shouts.reverse.first(5).each_with_index do |shout, pos| %>
                         <%= render :partial => 'users/shoutmessage', locals: {shoutIndex: shout, pos: pos} %>
                       <% end %>
                     </ul>
-                    <a href="/notifications/showalerts" class="btn btn-success btn-block">View All Shouts</a>
+                    <a href="/notifications/<%= @user.id %>/useralerts" class="btn btn-success btn-block">View All Shouts</a>
                   <% else %>
                       <p>We have no Shouts. :( Leave us our first!</p>
                   <% end %>
