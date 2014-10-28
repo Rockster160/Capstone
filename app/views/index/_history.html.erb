@@ -1,0 +1,30 @@
+<% if passhistory.length > 0 %>
+  <% passhistory.first(5).each do |history| %>
+    <% user = history.user %>
+    <div class="shout-wrapper" id="first-shout">
+      <li class="left clearfix">
+        <span class="chat-img pull-left">
+          <div class='shout-image-wrapper'>
+            <%= link_to "/games/" + history.game.id.to_s do %>
+              <%= image_tag history.game.ava, class: 'shout-image' %>
+            <% end %>
+          </div>
+        </span>
+        <div class="chat-body clearfix">
+          <div class="header">
+            <small class="pull-right text-muted"><i class="fa fa-clock-o fa-fw"></i> <%= history.formatted_ago %></small>
+            <strong class="primary-font"><%= link_to user.username, user_path(user.id) %></strong><br/>
+            <p class="pull-left"> got a <%= history.score %></p>
+          </div>
+        </div>
+      </li>
+    </div>
+  <% end %>
+<% else %>
+  <% if current_user.id == @user.id %>
+    <p>You haven't played any games yet!</p>
+    <p>Visit the <a href="<%= games_path %>">Games Listing Page</a> to check out some you may enjoy!</p>
+  <% else %>
+    <p>This user hasn't played any games yet. Leave them a shout and challenge them!</p>
+  <% end %>
+<% end %>

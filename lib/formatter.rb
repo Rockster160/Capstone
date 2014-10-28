@@ -21,7 +21,7 @@ module Formatter
     when (time_diff*60/60/24/7/12 < 30)
       (time_diff*60/60/24/7/12).round.to_s + " months ago"
     else
-      "A really long time ago"
+      "A long time ago"
     end
     return how_long_ago
   end

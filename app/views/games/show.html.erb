@@ -71,13 +71,9 @@
                 <div class="panel-body">
                   <div class="row">
                     <div class="col-lg-12">
-                      <% if @history.length > 0 %>
-                        <% @history.first(10).each do |history| %>
-                          <p><%= link_to history.user.username, user_path(history.user_id) %> got a <%= history.score %> in <%= link_to history.game.name, game_path(history.game_id) %> - <%= history.formatted_ago %></p>
-                        <% end %>
-                      <% else %>
-                        <p>Nobody has played this game yet! Be the first. :)</p>
-                      <% end %>
+                      <ul class="chat">
+                        <%= render :partial => 'games/history', locals: {passhistory: @history} %>
+                      </ul>
                     </div>
                   </div>
                   <!-- /.row -->
