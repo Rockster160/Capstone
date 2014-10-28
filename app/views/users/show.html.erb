@@ -68,10 +68,13 @@
               <!-- /.panel-heading -->
               <div class="panel-body">
                 <% if @user.follow_count > 0 %>
-                  <% @user.following_users.each do |user| %>
-                    <%= image_tag user.ava %>
-                    <%= link_to user.name, user_path(user) %>
-                  <% end %>
+                  <ul class="chat">
+                    <% if @follow_history.length > 0 %>
+                      <%= render :partial => 'users/history', locals: {passhistory: @follow_history} %>
+                    <% else %>
+                      <p>None of your followed Users have Played any games.</p>
+                    <% end %>
+                  </ul>
                 <% else %>
                   <% if current_user == @user %>
                     <p>You haven't followed anyone yet!</p>

@@ -28,6 +28,13 @@ class UsersController < ApplicationController
     else
       @display = []
     end
+    @follow_history = []
+    @user.following_users.each do |check_up_user|
+      UserGameLog.where(user_id: check_up_user.id).each do |get_history|
+        @follow_history << get_history
+      end
+    end
+    @follow_history = @follow_history.sort_by{|e| e[:created_at]}.reverse
 
     @user.update_attribute(:coin, @user.coin + @user.coinTo)
     @user.update_attribute(:coinTo, 0)
