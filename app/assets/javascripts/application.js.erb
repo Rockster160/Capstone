@@ -18,6 +18,7 @@
 var open = false;
 
 $(document).ready(function(){
+
   $('#clicksidebar').click(function(){
   x = $('#clicksidebar').position();
   var vpw = $('#columnThree').offsetWidth;
@@ -30,6 +31,21 @@ $(document).ready(function(){
       sidebarClose();
       open = false;
     };
+  });
+
+  var toggle = false;
+  $('#search-placeholder').hide();
+  $('#searchpopout').click(function(){
+    if (toggle == false) {
+      $('#search-placeholder').show();
+      $('#search-placeholder').animate({right:"0"}, 400);
+      toggle = true;
+    } else {
+      $('#search-placeholder').animate({right:"-190px"}, 400, function(){
+        $('#search-placeholder').hide();
+      });
+      toggle = false;
+    }
   });
 });
 

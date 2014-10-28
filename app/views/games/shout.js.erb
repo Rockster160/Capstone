@@ -1,6 +1,6 @@
 var shout_text = $('#shout-area').val();
 $('#shout-area').val("");
-url = '/users/' + currentUser + '/shout';
+url = '/games/' + currentGame + '/shout';
 if (shout_text.length > 1) {
   $.post(url, {message: shout_text}, window.location.reload());
 }

@@ -27,9 +27,7 @@ class GamesController < ApplicationController
         User.find(current_user).update_attribute(:coinTo, 50)
       end
     end
-    @trophies = []
     @trophies = Trophy.where(game_id: @game).reverse
-
     @history = UserGameLog.where(game_id: @game).reverse
 
     respond_to do |format|
@@ -59,27 +57,31 @@ class GamesController < ApplicationController
                             icon: 3
         )
         User.find(@user.id).update_attribute(:coinTo, gold + @user.coinTo)
-
-        checkTrophy =  Trophy.new(user_id: @uId,
-                                  game_id: @gId)
-        checkTrophy.checker(@score)
-
         UserGameLog.create(user_id: @uId, game_id: @gId, score: @score)
-
-        stat = UserGameStatistic.where(user_id: @uId, game_id: @gId).first
-        stat ||= UserGameStatistic.create(user_id: @uId, game_id: @gId)
-        stat.increment_play_count
       end
       respond_to do |format|
         format.html
         format.js
       end
     else
-      redirect_to home_path
+      redirect_to root_path
     end
   end
 
   def update
+  end
+
+  def shout
+    @receiver = Game.find(params[:id])
+    if params[:shout] && params[:shout][:message].length > 1
+      @shout = @receiver.shouts.create(:message => params[:shout][:message],
+                                      :sent_from_id => current_user.id
+      )
+    end
+    # respond_to do |format|
+    #   format.html
+    #   format.js
+    # end
   end
 
   def destroy

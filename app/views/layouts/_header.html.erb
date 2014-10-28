@@ -7,62 +7,67 @@
 <!-- Navigation -->
 <nav class="navbar navbar-default navbar-static-top" role="navigation" >
   <div class="navbar-header">
-    <%= render 'layouts/searchbar' %>
+    <a href="/index/home" class="navbar-brand"><i class="fa fa-home fa-2x"></i></a>
   </div>
   <!-- /.navbar-header -->
     <ul class="nav navbar-top-links navbar-right"
         style="position: absolute;
                right: 0;
                top: 0;">
+        <li id="searchpopout"><a href="#"><i class="fa fa-search fa-lg"></i></a></li>
+        <div id="search-placeholder" tabindex="-1">
+          <%= render 'layouts/searchbar' %>
+        </div>
+        <!-- /search-dropdown -->
         <li><a href="../../games/read"><i class="fa fa-gamepad fa-lg"></i></a></li>
         <% if user_signed_in? %>
-        <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="notifydropdown">
-              <% if @unread_notifications.length > 0 %>
-                <i class="fa fa-caret-down"></i><i class="fa fa-bell fa-fw text-danger"></i>
-              <% else %>
-                <i class="fa fa-caret-down"></i><i class="fa fa-bell fa-fw"></i>
-              <% end %>
-            </a>
-            <ul class="dropdown-menu dropdown-alerts">
-              <% @unread_notifications.first(10).each do |notify| %>
+          <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="notifydropdown">
+                <% if @unread_notifications.length > 0 %>
+                  <i class="fa fa-caret-down"></i><i class="fa fa-bell fa-fw money"></i>
+                <% else %>
+                  <i class="fa fa-caret-down"></i><i class="fa fa-bell fa-fw"></i>
+                <% end %>
+              </a>
+              <ul class="dropdown-menu dropdown-alerts">
+                <% @unread_notifications.first(10).each do |notify| %>
+                  <li>
+                    <a href="<%= notifications_path %>">
+                      <div>
+                        <i class="fa fa-<%=notify.image_convert%> fa-fw"></i> <%= notify.title %>
+                        <span class="pull-right text-muted small"><em><%= notify.formatted_ago %></em></span>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="divider"></li>
+                <% end %>
                 <li>
                   <a href="<%= notifications_path %>">
                     <div>
-                      <i class="fa fa-<%=notify.image_convert%> fa-fw"></i> <%= notify.title %>
-                      <span class="pull-right text-muted small"><em><%= notify.formatted_ago %></em></span>
+                      View All Notifications
                     </div>
                   </a>
                 </li>
-                <li class="divider"></li>
-              <% end %>
-              <li>
-                <a href="<%= notifications_path %>">
-                  <div>
-                    View All Notifications
-                  </div>
-                </a>
-              </li>
-            </ul>
-            <!-- /.dropdown-alerts -->
-        </li>
-        <!-- /.dropdown -->
-        <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <i class="fa fa-caret-down"></i><i class="fa fa-user fa-fw"></i>
-            </a>
-            <ul class="dropdown-menu dropdown-user">
-                <li><a href="/"><i class="fa fa-user fa-fw"></i> Profile</a></li>
-                <li><a href="../users/edit"><i class="fa fa-cogs fa-fw"></i> Edit Account</a></li>
-                <li><%= link_to destroy_user_session_path, method: :delete do %>
-                  <i class="fa fa-sign-out fa-fw"></i> Sign Out
-                  <% end %></li>
-                <li class="divider"></li>
-                <li><a href="#" id="coin-inline"><%= image_tag('spinningcoin.gif', id: "coin", size: "24x24") %><%= number_with_delimiter( current_user.coin + current_user.coinTo ) %></a></li>
-            </ul>
-            <!-- /.dropdown-user -->
-        </li>
-        <!-- /.dropdown -->
+              </ul>
+              <!-- /.dropdown-alerts -->
+          </li>
+          <!-- /.dropdown -->
+          <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                  <i class="fa fa-caret-down"></i><i class="fa fa-user fa-fw"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-user">
+                  <li><a href="/"><i class="fa fa-user fa-fw"></i> Profile</a></li>
+                  <li><a href="../users/edit"><i class="fa fa-cogs fa-fw"></i> Edit Account</a></li>
+                  <li><%= link_to destroy_user_session_path, method: :delete do %>
+                    <i class="fa fa-sign-out fa-fw"></i> Sign Out
+                    <% end %></li>
+                  <li class="divider"></li>
+                  <li><a href="#" id="coin-inline"><%= image_tag('spinningcoin.gif', id: "coin", size: "24x24") %><%= number_with_delimiter( current_user.coin + current_user.coinTo ) %></a></li>
+              </ul>
+              <!-- /.dropdown-user -->
+          </li>
+          <!-- /.dropdown -->
         <% else %>
           <li><%= link_to "Sign In", new_user_session_path %></li>
         <% end %>

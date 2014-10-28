@@ -1,3 +1,4 @@
+<% url ||= "show" %>
 <% user = User.find(shoutIndex.sent_from_id) %>
   <div class="shout-wrapper" id="first-shout">
 <% if pos.even? %>
@@ -7,9 +8,17 @@
     <li class="right clearfix">
       <span class="chat-img pull-right">
 <% end %>
-      <div class='shout-image-wrapper'>
-        <%= image_tag user.ava, class: 'shout-image' %>
-      </div>
+        <div class='shout-image-wrapper'>
+          <% unless url == "edit" %>
+            <%= link_to "/users/" + user.id.to_s do %>
+              <%= image_tag user.ava, class: 'shout-image' %>
+            <% end %>
+          <% else %>
+            <%= link_to destroyshout_path(shout_id: shoutIndex.id, id: user.id), remote: true do %>
+              <%= image_tag "imagex.png", size: "50x50" %>
+            <% end %>
+          <% end %>
+        </div>
       </span>
       <div class="chat-body clearfix">
         <div class="header">

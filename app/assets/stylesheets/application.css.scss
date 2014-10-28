@@ -1,6 +1,7 @@
  // <1k, lose C3.
  // <600 lose C1
  //= require_tree .
+@import 'utilities/variables';
 @import 'btoverrides';
 @import 'images';
 
@@ -16,23 +17,45 @@
 }
 
 html { height: 100%; }
+body {
+  background: $bodybg;
+  margin-top: 70px;
+}
+a, #footer-info { color: white; }
 
-// ** search bar ** //
+#page-wrapper {
+  border-radius: 20px;
+}
+
+.btn-neutral {
+  background: $btn-neutral;
+  color: black;
+  border-color: darken($btn-neutral, 10%)
+}
+
 textarea { resize: none; }
 
-#mysearchbar {
-  margin: 10px 0 0 20px;
+.money { color: $money; }
+
+// ** search bar ** //
+#search-placeholder {
+  z-index: 100;
+  color: black;
+  position: absolute;
+  top:0;
+  right: -190px;
+  height: 50px;
   width: 190px;
-  padding: 6px 15px 6px 30px;
+}
+
+#mysearchbar {
+  margin: 10px 0 0 5px;
+  width: 160px;
+  padding: 6px 15px 6px 10px;
   height: 30px;
 	border-radius:15px;
 	-moz-border-radius:15px;
 	-webkit-border-radius:15px;
-}
-#searchbaricon {
-  position: absolute;
-  top: 18px;
-  left: 28px;
 }
 
 //** header partial **//

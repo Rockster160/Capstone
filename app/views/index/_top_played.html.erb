@@ -1,0 +1,9 @@
+<% games.each do |game| %>
+  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+    <div class="hmpg-favbtn">
+      <%= link_to game_info_path(game), remote: true do %>
+        <%= image_tag(game.ava, id: "favs") %>
+      <% end %>
+      </div>
+    </div>
+<% end %>
