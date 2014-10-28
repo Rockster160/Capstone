@@ -21,3 +21,4 @@ class Notification < ActiveRecord::Base
     return myicon
   end
 end
+
