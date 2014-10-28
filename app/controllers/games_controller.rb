@@ -73,6 +73,19 @@ class GamesController < ApplicationController
   def update
   end
 
+  def shout
+    @receiver = Game.find(params[:id])
+    if params[:shout] && params[:shout][:message].length > 1
+      @shout = @receiver.shouts.create(:message => params[:shout][:message],
+                                      :sent_from_id => current_user.id
+      )
+    end
+    # respond_to do |format|
+    #   format.html
+    #   format.js
+    # end
+  end
+
   def destroy
   end
 

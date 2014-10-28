@@ -80,7 +80,7 @@
             </div>
             <!-- /Trophies -->
             <div class="col-md-6 col-xs-12"><!-- Shouts -->
-                <%= form_for(:shout, url: shout_path(1), remote: true) do |f| %>
+                <%= form_for(:shout, url: shout_path(0), remote: true) do |f| %>
               <div class="panel panel-default">
                 <div class="panel-heading">
                   <i class="fa fa-comments fa-fw"></i>
@@ -97,23 +97,18 @@
                                       cols: 50 %>
                   </div>
                 <!-- /.panel-footer -->
-                <!-- <div class="panel-body">
-                  <%# if @us.shouts.length > 0 %>
+                <div class="panel-body">
+                  <% if User.find(0).shouts.length > 0 %>
                     <ul class="chat">
-                      <%# @us.shouts.reverse.first(5).each_with_index do |shout, pos| %>
-                        <%#= render :partial => 'users/shoutmessage', locals: {shoutIndex: shout, pos: pos} %>
-                      <%# end %>
+                      <% User.find(0).shouts.reverse.first(5).each_with_index do |shout, pos| %>
+                        <%= render :partial => 'users/shoutmessage', locals: {shoutIndex: shout, pos: pos} %>
+                      <% end %>
                     </ul>
                     <a href="/notifications/showalerts" class="btn btn-success btn-block">View All Shouts</a>
-                  <%# else %>
-                    <%# if current_user.id == @user.id %>
-                      <p>You have no shouts. :(</p>
-                      <p>Try leaving a shout on somebody else's profile to make some friends!</p>
-                    <%# else %>
-                      <p>This user doesn't have any shouts yet! Leave them their first!</p>
-                    <%# end %>
-                  <%# end %>
-                </div> -->
+                  <% else %>
+                      <p>We have no Shouts. :( Leave us our first!</p>
+                  <% end %>
+                </div>
               <!-- /.panel-body -->
               </div>
                 <% end %>
