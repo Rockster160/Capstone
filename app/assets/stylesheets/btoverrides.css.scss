@@ -12,6 +12,15 @@ float: left !important;
 margin-right: -15px !important;
 }
 
+.navbar-default .navbar-brand {
+  color:inherit;
+  &:hover{ background: $bodybg; }
+}
+
+.navbar-top-links li a {
+  &:hover{ background: $bodybg; }
+}
+
 .navbar-right {
 float: right!important;
 }
