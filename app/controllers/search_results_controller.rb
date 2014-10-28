@@ -13,7 +13,9 @@ class SearchResultsController < ApplicationController
       @length.times do |pfwd|
         count += 1 if user.username.downcase.include?(@fwd[pfwd])
       end
-      @listuser << [user.id, count] if count >= @len_of_str
+      unless user.id == 0
+        @listuser << [user.id, count] if count >= @len_of_str
+      end
     end
     Game.all.each do |game|
       count = 0
