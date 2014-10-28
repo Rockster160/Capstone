@@ -26,37 +26,38 @@
   }
 }
 
-#homepage {
-  #coinupdater {
-    position: absolute;
-    z-index: 0;
-    margin: -100px 0 0 -30px;
-  }
-  #coin { margin-top: -8px; }
-  #coin-inline { font-size: 2em; }
+#coinupdater {
+  position: absolute;
+  z-index: 0;
+  margin: -100px 0 0 -30px;
+}
+#coin { margin-top: -8px; }
+#coin-inline { font-size: 2em; }
 
-  #avatar {
-    padding: 5px;
-    width: 100%;
-    height: 100%;
+#avatar {
+  padding: 5px;
+  width: 100%;
+  height: 100%;
+  @media (max-width: 768px) {
+    width:50%;
+    height:50%;
   }
+}
 
-  #favs {
-    background: $gameiconbg;
-    padding: 5px;
-    margin-bottom: 10px;
-    height: 12vw;
-    width: 12vw;
-    @media (max-width: 500px) {
-      height: 40vw;
-      width: 40vw;
-    }
-    @media (max-width: 850px) {
-      height: 20vw;
-      width: 20vw;
-    }
+#favs {
+  background: $gameiconbg;
+  padding: 5px;
+  margin-bottom: 10px;
+  height: 12vw;
+  width: 12vw;
+  @media (max-width: 500px) {
+    height: 40vw;
+    width: 40vw;
   }
-
+  @media (max-width: 850px) {
+    height: 20vw;
+    width: 20vw;
+  }
 }
 
 .notification-image {
