@@ -49,4 +49,8 @@ class User < ActiveRecord::Base
     end
     self.update_attribute(:ava, "defAva" + rng + ".jpg")
   end
+
+  def online?
+    updated_at > 20.minutes.ago
+  end
 end

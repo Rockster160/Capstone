@@ -58,3 +58,30 @@
   }
 
 }
+
+.notification-image {
+  float: left;
+  height: 50px;
+  width: 50px;
+  margin: -2px 5px 0 -2px;
+  border-radius: 10px 0 0 10px;
+  padding: 2px;
+  background: black;
+}
+
+
+.alert-cell {
+  margin: 5px 0;
+  background: white;
+  border-radius: 10px;
+  border: 2px solid black;
+  background: white;
+  width: 100%;
+  @media (min-width: 900px) {
+    width: 50%;
+  }
+}
+
+.giveit-gold {
+  background: $money;
+}

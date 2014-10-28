@@ -23,6 +23,28 @@
            Link to Contact Page<br/>
           </div>
           <!-- /Links -->
+          <div class="row"><!-- Following -->
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <i class="fa fa-users"></i> Following
+              </div>
+              <!-- /.panel-heading -->
+              <div class="panel-body">
+                <h3>Users online:</h3>
+                <% @online.each do |active| %>
+                  <i class="fa fa-circle" style="color:green;"></i> <%= active.username %><br/>
+                <% end %>
+                <br/>
+                <h4>Most recently online:</h4>
+                <% @offline.first(5).each do |inactive| %>
+                  <i class="fa fa-circle-o" style="color:red;"></i> <%= inactive.username %><br/>
+                <% end %>
+              </div>
+              <!-- /.panel-body -->
+            </div>
+            <!-- /panel-default -->
+          </div>
+          <!-- Following -->
         </div>
         <!-- /Left Column -->
         <div class="col-md-8 col-sm-6 col-xs-12"> <!-- Right Column -->
