@@ -1,41 +1,4 @@
 <div id="gameInfoModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 <div class="modal-dialog modal-sm">
-    <div id='listitem'>
-        <% if game  %>
-          <div id="gameimage">
-            <a href="/games/<%= game.id %>"><%= image_tag(game.ava, id: "gameicon") %></a>
-          </div>
-          <div id="title">
-            <h4><%= game.name %></h4>
-            <div id="briefing">
-              <%= game.about %>
-            </div>
-          </div>
-          <div id="trophies">
-            <h4>Trophies</h4>
-
-                <li><strong>Today:&nbsp;</strong>
-                <span id="scorefont">Score</span></li>
-                <li><i>Some_User</i>&nbsp;</li>
-
-                <li><strong>This Week:&nbsp;</strong>
-                <span id="scorefont">Score</span></li>
-                <li><i>Hello</i>&nbsp;</li>
-
-                <li><strong>This Month:&nbsp;</strong>
-                <span id="scorefont">Score</span></li>
-                <li><i>WWWWWWWWWWWWWWWW</i>&nbsp;</li>
-
-                <li><strong>All-Time:&nbsp;</strong>
-                <span id="scorefont">Score</span></li>
-                <li><i>Rockster160</i>&nbsp;</li>
-
-          </div>
-          <%= link_to play_path(id: game.id) do %>
-            <span class="quickplay" id="<%= game.id %>">
-              <button type="button" class="btn btn-primary">Quick Play!</button>
-            </span>
-          <% end %>
-        <% end  %>
-    </div>
+    <%= render partial: 'games/game_card', locals: {game: game, url: 'game' } %>
 </div>

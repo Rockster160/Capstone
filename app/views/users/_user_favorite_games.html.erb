@@ -1,23 +1,35 @@
-<%# binding.pry %>
 <% user.favorite_games.each_with_index do |game, pos| %>
-  <div class="col-lg-2 col-md-2 col-sm-4 col-xs-4">
+  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
     <div class="hmpg-favbtn">
       <% if game != 0 %>
         <% link_url = url == :show ? game_info_path(game) : game_edit_path(pos + 1) %>
         <%= link_to link_url, remote: true do %>
+          <% if url != :show %>
+            <i class="fa fa-pencil fa-2x"></i>
+          <% end %>
           <%= image_tag(game.ava, id: "favs") %>
         <% end %>
       <% else %>
         <% link_url = url == :show ? edit_path : game_edit_path(pos + 1) %>
-        <%= link_to link_url, remote: true do %>
-          <% if current_user.username == user.username %>
-            <%= image_tag('add.png', id: "favs") %>
-          <% else %>
-            <%= image_tag('missing.png', id: "favs") %>
+        <% if url == :show %>
+          <%= link_to link_url do %>
+            <% if current_user.username == user.username %>
+              <%= image_tag('add.png', id: "favs") %>
+            <% else %>
+              <%= image_tag('missing.png', id: "favs") %>
+            <% end %>
+          <% end %>
+        <% else %>
+          <%= link_to link_url, remote: true do %>
+            <i class="fa fa-pencil fa-2x"></i>
+            <% if current_user.username == user.username %>
+              <%= image_tag('add.png', id: "favs") %>
+            <% else %>
+              <%= image_tag('missing.png', id: "favs") %>
+            <% end %>
           <% end %>
         <% end %>
       <% end %>
     </div>
   </div>
 <% end %>
-<%# binding.pry %>

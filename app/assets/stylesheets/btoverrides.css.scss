@@ -1,3 +1,5 @@
+@import 'utilities/variables';
+
 .navbar-collapse.collapse {
 display: block!important;
 }
@@ -12,4 +14,25 @@ margin-right: -15px !important;
 
 .navbar-right {
 float: right!important;
+}
+
+.navbar-default {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background: $navbg;
+  color: white;
+}
+.panel-default>.panel-heading {
+  background: $navbg;
+  color: white;
+  border-radius: 10px 10px 0 0;
+}
+.panel-footer {
+  background: $cardbg;
+  border-radius: 0;
+}
+.panel {
+  border-radius: 10px;
 }

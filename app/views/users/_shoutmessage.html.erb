@@ -1,0 +1,38 @@
+<% url ||= "show" %>
+<% user = User.find(shoutIndex.sent_from_id) %>
+  <div class="shout-wrapper" id="first-shout">
+<% if pos.even? %>
+    <li class="left clearfix">
+      <span class="chat-img pull-left">
+<% else %>
+    <li class="right clearfix">
+      <span class="chat-img pull-right">
+<% end %>
+        <div class='shout-image-wrapper'>
+          <% unless url == "edit" %>
+            <%= link_to "/users/" + user.id.to_s do %>
+              <%= image_tag user.ava, class: 'shout-image' %>
+            <% end %>
+          <% else %>
+            <%= link_to destroyshout_path(shout_id: shoutIndex.id, id: user.id), remote: true do %>
+              <%= image_tag "imagex.png", size: "50x50" %>
+            <% end %>
+          <% end %>
+        </div>
+      </span>
+      <div class="chat-body clearfix">
+        <div class="header">
+<% if pos.even? %>
+          <strong class="primary-font"><%= user.username %></a></strong>
+          <small class="pull-right text-muted">
+              <i class="fa fa-clock-o fa-fw"></i> <%= shoutIndex.formatted_ago %></small>
+<% else %>
+            <strong class="pull-right primary-font"><%= user.username %></a></strong>
+            <small class="pull-left text-muted">
+                <i class="fa fa-clock-o fa-fw"></i> <%= shoutIndex.formatted_ago %></small>
+<% end %>
+        </div>
+        <p style="height:75px; width: 100%; overflow: hidden;"><%= shoutIndex.message %></p>
+      </div>
+    </li>
+  </div>

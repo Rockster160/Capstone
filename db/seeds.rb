@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-#
 # Game.create( name: '',
 #              ava: '',
 #              play: '',
@@ -151,7 +143,7 @@ Game.create( name: 'Random',
 #              favorites: [])
 
 User.create( #id: 0,
-             about: 'They call me Zoro. I am a mean green parkouring fighting machine. 
+             about: 'They call me Zoro. I am a mean green parkouring fighting machine.
                     I like to build games and ride bikes in my spare time.',
              coin: 999999,
              coinTo: 10,
@@ -162,8 +154,8 @@ User.create( #id: 0,
              favorites: [6, 3, 1, 0])
 
 User.create( #id: 1,
-             about: 'They call me Luffy. When danger calls I dress up in my hero costume 
-                    and save the day. I occassionally eat pizza and cheetos to celebrate 
+             about: 'They call me Luffy. When danger calls I dress up in my hero costume
+                    and save the day. I occassionally eat pizza and cheetos to celebrate
                     victories over bad guys.',
              coin: 12,
              coinTo: 3456,
@@ -198,7 +190,7 @@ User.create( #id: 3,
              favorites: [1, 6, 3, 2])
 
 User.create( #id: 4,
-            about: 'I bowl and sell life insurance. Insurance is my life. If you are interested in 
+            about: 'I bowl and sell life insurance. Insurance is my life. If you are interested in
                     getting a great deal on life insurance please give me a shout out.',
             coin: 19872,
             coinTo: 10,

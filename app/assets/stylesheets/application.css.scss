@@ -1,39 +1,84 @@
  // <1k, lose C3.
  // <600 lose C1
  //= require_tree .
+@import 'utilities/variables';
 @import 'btoverrides';
+@import 'images';
+
+@font-face {
+  font-family: 'Space3 Tech';
+  src:url('space3_tech_free_promo_webfont.eot');
+  src:url('space3_tech_free_promo_webfont.eot?#iefix') format('embedded-opentype'),
+    font-url('space3_tech_free_promo_webfont.svg#space3_tech_free_promo_webfont') format('svg'),
+    font-url('space3_tech_free_promo_webfont.woff') format('woff'),
+    font-url('space3_tech_free_promo_webfont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html { height: 100%; }
+body {
+  background: $bodybg;
+  margin-top: 70px;
+}
+a { color: white; }
+
+#page-wrapper {
+  border-radius: 20px;
+}
+
+.btn-neutral {
+  background: $btn-neutral;
+  color: black;
+  border-color: darken($btn-neutral, 10%)
+}
 
 textarea { resize: none; }
 
-#mysearchbar {
-  margin: 10px 0 0 20px;
+.money { color: $money; }
+
+// ** search bar ** //
+#search-placeholder {
+  z-index: 100;
+  color: black;
+  position: absolute;
+  top:0;
+  right: -190px;
+  height: 50px;
   width: 190px;
-  padding: 6px 15px 6px 30px;
+}
+
+#mysearchbar {
+  margin: 10px 0 0 5px;
+  width: 160px;
+  padding: 6px 15px 6px 10px;
   height: 30px;
 	border-radius:15px;
 	-moz-border-radius:15px;
 	-webkit-border-radius:15px;
 }
-#searchbaricon {
-  position: absolute;
-  top: 18px;
-  left: 28px;
+
+//** header partial **//
+nav.navbar {
+  margin-bottom: 0;
+  height: 51px;
 }
 
+//** click sidebar thing **//
 #columnThree {
   display: block;
-  background: red;
   z-index: 100;
   position: fixed;
-  right: -50vw;
+  right: -350px;
   top: 20vh;
-  width: 50vw;
+  width: 350px;
   height: 70vh;
   border-radius: 20px 0 0 20px;
 }
 
 #clicksidebar {
   z-index: 100;
+  opacity: 0.4;
   visibility: visible;
   border: 5px solid #999;
   border-radius: 100% 0 0 100%;
@@ -41,7 +86,7 @@ textarea { resize: none; }
   right: -5px;
   top: 40vh;
   height: 200px;
-  width: 40px;
+  width: 35px;
   background: #888;
   #sidebaricon {
     position: relative;
@@ -49,4 +94,10 @@ textarea { resize: none; }
     top: 45%;
     margin-top: 0px;
   }
+}
+
+.shout-image {
+  border: 2px solid black;
+  height: 50px;
+  width: 50px;
 }

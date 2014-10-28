@@ -27,7 +27,6 @@ class SearchResultsController < ApplicationController
     @listgame = @listgame.sort_by{|x,y|y}.reverse
     liveResults = []
     @listgame.each do |x|
-      #binding.pry
       game = Game.find(x[0])
       liveResults << [ game.id, game.name, game.ava ]
     end
