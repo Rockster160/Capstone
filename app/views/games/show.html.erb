@@ -50,10 +50,12 @@
                       <% @trophies.each do |trophy| %>
                         <div class="col-xs-12">
                           <% if trophy.uniq_id == 1 %>
-                            Perfect Score by <%= link_to User.find(trophy.user_id).username, user_path(trophy.user_id) %> with a <%= UserGameLog.where(user_id: trophy.user_id, game_id: @game).reverse.first.score %>
+                            <i class='fa fa-trophy fa-2x' style= 'color:gold;'></i
+                            > Perfect Score by <%= link_to User.find(trophy.user_id).username, user_path(trophy.user_id) %> with a <%= UserGameLog.where(user_id: trophy.user_id, game_id: @game).reverse.first.score %>
                           <% end %>
                           <% if trophy.uniq_id == 2 %>
-                            High Score: <%= link_to User.find(trophy.user_id).username, user_path(trophy.user_id) %> <%= UserGameLog.where(user_id: trophy.user_id, game_id: @game).reverse.first.score %>
+                            <i class='fa fa-trophy fa-2x' style= 'color:gold;'></i
+                            > High Score: <%= link_to User.find(trophy.user_id).username, user_path(trophy.user_id) %> <%= UserGameLog.where(user_id: trophy.user_id, game_id: @game).reverse.first.score %>
                           <% end %>
                         </div>
                       <% end %>
