@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    current_user.update_attribute(:last_sign_in_at, Time.now)
 
     if Time.now - @user.last_in > 1.day - 1.hour
       Notification.create(

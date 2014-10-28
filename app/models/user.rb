@@ -51,6 +51,8 @@ class User < ActiveRecord::Base
   end
 
   def online?
-    updated_at > 20.minutes.ago
+    if last_sign_in_at
+      last_sign_in_at > Time.now - 30.minutes
+    end
   end
 end

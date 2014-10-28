@@ -14,7 +14,7 @@ $(document).ready(function(){
     // } else {
     //     el.style.display = "block";
     // }
-  $('#kill-it').click(function(){
+  $('.kill-it').click(function(){
     window.location.reload();
     // $(this).offsetParent.html("");
   })

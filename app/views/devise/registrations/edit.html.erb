@@ -50,7 +50,7 @@
                   <% if @user.follow_count > 0 %>
                     <% @user.following_users.each do |user| %>
                         <%= link_to unfollow_path(id: user.id), method: 'delete', remote: true do %>
-                          <%= image_tag user.ava, class: "shout-image", id: "kill-it" %>
+                          <%= image_tag user.ava, class: "shout-image kill-it" %>
                           <p class="text-muted">Click to unfollow</p>
                         <% end %>
                     <% end %>

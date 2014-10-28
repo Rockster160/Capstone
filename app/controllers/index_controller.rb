@@ -10,10 +10,12 @@ class IndexController < ApplicationController
     @online = []
     @offline = []
     User.all.order(:updated_at).reverse.each do |user|
-      if user.online?
-        @online << user
-      else
-        @offline << user
+      unless user.id == 0
+        if user.online?
+          @online << user
+        else
+          @offline << user
+        end
       end
     end
   end
