@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   get 'index/contact', as: 'contact'
   get 'index/home' => 'index#home', as: 'home'
+  get 'index/:id/partialswitch' => 'index#partialswitch', as: 'homeFormSwitch'
 
   devise_for :users, controllers: { registrations: 'registrations' }
   devise_scope :user do

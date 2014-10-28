@@ -1,4 +1,5 @@
-if (window.location.href[window.location.href.length - 1] == "0") {window.location.href = "/index/home"}
+url = window.location.href
+if (url[url.length - 1] == "0" && url[url.length - 2] == "/") {window.location.href = "/index/home"}
 $(document).ready(function(){
 
   $('#trophy-button').click(function() {

@@ -8,4 +8,11 @@ class IndexController < ApplicationController
     @trophies = Trophy.all
     @history = UserGameLog.all
   end
+
+  def partialswitch
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
 end

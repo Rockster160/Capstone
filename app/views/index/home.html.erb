@@ -3,15 +3,21 @@
     <div id="page-wrapper">
       <div class="row"><!-- Underneath -->
         <div class="col-md-4 col-sm-6 col-xs-12"><!-- Left Column -->
-          <h1 class="page-header">GameHub</h1>
-          <%= image_tag('favicon0.ico', id: "avatar") %>
+          <div id="ghTitle" class="row">
+            <% if user_signed_in? %>
+              <h1 class="page-header">GameHub</h1>
+              <%= image_tag('gh_logo.png', id: "avatar") %>
+            <% else %>
+              <%= render :partial => 'devise/sessions/new' %>
+            <% end %>
+          </div>
           <div class="row"> <!-- About -->
-            <h1>About Me</h1>
+            <h1>About Us</h1>
             Welcome to GameHub! We play games, earn coins, act like cool people and give away game cards!
           </div>
-          <!-- /About -->
+          <!-- /Title -->
           <div class="row"><!-- Links -->
-           <h1>My Links</h1>
+           <h1>Our Links</h1>
            Link to DPL<br/>
            Link to GameHub Twitter<br/>
            Link to Contact Page<br/>
@@ -22,7 +28,11 @@
         <div class="col-md-8 col-sm-6 col-xs-12"> <!-- Right Column -->
           <div id="games-title">
             <h1 id="games-title">Popular Games</h1>
-            <span id="games-title" class="text-muted">Click to play!</span>
+            <% if user_signed_in? %>
+              <span id="games-title" class="text-muted">Click to play!</span>
+            <% else %>
+              <span id="games-title" class="text-muted">Sign in to play!</span>
+            <% end %>
           </div>
           <!-- <div class="page-header col-xs-12"></div> -->
           <div id='user-favorites-div' class="row"> <!-- Games -->
@@ -58,7 +68,7 @@
               <% end %>
               <div class="panel panel-default"><!-- History -->
                 <div class="panel-heading">
-                  <i class="fa fa-bar-chart-o fa-fw"></i> Game Play History
+                  <i class="fa fa-bar-chart-o fa-fw"></i> Play History
                     <a href="<%= '/games/' + @rng_game.to_s %>" class="btn btn-success btn-xs pull-right">Random Game</a>
                 </div>
                 <!-- /.panel-heading -->
