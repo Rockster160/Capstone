@@ -132,7 +132,6 @@ Game.create( name: 'Random',
              howto: "Click on things, receive items, gamble your life away." )
 #                     )
 # User.create( id: ,
-#              name: '',
 #              about: '',
 #              coin: ,
 #              coinTo: ,
@@ -141,6 +140,13 @@ Game.create( name: 'Random',
 #              password_confirmation: '',
 #              username: '',
 #              favorites: [])
+
+User.create( id: 0,
+             email: 'ghub@email.com',
+             password: 'roccoprestonerikb',
+             password_confirmation: 'roccoprestonerikb',
+             username: 'GameHub'
+)
 
 User.create( #id: 0,
              about: 'They call me Zoro. I am a mean green parkouring fighting machine.

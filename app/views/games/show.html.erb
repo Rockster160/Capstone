@@ -1,3 +1,7 @@
+<%= javascript_tag do %>
+  window.currentGame = '<%= @game.id %>'
+<% end %>
+
 <div id="wrapper">
   <div id="homepage">
     <div id="page-wrapper">
@@ -46,10 +50,10 @@
                       <% @trophies.each do |trophy| %>
                         <div class="col-xs-12">
                           <% if trophy.uniq_id == 1 %>
-                            Perfect Score by <%= User.find(trophy.user_id).username %> with a <%= UserGameLog.where(user_id: trophy.user_id, game_id: @game).reverse.first.score %>
+                            Perfect Score by <%= link_to User.find(trophy.user_id).username, user_path(trophy.user_id) %> with a <%= UserGameLog.where(user_id: trophy.user_id, game_id: @game).reverse.first.score %>
                           <% end %>
                           <% if trophy.uniq_id == 2 %>
-                            High Score: <%= User.find(trophy.user_id).username %> <%= UserGameLog.where(user_id: trophy.user_id, game_id: @game).reverse.first.score %>
+                            High Score: <%= link_to User.find(trophy.user_id).username, user_path(trophy.user_id) %> <%= UserGameLog.where(user_id: trophy.user_id, game_id: @game).reverse.first.score %>
                           <% end %>
                         </div>
                       <% end %>
@@ -84,7 +88,7 @@
             </div>
             <!-- /Trophies -->
             <div class="col-md-6 col-xs-12"><!-- Shouts -->
-                <%= form_for(:shout, url: shout_path, remote: true) do |f| %>
+                <%= form_for(:shout, url: gameshout_path, remote: true) do |f| %>
               <div class="panel panel-default">
                 <div class="panel-heading">
                   <i class="fa fa-comments fa-fw"></i>
@@ -105,10 +109,10 @@
                   <% if @game.shouts.length > 0 %>
                     <ul class="chat">
                       <% @game.shouts.reverse.first(5).each_with_index do |shout, pos| %>
-                        <%= render :partial => 'games/shoutmessage', locals: {shoutIndex: shout, pos: pos} %>
+                        <%= render :partial => 'users/shoutmessage', locals: {shoutIndex: shout, pos: pos} %>
                       <% end %>
                     </ul>
-                    <a href="/notifications/showalerts" class="btn btn-default btn-block">View All Shouts</a>
+                    <a href="/notifications/showalerts" class="btn btn-success btn-block">View All Shouts</a>
                   <% else %>
                       <p>This game doesn't have any shouts yet! Leave it the first!</p>
                   <% end %>

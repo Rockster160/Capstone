@@ -47,7 +47,11 @@
     margin-bottom: 10px;
     height: 12vw;
     width: 12vw;
-    @media (max-width: 750px) {
+    @media (max-width: 500px) {
+      height: 40vw;
+      width: 40vw;
+    }
+    @media (max-width: 850px) {
       height: 20vw;
       width: 20vw;
     }

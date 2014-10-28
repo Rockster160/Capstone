@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
   post 'users/:id/update' => 'users#update', as: 'update'
   post 'users/:id/shout' => 'users#shout', as: 'shout'
+  post 'games/:id/shout' => 'games#shout', as: 'gameshout'
   post 'users/getscores' => 'users#getscores'
   post "/users/follow", to: "users#follow", as: :follow
   delete "/users/unfollow", to: "users#unfollow", as: :unfollow
