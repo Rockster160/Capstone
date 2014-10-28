@@ -50,7 +50,7 @@
                     <i class="fa fa-bar-chart-o fa-fw"></i> Trophy Case
                   </div>
                   <div class="panel-body">
-                      <% @trophies.each do |trophy| %>
+                      <% @trophies..order(:uniq_id).each do |trophy| %>
                         <div class="col-xs-12">
                           <% if trophy.uniq_id == 1 %>
                              <%= link_to trophy.user.username, user_path(trophy.user_id) %> got a Perfect Score in <%= link_to Game.find(trophy.game_id).name, game_path(trophy.game_id) %> with a <%= UserGameLog.where(game_id: trophy.game_id, user_id: trophy.user_id).reverse.first.score %>
@@ -77,7 +77,7 @@
                     <div class="col-lg-12">
                       <% if @history.length > 0 %>
                         <% @history.first(10).each do |history| %>
-                          <p><%= link_to history.user.username, user_path(history.user_id) %> got a <%= history.score %> in <%= link_to history.game.name, game_path(history.game_id) %> - <%= history.formatted_ago %></p>
+                          <p><%= link_to history.user.username, user_path(history.user_id) %> got a <%= history.score %> in <%= link_to history.game.name, game_path(history.game_id) %> <%= history.formatted_ago %></p>
                         <% end %>
                       <% end %>
                     </div>
