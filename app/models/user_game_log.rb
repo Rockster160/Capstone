@@ -5,15 +5,6 @@ class UserGameLog < ActiveRecord::Base
   belongs_to :user
   belongs_to :game
 
-  def play_history_format
-    @user = User.find(self.user_id).username
-    @game = Game.find(self.game_id).name
-    if self.event == "played"
-      this_history = @user + " got a " + self.score.to_s + " in " + @game + " " + self.formatted_ago
-    end
-    return this_history
-  end
-
   def beforeCreate
     checkTrophy =  Trophy.new(user_id: self.user_id,
                               game_id: self.game_id)

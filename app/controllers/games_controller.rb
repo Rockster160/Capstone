@@ -30,10 +30,7 @@ class GamesController < ApplicationController
     @trophies = []
     @trophies = Trophy.where(game_id: @game).reverse
 
-    @history = []
-    UserGameLog.where(game_id: @game).reverse.each do |history|
-      @history << history.play_history_format
-    end
+    @history = UserGameLog.where(game_id: @game).reverse
 
     respond_to do |format|
       format.html
