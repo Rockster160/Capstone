@@ -6,151 +6,67 @@
 <div id="wrapper">
   <div id="homepage">
     <div id="page-wrapper">
-      <div class="row">
-        <div class="col-lg-9 col-md-8 col-sm-6 col-xs-12">
+      <div class="row"><!-- Underneath -->
+        <div class="col-md-4 col-sm-6 col-xs-12"><!-- Left Column -->
           <h1 class="page-header"><%= @user.username %></h1>
-        </div>
-        <% if user_signed_in? && current_user.username == @user.username %>
-          <div class="col-lg-3 col-md-4 col-sm-5 col-xs-12">
-            <h1 id="coin-inline">
-              <%= image_tag('spinningcoin.gif', id: "coin", size: "32x32") %>
-              <canvas id="coinupdater" width=150 height=300></canvas>
-              <span id="coin_on_page"><%= number_with_delimiter( current_user.coin ) %></span>
-            </h1>
-          </div>
-          <!-- /.col-lg-12 -->
-        <% else %>
-          <% if current_user.following?(@user) %>
-            <%= button_to "Unfollow", unfollow_path(id: @user.id), method: 'delete', class: "btn btn-danger" %>
+          <%= image_tag(@user.ava, id: "avatar") %>
+          <% if user_signed_in? && current_user.username == @user.username %>
+              <h1 id="coin-inline">
+                <%= image_tag('spinningcoin.gif', id: "coin", size: "32x32") %>
+                <canvas id="coinupdater" width=150 height=300></canvas>
+                <span id="coin_on_page"><%= number_with_delimiter( current_user.coin ) %></span>
+              </h1>
           <% else %>
-            <%= button_to "Follow", follow_path(id: @user.id), method: 'post', class: "btn btn-success" %>
-          <% end %>
-        <% end %>
-      </div>
-      <!-- /.row -->
-      <div class="row">
-        <%= image_tag(@user.ava, id: "avatar", class: "col-sm-4 col-xs-9") %>
-        <div id='user-favorites-div'>
-          <%= render partial: 'user_favorite_games', locals: { user: @user, url: :show } %>
-        </div>
-        <div id='game-modal-div'>
-          <!-- Place holder for the modal data -->
-        </div>
-
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-          <h1>About Me</h1>
-          <% if @user.about  && @user.about.length > 5 %>
-            <p><%= @user.about %></p>
-          <% else %>
-            <% if current_user.id == @user.id %>
-              <p>You haven't updated your About Me section of your profile yet! Please go to your <a href="<%= edit_path %>">Profile Editing Page</a> and tell us a bit about yourself!</p>
+            <% if current_user.following?(@user) %>
+              <%= button_to "Unfollow", unfollow_path(id: @user.id), method: 'delete', class: "btn btn-danger" %>
             <% else %>
-              <p>This user has not updated their About Me section.</p>
+              <%= button_to "Follow", follow_path(id: @user.id), method: 'post', class: "btn btn-success" %>
             <% end %>
           <% end %>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-          <h1>My Links</h1>
-          <div class="col-xs-12">
-            <div class="col-xs-12">
-             <% has_url = false %>
-             <% if @user.facebook_url.length > 0 %>
-               <a href="<%= @user.facebook_url %>" class="fb-icon" target="blank"><i class="fa fa-facebook-square fa-fw"></i> Facebook</a><br/>
-               <% has_url = true %>
-             <% end %>
-             <% if @user.twitter_url.length > 0 %>
-               <a href="<%= @user.twitter_url %>" class="twtr-icon" target="blank"><i class="fa fa-twitter-square fa-fw"></i> Twitter</a><br/>
-               <% has_url = true %>
-             <% end %>
-             <% if @user.website_url.length > 0 %>
-               <a href="<%= @user.website_url %>" class="black-link" target="blank"><i class="fa fa-globe fa-fw"></i> Website</a>
-               <% has_url = true %>
-             <% end %>
-             <% if has_url == false %>
-               <% if @user.id == current_user.id %>
-                <p>You have not added any links yet! Please go to your <a href="<%= edit_path %>">Profile Editing Page</a> and let us know where we may find you.</p>
-               <% else %>
-                 <p>This user has not yet added any external links.</p>
-               <% end %>
-             <% end %>
+          <div class="row"> <!-- About -->
+            <h1>About Me</h1>
+            <% if @user.about  && @user.about.length > 5 %>
+              <p><%= @user.about %></p>
+            <% else %>
+              <% if current_user.id == @user.id %>
+                <p>You haven't updated your About Me section of your profile yet! Please go to your <a href="<%= edit_path %>">Profile Editing Page</a> and tell us a bit about yourself!</p>
+              <% else %>
+                <p>This user has not updated their About Me section.</p>
+              <% end %>
+            <% end %>
           </div>
-        </div>
-        <!-- ./col-lg-9 -->
-      </div>
-      <!-- /.row -->
-      <div class="page-header col-xs-12"></div>
-      <div class="row">
-        <div class="col-lg-8 col-sm-6 col-xs-12">
-          <% if @trophies.length > 0 %>
+          <!-- /About -->
+          <div class="row"><!-- Links -->
+           <h1>My Links</h1>
+           <% has_url = false %>
+           <% if @user.facebook_url.length > 0 %>
+             <a href="<%= @user.facebook_url %>" class="fb-icon" target="blank"><i class="fa fa-facebook-square fa-fw"></i> Facebook</a><br/>
+             <% has_url = true %>
+           <% end %>
+           <% if @user.twitter_url.length > 0 %>
+             <a href="<%= @user.twitter_url %>" class="twtr-icon" target="blank"><i class="fa fa-twitter-square fa-fw"></i> Twitter</a><br/>
+             <% has_url = true %>
+           <% end %>
+           <% if @user.website_url.length > 0 %>
+             <a href="<%= @user.website_url %>" class="black-link" target="blank"><i class="fa fa-globe fa-fw"></i> Website</a>
+             <% has_url = true %>
+           <% end %>
+           <% if has_url == false %>
+             <% if @user.id == current_user.id %>
+              <p>You have not added any links yet! Please go to your <a href="<%= edit_path %>">Profile Editing Page</a> and let us know where we may find you.</p>
+             <% else %>
+               <p>This user has not yet added any external links.</p>
+             <% end %>
+           <% end %>
+          </div>
+          <!-- /Links -->
+          <div class="row"><!-- Following -->
             <div class="panel panel-default">
               <div class="panel-heading">
-                <i class="fa fa-bar-chart-o fa-fw"></i> Trophy Case
+                <i class="fa fa-users"></i> Following
               </div>
               <!-- /.panel-heading -->
               <div class="panel-body">
-                <div class="row">
-                  <% @trophies.each do |trophy| %>
-                    <div class="col-xs-12">
-                      <% if trophy.uniq_id == 1 %>
-                        Perfect Score in <%= Game.find(trophy.game_id).name %> with a <%= UserGameLog.where(game_id: trophy.game_id, user_id: @user).reverse.first.score %>
-                      <% end %>
-                      <% if trophy.uniq_id == 2 %>
-                        High Score: <%= Game.find(trophy.game_id).name %> <%= UserGameLog.where(game_id: trophy.game_id, user_id: @user).reverse.first.score %>
-                      <% end %>
-                      <% if trophy.uniq_id == 3 %>
-                        Played all Games!!
-                      <% end %>
-                    </div>
-                  <% end %>
-                  <!-- /.col-lg-4 (nested) -->
-                </div>
-                <!-- /.row -->
-              </div>
-              <!-- /.panel-body -->
-            </div>
-            <!-- /.panel -->
-          <% end %>
-          <!-- /.panel -->
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <i class="fa fa-bar-chart-o fa-fw"></i> Game Play History
-              <div class="pull-right">
-                <a href="<%= '/games/' + @rng_game.to_s %>" class="btn btn-default btn-xs">Random Game</a>
-              </div>
-            </div>
-            <!-- /.panel-heading -->
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-lg-12">
-                  <% if @history.length > 0 %>
-                    <% @history.first(10).each do |historylog| %>
-                      <%= historylog %></br>
-                    <% end %>
-                  <% else %>
-                    <% if current_user.id == @user.id %>
-                      <p>You haven't played any games yet!</p>
-                      <p>Visit the <a href="<%= games_path %>">Games Listing Page</a> to check out some you may enjoy!</p>
-                    <% else %>
-                      <p>This user hasn't played any games yet. Leave them a shout and challenge them!</p>
-                    <% end %>
-                  <% end %>
-                </div>
-                <!-- /.col-lg-4 (nested) -->
-              </div>
-              <!-- /.row -->
-            </div>
-            <!-- /.panel-body -->
-          </div>
-          <!-- /.panel -->
-          <!-- /.panel -->
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <i class="fa fa-users"></i> Following
-            </div>
-            <!-- /.panel-heading -->
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-lg-12">
                 <% if @user.follow_count > 0 %>
                   <% @user.following_users.each do |user| %>
                     <%= image_tag user.ava %>
@@ -164,95 +80,128 @@
                     <p>This user hasn't followed anyone yet!</p>
                   <% end %>
                 <% end %>
-                </div>
-                <!-- /.col-lg-4 (nested) -->
               </div>
-              <!-- /.row -->
+              <!-- /.panel-body -->
             </div>
-            <!-- /.panel-body -->
+            <!-- /panel-default -->
           </div>
-          <!-- /.panel -->
+          <!-- Following -->
         </div>
-
-        <!-- /.col-lg-8 -->
-        <div class="col-lg-4 col-sm-6 col-xs-12">
-          <% if user_signed_in? && current_user.username == @user.username %>
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <i class="fa fa-bell fa-fw"></i> Notifications Panel
+        <!-- /Left Column -->
+        <div class="col-md-8 col-sm-6 col-xs-12"> <!-- Right Column -->
+          <div id="games-title">
+            <h1 id="games-title">My Games</h1>
+            <span id="games-title" class="text-muted">Click to play!</span>
+          </div>
+          <!-- <div class="page-header col-xs-12"></div> -->
+          <div id='user-favorites-div' class="row"> <!-- Games -->
+            <%= render partial: 'user_favorite_games', locals: { user: @user, url: :show } %>
+            <div id='game-modal-div'>
+              <!-- Place holder for the modal data -->
+            </div>
+          </div>
+          <!-- /Game Row -->
+          <div class="row"> <!-- Trophies/History - Shouts -->
+            <div class="col-md-6 col-xs-12">
+              <% if @trophies.length > 0 %> <!-- Trophies -->
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <i class="fa fa-bar-chart-o fa-fw"></i> Trophy Case
+                  </div>
+                  <div class="panel-body">
+                      <% @trophies.each do |trophy| %>
+                        <div class="col-xs-12">
+                          <% if trophy.uniq_id == 1 %>
+                            Perfect Score in <%= Game.find(trophy.game_id).name %> with a <%= UserGameLog.where(game_id: trophy.game_id, user_id: @user).reverse.first.score %>
+                          <% end %>
+                          <% if trophy.uniq_id == 2 %>
+                            High Score: <%= Game.find(trophy.game_id).name %> <%= UserGameLog.where(game_id: trophy.game_id, user_id: @user).reverse.first.score %>
+                          <% end %>
+                          <% if trophy.uniq_id == 3 %>
+                            Played all Games!!
+                          <% end %>
+                        </div>
+                      <% end %>
+                  </div>
+                </div>
+              <% end %>
+              <div class="panel panel-default"><!-- History -->
+                <div class="panel-heading">
+                  <i class="fa fa-bar-chart-o fa-fw"></i> Game Play History
+                    <a href="<%= '/games/' + @rng_game.to_s %>" class="btn btn-success btn-xs pull-right">Random Game</a>
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <% if @history.length > 0 %>
+                        <% @history.first(10).each do |history| %>
+                          <p><%= link_to history.user.username, user_path(history.user_id) %> got a <%= history.score %> in <%= link_to history.game.name, game_path(history.game_id) %> - <%= history.formatted_ago %></p>
+                        <% end %>
+                      <% else %>
+                        <% if current_user.id == @user.id %>
+                          <p>You haven't played any games yet!</p>
+                          <p>Visit the <a href="<%= games_path %>">Games Listing Page</a> to check out some you may enjoy!</p>
+                        <% else %>
+                          <p>This user hasn't played any games yet. Leave them a shout and challenge them!</p>
+                        <% end %>
+                      <% end %>
+                    </div>
+                  </div>
+                  <!-- /.row -->
+                </div>
+                <!-- /.panel-body -->
               </div>
-              <!-- /.panel-heading -->
-            <div class="panel-body">
-              <% if @unread.length > 0 || @display.length > 0 %>
-                <div class="list-group">
-                  <% @unread.first(5).each do |notify| %>
-                  <a href="<%= notifications_path %>" class="list-group-item" style="height: 50px;background:lemonchiffon;">
-                    <i class="fa fa-<%=notify.image_convert%> fa-fw"></i> <%= notify.title %>
-                    <span class="pull-right text-muted small"><em><%= notify.formatted_ago %></em></span>
-                  </a>
-                  <% end %>
-                  <% @display.each do |notify| %>
-                    <a href="<%= notifications_path %>" class="list-group-item" style="height: 50px;">
-                      <i class="fa fa-<%=notify.image_convert%> fa-fw"></i> <%= notify.title %>
-                      <span class="pull-right text-muted small"><em><%= notify.formatted_ago %></em></span>
-                    </a>
+              <!-- /History -->
+            </div>
+            <!-- /Trophies -->
+            <div class="col-md-6 col-xs-12"><!-- Shouts -->
+                <%= form_for(:shout, url: shout_path, remote: true) do |f| %>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <i class="fa fa-comments fa-fw"></i>
+                  Shoutbox
+                  <%= f.submit "Shout it!", class: "btn btn-success btn-xs pull-right" %>
+                </div>
+                <!-- /.panel-heading -->
+                  <div class="panel-footer">
+                      <%= f.text_area :message,
+                                      placeholder: "Leave a shout for " + @user.username ,
+                                      id: 'shout-area',
+                                      class: 'form-control input-sm',
+                                      rows: 4,
+                                      cols: 50 %>
+                  </div>
+                <!-- /.panel-footer -->
+                <div class="panel-body">
+                  <% if @user.shouts.length > 0 %>
+                    <ul class="chat">
+                      <% @user.shouts.reverse.first(5).each_with_index do |shout, pos| %>
+                        <%= render :partial => 'users/shoutmessage', locals: {shoutIndex: shout, pos: pos} %>
+                      <% end %>
+                    </ul>
+                    <a href="/notifications/showalerts" class="btn btn-success btn-block">View All Shouts</a>
+                  <% else %>
+                    <% if current_user.id == @user.id %>
+                      <p>You have no shouts. :(</p>
+                      <p>Try leaving a shout on somebody else's profile to make some friends!</p>
+                    <% else %>
+                      <p>This user doesn't have any shouts yet! Leave them their first!</p>
+                    <% end %>
                   <% end %>
                 </div>
-                <!-- /.list-group -->
-                <a href="<%= notifications_path %>" class="btn btn-default btn-block">View All Alerts</a>
-              <% else %>
-                <p>You have no Notifications. :(</p>
-                <p>Visit <a href="<%= '/games/' + @rng_game.to_s %>">any game</a> to get your first notification!</p>
-              <% end %>
-            </div>
-            <!-- /.panel-body -->
-          </div>
-          <!-- /.panel -->
-          <% end %>
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <i class="fa fa-comments fa-fw"></i>
-              Shoutbox
-            </div>
-            <!-- /.panel-heading -->
-            <div class="panel-body">
-                <ul class="chat">
-              <% if @user.shouts.length > 0 %>
-              <% @user.shouts.reverse.first(5).each_with_index do |shout, pos| %>
-                    <%= render :partial => 'users/shoutmessage', locals: {shoutIndex: shout, pos: pos} %>
-                  <% end %>
-                </ul>
-                <a href="/notifications/showalerts" class="btn btn-default btn-block">View All Shouts</a>
-              <% else %>
-                <% if current_user.id == @user.id %>
-                  <p>You have no shouts. :(</p>
-                  <p>Try leaving a shout on somebody else's profile to make some friends!</p>
-                <% else %>
-                  <p>This user doesn't have any shouts yet! Leave them their first!</p>
+              <!-- /.panel-body -->
+              </div>
                 <% end %>
-              <% end %>
+              <!-- /panel-default -->
             </div>
-            <!-- /.panel-body -->
-            <div class="panel-footer">
-              <!-- <div class="input-group"> -->
-              <%= form_for(:shout, url: shout_path, remote: true) do |f| %>
-                <%= f.submit "Shout it!" %>
-                <%= f.text_area :message,
-                                placeholder: "Leave a shout for " + @user.username ,
-                                id: 'shout-area',
-                                class: 'form-control input-sm',
-                                rows: 4,
-                                cols: 50 %>
-              <% end %>
-              <!-- </div> -->
-            </div>
-            <!-- /.panel-footer -->
+            <!-- /Shouts -->
           </div>
-          <!-- /.panel .chat-panel -->
+          <!-- /Trophies-History Shouts -->
         </div>
-        <!-- /.col-lg-4 -->
+        <!-- /Right Column -->
       </div>
-      <!-- /.row -->
+      <!-- /Underneath -->
     </div>
     <!-- /#page-wrapper -->
   </div>

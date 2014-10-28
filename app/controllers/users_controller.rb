@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     unless user_signed_in?
       redirect_to home_path
     end
+    #@user.username[0] = @user.username[0].capitalize
 
     @user = User.find(params[:id])
 
@@ -34,10 +35,9 @@ class UsersController < ApplicationController
     @trophies = []
     @trophies = Trophy.where(user_id: @user).reverse
 
-    @history = []
-    UserGameLog.where(user_id: @user).reverse.each do |history|
-      @history << history.play_history_format
-    end
+    @history = UserGameLog.where(user_id: @user).reverse
+
+
 
     @user.update_attribute(:coin, @user.coin + @user.coinTo)
     @user.update_attribute(:coinTo, 0)
@@ -80,7 +80,8 @@ class UsersController < ApplicationController
     else
       @receiver = Game.find(params[:id])
     end
-    if params[:shout] && params[:shout].length > 1
+      # binding.pry
+    if params[:shout] && params[:shout][:message].length > 1
       @shout = @receiver.shouts.create(:message => params[:shout][:message],
                                       :sent_from_id => current_user.id
       )

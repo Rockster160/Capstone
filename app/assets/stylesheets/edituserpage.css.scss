@@ -1,5 +1,10 @@
 @import 'utilities/variables';
 
+#games-title {
+  text-align: center;
+  width: 100%;
+}
+
 .fa-pencil {
   color: $linkcolor;
   opacity: 0.6;
@@ -7,9 +12,12 @@
   z-index: 100;
   margin: 8px 0 0 8px;
 }
-
+#edit-header { height: 100px; }
 #editing-navbar {
-  width: 100%;
+  width: 100vw;
+  position: absolute;
+  left: 0;
+  margin: -20px 0 0 0;
   height: 100px;
   background: $editing;
   border-bottom-left-radius: 7vw 30px;
@@ -19,12 +27,12 @@
 .format-navbar { position: absolute; }
 
 #edit-email, #edit-username {
-  margin: -10px 0 0 15px;
+  margin: -60px 0 0 15px;
   left: 10px;
 }
 
 #edit-pw, #edit-pw-confirm {
-  margin: -10px 15px 0 0;
+  margin: -60px 15px 0 0;
   right: 10px;
 }
 
@@ -32,15 +40,19 @@
 #edit-email, #edit-pw-confirm { top: 118px; }
 
 #edit-submit, #edit-sub-button {
-  top: 70px;
+  top: 20px;
   left: 50%;
   margin-left: -77px;
 }
 
-input[type=submit] { width: 154px; }
-#edit-sub-button { top: 96px; }
+#edit-sub-button {
+  top: 46px;
+  width: 154px;
+  margin-left: -39px;
+}
 
-#footer { width: 100% }
+#footer-edit { width: 100% }
+
 #edit-delete-btn {
   position: absolute;
   left: 50%;
@@ -53,7 +65,8 @@ input[type=submit] { width: 154px; }
 }
 
 @media (max-width: 550px) {
-  #edit-submit { top: 190px; }
-  #edit-sub-button { top: 216px; }
+  #edit-submit { top: 120px; }
+  #edit-sub-button { top: 146px; }
   #editing-navbar { height: 200px; }
+  #edit-header { height: 200px; }
 }

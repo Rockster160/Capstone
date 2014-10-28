@@ -1,15 +1,20 @@
 //variables $primary: color;
 //lighten($primary, 10%)
 // @include font-face(Spac3Tech, 'spac3_tech_free_promo_webfont', $asset-pipeline: true);
-
-$blendbg: rgb(227,227,227);
-$blendbgdark: darken($blendbg, 10%);
-$navbg: #F8F8F8;
+$navbg: #004F00;
 $navborder: #E7E7E7;
+$money: gold;
+
+$bodybg: rgba(160, 255, 153, 0.5);
+$cardbg: rgb(227,227,227);
+
+$btn-neutral: lighten(gold, 15%);
+
+
+$cardbgdark: darken($cardbg, 10%);
 
 $linkcolor: #2A6496;
 
-$money: gold;
 $border: purple;
 $primaryfocus: lighten(purple, 10%);
 $placeholder: red;

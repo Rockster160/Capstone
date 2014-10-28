@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-#
 # Game.create( name: '',
 #              ava: '',
 #              play: '',
@@ -151,8 +143,8 @@ Game.create( name: 'Random',
 #              favorites: [])
 
 User.create( #id: 0,
-             name: 'Zoro',
-             about: 'Santouryu',
+             about: 'They call me Zoro. I am a mean green parkouring fighting machine.
+                    I like to build games and ride bikes in my spare time.',
              coin: 999999,
              coinTo: 10,
              email: 'zoro@email.com',
@@ -162,19 +154,21 @@ User.create( #id: 0,
              favorites: [6, 3, 1, 0])
 
 User.create( #id: 1,
-             name: 'Luffy',
-             about: 'Gomu Gomu',
+             about: 'They call me Luffy. When danger calls I dress up in my hero costume
+                    and save the day. I occassionally eat pizza and cheetos to celebrate
+                    victories over bad guys.',
              coin: 12,
              coinTo: 3456,
              email: 'luffy@email.com',
              password: 'password',
              password_confirmation: 'password',
-             username: 'luffy',
+             username: 'Luffy',
              favorites: [2, 5, 0, 0])
 
 User.create( #id: 2,
-            name: 'Sam',
-            about: 'Hello I am Sam',
+            about: 'Hello, I am Sam. I like to take long walks in the park with my dog
+                    who\'s name is also Sam. When we aren\'t eating dog food together you
+                    can find me at the gym eating carrots.',
             coin: 7856,
             coinTo: 10,
             email: 'sam@email.com',
@@ -184,8 +178,9 @@ User.create( #id: 2,
             favorites: [1, 5, 2, 0])
 
 User.create( #id: 3,
-             name: 'Rocco',
-             about: 'I like to flip off stuff',
+             about: 'I like to flip off stuff. My nickname may or may not be Zoro. People think
+                    it is supposed to be Zorro. It is not. I drink a lot of mountain dew and bowl
+                    300 often.',
              coin: 2345,
              coinTo: 10,
              email: 'rocco@email.com',
@@ -195,8 +190,8 @@ User.create( #id: 3,
              favorites: [1, 6, 3, 2])
 
 User.create( #id: 4,
-            name: 'Brendan',
-            about: 'I bowl and sell life insurance',
+            about: 'I bowl and sell life insurance. Insurance is my life. If you are interested in
+                    getting a great deal on life insurance please give me a shout out.',
             coin: 19872,
             coinTo: 10,
             email: 'bj@email.com',
@@ -206,8 +201,9 @@ User.create( #id: 4,
             favorites: [1, 0, 0, 0])
 
 User.create( #id: 5,
-             name: 'Jason',
-             about: 'I am the co instructor at DPL',
+             about: 'I am the co instructor at DPL. I like Germany and Jimmy Johns. I\'ll have a
+                    cigarette from time to time. When I ask people to play Game of Thrones with
+                    me they say yes but then nobody ends up playing. :( ',
              coin: 2345,
              coinTo: 10,
              email: 'jason@email.com',
@@ -217,8 +213,8 @@ User.create( #id: 5,
              favorites: [2, 4, 0, 0])
 
  User.create( #id: 6,
-              name: 'Alex',
-              about: 'I play games',
+              about: 'I play games -- a lot of them. I also play the drums. I will basically play
+                      anything. Chewing gum is fun. Hot dogs are good.',
               coin: 21,
               coinTo: 10,
               email: 'alex@email.com',
@@ -228,8 +224,8 @@ User.create( #id: 5,
               favorites: [2, 3, 4, 5])
 
 User.create( #id: 7,
-             name: 'Preston',
-             about: 'I am Mr.PlayBook',
+             about: 'I am Mr. Playbook. What does that mean? Maybe you\'ll find out. When I am not
+                    working on Playbook I am watching sports, listening to music, and eating food.',
              coin: 987654,
              coinTo: 10,
              email: 'preston@email.com',
@@ -237,39 +233,6 @@ User.create( #id: 7,
              password_confirmation: 'password',
              username: 'PrestonJohnson',
              favorites: [4, 5, 2, 0])
-
-User.create( #id: 8,
-            name: 'Test',
-            about: 'I am the breaker and I test stuff.',
-            coin: 111111111,
-            coinTo: 10,
-            email: 'test@email.com',
-            password: 'password',
-            password_confirmation: 'password',
-            username: 'tester',
-            favorites: [5, 4, 3, 2])
-
-User.create( #id: 9,
-             name: 'Timer',
-             about: 'I just look pretty',
-             coin: 123456789,
-             coinTo: 10,
-             email: 'time@email.com',
-             password: 'password',
-             password_confirmation: 'password',
-             username: 'GrandfatherTime',
-             favorites: [0, 0, 0, 0])
-
-User.create( #id: 10,
-             name: 'GameHub',
-             about: 'I am the AI for this site! :D',
-             coin: 99999999,
-             coinTo: 10,
-             email: 'gh@email.com',
-             password: 'password',
-             password_confirmation: 'password',
-             username: 'ghub',
-             favorites: [5, 1, 2, 3])
 
 # UserGameLog.create( #id:
 #                     user_id: ,

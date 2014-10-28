@@ -27,6 +27,7 @@ class User < ActiveRecord::Base
   end
 
   def randomAvatar
+    self.username[0] = self.username[0].capitalize
     rng = case rand(6)
     when 0
       "One"

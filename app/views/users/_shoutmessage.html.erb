@@ -23,11 +23,11 @@
       <div class="chat-body clearfix">
         <div class="header">
 <% if pos.even? %>
-          <strong class="primary-font"><%= user.username %></strong>
+          <strong class="primary-font"><%= user.username %></a></strong>
           <small class="pull-right text-muted">
               <i class="fa fa-clock-o fa-fw"></i> <%= shoutIndex.formatted_ago %></small>
 <% else %>
-            <strong class="pull-right primary-font"><%= user.username %></strong>
+            <strong class="pull-right primary-font"><%= user.username %></a></strong>
             <small class="pull-left text-muted">
                 <i class="fa fa-clock-o fa-fw"></i> <%= shoutIndex.formatted_ago %></small>
 <% end %>
