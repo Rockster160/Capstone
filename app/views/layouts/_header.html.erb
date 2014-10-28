@@ -14,11 +14,13 @@
         style="position: absolute;
                right: 0;
                top: 0;">
-        <li id="searchpopout"><a href="#"><i class="fa fa-search fa-lg"></i></a></li>
-        <div id="search-placeholder" tabindex="-1">
-          <%= render 'layouts/searchbar' %>
-        </div>
-        <!-- /search-dropdown -->
+        <% if user_signed_in? %>
+          <li id="searchpopout"><a href="#"><i class="fa fa-search fa-lg"></i></a></li>
+          <div id="search-placeholder" tabindex="-1">
+            <%= render 'layouts/searchbar' %>
+          </div>
+          <!-- /search-dropdown -->
+        <% end %>
         <li><a href="../../games/read"><i class="fa fa-gamepad fa-lg"></i></a></li>
         <% if user_signed_in? %>
           <li class="dropdown">
