@@ -15,20 +15,20 @@
                right: 0;
                top: 0;">
         <% if user_signed_in? %>
-          <li id="searchpopout"><a href="#"><i class="fa fa-search fa-lg"></i></a></li>
+          <li id="searchpopout"><a href="#" class="white-link"><i class="fa fa-search fa-lg"></i></a></li>
           <div id="search-placeholder" tabindex="-1">
             <%= render 'layouts/searchbar' %>
           </div>
           <!-- /search-dropdown -->
         <% end %>
-        <li><a href="../../games/read"><i class="fa fa-gamepad fa-lg"></i></a></li>
+        <li><a href="../../games/read" class="white-link"><i class="fa fa-gamepad fa-lg"></i></a></li>
         <% if user_signed_in? %>
           <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="notifydropdown">
                 <% if @unread_notifications.length > 0 %>
-                  <i class="fa fa-caret-down"></i><i class="fa fa-bell fa-fw money"></i>
+                  <i class="fa fa-caret-down white-link"></i><i class="fa fa-bell fa-fw money white-link"></i>
                 <% else %>
-                  <i class="fa fa-caret-down"></i><i class="fa fa-bell fa-fw"></i>
+                  <i class="fa fa-caret-down white-link"></i><i class="fa fa-bell fa-fw white-link"></i>
                 <% end %>
               </a>
               <ul class="dropdown-menu dropdown-alerts">
@@ -56,7 +56,7 @@
           <!-- /.dropdown -->
           <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                  <i class="fa fa-caret-down"></i><i class="fa fa-user fa-fw"></i>
+                  <i class="fa fa-caret-down white-link"></i><i class="fa fa-user fa-fw white-link"></i>
               </a>
               <ul class="dropdown-menu dropdown-user">
                   <li><a href="/"><i class="fa fa-user fa-fw"></i> Profile</a></li>
@@ -71,7 +71,7 @@
           </li>
           <!-- /.dropdown -->
         <% else %>
-          <li><%= link_to "Sign In", home_path %></li>
+          <li><%= link_to "Sign In", home_path, class: "white-link" %></li>
         <% end %>
     </ul>
     <!-- /.navbar-top-links -->

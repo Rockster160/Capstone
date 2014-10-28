@@ -12,14 +12,17 @@ float: left !important;
 margin-right: -15px !important;
 }
 
+ul.nav a:hover, a:active, a:focus { color: #fff !important; }
+
 .navbar-default .navbar-brand {
   color:inherit;
-  &:hover{ background: $bodybg; }
+  &:hover{
+    color: inherit;
+    background: $bodybg;
+  }
 }
 
-.navbar-top-links li a {
-  &:hover{ background: $bodybg; }
-}
+.navbar-top-links li a:hover, a:focus { background: $bodybg!important; }
 
 .navbar-right {
 float: right!important;

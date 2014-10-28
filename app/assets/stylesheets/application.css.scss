@@ -21,7 +21,21 @@ body {
   background: $bodybg;
   margin-top: 70px;
 }
-a, #footer-info { color: white; }
+
+.gh-footer a{
+  margin-top: -15px;
+  position: absolute;
+  padding: 14px;
+  font-weight: bold;
+  white-space: nowrap;
+  text-decoration: none;
+  &:hover {
+    background: $bodybg;
+    color: white;
+  }
+}
+
+.white-link { color: white; }
 
 #page-wrapper {
   border-radius: 20px;
