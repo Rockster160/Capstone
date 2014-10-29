@@ -26,28 +26,32 @@ class User < ActiveRecord::Base
     return favs
   end
 
+  def newAva(ava_id)
+    ava = case ava_id.to_i
+    when 0
+        "One"
+      when 1
+        "Two"
+      when 2
+        "Three"
+      when 3
+        "Four"
+      when 4
+        "Five"
+      when 5
+        "Six"
+      when 6
+        "Seven"
+      when 7
+        "Eight"
+      end
+      self.update_attribute(:ava, "defAva" + ava + ".jpg")
+  end
+
   def randomAvatar
     self.last_in = Time.now
     self.username[0] = self.username[0].capitalize
-    rng = case rand(6)
-    when 0
-      "One"
-    when 1
-      "Two"
-    when 2
-      "Three"
-    when 3
-      "Four"
-    when 4
-      "Five"
-    when 5
-      "Six"
-    when 6
-      "Seven"
-    when 7
-      "Eight"
-    end
-    self.update_attribute(:ava, "defAva" + rng + ".jpg")
+    new_ava(rand(8))
   end
 
   def online?

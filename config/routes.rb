@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get 'notifications/show' => 'notifications#show', as: 'notifications'
   get 'notifications/:id/useralerts' => 'notifications#useralerts', as: 'usershouts'
   get 'notifications/:id/gamealerts' => 'notifications#gamealerts', as: 'gameshouts'
+  get 'devise/registrations/popup/:id' => 'users#changeAva', as: 'changeAva'
 
   get 'users/edit' => 'users#edit', as: 'edit'
   get 'trophies/trophy_tab' => 'trophies#show', as: 'show_trophies'

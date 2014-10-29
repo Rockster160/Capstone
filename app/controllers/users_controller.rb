@@ -60,6 +60,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def changeAva
+    current_user.newAva(params[:id])
+    respond_to do |format|
+      format.html
+      format.js {render inline: "location.reload();" }
+    end
+  end
+
   def user_params
     params.require(:user).permit(:avatar)
   end

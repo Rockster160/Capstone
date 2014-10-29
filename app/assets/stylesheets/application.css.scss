@@ -127,3 +127,16 @@ nav.navbar {
 .sign-form {
   height: 305px;
 }
+
+.modal-md, .modal-md .modal-content{
+  width: 270px;
+  height: 500px;
+  padding: 10px;
+  #image {
+    padding: 3px;
+    background: black;
+    margin: 10px;
+    height: 100px;
+    width: 100px;
+  }
+}

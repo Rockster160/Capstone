@@ -19,7 +19,21 @@
           <div class="col-md-4 col-sm-6 col-xs-12"><!-- Left Column -->
             <h1 class="page-header"><%= @user.username %></h1>
             <i class="fa fa-pencil fa-4x"></i>
-            <%= image_tag(@user.ava, id: "avatar") %>
+            <%= image_tag(@user.ava, id: "avatar", data: {toggle: "modal", target: ".bs-example-modal-lg"}) %>
+            <div id="avatarEditModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                  <%= link_to image_tag('defAvaOne.jpg', id: "image"), changeAva_path(0), remote: true %>
+                  <%= link_to image_tag('defAvaTwo.jpg', id: "image"), changeAva_path(1), remote: true  %>
+                  <%= link_to image_tag('defAvaThree.jpg', id: "image"), changeAva_path(2), remote: true  %>
+                  <%= link_to image_tag('defAvaFour.jpg', id: "image"), changeAva_path(3), remote: true  %>
+                  <%= link_to image_tag('defAvaFive.jpg', id: "image"), changeAva_path(4), remote: true  %>
+                  <%= link_to image_tag('defAvaSix.jpg', id: "image"), changeAva_path(5), remote: true  %>
+                  <%= link_to image_tag('defAvaSeven.jpg', id: "image"), changeAva_path(6), remote: true  %>
+                  <%= link_to image_tag('defAvaEight.jpg', id: "image"), changeAva_path(7), remote: true  %>
+                </div>
+              </div>
+            </div>
             <h1 id="coin-inline">
               <%= image_tag('spinningcoin.gif', id: "coin", size: "32x32") %>
               <span id="coin_on_page"><%= number_with_delimiter( current_user.coin ) %></span>
