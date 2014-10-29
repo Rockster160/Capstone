@@ -267,14 +267,6 @@ UserGameLog.create( #id:
                     created_at: Time.new(2014, 8, 10, 21, 30, 40),
                     score: 210
                     )
-
-# game_id: 2 Platformer
-UserGameLog.create( #id:
-                    user_id: 1,
-                    game_id: 2,
-                    created_at: Time.new(2014, 10, 30, 5, 30, 20),
-                    score: 15
-                    )
 UserGameLog.create( #id:
                     user_id: 5,
                     game_id: 2,
@@ -292,14 +284,6 @@ UserGameLog.create( #id:
                     game_id: 2,
                     created_at: Time.new(2014, 7, 10, 21, 30, 40),
                     score: 35
-                    )
-
-# game_id: 3 Pacman
-UserGameLog.create( #id:
-                    user_id: 6,
-                    game_id: 3,
-                    created_at: Time.new(2014, 10, 30, 3, 34, 40),
-                    score: 150
                     )
 UserGameLog.create( #id:
                     user_id: 4,
@@ -319,14 +303,6 @@ UserGameLog.create( #id:
                     created_at: Time.new(2014, 8, 07, 07, 12, 25),
                     score: 350
                     )
-
-# game_id: 4 Pusoy
-UserGameLog.create( #id:
-                    user_id: 1,
-                    game_id: 4,
-                    created_at: Time.new(2014, 10, 30, 2, 13, 50),
-                    score: 3
-                    )
 UserGameLog.create( #id:
                     user_id: 3,
                     game_id: 4,
@@ -344,14 +320,6 @@ UserGameLog.create( #id:
                     game_id: 4,
                     created_at: Time.new(2014, 8, 22, 9, 22, 24),
                     score: 9
-                    )
-
-# game_id: 5 Hoops
-UserGameLog.create( #id:
-                    user_id: 1,
-                    game_id: 5,
-                    created_at: Time.new(2014, 10, 30, 8, 24, 00),
-                    score: 15
                     )
 UserGameLog.create( #id:
                     user_id: 3,
@@ -371,14 +339,6 @@ UserGameLog.create( #id:
                     created_at: Time.new(2014, 8, 29, 8, 47, 10),
                     score: 35
                     )
-
-# game_id: 6 RPG
-UserGameLog.create( #id:
-                    user_id: 7,
-                    game_id: 6,
-                    created_at: Time.new(2014, 10, 30, 4, 00, 00),
-                    score: 1500
-                    )
 UserGameLog.create( #id:
                     user_id: 6,
                     game_id: 6,
@@ -397,14 +357,6 @@ UserGameLog.create( #id:
                     created_at: Time.new(2014, 8, 22, 12, 01, 05),
                     score: 3500
                     )
-
-# game_id: 7 Devlabs
-UserGameLog.create( #id:
-                    user_id: 3,
-                    game_id: 7,
-                    created_at: Time.new(2014, 10, 30, 7, 22, 12),
-                    score: 3
-                    )
 UserGameLog.create( #id:
                     user_id: 4,
                     game_id: 7,
@@ -422,14 +374,6 @@ UserGameLog.create( #id:
                     game_id: 7,
                     created_at: Time.new(2014, 8, 21, 21, 23, 10),
                     score: 8
-                    )
-
-# game_id: 8 Random
-UserGameLog.create( #id:
-                    user_id: 8,
-                    game_id: 8,
-                    created_at: Time.new(2014, 10, 30, 6, 30, 00),
-                    score: 30
                     )
 UserGameLog.create( #id:
                     user_id: 7,
