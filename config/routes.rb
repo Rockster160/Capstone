@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get 'notifications/:id/gamealerts' => 'notifications#gamealerts', as: 'gameshouts'
 
   get 'users/edit' => 'users#edit', as: 'edit'
-  get 'trophies/checker'
+  get 'trophies/checker' => 'trophies#show', as: 'show_trophies'
 
   get 'users/:id/shoutmessage' => 'users#shoutmessage'
   get 'users/:id/destroyshout' => 'users#destroyshout', as: 'destroyshout'

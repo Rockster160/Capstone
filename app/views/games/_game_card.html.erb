@@ -16,8 +16,8 @@
   </div>
   <% if url == 'game' %>
     <%= link_to "Quick Play!", play_path(id: game.id), class: "btn btn-success pull-left" %>
-    <%#= link_to play_path(id: game.id), class: "btn btn-neutral pull-right", id: "trophy-button", remote: true do %>
-      <!-- Trophies -->
+    <%= link_to show_trophies_path, class: "btn btn-neutral pull-right trophy-button", remote: true do %>
+      Trophies
       <div id="trophies" style="display:none;">
         <h4>Recent High Scores</h4>
             <li><strong>Today:&nbsp;</strong>
@@ -36,6 +36,6 @@
             <span id="scorefont"><%= game.alltime.score %></span></li>
             <li><i><%= User.find(game.alltime.user_id).username %></i>&nbsp;</li>
       </div>
-    <%# end %>
+    <% end %>
   <% end %>
 </div>
