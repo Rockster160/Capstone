@@ -6,7 +6,7 @@ class IndexController < ApplicationController
       @index << Game.find(findGame[0])
     end
     @trophies = Trophy.all
-    @history = UserGameLog.all
+    @history = UserGameLog.all.order(:created_at).reverse
     @online = []
     @offline = []
     User.all.order(:updated_at).reverse.each do |user|

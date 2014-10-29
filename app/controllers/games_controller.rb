@@ -28,7 +28,7 @@ class GamesController < ApplicationController
       end
     end
     @trophies = Trophy.where(game_id: @game).reverse
-    @history = UserGameLog.where(game_id: @game).reverse
+    @history = UserGameLog.where(game_id: @game).order(:created_at).reverse
 
     respond_to do |format|
       format.html

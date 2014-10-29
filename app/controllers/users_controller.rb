@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     @rng_game = Game.find(rand(Game.all.length) + 1).id
 
     @trophies = Trophy.where(user_id: @user).reverse
-    @history = UserGameLog.where(user_id: @user).reverse
+    @history = UserGameLog.where(user_id: @user).order(:created_at).reverse
     @unread = @user.notifications.where(isRead: false).reverse
     if @unread.length < 5
       @display = @user.notifications.where(isRead: true).reverse.first(5 - @unread.length)
