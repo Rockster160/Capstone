@@ -89,7 +89,7 @@ class UsersController < ApplicationController
       Notification.create(
                           user_id: @receiver.id,
                           sent_id: current_user.id,
-                          message: @receiver.username + " has left you a shout!",
+                          message: current_user.username + " has left you a shout!",
                           title: "You have a new shout!",
                           icon: 1
       )
