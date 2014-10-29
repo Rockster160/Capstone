@@ -151,7 +151,9 @@
                   <i class="fa fa-comments fa-fw"></i>
                   Shoutbox
                   <%= f.submit "Shout it!", class: "btn btn-success btn-xs pull-right" %>
-                  <%= link_to "Conversation", conversation_path(params[:id]), class: "btn btn-success btn-xs pull-right", id: "conv-btn" %>
+                  <% if current_user != @user %>
+                    <%= link_to "Conversation", conversation_path(params[:id]), class: "btn btn-success btn-xs pull-right", id: "conv-btn" %>
+                  <% end %>
                 </div>
                 <!-- /.panel-heading -->
                   <div class="panel-footer">
