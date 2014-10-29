@@ -73,7 +73,7 @@
                     <i class="fa fa-bar-chart-o fa-fw"></i> Trophy Case
                   </div>
                   <div class="panel-body" style="max-height:385px;overflow-y:scroll;">
-                      <% @trophies.order(:uniq_id).each do |trophy| %>
+                      <% @trophies.each do |trophy| %>
                         <div class="col-xs-12">
                           <ul class="chat">
                             <%= render :partial => 'trophies/trophycase', locals: {trophy: trophy} %>

@@ -48,7 +48,7 @@ class Trophy < ActiveRecord::Base
     if oldHistory.length > 0
       perfectScore = @theGame.detailscore.last
       history = oldHistory.order(:score)
-      highscore = perfectScore == 0 ? history.first.score : history.reverse.first.score
+      highscore = history.reverse.first.score
       top_score_list = []
       if score.to_i > highscore
         Notification.create(

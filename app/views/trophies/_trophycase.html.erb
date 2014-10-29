@@ -13,7 +13,7 @@
         <% when 1 %>
           <p> scored a Perfect Score in <%= link_to Game.find(trophy.game_id).name, game_path(trophy.game_id) %>!!</p>
         <% when 2 %>
-          <p> holds the High Score in </br><%= link_to Game.find(trophy.game_id).name, game_path(trophy.game_id) %> with a <%= UserGameLog.where(game_id: trophy.game_id, user_id: trophy.user_id).reverse.first.score %>!</p>
+          <p> holds the High Score in </br><%= link_to Game.find(trophy.game_id).name, game_path(trophy.game_id) %> with a <%= UserGameLog.where(game_id: trophy.game_id, user_id: trophy.user_id).order(:score).reverse.first.score %>!</p>
         <% when 3 %>
           <p> has played every game!!</p>
         <% end %>
