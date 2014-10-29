@@ -1,6 +1,31 @@
-<% @user.shouts.reverse.first(50).each do |notify| %>
-  <%= notify.sent_from_id %>
-  <%= notify.message %>
-  <!-- user_id, sent_from_id, message, created_at, game_id -->
-  <br/>
-<% end %>
+<div class="row">
+  <div id="page-wrapper" style="height: <%= (@user.shouts.reverse.first(50).count)*140 + 200 %>px;">
+  <div class="col-xs-12 col-sm-6 col-lg-4 pull-right">
+    <%= form_for(:shout, url: shout_path, remote: true) do |f| %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <i class="fa fa-comments fa-fw"></i>
+        Shoutbox
+        <%= f.submit "Shout it!", class: "btn btn-success btn-xs pull-right kill-it" %>
+      </div>
+        <div class="panel-footer">
+            <%= f.text_area :message,
+                            placeholder: "Leave a shout for " + @user.username ,
+                            id: 'shout-area',
+                            class: 'form-control input-sm',
+                            rows: 10,
+                            cols: 50 %>
+        </div>
+    </div>
+    <% end %>
+  </div>
+  <div class="col-xs-12 col-sm-6 col-lg-8 pull-left" style="margin: 30px 0;">
+    <ul class="chat">
+      <% @user.shouts.reverse.first(50).each do |notify| %>
+        <%= render :partial => 'users/shoutmessage', locals: {shoutIndex: notify, pos: 0} %>
+        <br/>
+      <% end %>
+    </ul>
+  </div>
+  </div>
+</div>
