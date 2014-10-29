@@ -80,22 +80,12 @@ Game.create(  name: 'Pacman' ,
                       keys. Collect all coins on a level to
                       progress." )
 
-Game.create(  name: 'Pusoy' ,
-              ava: 'dice.png' ,
+Game.create(  name: 'Tetris' ,
+              ava: 'tetris.jpg' ,
               play: '' ,
               cost: 50 ,
-              about: "Pusoy is the Filipino version of poker played with 3 players. The
-                      object of the game is to be the first to discard your hand by playing
-                      them to the table. If one cannot be first to play all cards, then the
-                      aim is to have as few cards as possible. Cards can be played separately
-                      or in certain combinations using poker hand rankings. Players earn
-                      points when they are first to discard their hand. For each card their
-                      opponent is still holding in their hand they receive 1 point. The suit
-                      order from highest to lowest is diamonds, hearts, spades, clubs with the
-                      2 of diamonds being the highest card and the 3 of clubs being the lowest.
-                      The player that is dealt the 3 of clubs leads/begins each game." ,
-              howto: "Select and play cards using poker hands. Take turns with the other players.
-                      First one to get rid of their cards wins!" )
+              about: "Maneuver the falling blocks by rotating them and sliding back and forth to fill the rows below. Clear rows by filling each one completely with blocks. Earn more levels to get higher bonuses!" ,
+              howto: "Use left and right to slide your current tile. Up and down arrow keys will rotate the block back and forth." )
 
 Game.create(  name: 'Hoops' ,
               ava: 'basketball.png' ,
@@ -130,6 +120,13 @@ Game.create( name: 'Random',
              cost: 100,
              about: "Play the game, get random stuff!",
              howto: "Click on things, receive items, gamble your life away." )
+
+Game.create( name: 'Sonic',
+             ava: 'sonic.jpg',
+             play: '',
+             cost: 100,
+             about: "Play as Sonic the Hedgehog, an incredibly fast blue creature with red shoes! Become a ball and roll your way through each level until you defeat Dr. Robotnik!",
+             howto: "User Arrow keys to move, slam the down arrow to become a ball and increase your speed." )
 #                     )
 # User.create( id: ,
 #              about: '',

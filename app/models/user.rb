@@ -51,7 +51,7 @@ class User < ActiveRecord::Base
   def randomAvatar
     self.last_in = Time.now
     self.username[0] = self.username[0].capitalize
-    new_ava(rand(8))
+    newAva(rand(8))
   end
 
   def online?
