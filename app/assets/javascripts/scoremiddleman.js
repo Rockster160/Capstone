@@ -14,7 +14,7 @@ function scorePull(x) {
       var mid = score_high / 2;
       rng = ((Math.random() * score_high) + (Math.random() * score_high) + (Math.random() * score_high)) / 3;
       rng = Math.round(rng);
-      grab = Math.round((Math.random() * score_high) + score_low);
+      grab = -2;//Math.round((Math.random() * score_high) + score_low);
       if (rng == grab) {
         rng = score_high;
         console.log("They match!! It happened!!");
