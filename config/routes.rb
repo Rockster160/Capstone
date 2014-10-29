@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'users/:id/read' => 'users#read'
 
   get 'notifications/show' => 'notifications#show', as: 'notifications'
+  get 'notifications/:id/conversation' => 'notifications#conversation', as: 'conversation'
   get 'notifications/:id/useralerts' => 'notifications#useralerts', as: 'usershouts'
   get 'notifications/:id/gamealerts' => 'notifications#gamealerts', as: 'gameshouts'
   get 'devise/registrations/popup/:id' => 'users#changeAva', as: 'changeAva'
