@@ -20,7 +20,7 @@ gem 'cocoon'
 
 gem "acts_as_follower"
 
-gem 'therubyracer'
+# gem 'therubyracer'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 
