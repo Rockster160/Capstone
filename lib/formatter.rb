@@ -35,7 +35,7 @@ module Formatter
     when 3
       0...500
     when 4
-      0...80
+      0...100000
     when 5
       0...50
     when 6
@@ -45,7 +45,7 @@ module Formatter
     when 8
       0...100
     when 9
-      0...100000
+      0...80
     end
   end
 end

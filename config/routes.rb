@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
 
-  get 'index/contact', as: 'contact'
-  get 'index/home' => 'index#home', as: 'home'
-  get 'index/:id/partialswitch' => 'index#partialswitch', as: 'homeFormSwitch'
-
   devise_for :users, controllers: { registrations: 'registrations' }
   devise_scope :user do
     root to: 'devise/sessions#new', as: 'login'
   end
+
+  get 'index/contact', as: 'contact'
+  get 'index/home' => 'index#home', as: 'home'
+  get 'index/:id/partialswitch' => 'index#partialswitch', as: 'homeFormSwitch'
 
   get 'games/read', as: 'games'
   resources :users, :games, only: [:show]
