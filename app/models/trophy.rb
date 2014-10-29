@@ -68,7 +68,7 @@ class Trophy < ActiveRecord::Base
                               message: "Your score has been beaten in " +
                                         @theGame.name +
                                         " by " + User.find(@user).username+
-                                        "with a " + score + ".",
+                                        " with a " + score + ".",
                               title: "High score beaten!",
                               icon: 4
           )
