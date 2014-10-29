@@ -2,11 +2,11 @@
 class User < ActiveRecord::Base
   include ::Formatter
   after_create :randomAvatar
-  has_many :notifications
-  has_many :shouts
-  has_many :trophies
-  has_many :user_game_statistics
-  has_many :user_game_logs
+  has_many :notifications, dependent: :destroy
+  has_many :shouts, dependent: :destroy
+  has_many :trophies, dependent: :destroy
+  has_many :user_game_statistics, dependent: :destroy
+  has_many :user_game_logs, dependent: :destroy
   acts_as_followable
   acts_as_follower
 

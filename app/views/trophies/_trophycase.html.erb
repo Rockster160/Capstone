@@ -1,0 +1,23 @@
+<div class="shout-wrapper" id="first-shout">
+  <li class="left clearfix">
+    <span class="chat-img pull-left">
+      <div class='shout-image-wrapper'>
+        <i class="fa fa-trophy fa-4x pull-left" style="color:gold;"></i>
+      </div>
+    </span>
+    <div class="chat-body clearfix">
+      <div class="header">
+        <small class="pull-right text-muted"><i class="fa fa-clock-o fa-fw"></i> <%= trophy.formatted_ago %></small>
+        <strong class="primary-font"><%= link_to trophy.user.username, user_path(trophy.user.id) %></strong><br/>
+        <% case trophy.uniq_id %>
+        <% when 1 %>
+          <p> scored a Perfect Score in <%= link_to Game.find(trophy.game_id).name, game_path(trophy.game_id) %>!!</p>
+        <% when 2 %>
+          <p> holds the High Score in </br><%= link_to Game.find(trophy.game_id).name, game_path(trophy.game_id) %> with a <%= UserGameLog.where(game_id: trophy.game_id, user_id: trophy.user_id).reverse.first.score %>!</p>
+        <% when 3 %>
+          <p> has played every game!!</p>
+        <% end %>
+      </div>
+    </div>
+  </li>
+</div>

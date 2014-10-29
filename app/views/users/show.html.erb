@@ -114,18 +114,9 @@
                   <div class="panel-body">
                     <% @trophies.each do |trophy| %>
                       <div class="col-xs-12">
-                        <% if trophy.uniq_id == 1 %>
-                          <i class='fa fa-trophy fa-2x' style= 'color:gold;'></i> Perfect Score in <%= link_to Game.find(trophy.game_id).name, game_path(trophy.game_id) %>
-                          with a
-                          <%= UserGameLog.where(game_id: trophy.game_id, user_id: @user).reverse.first.score %>
-                        <% end %>
-                        <% if trophy.uniq_id == 2 %>
-                          <i class='fa fa-trophy fa-2x' style= 'color:gold;'></i> High Score: <%= link_to Game.find(trophy.game_id).name, game_path(trophy.game_id) %>
-                           <%= UserGameLog.where(game_id: trophy.game_id, user_id: @user).reverse.first.score %>
-                        <% end %>
-                        <% if trophy.uniq_id == 3 %>
-                          <i class='fa fa-trophy fa-2x' style= 'color:gold;'></i> Played all Games!!
-                        <% end %>
+                        <ul class="chat">
+                          <%= render :partial => 'trophies/trophycase', locals: {trophy: trophy} %>
+                        </ul>
                       </div>
                     <% end %>
                   </div>

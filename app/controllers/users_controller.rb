@@ -91,6 +91,24 @@ class UsersController < ApplicationController
     # end
   end
 
+  def destroy
+    Notification.where(user_id: current_user.id).each do |x|
+      x.destroy
+    end
+    Trophy.where(user_id: current_user.id).each do |x|
+      x.destroy
+    end
+    UserGameLog.where(user_id: current_user.id).each do |x|
+      x.destroy
+    end
+    UserGameStatistic.where(user_id: current_user.id).each do |x|
+      x.destroy
+    end
+    Shout.where(user_id: current_user.id).each do |x|
+      x.destroy
+    end
+  end
+
   def destroyshout
     Shout.find(params[:shout_id]).destroy
     respond_to do |format|

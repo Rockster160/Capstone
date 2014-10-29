@@ -72,21 +72,12 @@
                   <div class="panel-heading">
                     <i class="fa fa-bar-chart-o fa-fw"></i> Trophy Case
                   </div>
-                  <div class="panel-body">
+                  <div class="panel-body" style="max-height:385px;overflow-y:scroll;">
                       <% @trophies.order(:uniq_id).each do |trophy| %>
                         <div class="col-xs-12">
-                          <% if trophy.uniq_id == 1 %>
-                            <i class='fa fa-trophy fa-2x' style= 'color:gold;'></i
-                             > <%= link_to trophy.user.username, user_path(trophy.user_id) %> Perfect Score in <%= link_to Game.find(trophy.game_id).name, game_path(trophy.game_id) %> <%= UserGameLog.where(game_id: trophy.game_id, user_id: trophy.user_id).reverse.first.score %>
-                          <% end %>
-                          <% if trophy.uniq_id == 2 %>
-                            <i class='fa fa-trophy fa-2x' style= 'color:gold;'></i
-                            > <%= link_to trophy.user.username, user_path(trophy.user_id) %> High Score in <%= link_to Game.find(trophy.game_id).name, game_path(trophy.game_id) %>  <%= UserGameLog.where(game_id: trophy.game_id, user_id: trophy.user_id).reverse.first.score %>
-                          <% end %>
-                          <% if trophy.uniq_id == 3 %>
-                            <i class='fa fa-trophy fa-2x' style= 'color:gold;'></i
-                            > <%= link_to trophy.user.username, user_path(trophy.user_id) %> has played every game!!
-                          <% end %>
+                          <ul class="chat">
+                            <%= render :partial => 'trophies/trophycase', locals: {trophy: trophy} %>
+                          </ul>
                         </div>
                       <% end %>
                   </div>

@@ -7,7 +7,7 @@ module Formatter
     when ((time_diff/60).round == 1)
       (time_diff/60).round.to_s + " minute ago"
     when (time_diff/60 < 60)
-      (time_diff/60).round.to_s + " minutes ago"
+      (time_diff/60).round.to_s + " mins ago"
     when ((time_diff/60/60).round == 1)
       (time_diff/60/60).round.to_s + " hour ago"
     when (time_diff/60/60 < 20)

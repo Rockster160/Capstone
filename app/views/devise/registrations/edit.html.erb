@@ -170,3 +170,10 @@
   <!-- /#wrapper -->
 <% end %>
 </div>
+<div id="footer">
+  <%= button_to "Cancel my account", registration_path(resource_name),
+                data: { confirm: "Do you really want to deactivate your account?\nThis is permanent and cannot be undone." },
+                method: :delete,
+                id: "edit-delete-btn",
+                class: "btn btn-danger" %>
+</div>
