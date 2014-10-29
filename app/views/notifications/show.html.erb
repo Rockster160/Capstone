@@ -5,7 +5,12 @@
 <% else %>
   <div class="row alert-cell">
 <% end %>
-    <%= link_to image_tag(Game.find(notify.game_id).ava, class: 'notification-image'), game_path(notify.game_id) %>
+    <% if notify.game_id %>
+      <%= link_to image_tag(Game.find(notify.game_id).ava, class: 'notification-image'), game_path(notify.game_id) %>
+    <% end %>
+    <% if notify.sent_id %>
+      <%= link_to image_tag(User.find(notify.sent_id).ava, class: 'notification-image'), user_path(notify.sent_id) %>
+    <% end %>
     <%= notify.title %><br/>
     <%= notify.message %>
   </div>
