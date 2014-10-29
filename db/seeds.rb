@@ -275,7 +275,7 @@ UserGameLog.create( #id:
 UserGameLog.create( #id:
                     user_id: 1,
                     game_id: 2,
-                    created_at: Time.new(2014, 10, 30, 10, 30, 20),
+                    created_at: Time.new(2014, 10, 30, 5, 30, 20),
                     score: 15
                     )
 UserGameLog.create( #id:
@@ -301,7 +301,7 @@ UserGameLog.create( #id:
 UserGameLog.create( #id:
                     user_id: 6,
                     game_id: 3,
-                    created_at: Time.new(2014, 10, 30, 9, 34, 40),
+                    created_at: Time.new(2014, 10, 30, 3, 34, 40),
                     score: 150
                     )
 UserGameLog.create( #id:
@@ -327,7 +327,7 @@ UserGameLog.create( #id:
 UserGameLog.create( #id:
                     user_id: 1,
                     game_id: 4,
-                    created_at: Time.new(2014, 10, 30, 22, 13, 50),
+                    created_at: Time.new(2014, 10, 30, 2, 13, 50),
                     score: 3
                     )
 UserGameLog.create( #id:
@@ -353,7 +353,7 @@ UserGameLog.create( #id:
 UserGameLog.create( #id:
                     user_id: 1,
                     game_id: 5,
-                    created_at: Time.new(2014, 10, 30, 9, 24, 00),
+                    created_at: Time.new(2014, 10, 30, 8, 24, 00),
                     score: 15
                     )
 UserGameLog.create( #id:
@@ -379,7 +379,7 @@ UserGameLog.create( #id:
 UserGameLog.create( #id:
                     user_id: 7,
                     game_id: 6,
-                    created_at: Time.new(2014, 10, 30, 18, 00, 00),
+                    created_at: Time.new(2014, 10, 30, 4, 00, 00),
                     score: 1500
                     )
 UserGameLog.create( #id:
@@ -405,7 +405,7 @@ UserGameLog.create( #id:
 UserGameLog.create( #id:
                     user_id: 3,
                     game_id: 7,
-                    created_at: Time.new(2014, 10, 30, 15, 22, 12),
+                    created_at: Time.new(2014, 10, 30, 7, 22, 12),
                     score: 3
                     )
 UserGameLog.create( #id:
@@ -431,7 +431,7 @@ UserGameLog.create( #id:
 UserGameLog.create( #id:
                     user_id: 8,
                     game_id: 8,
-                    created_at: Time.new(2014, 10, 30, 14, 30, 00),
+                    created_at: Time.new(2014, 10, 30, 6, 30, 00),
                     score: 30
                     )
 UserGameLog.create( #id:

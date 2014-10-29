@@ -5,7 +5,7 @@ $(document).ready(function(){
 
   $('.trophy-button').click(function() {
     console.log("Clicked!");
-    child = $('.trophy-button').find('#trophies');
+    child = $('.trophy-button').childNode();
     alert(child);
   })
     // var el = document.getElementById(id);
