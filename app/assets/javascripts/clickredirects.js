@@ -1,6 +1,6 @@
 url = window.location.href
 if (url[url.length - 1] == "0" && url[url.length - 2] == "/") {window.location.href = "/index/home"};
-if (url.substr(url.length - 7) == "sign_in" || url.substr(url.length - 7) == "sign_up" || url[url.length - 1] == "/") {window.location.href = "/index/home"};
+if (url.substr(url.length - 7) == "sign_in" || url.substr(url.length - 7) == "sign_up" || url[url.length - 1] == "/" ||  url.substr(url.length - 6) == "/users") {window.location.href = "/index/home"};
 $(document).ready(function(){
 
   $('.trophy-button').click(function() {

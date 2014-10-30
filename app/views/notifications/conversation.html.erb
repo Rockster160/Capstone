@@ -1,7 +1,7 @@
 <div id="page-wrapper">
   <div class="row">
   <div class="col-xs-12 col-sm-6 col-lg-4 pull-right clearfix">
-    <%= form_for(:shout, url: shout_path, remote: true) do |f| %>
+    <%= form_for(:shout, url: shout_path(params[:id]), remote: true) do |f| %>
     <div class="panel panel-default">
       <div class="panel-heading">
         <i class="fa fa-comments fa-fw"></i>

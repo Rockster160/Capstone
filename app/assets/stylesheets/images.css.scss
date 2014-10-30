@@ -58,6 +58,10 @@
     height: 20vw;
     width: 20vw;
   }
+  @media (min-width: 1500px) {
+    height: 8vw;
+    width: 8vw;
+  }
 }
 
 .notification-image {
