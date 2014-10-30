@@ -1,5 +1,6 @@
 class IndexController < ApplicationController
   def home
+    current_user.update_attribute(:last_sign_in_at, Time.now)
     @user = User.find(0)
     @index = []
     UserGameStatistic.group('game_id').sum(:count).sort {|a,b| a[1] <=> b[1]}.reverse.first(4).each do |findGame|

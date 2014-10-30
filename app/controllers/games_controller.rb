@@ -14,6 +14,7 @@ class GamesController < ApplicationController
   def show
     @game = Game.find(params[:id])
     if user_signed_in?
+      current_user.update_attribute(:last_sign_in_at, Time.now)
       @check = Notification.where(notify_id: 0, user_id: current_user.id)
       if @check.length == 0 #^^ If Notification is unique
         Notification.create(

@@ -15,9 +15,9 @@ class UsersController < ApplicationController
                           icon: 0
       )
       @user.update_attribute(:coinTo, 50)
+      @user.update_attribute(:last_in, Time.now)
     end
 
-    @user.update_attribute(:last_in, Time.now)
 
     @rng_game = Game.find(rand(Game.all.length) + 1).id
 
